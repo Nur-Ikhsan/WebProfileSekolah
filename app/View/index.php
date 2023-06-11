@@ -153,7 +153,7 @@
             <div class="row">
 
                 <div class="col-12 text-center">
-                    <h2 class="mb-4">Browse Topics</h1>
+                    <h1 class="mb-4">Browse Topics</h1>
                 </div>
 
             </div>
@@ -480,7 +480,7 @@
             <div class="row">
 
                 <div class="col-12 text-center">
-                    <h2 class="text-white mb-4">How does it work?</h1>
+                    <h1 class="text-white mb-4">How does it work?</h1>
                 </div>
 
                 <div class="col-lg-10 col-12 mx-auto">
