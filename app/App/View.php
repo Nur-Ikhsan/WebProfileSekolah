@@ -9,9 +9,9 @@ class View
     {
         extract($model);
 
-        require __DIR__ . '/../View/header.php';
+        require __DIR__ . '/../View/layout/header.php';
         require __DIR__ . '/../View/' . $view . '.php';
-        require __DIR__ . '/../View/footer.php';
+        require __DIR__ . '/../View/layout/footer.php';
     }
 
     public static function redirect(string $url)
