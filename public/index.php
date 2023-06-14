@@ -15,6 +15,8 @@ Router::add('GET', '/', HomeController::class, 'index');
 Router::add('GET', '/index', HomeController::class, 'index');
 Router::add('GET', '/berita', HomeController::class, 'berita');
 Router::add('GET', '/visi-misi', HomeController::class, 'visiMisi');
+Router::add('GET', '/tujuan', HomeController::class, 'tujuan');
+Router::add('GET', '/kurikulum', HomeController::class, 'kurikulum');
 
 Router::add('GET', '/product/([0-9a-zA-Z]*)/category/([0-9a-zA-Z]*)', ProductController::class, 'category');
 

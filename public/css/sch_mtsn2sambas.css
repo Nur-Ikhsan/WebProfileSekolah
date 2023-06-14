@@ -11,10 +11,10 @@ https://templatemo.com/tm-590-topic-listing
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color: #137a34;
-  --secondary-color:              #8eec90;
+  --primary-color: #000000;
+  --secondary-color: #348355;
   --section-bg-color:             #f0f8ff;
-  --section-bg-color-dark: #1d4933;
+  --section-bg-color-dark: #348355;
   --custom-btn-bg-color: #80f182;
   --custom-btn-bg-hover-color:    #13547a;
   --dark-color:                   #000000;
@@ -254,8 +254,8 @@ strong {
 -----------------------------------------*/
 .site-header {
   background-image: linear-gradient(15deg, #137a34 0%, var(--secondary-color) 100%);
-  padding-top: 150px;
-  padding-bottom: 80px;
+  padding-top: 90px;
+  padding-bottom: 50px;
 }
 
 .site-header .container {
@@ -1179,5 +1179,9 @@ blockquote {
 .slide-width {
   width: 100vw;
   height: 100vh;
+}
+
+#fs-c {
+  font-size: 1px !important;
 }
 

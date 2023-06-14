@@ -1,29 +1,27 @@
 <main>
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="logo" height="60px"/>
+                <img src="images/logo.png" alt="logo" class="logo-img"/>
             </a>
 
             <!--            <div class="d-lg-none ms-auto me-4">-->
             <!--                <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
             <!--            </div>-->
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-                <ul class="navbar-nav d-flex justify-content-end">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/index">Beranda</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                             <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
@@ -293,9 +291,9 @@
             </div>
 
             <div class="col-lg-3 col-md-6 col-12 mx-auto">
-                <h4 class="mb-3 text-white">Dubai office</h4>
+                <h4 class="mb-3 text-white">MTSN 02 Sambas</h4>
 
-                <p class="text-white">Burj Park, Downtown Dubai, United Arab Emirates</p>
+                <p class="text-white">JL.PERTASI KENCANA., Semparuk, Kec. Semparuk, Kab. Sambas Prov. Kalimantan Barat</p>
 
                 <hr>
 

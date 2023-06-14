@@ -659,7 +659,7 @@
             <div class="col-lg-3 col-md-6 col-12 mx-auto">
                 <h4 class="mb-3 text-white">Dubai office</h4>
 
-                <p class="text-white">Burj Park, Downtown Dubai, United Arab Emirates</p>
+                <p class="text-white" id="fs-c">JL.PERTASI KENCANA., Semparuk, Kec. Semparuk, Kab. Sambas Prov. Kalimantan Barat</p>
 
                 <hr>
 

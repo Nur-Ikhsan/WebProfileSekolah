@@ -29,4 +29,23 @@ class HomeController
         );
     }
 
+    // tujuan
+    function tujuan(): void
+    {
+        View::render('tujuan',[
+            'title' => 'Tujuan Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
+
+    //kurikulum
+function kurikulum(): void
+    {
+        View::render('kurikulum',[
+            'title' => 'Kurikulum Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
+
+
 }
