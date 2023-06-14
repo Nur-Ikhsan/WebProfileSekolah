@@ -13,9 +13,8 @@ Database::getConnection('production');
 
 Router::add('GET', '/', HomeController::class, 'index');
 Router::add('GET', '/index', HomeController::class, 'index');
-Router::add('GET', '/hello', HomeController::class, 'hello');
-Router::add('GET', '/world', HomeController::class, 'world');
-Router::add('GET', '/about', HomeController::class, 'about');
+Router::add('GET', '/berita', HomeController::class, 'berita');
+Router::add('GET', '/visi-misi', HomeController::class, 'visiMisi');
 
 Router::add('GET', '/product/([0-9a-zA-Z]*)/category/([0-9a-zA-Z]*)', ProductController::class, 'category');
 

@@ -12,34 +12,21 @@ class HomeController
         View::render('index');
     }
 
-    function hello(): void
+    function berita(): void
     {
-        echo 'HomeController.hello()';
+        View::render('berita',[
+            'title' => 'Berita'
+            ]
+        );
     }
 
-    function world(): void
+    // visi-misi
+    function visiMisi(): void
     {
-        echo 'HomeController.world()';
-    }
-
-    function about(): void
-    {
-        echo 'HomeController.about()';
-    }
-
-    function login(): void
-    {
-        $request = [
-            'username' => $_POST['username'],
-            'password' => $_POST['password']
-        ];
-
-        $user = $this->userModel->getByUsername($request['username']);
-
-        $response = [
-            'status' => 'success',
-            'message' => 'Login berhasil'
-        ];
+        View::render('visi-misi',[
+            'title' => 'Visi dan Misi Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
     }
 
 }

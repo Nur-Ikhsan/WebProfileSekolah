@@ -1,9 +1,9 @@
 <main>
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="logo" height="60px"/>
+                <img src="images/logo.png" alt="logo" class="logo-img"/>
             </a>
 
 <!--            <div class="d-lg-none ms-auto me-4">-->
@@ -14,8 +14,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-                <ul class="navbar-nav d-flex justify-content-end">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/index">Beranda</a>
                     </li>
@@ -51,8 +51,37 @@
         </div>
     </nav>
 
+    <section class="corausel-section">
+        <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/rear-view-young-college-student.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/businesswoman-using-tablet-analysis.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/colleagues-working-cozy-office-medium-shot.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
 
-    <section class="hero-section d-flex justify-content-center align-items-center" >
+
+    <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
         <div class="container">
             <div class="row">
 
@@ -597,141 +626,63 @@
             </div>
         </div>
     </section>
-
-
-    <section class="contact-section section-padding section-bg" >
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-12 col-12 text-center">
-                    <h2 class="mb-5">Get in touch</h2>
-                </div>
-
-                <div class="col-lg-5 col-12 mb-4 mb-lg-0">
-                    <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.832108930004!2d109.07498579932798!3d1.189849675765968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e49c2fbdf3d491%3A0x91e764f45793cc44!2sMTs.%20NEGERI%202%20SAMBAS!5e0!3m2!1sid!2sid!4v1686462693971!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
-                    <h4 class="mb-3">Head office</h4>
-
-                    <p>Bay St &amp;, Larkin St, San Francisco, CA 94109, United States</p>
-
-                    <hr>
-
-                    <p class="d-flex align-items-center mb-1">
-                        <span class="me-2">Phone</span>
-
-                        <a href="tel: 305-240-9671" class="site-footer-link">
-                            305-240-9671
-                        </a>
-                    </p>
-
-                    <p class="d-flex align-items-center">
-                        <span class="me-2">Email</span>
-
-                        <a href="mailto:info@company.com" class="site-footer-link">
-                            info@company.com
-                        </a>
-                    </p>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-12 mx-auto">
-                    <h4 class="mb-3">Dubai office</h4>
-
-                    <p>Burj Park, Downtown Dubai, United Arab Emirates</p>
-
-                    <hr>
-
-                    <p class="d-flex align-items-center mb-1">
-                        <span class="me-2">Phone</span>
-
-                        <a href="tel: 110-220-3400" class="site-footer-link">
-                            110-220-3400
-                        </a>
-                    </p>
-
-                    <p class="d-flex align-items-center">
-                        <span class="me-2">Email</span>
-
-                        <a href="mailto:info@company.com" class="site-footer-link">
-                            info@company.com
-                        </a>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
 </main>
 
-<footer class="site-footer section-padding">
+<footer class="site-footer section-padding section-bg-dark">
     <div class="container">
         <div class="row">
 
-            <div class="col-lg-3 col-12 mb-4 pb-2">
-                <a class="navbar-brand mb-2" href="index.html">
-                    <i class="bi-back"></i>
-                    <span>Topic</span>
-                </a>
+            <div class="col-lg-12 col-12 text-center">
+                <h2 class="mb-5 text-white">Hubungi Kami</h2>
             </div>
 
-            <div class="col-lg-3 col-md-4 col-6">
-                <h6 class="site-footer-title mb-3">Resources</h6>
-
-                <ul class="site-footer-links">
-                    <li class="site-footer-link-item">
-                        <a href="#" class="site-footer-link">Home</a>
-                    </li>
-
-                    <li class="site-footer-link-item">
-                        <a href="#" class="site-footer-link">How it works</a>
-                    </li>
-
-                    <li class="site-footer-link-item">
-                        <a href="#" class="site-footer-link">FAQs</a>
-                    </li>
-
-                    <li class="site-footer-link-item">
-                        <a href="#" class="site-footer-link">Contact</a>
-                    </li>
-                </ul>
+            <div class="col-lg-5 col-12 mb-4 mb-lg-0">
+                <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.832108930004!2d109.07498579932798!3d1.189849675765968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e49c2fbdf3d491%3A0x91e764f45793cc44!2sMTs.%20NEGERI%202%20SAMBAS!5e0!3m2!1sid!2sid!4v1686462693971!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
-                <h6 class="site-footer-title mb-3">Information</h6>
+                <h6 class="site-footer-title mb-3 text-white">Information</h6>
 
                 <p class="text-white d-flex mb-1">
-                    <a href="tel: 305-240-9671" class="site-footer-link">
+                    <a href="tel: 305-240-9671" class="site-footer-link text-white">
                         305-240-9671
                     </a>
                 </p>
 
                 <p class="text-white d-flex">
-                    <a href="mailto:info@company.com" class="site-footer-link">
+                    <a href="mailto:info@company.com" class="site-footer-link text-white">
                         info@company.com
                     </a>
                 </p>
             </div>
 
-            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        English</button>
+            <div class="col-lg-3 col-md-6 col-12 mx-auto">
+                <h4 class="mb-3 text-white">Dubai office</h4>
 
-                    <ul class="dropdown-menu">
-                        <li><button class="dropdown-item" type="button">Thai</button></li>
+                <p class="text-white">Burj Park, Downtown Dubai, United Arab Emirates</p>
 
-                        <li><button class="dropdown-item" type="button">Myanmar</button></li>
+                <hr>
 
-                        <li><button class="dropdown-item" type="button">Arabic</button></li>
-                    </ul>
-                </div>
+                <p class="d-flex align-items-center mb-1">
+                    <span class="me-2 text-white">Phone</span>
 
-                <p class="copyright-text mt-lg-5 mt-4">Copyright © 2048 Topic Listing Center. All rights reserved.
-                    <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+                    <a href="tel: 110-220-3400" class="site-footer-link text-white">
+                        110-220-3400
+                    </a>
+                </p>
 
+                <p class="d-flex align-items-center">
+                    <span class="me-2 text-white">Email</span>
+
+                    <a href="mailto:info@company.com" class="site-footer-link text-white">
+                        info@company.com
+                    </a>
+                </p>
             </div>
 
+        </div>
+        <div class="row">
+            <p class="copyright-text mt-lg-5 mt-4 text-center text-white">Copyright © 2048 Topic Listing Center. All rights reserved.</p>
         </div>
     </div>
 </footer>
