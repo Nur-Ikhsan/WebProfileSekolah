@@ -730,6 +730,8 @@ blockquote {
 }
 
 
+
+
 /*---------------------------------------
   TIMELINE              
 -----------------------------------------*/
@@ -1176,10 +1178,13 @@ blockquote {
   }
 }
 
-.slide-width {
-  width: 100vw;
-  height: 100vh;
+@media (min-width: 800px) {
+  .slide-width {
+    width: 100vw;
+    height: 100vh;
+  }
 }
+
 
 #fs-c {
   font-size: 1px !important;

@@ -4,7 +4,6 @@ namespace Rubygroup\WebProfileSekolah\Controller;
 
 use Rubygroup\WebProfileSekolah\App\View;
 use Rubygroup\WebProfileSekolah\Config\Database;
-use Rubygroup\WebProfileSekolah\Entity\Session;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\AdminRequest;
 use Rubygroup\WebProfileSekolah\Repository\AdminRepository;
