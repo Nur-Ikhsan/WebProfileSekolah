@@ -29,14 +29,14 @@ class AdminController
     public function index(): void
     {
 
-        $admin = $this->sessionService->findSession();
+        View::renderAdmin('Admin/index', [
+            'title' => 'Dashboard Admin'
+        ]);
+    }
 
-        if ($admin !== null) {
-            View::redirect('/admin/dashboard');
-        }
-
-        View::render('Admin/index', [
-            'title' => 'Login Admin'
+    public function k(){
+        View::renderAdmin('Admin/k', [
+            'title' => 'k'
         ]);
     }
 

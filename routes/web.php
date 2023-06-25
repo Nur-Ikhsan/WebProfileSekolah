@@ -26,3 +26,5 @@ Router::add('/admin/dashboard', AdminController::class, 'dashboard');
 Router::add('/admin/logout', AdminController::class, 'logout');
 Router::add('/admin/profile', AdminController::class, 'editProfile');
 Router::add('/admin/password', AdminController::class, 'changePassword');
+
+Router::add('/admin/k/k', AdminController::class, 'k');

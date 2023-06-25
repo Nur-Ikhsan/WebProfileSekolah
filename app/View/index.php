@@ -60,10 +60,10 @@
 <!--            </div>-->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/rear-view-young-college-student.jpg" class="d-block w-100" alt="...">
+                    <img src="images/img1.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/businesswoman-using-tablet-analysis.jpg" class="d-block w-100" alt="...">
+                    <img src="images/img2.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
                     <img src="images/colleagues-working-cozy-office-medium-shot.jpg" class="d-block w-100" alt="...">
@@ -86,9 +86,8 @@
             <div class="row">
 
                 <div class="col-lg-8 col-12 mx-auto">
-                    <h1 class="text-white text-center">Discover. Learn. Enjoy</h1>
-
-                    <h6 class="text-center">platform for creatives around the world</h6>
+                    <h6 class="text-center">Selamat Datang</h6>
+                    <h1 class="text-white text-center">MTS NEGERI 2 SAMBAS</h1>
 
                     <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                         <div class="input-group input-group-lg">
@@ -96,81 +95,25 @@
 
                                     </span>
 
-                            <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Design, Code, Marketing, Finance ..." aria-label="Search">
+                            <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Apa yang ingin Anda cari?" aria-label="Search">
 
-                            <button type="submit" class="form-control">Search</button>
+                            <button type="submit" class="form-control button-color">Cari</button>
                         </div>
                     </form>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-
-    <section class="featured-section">
-        <div class="container">
-            <div class="row justify-content-center">
-
-                <div class="col-lg-4 col-12 mb-4 mb-lg-0">
-                    <div class="custom-block bg-white shadow-lg">
-                        <a href="topics-detail.html">
-                            <div class="d-flex">
-                                <div>
-                                    <h5 class="mb-2">Web Design</h5>
-
-                                    <p class="mb-0">When you search for free CSS templates, you will notice that TemplateMo is one of the best websites.</p>
-                                </div>
-
-                                <span class="badge bg-design rounded-pill ms-auto">14</span>
-                            </div>
-
-                            <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
-                        </a>
+                <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row">
+                    <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
+                        <img class="rounded-4 img-fluid img-responsive" src="/images/faq_graphic.jpg" alt="img">
+                    </div>
+                    <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
+                        <h6>Pendaftaran Peserta Didik Baru</h6>
+                        <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2 Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
+                        <a href="#" class="btn custom-btn mt-3 mt-lg-4 button-color">Read More</a>
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-12">
-                    <div class="custom-block custom-block-overlay">
-                        <div class="d-flex flex-column h-100">
-                            <img src="images/businesswoman-using-tablet-analysis.jpg" class="custom-block-image img-fluid" alt="">
 
-                            <div class="custom-block-overlay-text d-flex">
-                                <div>
-                                    <h5 class="text-white mb-2">Finance</h5>
-
-                                    <p class="text-white">Topic Listing Template includes homepage, listing page, detail page, and contact page. You can feel free to edit and adapt for your CMS requirements.</p>
-
-                                    <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
-                                </div>
-
-                                <span class="badge bg-finance rounded-pill ms-auto">25</span>
-                            </div>
-
-                            <div class="social-share d-flex">
-                                <p class="text-white me-4">Share:</p>
-
-                                <ul class="social-icon">
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-twitter"></a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-facebook"></a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-pinterest"></a>
-                                    </li>
-                                </ul>
-
-                                <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
-                            </div>
-
-                            <div class="section-overlay"></div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -182,7 +125,7 @@
             <div class="row">
 
                 <div class="col-12 text-center">
-                    <h1 class="mb-4">Browse Topics</h1>
+                    <h1 class="mb-4">Profile</h1>
                 </div>
 
             </div>
@@ -192,23 +135,23 @@
             <div class="row">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Design</button>
+                        <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Tentang</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Marketing</button>
+                        <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Fasilitas</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Finance</button>
+                        <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Kegiatan Sekolah</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane" type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Music</button>
+                        <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane" type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Visi dan Misi</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education-tab-pane" type="button" role="tab" aria-controls="education-tab-pane" aria-selected="false">Education</button>
+                        <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education-tab-pane" type="button" role="tab" aria-controls="education-tab-pane" aria-selected="false">Tenaga Pendidik</button>
                     </li>
                 </ul>
             </div>
@@ -220,180 +163,32 @@
                 <div class="col-12">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Web Design</h5>
-
-                                                    <p class="mb-0">Topic Listing Template based on Bootstrap 5</p>
-                                                </div>
-
-                                                <span class="badge bg-design rounded-pill ms-auto">14</span>
-                                            </div>
-
-                                            <img src="images/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Graphic</h5>
-
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-design rounded-pill ms-auto">75</span>
-                                            </div>
-
-                                            <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Logo Design</h5>
-
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-design rounded-pill ms-auto">100</span>
-                                            </div>
-
-                                            <img src="images/topics/colleagues-working-cozy-office-medium-shot.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
+                            <div class="row bg-light-green rounded-4">
+                                <div class="col-10 mx-auto p-5">
+                                    <h6 class="text-center">Selayang Pandang</h6>
+                                    <p class="text-box text-black text-justify">MTs Negeri 2 Sambas merupakan lembaga pendidikan menengah tingkat pertama yang berada dibawah naungan Kementrian Agama yang berciri Khas pelajar Agama Islam. Kurikulum yang digunakan di MTs Negeri 2 Sambas terdiri dari Kurikulum 2013 (K13) untuk 5 pelajaran Agama Islam (Aqidah Akhlak, Fiqih, Quran Hadits, Sejarah Kebudayaan Islam dan Bahasa Arab). Tenaga pengajar/guru yang dimiliki berjumlah 34 orang dengan 80%, sudah bersertifikat guru professional.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Advertising</h5>
-
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-advertising rounded-pill ms-auto">30</span>
-                                            </div>
-
-                                            <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Video Content</h5>
-
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-advertising rounded-pill ms-auto">65</span>
-                                            </div>
-
-                                            <img src="images/topics/undraw_Group_video_re_btu7.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Viral Tweet</h5>
-
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-advertising rounded-pill ms-auto">50</span>
-                                            </div>
-
-                                            <img src="images/topics/undraw_viral_tweet_gndb.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
-                                </div>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-green bg-box row align-content-center"><h6 class="text-center">Ruang Belajar</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-yellow bg-box row align-content-center"><h6 class="text-center">Ruang Perpustakaan</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-purple bg-box row align-content-center"><h6 class="text-center">Lab IPA</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-blue bg-box row align-content-center"><h6 class="text-center">Mushola</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-blue bg-box row align-content-center"><h6 class="text-center">Ruang Osis & UKS</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-purple bg-box row align-content-center"><h6 class="text-center">Koperasi Madrasah</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-yellow bg-box row align-content-center"><h6 class="text-center">WiFi</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-green bg-box row align-content-center"><h6 class="text-center">Lapangan Olahraga</h6></div>
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab" tabindex="0">   <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Investment</h5>
+                        <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab" tabindex="0">
+                            <div class="row bg-light-green rounded-4">
+                                <div class="col-10 mx-auto p-5">
+                                    <h6 class="text-center">Kegiatan Sekolah</h6>
 
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-finance rounded-pill ms-auto">30</span>
-                                            </div>
-
-                                            <img src="images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="custom-block custom-block-overlay">
-                                        <div class="d-flex flex-column h-100">
-                                            <img src="images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg" class="custom-block-image img-fluid" alt="">
-
-                                            <div class="custom-block-overlay-text d-flex">
-                                                <div>
-                                                    <h5 class="text-white mb-2">Finance</h5>
-
-                                                    <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint animi necessitatibus aperiam repudiandae nam omnis</p>
-
-                                                    <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
-                                                </div>
-
-                                                <span class="badge bg-finance rounded-pill ms-auto">25</span>
-                                            </div>
-
-                                            <div class="social-share d-flex">
-                                                <p class="text-white me-4">Share:</p>
-
-                                                <ul class="social-icon">
-                                                    <li class="social-icon-item">
-                                                        <a href="#" class="social-icon-link bi-twitter"></a>
-                                                    </li>
-
-                                                    <li class="social-icon-item">
-                                                        <a href="#" class="social-icon-link bi-facebook"></a>
-                                                    </li>
-
-                                                    <li class="social-icon-item">
-                                                        <a href="#" class="social-icon-link bi-pinterest"></a>
-                                                    </li>
-                                                </ul>
-
-                                                <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
-                                            </div>
-
-                                            <div class="section-overlay"></div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -458,39 +253,43 @@
 
                         <div class="tab-pane fade" id="education-tab-pane" role="tabpanel" aria-labelledby="education-tab" tabindex="0">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Graduation</h5>
-
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-education rounded-pill ms-auto">80</span>
+                                <div class="slider">
+                                    <div class="owl-carousel">
+                                        <div class="slider-card">
+                                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                                <img src="/images/1.jpg" alt="">
                                             </div>
-
-                                            <img src="images/topics/undraw_Graduation_re_gthn.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Educator</h5>
-
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-education rounded-pill ms-auto">75</span>
+                                            <h5 class="mb-0 text-center"><b>Iskandar, S.Pd.I.</b></h5>
+                                            <p class="text-center p-4">Qur'an Hadits</p>
+                                        </div>
+                                        <div class="slider-card">
+                                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                                <img src="/images/2.jpg" alt="">
                                             </div>
-
-                                            <img src="images/topics/undraw_Educator_re_ju47.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
+                                            <h5 class="mb-0 text-center"><b>Parmin, S.Ag.</b></h5>
+                                            <p class="text-center p-4">Qur'an Hadits</p>
+                                        </div>
+                                        <div class="slider-card">
+                                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                                <img src="/images/3.jpg" alt="">
+                                            </div>
+                                            <h5 class="mb-0 text-center"><b>Sri Yani, S.Ag.</b></h5>
+                                            <p class="text-center p-4">Aqidah Akhlak</p>
+                                        </div>
+                                        <div class="slider-card">
+                                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                                <img src="/images/4.jpg" alt="">
+                                            </div>
+                                            <h5 class="mb-0 text-center"><b>Naim, S.Pd.</b></h5>
+                                            <p class="text-center p-4">Matematika</p>
+                                        </div>
+                                        <div class="slider-card">
+                                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                                <img src="/images/5.jpg" alt="">
+                                            </div>
+                                            <h5 class="mb-0 text-center"><b>Jamiat, S.Pd.</b></h5>
+                                            <p class="text-center p-4">Matematika</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

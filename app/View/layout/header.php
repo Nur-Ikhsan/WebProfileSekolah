@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link href="/images/logo1.png" rel="icon">
+
     <title><?= $model['title'] ?? 'MTs Negeri 2 Sambas' ?></title>
 
     <!-- CSS FILES -->
@@ -16,11 +18,15 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/css/owl.carousel.min.css" rel="stylesheet">
 
-    <link href="css/sch_mtsn2sambas.css" rel="stylesheet">
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="/css/sch_mtsn2sambas.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--
 
     TemplateMo 590 topic listing
