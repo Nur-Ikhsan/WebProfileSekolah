@@ -308,7 +308,7 @@
             <div class="row">
 
                 <div class="col-12 text-center">
-                    <h1 class="text-white mb-4">How does it work?</h1>
+                    <h1 class="text-white mb-4">Ekstrakurikuler</h1>
                 </div>
 
                 <div class="col-lg-10 col-12 mx-auto">
@@ -319,9 +319,9 @@
                             </div>
 
                             <li>
-                                <h4 class="text-white mb-3">Search your favourite topic</h4>
+                                <h4 class="text-white mb-3">Pramuka</h4>
 
-                                <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, cumque magnam? Sequi, cupiditate quibusdam alias illum sed esse ad dignissimos libero sunt, quisquam numquam aliquam? Voluptas, accusamus omnis?</p>
+                                <p class="text-white">Melatih peserta didik untuk terampil dan mandiri dan melatih untuk berorganisasi dan kepemimpinan Memiliki jiwa sosial dan peduli kepada orang lain.</p>
 
                                 <div class="icon-holder">
                                     <i class="bi-search"></i>
@@ -329,9 +329,27 @@
                             </li>
 
                             <li>
-                                <h4 class="text-white mb-3">Bookmark &amp; Keep it for yourself</h4>
+                                <h4 class="text-white mb-3">PMR</h4>
 
-                                <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint animi necessitatibus aperiam repudiandae nam omnis est vel quo, nihil repellat quia velit error modi earum similique odit labore. Doloremque, repudiandae?</p>
+                                <p class="text-white">Palang Merah Remaja (PMR) adalah organisasi kepanduan dan kemanusiaan yang bergerak di bidang sosial dan kesehatan. </p>
+
+                                <div class="icon-holder">
+                                    <i class="bi-bookmark"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <h4 class="text-white mb-3">Olahraga</h4>
+
+                                <p class="text-white">Melibatkan siswa dalam berbagai jenis olahraga yakni  futsal, voli ball, tenis meja, bulu tangkis, dan bela diri.</p>
+
+                                <div class="icon-holder">
+                                    <i class="bi-bookmark"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <h4 class="text-white mb-3">Seni</h4>
+
+                                <p class="text-white">Kegiatan di sekolah yang berfokus pada pengembangan bakat seni dan pemahaman terhadap budaya serta keagamaan yakni Seni Tari dan Tilawah</p>
 
                                 <div class="icon-holder">
                                     <i class="bi-bookmark"></i>
@@ -339,9 +357,9 @@
                             </li>
 
                             <li>
-                                <h4 class="text-white mb-3">Read &amp; Enjoy</h4>
+                                <h4 class="text-white mb-3">Bahasa</h4>
 
-                                <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi vero quisquam, rem assumenda similique voluptas distinctio, iste est hic eveniet debitis ut ducimus beatae id? Quam culpa deleniti officiis autem?</p>
+                                <p class="text-white">Memberikan kesempatan kepada siswa untuk memperdalam pemahaman dan penggunaan Bahasa Inggris dan Arab di luar jam pelajaran reguler.</p>
 
                                 <div class="icon-holder">
                                     <i class="bi-book"></i>
@@ -349,13 +367,6 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="col-12 text-center mt-5">
-                    <p class="text-white">
-                        Want to learn more?
-                        <a href="#" class="btn custom-btn custom-border-btn ms-3">Check out Youtube</a>
-                    </p>
                 </div>
             </div>
         </div>
@@ -367,13 +378,13 @@
             <div class="row">
 
                 <div class="col-lg-6 col-12">
-                    <h2 class="mb-4">Frequently Asked Questions</h2>
+                    <h2 class="mb-4">Prestasi</h2>
                 </div>
 
                 <div class="clearfix"></div>
 
                 <div class="col-lg-5 col-12">
-                    <img src="images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
+                    <img src="images/prestasi.png" class="img-fluid" alt="FAQs">
                 </div>
 
                 <div class="col-lg-6 col-12 m-auto">
@@ -381,27 +392,27 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    What is Topic Listing?
+                                    Prestasi Siswa
                                 </button>
                             </h2>
 
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    Topic Listing is free Bootstrap 5 CSS template. <strong>You are not allowed to redistribute this template</strong> on any other template collection website without our permission. Please contact TemplateMo for more detail. Thank you.
-                                </div>
+                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
+                                   </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How to find a topic?
+                                    Prestasi Guru
                                 </button>
                             </h2>
 
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    You can search on Google with <strong>keywords</strong> such as templatemo portfolio, templatemo one-page layouts, photography, digital marketing, etc.
+                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
                                 </div>
                             </div>
                         </div>
@@ -409,13 +420,13 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Does it need to paid?
+                                    Prestasi Sekolah
                                 </button>
                             </h2>
 
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
                                 </div>
                             </div>
                         </div>
@@ -440,48 +451,40 @@
             </div>
 
             <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
-                <h6 class="site-footer-title mb-3 text-white">Information</h6>
-
-                <p class="text-white d-flex mb-1">
-                    <a href="tel: 305-240-9671" class="site-footer-link text-white">
-                        305-240-9671
-                    </a>
-                </p>
-
-                <p class="text-white d-flex">
-                    <a href="mailto:info@company.com" class="site-footer-link text-white">
-                        info@company.com
-                    </a>
-                </p>
+                <div>
+                    <h6 class="site-footer-title mb-3 text-white">Alamat :</h6>
+                    <p class="text-white" style="font-size: 20px;">
+                        Jalan Pertasi Kencana Semparuk
+                    </p>
+                </div>
+                <div>
+                    <h6 class="site-footer-title mb-3 text-white">Telepon :</h6>
+                    <p class="text-white" style="font-size: 20px;">
+                        ( 0562 ) 371457
+                    </p>
+                </div>
+                <div>
+                    <h6 class="site-footer-title mb-3 text-white">Email :</h6>
+                    <p class="text-white" style="font-size: 20px;">
+                        fuad.adhik@gmail.com
+                    </p>
+                </div>
+                <div>
+                    <h6 class="site-footer-title mb-3 text-white">Website :</h6>
+                    <p class="text-white">
+                        <a href="http://mtsn2sambas.mysch.id/" class="site-footer-link text-whitenstyle=" style="font-size: 20px;" >
+                            http://mtsn2sambas.mysch.id/
+                        </a>
+                    </p>
+                </div>
             </div>
-
-            <div class="col-lg-3 col-md-6 col-12 mx-auto">
-                <h4 class="mb-3 text-white">Dubai office</h4>
-
-                <p class="text-white" id="fs-c">JL.PERTASI KENCANA., Semparuk, Kec. Semparuk, Kab. Sambas Prov. Kalimantan Barat</p>
-
-                <hr>
-
-                <p class="d-flex align-items-center mb-1">
-                    <span class="me-2 text-white">Phone</span>
-
-                    <a href="tel: 110-220-3400" class="site-footer-link text-white">
-                        110-220-3400
-                    </a>
-                </p>
-
-                <p class="d-flex align-items-center">
-                    <span class="me-2 text-white">Email</span>
-
-                    <a href="mailto:info@company.com" class="site-footer-link text-white">
-                        info@company.com
-                    </a>
-                </p>
-            </div>
-
         </div>
         <div class="row">
-            <p class="copyright-text mt-lg-5 mt-4 text-center text-white">Copyright © 2048 Topic Listing Center. All rights reserved.</p>
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <p class="mt-lg-5 mt-4 text-white">© 2023 - MTs Negeri 2 Sambas</p>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
