@@ -795,7 +795,7 @@ blockquote {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--secondary-color);
+  background-color: #ffffff;
   border-radius: 50%;
   z-index: 1;
   transition: 0.4s all;
@@ -805,9 +805,9 @@ blockquote {
   content: "";
   width: 80px;
   height: 80px;
-  border: 4px solid #fff;
+  border: 4px solid #00ffa8;
   position: absolute;
-  background-color: var(--secondary-color);
+  background-color: #ffffff;
   border-radius: 50%;
   z-index: -1;
   transition: 0.4s all;
@@ -815,7 +815,7 @@ blockquote {
 
 .timeline-container .vertical-scrollable-timeline li .icon-holder i {
   font-size: 25px;
-  color: var(--white-color);
+  color: #00ffa8;
 }
 
 .timeline-container .vertical-scrollable-timeline li::before {

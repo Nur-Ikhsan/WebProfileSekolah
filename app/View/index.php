@@ -320,7 +320,7 @@
                                     lain.</p>
 
                                 <div class="icon-holder">
-                                    <i class="bi-search"></i>
+                                    <img src="/images/pramuka.png">
                                 </div>
                             </li>
 
@@ -331,7 +331,7 @@
                                     kemanusiaan yang bergerak di bidang sosial dan kesehatan. </p>
 
                                 <div class="icon-holder">
-                                    <i class="bi-bookmark"></i>
+                                    <img src="/images/pmr.png">
                                 </div>
                             </li>
                             <li>
@@ -341,7 +341,7 @@
                                     ball, tenis meja, bulu tangkis, dan bela diri.</p>
 
                                 <div class="icon-holder">
-                                    <i class="bi-bookmark"></i>
+                                    <img src="/images/olahraga.png">
                                 </div>
                             </li>
                             <li>
@@ -351,7 +351,7 @@
                                     pemahaman terhadap budaya serta keagamaan yakni Seni Tari dan Tilawah</p>
 
                                 <div class="icon-holder">
-                                    <i class="bi-bookmark"></i>
+                                    <img src="/images/Seni.png">
                                 </div>
                             </li>
 
@@ -362,7 +362,7 @@
                                     penggunaan Bahasa Inggris dan Arab di luar jam pelajaran reguler.</p>
 
                                 <div class="icon-holder">
-                                    <i class="bi-book"></i>
+                                    <img src="/images/bahasa.png">
                                 </div>
                             </li>
                         </ul>
