@@ -29,13 +29,13 @@ class AdminController
     public function index(): void
     {
 
-        View::renderAdmin('Admin/index', [
+        View::render('Admin/index', [
             'title' => 'Dashboard Admin'
         ]);
     }
 
     public function k(){
-        View::renderAdmin('Admin/k', [
+        View::render('Admin/k', [
             'title' => 'k'
         ]);
     }

@@ -43,7 +43,9 @@
                         <a class="nav-link" href="/berita">berita</a>
                     </li>
 
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/login">login</a>
+                    </li>
                 </ul>
 
                 <!--                <div class="d-none d-lg-block">-->

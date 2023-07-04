@@ -21,7 +21,7 @@ https://templatemo.com/tm-590-topic-listing
   --p-color:                      #717275;
   --border-color:                 #7fffd4;
   --link-hover-color:             #13547a;
-  --p-bg-color:                   #f0f8ff;
+  --p-bg-color:                   #717275;
   --button-color   : #676d45;
   --bg-light-green: #CBECD8;
   --bg-light-blue: #BBD6EE;
@@ -1164,14 +1164,13 @@ blockquote {
 
 
 .logo-img {
-  width: 15vw; /* Mengatur lebar gambar menjadi 20% lebar viewport */
+  width: 30vw;
+  transition: width 0.5s ease; /* Menambahkan transition untuk property width dengan durasi 0.5 detik dan efek ease */
 }
-
-
 
 @media (max-width: 576px){
   .logo-img {
-    width: 30vw; /* Mengatur lebar gambar menjadi 20% lebar viewport */
+    width: 50vw; /* Mengatur lebar gambar menjadi 20% lebar viewport */
   }
 
   .navbar {
