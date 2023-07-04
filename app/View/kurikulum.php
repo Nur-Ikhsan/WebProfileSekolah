@@ -10,7 +10,8 @@
             <!--                <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
             <!--            </div>-->
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -21,7 +22,8 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                             <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
@@ -84,7 +86,11 @@
                                 <div>
                                     <h5 class="mb-2 text-center">Kurikulum (K13)</h5>
 
-                                    <p class="mb-0">Kurikulum 2013 merupakan kurikulum yang lebih mengutamakan pemahaman, skill, dan pendidikan yang berkarakter, siswa dituntut untuk lebih aktif dalam proses pembelajaran, siswa dituntut untuk paham atas materi serta siswa harus aktif berdikusi dan mampu berpresentasi serta memiliki sopan santu dan disiplin yang tinggi.</p>
+                                    <p class="mb-0">Kurikulum 2013 merupakan kurikulum yang lebih mengutamakan
+                                        pemahaman, skill, dan pendidikan yang berkarakter, siswa dituntut untuk lebih
+                                        aktif dalam proses pembelajaran, siswa dituntut untuk paham atas materi serta
+                                        siswa harus aktif berdikusi dan mampu berpresentasi serta memiliki sopan santu
+                                        dan disiplin yang tinggi.</p>
                                 </div>
                             </div>
                         </div>
@@ -95,60 +101,67 @@
                             <div class="custom-block-topics-listing-info d-flex">
                                 <div>
                                     <h5 class="mb-2 text-center">Kurikulum</h5>
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseOne" aria-expanded="true"
+                                                        aria-controls="collapseOne">
+                                                    Prestasi Siswa
+                                                </button>
+                                            </h2>
 
-                                        <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                        Prestasi Siswa
-                                                    </button>
-                                                </h2>
-
-                                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
-                                                    </div>
+                                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                                 aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="headingTwo">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                        Prestasi Guru
-                                                    </button>
-                                                </h2>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                        aria-expanded="false" aria-controls="collapseTwo">
+                                                    Prestasi Guru
+                                                </button>
+                                            </h2>
 
-                                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
-                                                    </div>
+                                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="headingThree">
-                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                        Prestasi Sekolah
-                                                    </button>
-                                                </h2>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingThree">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                        aria-expanded="false" aria-controls="collapseThree">
+                                                    Prestasi Sekolah
+                                                </button>
+                                            </h2>
 
-                                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
-                                                    </div>
+                                            <div id="collapseThree" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>
+
+        </div>
         </div>
     </section>
 </main>
@@ -162,7 +175,10 @@
             </div>
 
             <div class="col-lg-5 col-12 mb-4 mb-lg-0">
-                <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.832108930004!2d109.07498579932798!3d1.189849675765968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e49c2fbdf3d491%3A0x91e764f45793cc44!2sMTs.%20NEGERI%202%20SAMBAS!5e0!3m2!1sid!2sid!4v1686462693971!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe class="google-map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.832108930004!2d109.07498579932798!3d1.189849675765968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e49c2fbdf3d491%3A0x91e764f45793cc44!2sMTs.%20NEGERI%202%20SAMBAS!5e0!3m2!1sid!2sid!4v1686462693971!5m2!1sid!2sid"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
@@ -184,7 +200,8 @@
             <div class="col-lg-3 col-md-6 col-12 mx-auto">
                 <h4 class="mb-3 text-white">MTSN 02 Sambas</h4>
 
-                <p class="text-white">JL.PERTASI KENCANA., Semparuk, Kec. Semparuk, Kab. Sambas Prov. Kalimantan Barat</p>
+                <p class="text-white">JL.PERTASI KENCANA., Semparuk, Kec. Semparuk, Kab. Sambas Prov. Kalimantan
+                    Barat</p>
 
                 <hr>
 
@@ -207,7 +224,8 @@
 
         </div>
         <div class="row">
-            <p class="copyright-text mt-lg-5 mt-4 text-center text-white">Copyright © 2048 Topic Listing Center. All rights reserved.</p>
+            <p class="copyright-text mt-lg-5 mt-4 text-center text-white">Copyright © 2048 Topic Listing Center. All
+                rights reserved.</p>
         </div>
     </div>
 </footer>

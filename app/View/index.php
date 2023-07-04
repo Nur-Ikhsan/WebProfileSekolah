@@ -6,11 +6,12 @@
                 <img src="images/logo.png" alt="logo" class="logo-img"/>
             </a>
 
-<!--            <div class="d-lg-none ms-auto me-4">-->
-<!--                <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
-<!--            </div>-->
+            <!--            <div class="d-lg-none ms-auto me-4">-->
+            <!--                <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
+            <!--            </div>-->
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -21,7 +22,8 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                             <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
@@ -44,20 +46,20 @@
 
                 </ul>
 
-<!--                <div class="d-none d-lg-block">-->
-<!--                    <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
-<!--                </div>-->
+                <!--                <div class="d-none d-lg-block">-->
+                <!--                    <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
+                <!--                </div>-->
             </div>
         </div>
     </nav>
 
     <section class="corausel-section slide-width">
         <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
-<!--            <div class="carousel-indicators">-->
-<!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>-->
-<!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>-->
-<!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>-->
-<!--            </div>-->
+            <!--            <div class="carousel-indicators">-->
+            <!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>-->
+            <!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>-->
+            <!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>-->
+            <!--            </div>-->
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="images/img1.jpg" class="d-block w-100" alt="...">
@@ -69,14 +71,14 @@
                     <img src="images/colleagues-working-cozy-office-medium-shot.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
-<!--            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">-->
-<!--                <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--                <span class="visually-hidden">Previous</span>-->
-<!--            </button>-->
-<!--            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">-->
-<!--                <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--                <span class="visually-hidden">Next</span>-->
-<!--            </button>-->
+            <!--            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">-->
+            <!--                <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+            <!--                <span class="visually-hidden">Previous</span>-->
+            <!--            </button>-->
+            <!--            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">-->
+            <!--                <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+            <!--                <span class="visually-hidden">Next</span>-->
+            <!--            </button>-->
         </div>
     </section>
 
@@ -95,7 +97,8 @@
 
                                     </span>
 
-                            <input name="keyword" type="search" class="form-control" id="keyword" placeholder="Apa yang ingin Anda cari?" aria-label="Search">
+                            <input name="keyword" type="search" class="form-control" id="keyword"
+                                   placeholder="Apa yang ingin Anda cari?" aria-label="Search">
 
                             <button type="submit" class="form-control button-color">Cari</button>
                         </div>
@@ -108,11 +111,11 @@
                     </div>
                     <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
                         <h6>Pendaftaran Peserta Didik Baru</h6>
-                        <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2 Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
+                        <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2
+                            Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
                         <a href="#" class="btn custom-btn mt-3 mt-lg-4 button-color">Read More</a>
                     </div>
                 </div>
-
 
 
             </div>
@@ -135,23 +138,38 @@
             <div class="row">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Tentang</button>
+                        <button class="nav-link active" id="design-tab" data-bs-toggle="tab"
+                                data-bs-target="#design-tab-pane" type="button" role="tab"
+                                aria-controls="design-tab-pane" aria-selected="true">Tentang
+                        </button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Fasilitas</button>
+                        <button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
+                                data-bs-target="#marketing-tab-pane" type="button" role="tab"
+                                aria-controls="marketing-tab-pane" aria-selected="false">Fasilitas
+                        </button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Kegiatan Sekolah</button>
+                        <button class="nav-link" id="finance-tab" data-bs-toggle="tab"
+                                data-bs-target="#finance-tab-pane" type="button" role="tab"
+                                aria-controls="finance-tab-pane" aria-selected="false">Kegiatan Sekolah
+                        </button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane" type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Visi dan Misi</button>
+                        <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane"
+                                type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Visi dan
+                            Misi
+                        </button>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education-tab-pane" type="button" role="tab" aria-controls="education-tab-pane" aria-selected="false">Tenaga Pendidik</button>
+                        <button class="nav-link" id="education-tab" data-bs-toggle="tab"
+                                data-bs-target="#education-tab-pane" type="button" role="tab"
+                                aria-controls="education-tab-pane" aria-selected="false">Tenaga Pendidik
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -162,29 +180,46 @@
 
                 <div class="col-12">
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                        <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel"
+                             aria-labelledby="design-tab" tabindex="0">
                             <div class="row bg-light-green rounded-4">
                                 <div class="col-10 mx-auto p-5">
                                     <h6 class="text-center">Selayang Pandang</h6>
-                                    <p class="text-box text-black text-justify">MTs Negeri 2 Sambas merupakan lembaga pendidikan menengah tingkat pertama yang berada dibawah naungan Kementrian Agama yang berciri Khas pelajar Agama Islam. Kurikulum yang digunakan di MTs Negeri 2 Sambas terdiri dari Kurikulum 2013 (K13) untuk 5 pelajaran Agama Islam (Aqidah Akhlak, Fiqih, Quran Hadits, Sejarah Kebudayaan Islam dan Bahasa Arab). Tenaga pengajar/guru yang dimiliki berjumlah 34 orang dengan 80%, sudah bersertifikat guru professional.</p>
+                                    <p class="text-box text-black text-justify">MTs Negeri 2 Sambas merupakan lembaga
+                                        pendidikan menengah tingkat pertama yang berada dibawah naungan Kementrian Agama
+                                        yang berciri Khas pelajar Agama Islam. Kurikulum yang digunakan di MTs Negeri 2
+                                        Sambas terdiri dari Kurikulum 2013 (K13) untuk 5 pelajaran Agama Islam (Aqidah
+                                        Akhlak, Fiqih, Quran Hadits, Sejarah Kebudayaan Islam dan Bahasa Arab). Tenaga
+                                        pengajar/guru yang dimiliki berjumlah 34 orang dengan 80%, sudah bersertifikat
+                                        guru professional.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
+                        <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel"
+                             aria-labelledby="marketing-tab" tabindex="0">
                             <div class="row justify-content-center">
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-green bg-box row align-content-center"><h6 class="text-center">Ruang Belajar</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-yellow bg-box row align-content-center"><h6 class="text-center">Ruang Perpustakaan</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-purple bg-box row align-content-center"><h6 class="text-center">Lab IPA</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-blue bg-box row align-content-center"><h6 class="text-center">Mushola</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-blue bg-box row align-content-center"><h6 class="text-center">Ruang Osis & UKS</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-purple bg-box row align-content-center"><h6 class="text-center">Koperasi Madrasah</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-yellow bg-box row align-content-center"><h6 class="text-center">WiFi</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-green bg-box row align-content-center"><h6 class="text-center">Lapangan Olahraga</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-green bg-box row align-content-center"><h6
+                                            class="text-center">Ruang Belajar</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-yellow bg-box row align-content-center"><h6
+                                            class="text-center">Ruang Perpustakaan</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-purple bg-box row align-content-center"><h6
+                                            class="text-center">Lab IPA</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-blue bg-box row align-content-center"><h6
+                                            class="text-center">Mushola</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-blue bg-box row align-content-center"><h6
+                                            class="text-center">Ruang Osis & UKS</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-purple bg-box row align-content-center"><h6
+                                            class="text-center">Koperasi Madrasah</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-yellow bg-box row align-content-center"><h6
+                                            class="text-center">WiFi</h6></div>
+                                <div class="col-lg-2 col-sm-4 col-6 bg-light-green bg-box row align-content-center"><h6
+                                            class="text-center">Lapangan Olahraga</h6></div>
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab" tabindex="0">
+                        <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab"
+                             tabindex="0">
                             <div class="row bg-light-green rounded-4">
                                 <div class="col-10 mx-auto p-5">
                                     <h6 class="text-center">Kegiatan Sekolah</h6>
@@ -193,65 +228,22 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab" tabindex="0">
+                        <div class="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab"
+                             tabindex="0">
                             <div class="row">
-                                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Composing Song</h5>
+                                <div class=" col-md-6 col-12 mb-4 mb-lg-3 box-visi">
 
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-music rounded-pill ms-auto">45</span>
-                                            </div>
-
-                                            <img src="images/topics/undraw_Compose_music_re_wpiw.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
                                 </div>
 
-                                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Online Music</h5>
+                                <div class=" col-md-6 col-12 mb-4 mb-lg-3 box-misi">
 
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-music rounded-pill ms-auto">45</span>
-                                            </div>
-
-                                            <img src="images/topics/undraw_happy_music_g6wc.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
                                 </div>
 
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="custom-block bg-white shadow-lg">
-                                        <a href="topics-detail.html">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <h5 class="mb-2">Podcast</h5>
-
-                                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                                </div>
-
-                                                <span class="badge bg-music rounded-pill ms-auto">20</span>
-                                            </div>
-
-                                            <img src="images/topics/undraw_Podcast_audience_re_4i5q.png" class="custom-block-image img-fluid" alt="">
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="education-tab-pane" role="tabpanel" aria-labelledby="education-tab" tabindex="0">
+                        <div class="tab-pane fade" id="education-tab-pane" role="tabpanel"
+                             aria-labelledby="education-tab" tabindex="0">
                             <div class="row">
                                 <div class="slider">
                                     <div class="owl-carousel">
@@ -321,7 +313,9 @@
                             <li>
                                 <h4 class="text-white mb-3">Pramuka</h4>
 
-                                <p class="text-white">Melatih peserta didik untuk terampil dan mandiri dan melatih untuk berorganisasi dan kepemimpinan Memiliki jiwa sosial dan peduli kepada orang lain.</p>
+                                <p class="text-white">Melatih peserta didik untuk terampil dan mandiri dan melatih untuk
+                                    berorganisasi dan kepemimpinan Memiliki jiwa sosial dan peduli kepada orang
+                                    lain.</p>
 
                                 <div class="icon-holder">
                                     <i class="bi-search"></i>
@@ -331,7 +325,8 @@
                             <li>
                                 <h4 class="text-white mb-3">PMR</h4>
 
-                                <p class="text-white">Palang Merah Remaja (PMR) adalah organisasi kepanduan dan kemanusiaan yang bergerak di bidang sosial dan kesehatan. </p>
+                                <p class="text-white">Palang Merah Remaja (PMR) adalah organisasi kepanduan dan
+                                    kemanusiaan yang bergerak di bidang sosial dan kesehatan. </p>
 
                                 <div class="icon-holder">
                                     <i class="bi-bookmark"></i>
@@ -340,7 +335,8 @@
                             <li>
                                 <h4 class="text-white mb-3">Olahraga</h4>
 
-                                <p class="text-white">Melibatkan siswa dalam berbagai jenis olahraga yakni  futsal, voli ball, tenis meja, bulu tangkis, dan bela diri.</p>
+                                <p class="text-white">Melibatkan siswa dalam berbagai jenis olahraga yakni futsal, voli
+                                    ball, tenis meja, bulu tangkis, dan bela diri.</p>
 
                                 <div class="icon-holder">
                                     <i class="bi-bookmark"></i>
@@ -349,7 +345,8 @@
                             <li>
                                 <h4 class="text-white mb-3">Seni</h4>
 
-                                <p class="text-white">Kegiatan di sekolah yang berfokus pada pengembangan bakat seni dan pemahaman terhadap budaya serta keagamaan yakni Seni Tari dan Tilawah</p>
+                                <p class="text-white">Kegiatan di sekolah yang berfokus pada pengembangan bakat seni dan
+                                    pemahaman terhadap budaya serta keagamaan yakni Seni Tari dan Tilawah</p>
 
                                 <div class="icon-holder">
                                     <i class="bi-bookmark"></i>
@@ -359,7 +356,8 @@
                             <li>
                                 <h4 class="text-white mb-3">Bahasa</h4>
 
-                                <p class="text-white">Memberikan kesempatan kepada siswa untuk memperdalam pemahaman dan penggunaan Bahasa Inggris dan Arab di luar jam pelajaran reguler.</p>
+                                <p class="text-white">Memberikan kesempatan kepada siswa untuk memperdalam pemahaman dan
+                                    penggunaan Bahasa Inggris dan Arab di luar jam pelajaran reguler.</p>
 
                                 <div class="icon-holder">
                                     <i class="bi-book"></i>
@@ -391,26 +389,30 @@
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Prestasi Siswa
                                 </button>
                             </h2>
 
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
-                                   </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     Prestasi Guru
                                 </button>
                             </h2>
 
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
                                 </div>
@@ -419,12 +421,15 @@
 
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
                                     Prestasi Sekolah
                                 </button>
                             </h2>
 
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
                                 </div>
@@ -446,38 +451,45 @@
                 <h2 class="mb-5 text-white">Hubungi Kami</h2>
             </div>
 
-            <div class="col-lg-5 col-12 mb-4 mb-lg-0">
-                <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.832108930004!2d109.07498579932798!3d1.189849675765968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e49c2fbdf3d491%3A0x91e764f45793cc44!2sMTs.%20NEGERI%202%20SAMBAS!5e0!3m2!1sid!2sid!4v1686462693971!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="row justify-content-around">
+                <div class="col-lg-5 col-12 mb-4 mb-lg-0 ">
+                    <iframe class="google-map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.832108930004!2d109.07498579932798!3d1.189849675765968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e49c2fbdf3d491%3A0x91e764f45793cc44!2sMTs.%20NEGERI%202%20SAMBAS!5e0!3m2!1sid!2sid!4v1686462693971!5m2!1sid!2sid"
+                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="col-lg-7 col-md-4 col-6 mb-4 mb-lg-0 footer-box">
+                    <div>
+                        <h6 class="site-footer-title text-white footer-text">Alamat :</h6>
+                        <p class="text-white footer-text">
+                            Jalan Pertasi Kencana Semparuk
+                        </p>
+                    </div>
+                    <div>
+                        <h6 class="site-footer-title text-white footer-text">Telepon :</h6>
+                        <p class="text-white footer-text">
+                            ( 0562 ) 371457
+                        </p>
+                    </div>
+                    <div>
+                        <h6 class="site-footer-title text-white footer-text">Email :</h6>
+                        <p class="text-white footer-text">
+                            fuad.adhik@gmail.com
+                        </p>
+                    </div>
+                    <div>
+                        <h6 class="site-footer-title mb-3 text-white footer-text">Website :</h6>
+                        <p class="text-white footer-text">
+                            <a href="http://mtsn2sambas.mysch.id/" class="site-footer-link text-white footer-text">
+                                http://mtsn2sambas.mysch.id/
+                            </a>
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
-                <div>
-                    <h6 class="site-footer-title mb-3 text-white">Alamat :</h6>
-                    <p class="text-white" style="font-size: 20px;">
-                        Jalan Pertasi Kencana Semparuk
-                    </p>
-                </div>
-                <div>
-                    <h6 class="site-footer-title mb-3 text-white">Telepon :</h6>
-                    <p class="text-white" style="font-size: 20px;">
-                        ( 0562 ) 371457
-                    </p>
-                </div>
-                <div>
-                    <h6 class="site-footer-title mb-3 text-white">Email :</h6>
-                    <p class="text-white" style="font-size: 20px;">
-                        fuad.adhik@gmail.com
-                    </p>
-                </div>
-                <div>
-                    <h6 class="site-footer-title mb-3 text-white">Website :</h6>
-                    <p class="text-white">
-                        <a href="http://mtsn2sambas.mysch.id/" class="site-footer-link text-whitenstyle=" style="font-size: 20px;" >
-                            http://mtsn2sambas.mysch.id/
-                        </a>
-                    </p>
-                </div>
-            </div>
+
         </div>
         <div class="row">
             <div class="col-lg-12">

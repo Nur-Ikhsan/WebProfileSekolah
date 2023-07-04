@@ -21,6 +21,7 @@ https://templatemo.com/tm-590-topic-listing
   --p-color:                      #717275;
   --border-color:                 #7fffd4;
   --link-hover-color:             #13547a;
+  --p-bg-color:                   #f0f8ff;
   --button-color   : #676d45;
   --bg-light-green: #CBECD8;
   --bg-light-blue: #BBD6EE;
@@ -941,18 +942,18 @@ blockquote {
   position: relative;
 }
 
-.site-footer::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 200px 200px;
-  border-color: transparent transparent var(--secondary-color) transparent;
-  pointer-events: none;
-}
+/*.site-footer::after {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  right: 0;*/
+/*  width: 0;*/
+/*  height: 0;*/
+/*  border-style: solid;*/
+/*  border-width: 0 0 200px 200px;*/
+/*  border-color: transparent transparent var(--secondary-color) transparent;*/
+/*  pointer-events: none;*/
+/*}*/
 
 .site-footer-title {
   color: var(--primary-color);
@@ -1301,5 +1302,64 @@ blockquote {
   .img-responsive {
     max-width: 100%;
   }
+}
+
+
+.footer-text {
+  color: #FFF;
+  font-size: 22px;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 26.4px;
+}
+
+@media (max-width: 567px) {
+  .footer-text {
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+  }
+}
+
+.footer-box {
+  display: flex;
+  width: 516px;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -30px;
+}
+
+/*jika max layar 567 maka footer-box margin top nya 0*/
+@media (max-width: 567px) {
+  .footer-box {
+    margin-top: 0;
+  }
+}
+
+.box-visi {
+  border-radius: 20px;
+  background: #E7EEBB;
+  box-shadow: 0px 16px 48px 0px rgba(0, 0, 0, 0.18);
+
+  display: flex;
+  width: 394px;
+  height: 338px;
+  padding: 43px 2px 120px 1px;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.box-misi {
+  border-radius: 20px;
+  background: #CBE;
+  box-shadow: 0px 16px 48px 0px rgba(0, 0, 0, 0.18);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 541px;
+  height: 338px;
+  gap: 30px;
 }
 

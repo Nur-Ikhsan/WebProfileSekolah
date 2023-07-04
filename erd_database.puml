@@ -1,0 +1,98 @@
+@startuml
+!define TABLE_BORDER_COLOR DarkSlateGray
+!define TABLE_HEADER_COLOR DarkSlateGray
+!define TABLE_ROW_COLOR LightCyan
+
+!define FK_COLOR DarkCyan
+
+!define ENTITY_BORDER_COLOR Black
+!define ENTITY_BACKGROUND_COLOR AliceBlue
+
+!define RELATION_LINE_COLOR DarkSlateGray
+!define RELATION_ARROW_COLOR DarkSlateGray
+
+!define ATTR_FIELD_COLOR Black
+!define ATTR_FIELD_BACKGROUND_COLOR PaleGreen
+
+skinparam monochrome true
+skinparam shadowing false
+
+package "sch_mtsn2sambas" {
+  entity "Sekolah" as sekolah <<T,TABLE_BORDER_COLOR>> {
+    + id_sekolah [PK]
+    --
+    nama_sekolah
+    alamat
+    telepon
+    email
+    website
+    visi
+    misi
+    struktur_organisasi
+  }
+
+  entity "Fasilitas" as fasilitas <<T, TABLE_BORDER_COLOR>> {
+    + id_fasilitas [PK]
+    --
+    nama_fasilitas
+    deskripsi
+  }
+
+  entity "Kegiatan" as kegiatan <<T, TABLE_BORDER_COLOR>> {
+    + id_kegiatan [PK]
+    --
+    nama_kegiatan
+    deskripsi
+  }
+
+  entity "Guru & Staff" as guru_staff <<T, TABLE_BORDER_COLOR>> {
+    + id_guru [PK]
+    --
+    nama_guru
+    nip
+    jabatan
+    mapel_utama
+    foto
+  }
+
+  entity "Galeri" as galeri <<T, TABLE_BORDER_COLOR>> {
+      + id_galeri [PK]
+      --
+      deskripsi
+      foto
+    }
+
+  entity "Slideshow" as slideshow <<T, TABLE_BORDER_COLOR>> {
+      + id_slideshow [PK]
+      --
+      judul_slideshow
+      deskripsi
+      foto
+    }
+
+    entity "Berita" as berita <<T, TABLE_BORDER_COLOR>> {
+        + id_berita [PK]
+        --
+        judul_berita
+        deskripsi
+        foto
+      }
+
+   entity "Admin" as admin <<T, TABLE_BORDER_COLOR>> {
+      + id_admin [PK]
+      --
+      username
+      password
+    }
+
+
+    sekolah ||-ri-o{ fasilitas : "memiliki"
+    sekolah ||-ri-o{ kegiatan : "mengadakan"
+    sekolah ||-ri-o{ guru_staff : "memiliki"
+    sekolah ||-ri-o{ galeri : "memiliki"
+    sekolah ||-ri-o{ berita : "memiliki"
+    admin ||-ri-|| guru_staff : "memiliki"
+  }
+
+
+  @enduml
