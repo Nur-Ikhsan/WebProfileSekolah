@@ -95,7 +95,6 @@
                             </div>
                         </div>
                     </div>
-                    <a href=""></a>
 
                     <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                         <div class="d-flex">

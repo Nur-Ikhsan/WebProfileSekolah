@@ -49,15 +49,14 @@ package "sch_mtsn2sambas" {
     + id_guru [PK]
     --
     nama_guru
-    nip
     jabatan
-    mapel_utama
     foto
   }
 
   entity "Galeri" as galeri <<T, TABLE_BORDER_COLOR>> {
       + id_galeri [PK]
       --
+       judul_galeri
       deskripsi
       foto
     }
@@ -66,7 +65,6 @@ package "sch_mtsn2sambas" {
       + id_slideshow [PK]
       --
       judul_slideshow
-      deskripsi
       foto
     }
 

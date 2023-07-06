@@ -28,16 +28,17 @@ class AdminController
 
     public function index(): void
     {
-
-        View::render('Admin/index', [
-            'title' => 'Dashboard Admin'
-        ]);
-    }
-
-    public function k(){
-        View::render('Admin/k', [
-            'title' => 'k'
-        ]);
+        $admin = $this->sessionService->findSession();
+        if ($admin === null) {
+            View::redirect('/admin/login');
+        } else {
+            View::render('Admin/index', [
+                'title' => 'Dashboard Admin',
+                'admin' => [
+                    'username' => $admin->getUsername()
+                ]
+            ]);
+        }
     }
 
     public function register(): void
@@ -59,7 +60,7 @@ class AdminController
         }
 
         if ($admin !== null) {
-            View::redirect('/admin/dashboard');
+            View::redirect('/admin/index');
         }
 
         View::render('Admin/register', [
@@ -81,36 +82,20 @@ class AdminController
             try {
                 $adminResponse = $this->adminService->login($request);
                 $this->sessionService->createSession($adminResponse->id);
-                View::redirect('/admin/dashboard');
+                View::redirect('/admin');
             } catch (ValidationException $exception) {
                 $error = $exception->getMessage();
             }
         }
 
         if ($admin !== null) {
-            View::redirect('/admin/dashboard');
+            View::redirect('/admin');
         }
 
         View::render('Admin/login', [
             'title' => 'Login Admin',
             'error' => $error
         ]);
-    }
-
-
-    public function dashboard(): void
-    {
-        $admin = $this->sessionService->findSession();
-        if ($admin === null) {
-            View::redirect('/admin/login');
-        } else {
-            View::render('Admin/dashboard', [
-                'title' => 'Dashboard Admin',
-                'admin' => [
-                    'username' => $admin->getUsername()
-                ]
-            ]);
-        }
     }
 
     public function logout(): void

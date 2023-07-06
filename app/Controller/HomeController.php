@@ -3,13 +3,28 @@
 namespace Rubygroup\WebProfileSekolah\Controller;
 
 use Rubygroup\WebProfileSekolah\App\View;
+use Rubygroup\WebProfileSekolah\Config\Database;
+use Rubygroup\WebProfileSekolah\Repository\SlideshowRepository;
+use Rubygroup\WebProfileSekolah\Service\SlideshowService;
 
 class HomeController
 {
 
+    private SlideshowService $slideshowService;
+
+    public function __construct()
+    {
+        $connection = Database::getConnection();
+        $slideshowRepository = new SlideshowRepository($connection);
+        $this->slideshowService = new SlideshowService($slideshowRepository);
+    }
+
     function index(): void
     {
-        View::render('index');
+        $slideshows = $this->slideshowService->getAllSlideshows();
+        View::render('index',[
+            'slideshows' => $slideshows
+            ]);
     }
 
     function berita(): void

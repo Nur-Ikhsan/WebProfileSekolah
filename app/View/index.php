@@ -57,30 +57,16 @@
 
     <section class="corausel-section slide-width">
         <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
-            <!--            <div class="carousel-indicators">-->
-            <!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>-->
-            <!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>-->
-            <!--                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>-->
-            <!--            </div>-->
+
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="images/img1.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/img2.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="images/colleagues-working-cozy-office-medium-shot.jpg" class="d-block w-100" alt="...">
-                </div>
+                <?php $count = 0; ?>
+                <?php foreach ($slideshows as $slideshow): ?>
+                    <?php $count++; ?>
+                    <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
+                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100" alt="<?= $slideshow->getJudul() ?>">
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <!--            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">-->
-            <!--                <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-            <!--                <span class="visually-hidden">Previous</span>-->
-            <!--            </button>-->
-            <!--            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">-->
-            <!--                <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-            <!--                <span class="visually-hidden">Next</span>-->
-            <!--            </button>-->
         </div>
     </section>
 
@@ -234,10 +220,24 @@
                              tabindex="0">
                             <div class="row">
                                 <div class=" col-md-6 col-12 mb-4 mb-lg-3 box-visi">
+                                    <h6 class="text-center">Visi</h6>
+                                    <p class="text-box text-black text-justify">Terwujudnya madrasah yang unggul dalam
+                                        prestasi akademik dan non akademik berbasis iman dan taqwa.</p>
 
                                 </div>
 
                                 <div class=" col-md-6 col-12 mb-4 mb-lg-3 box-misi">
+                                    <h6 class="text-center">Misi</h6>
+                                    <p class="text-box text-black text-justify">1. Meningkatkan kualitas pembelajaran
+                                        yang berbasis iman dan taqwa.</p>
+                                    <p class="text-box text-black text-justify">2. Meningkatkan kualitas pembelajaran
+                                        yang berbasis iman dan taqwa.</p>
+                                    <p class="text-box text-black text-justify">3. Meningkatkan kualitas pembelajaran
+                                        yang berbasis iman dan taqwa.</p>
+                                    <p class="text-box text-black text-justify">4. Meningkatkan kualitas pembelajaran
+                                        yang berbasis iman dan taqwa.</p>
+                                    <p class="text-box text-black text-justify">5. Meningkatkan kualitas pembelajaran
+                                        yang berbasis iman dan taqwa.</p>
 
                                 </div>
 

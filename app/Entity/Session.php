@@ -5,7 +5,7 @@ namespace Rubygroup\WebProfileSekolah\Entity;
 class Session
 {
     private string $id;
-    private int $adminId;
+    private string $adminId;
 
     /**
      * @return int
@@ -26,7 +26,7 @@ class Session
     /**
      * @return int
      */
-    public function getAdminId(): int
+    public function getAdminId(): string
     {
         return $this->adminId;
     }
@@ -34,7 +34,7 @@ class Session
     /**
      * @param int $adminId
      */
-    public function setAdminId(int $adminId): void
+    public function setAdminId(string $adminId): void
     {
         $this->adminId = $adminId;
     }

@@ -3,23 +3,22 @@
 namespace Rubygroup\WebProfileSekolah\Entity;
 class Admin
 {
-    private ?int $id = null;
+    private string $id;
     private string $username;
     private string $password;
 
-
     /**
-     * @return int
+     * @return string|null
      */
-    public function getId(): int
+    public function getId(): ?string
     {
         return $this->id;
     }
 
     /**
-     * @param int $id
+     * @param string|null $id
      */
-    public function setId(int $id): void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }

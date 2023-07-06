@@ -20,7 +20,7 @@ class SessionService
         $this->adminRepository = $adminRepository;
     }
 
-    public function createSession(int $adminId): Session
+    public function createSession(string $adminId): Session
     {
         $session = new Session();
         $session->setId(uniqid());

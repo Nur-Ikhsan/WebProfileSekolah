@@ -27,6 +27,8 @@ https://templatemo.com/tm-590-topic-listing
   --bg-light-blue: #BBD6EE;
   --bg-light-yellow: #E7EEBB;
   --bg-light-purple: #CCBBEE;
+  --admin-bg-color : #F6F9FF;
+  --hover-color: #D8FFE4;
 
   --body-font-family:             'Open Sans', sans-serif;
   --title-font-family:            'Montserrat', sans-serif;
@@ -1180,7 +1182,7 @@ blockquote {
 
 @media (min-width: 800px) {
   .slide-width {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
   }
 }

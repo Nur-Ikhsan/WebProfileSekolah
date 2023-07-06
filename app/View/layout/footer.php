@@ -5,5 +5,6 @@
 <script src="/js/click-scroll.js"></script>
 <script src="/js/custom.js"></script>
 <script src="/js/owl.carousel.min.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>

@@ -3,10 +3,11 @@ CREATE DATABASE sch_mtsn2sambas;
 CREATE DATABASE sch_mtsn2sambas_test;
 
 
+drop database sch_mtsn2sambas;
+
 CREATE TABLE admin
 (
-    id       INT(11)      NOT NULL AUTO_INCREMENT,
-    id_guru_staff  INT(11)      NOT NULL,
+    id       VARCHAR(255)      NOT NULL,
     username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
@@ -15,7 +16,7 @@ CREATE TABLE admin
 CREATE TABLE sessions
 (
     id VARCHAR(255) NOT NULL UNIQUE,
-    admin_id INT(11) NOT NULL,
+    admin_id  VARCHAR(255)  NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE = InnoDB;
 
@@ -28,7 +29,7 @@ ALTER TABLE sessions MODIFY id VARCHAR(255) NOT NULL;
 
 
 CREATE TABLE sekolah (
-                         id_sekolah INT PRIMARY KEY,
+                         id_sekolah VARCHAR(255) PRIMARY KEY,
                          nama_sekolah VARCHAR(255),
                          alamat VARCHAR(255),
                          telepon VARCHAR(20),
@@ -42,41 +43,40 @@ CREATE TABLE sekolah (
 
 
 CREATE TABLE fasilitas (
-                           id_fasilitas INT PRIMARY KEY,
+                           id_fasilitas VARCHAR(255) PRIMARY KEY,
                            nama_fasilitas VARCHAR(255),
                            deskripsi TEXT
 );
 
 CREATE TABLE kegiatan (
-                          id_kegiatan INT PRIMARY KEY,
+                          id_kegiatan VARCHAR(255) PRIMARY KEY,
                           nama_kegiatan VARCHAR(255),
                           deskripsi TEXT
 );
 
 CREATE TABLE guru_staff (
-                                id_guru_staff INT PRIMARY KEY,
+                                id_guru_staff VARCHAR(255) PRIMARY KEY,
                                 nama_guru VARCHAR(255),
-                                nip VARCHAR(20),
                                 jabatan VARCHAR(255),
-                                mapel_utama VARCHAR(255),
                                 foto VARCHAR(255)
 );
 
+
 CREATE TABLE galeri (
-                        id_galeri INT PRIMARY KEY,
+                        id_galeri VARCHAR(255) PRIMARY KEY,
+                        judul_galeri VARCHAR(255),
                         deskripsi TEXT,
                         foto VARCHAR(255)
 );
 
 CREATE TABLE slideshow (
-                           id_slideshow INT PRIMARY KEY,
+                           id_slideshow VARCHAR(255) PRIMARY KEY,
                            judul_slideshow VARCHAR(255),
-                           deskripsi TEXT,
                            foto VARCHAR(255)
 );
 
 CREATE TABLE berita (
-                        id_berita INT PRIMARY KEY,
+                        id_berita VARCHAR(255) PRIMARY KEY,
                         judul_berita VARCHAR(255),
                         deskripsi TEXT,
                         foto VARCHAR(255)
@@ -98,6 +98,6 @@ ALTER TABLE berita ADD COLUMN id_sekolah INT;
 ALTER TABLE berita ADD CONSTRAINT fk_berita_sekolah FOREIGN KEY (id_sekolah) REFERENCES sekolah (id_sekolah);
 
 ALTER TABLE admin ADD COLUMN id_guru INT;
-ALTER TABLE admin ADD CONSTRAINT fk_admin_gurustaff FOREIGN KEY (id_guru_staff) REFERENCES guru_staff (id_guru_staff);
+ALTER TABLE admin ADD CONSTRAINT fk_admin_guru_staff FOREIGN KEY (id_guru_staff) REFERENCES guru_staff (id_guru_staff);
 
 

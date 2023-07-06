@@ -33,7 +33,7 @@ class AdminRepository
                 return null;
             }
             $admin = new Admin();
-            $admin->setId((int)$row['id']);
+            $admin->setId((string)$row['id']);
             $admin->setUsername((string)$row['username']);
             $admin->setPassword((string)$row['password']);
             return $admin;
@@ -46,7 +46,7 @@ class AdminRepository
         $this->connection->exec('DELETE FROM admin');
     }
 
-    public function findById(int $getAdminId)
+    public function findById(string $getAdminId)
     {
         $statement = $this->connection->prepare('SELECT * FROM admin WHERE id = ?');
         $statement->execute([$getAdminId]);
