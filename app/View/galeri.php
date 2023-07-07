@@ -80,35 +80,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="gallery-item">
-                            <img src="images/gallery1.jpg" alt="Gallery Image 1">
+                        <div class="gallery-item" style="">
+                            <img src="images/img1.jpg" alt="Gallery Image 1">
+                            <p>Gambar Lima</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="gallery-item">
-                            <img src="images/gallery2.jpg" alt="Gallery Image 2">
+                        <div class="gallery-item" style="">
+                            <img src="images/img2.jpg" alt="Gallery Image 2">
+                            <p>Gambar Lima</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="gallery-item">
-                            <img src="images/gallery3.jpg" alt="Gallery Image 3">
+                        <div class="gallery-item" style="">
+                            <img src="images/img1.jpg" alt="Gallery Image 3">
+                            <p>Gambar Lima</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="gallery-item">
-                            <img src="images/gallery4.jpg" alt="Gallery Image 4">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="gallery-item">
-                            <img src="images/gallery5.jpg" alt="Gallery Image 5">
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="gallery-item">
-                            <img src="images/gallery6.jpg" alt="Gallery Image 6">
-                        </div>
-                    </div>
+
                 </div>
             </div>
         <div class="col-lg-12 col-12">
