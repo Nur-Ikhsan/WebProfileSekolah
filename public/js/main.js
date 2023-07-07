@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -35,11 +35,85 @@
    * Sidebar toggle
    */
   if (select('.toggle-sidebar-btn')) {
-    on('click', '.toggle-sidebar-btn', function(e) {
+    on('click', '.toggle-sidebar-btn', function (e) {
       select('body').classList.toggle('toggle-sidebar')
     })
   }
 
 
-
 })();
+
+const dropZone = document.getElementById('drop-zone');
+const inputElement = document.getElementById('myfile');
+const buttonImage = document.getElementById('button-image');
+const svgImage = document.getElementById('svg-image');
+const img = document.getElementById('preview-image');
+const p = document.getElementById('upload-message');
+const closeButton = document.getElementById('close-button');
+
+closeButton.addEventListener('click', e => {
+  e.preventDefault();
+  img.style.display = 'none';
+  p.style.display = 'block';
+  buttonImage.style.display = 'block';
+  svgImage.style.display = 'block';
+  inputElement.value = ''; // Menghapus file yang dipilih dari input file
+  closeButton.style.display = 'none';
+});
+
+function showCloseButton() {
+  closeButton.style.display = 'block';
+}
+
+inputElement.addEventListener('change', function (e) {
+  const clickFile = this.files[0];
+  if (clickFile) {
+    img.style.display = 'block';
+    p.style.display = 'none';
+    buttonImage.style.display = 'none';
+    svgImage.style.display = 'none';
+    const reader = new FileReader();
+    reader.readAsDataURL(clickFile);
+    reader.onloadend = function () {
+      const result = reader.result;
+      let src = this.result;
+      img.src = src;
+      img.alt = clickFile.name;
+    };
+    showCloseButton();
+  }
+});
+
+dropZone.addEventListener('click', () => inputElement.click());
+
+dropZone.addEventListener('dragover', e => {
+  e.preventDefault();
+});
+
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  img.style.display = 'block';
+  let file = e.dataTransfer.files[0];
+
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onloadend = function () {
+    e.preventDefault();
+    p.style.display = 'none';
+    buttonImage.style.display = 'none';
+    svgImage.style.display = 'none';
+    let src = this.result;
+    img.src = src;
+    img.alt = file.name;
+  };
+  showCloseButton();
+});
+
+// Periksa apakah src memiliki nilai
+if (img.src) {
+  img.style.display = "block";
+  p.style.display = 'none';
+  buttonImage.style.display = 'none';
+  svgImage.style.display = 'none';
+  showCloseButton();
+}

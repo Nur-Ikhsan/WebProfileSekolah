@@ -31,7 +31,7 @@ Router::add('/admin/password', AdminController::class, 'changePassword');
 
 Router::add('/admin/k/k', AdminController::class, 'k');
 
-Router::add('/slideshow/upload', SlideshowController::class, 'uploadSlideshow');
-Router::add('/slideshow', SlideshowController::class, 'viewAllSlideshows');
-Router::add('/slideshow/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', SlideshowController::class, 'delete');
-Router::add('/slideshow/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', SlideshowController::class, 'edit');
+Router::add('/admin/slideshow/upload', SlideshowController::class, 'uploadSlideshow');
+Router::add('/admin/slideshow', SlideshowController::class, 'viewAllSlideshows');
+Router::add('/admin/slideshow/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', SlideshowController::class, 'delete');
+Router::add('/admin/slideshow/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', SlideshowController::class, 'edit');
