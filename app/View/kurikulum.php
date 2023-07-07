@@ -42,6 +42,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/berita">berita</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/galeri">galeri</a>
+                    </li>
 
 
                 </ul>
