@@ -62,5 +62,13 @@ function kurikulum(): void
         );
     }
 
+    function galeri(): void
+    {
+        View::render('galeri',[
+                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
+
 
 }

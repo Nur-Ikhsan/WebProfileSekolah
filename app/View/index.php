@@ -44,6 +44,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="/galeri">galeri</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="/admin/login">login</a>
                     </li>
                 </ul>
