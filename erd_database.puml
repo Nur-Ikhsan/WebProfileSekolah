@@ -26,9 +26,9 @@ package "sch_mtsn2sambas" {
     telepon
     email
     website
-    visi
-    misi
-    struktur_organisasi
+    judul_pengantar
+    deskripsi_pengantar
+
   }
 
   entity "Fasilitas" as fasilitas <<T, TABLE_BORDER_COLOR>> {
@@ -83,13 +83,47 @@ package "sch_mtsn2sambas" {
       password
     }
 
+    entity "Prestasi" as prestasi <<T, TABLE_BORDER_COLOR>> {
+      + id_prestasi [PK]
+      --
+      tanggal
+      kategori
+      nama_prestasi
+    }
+
+    entity "Keterangan Sekolah" as ket_sekolah <<T, TABLE_BORDER_COLOR>> {
+      + id [PK]
+      --
+      struktur_organisasi
+      nama_kurikulum
+      deskripsi_kurikulum
+      visi
+      misi
+    }
+
+    entity "Kurikulum" as kurikulum <<T, TABLE_BORDER_COLOR>> {
+      + id_kurikulum [PK]
+      --
+      komponen
+      sub_komponen
+      kategori
+      alokasi_waktu
+      kelas
+    }
+
+    sekolah ||-ri-o{ kurikulum : "memiliki"
+
+
 
     sekolah ||-ri-o{ fasilitas : "memiliki"
     sekolah ||-ri-o{ kegiatan : "mengadakan"
     sekolah ||-ri-o{ guru_staff : "memiliki"
     sekolah ||-ri-o{ galeri : "memiliki"
     sekolah ||-ri-o{ berita : "memiliki"
+    sekolah ||-ri-o{ prestasi : "memiliki"
+    sekolah ||-ri-o{ ket_sekolah : "memiliki"
     admin ||-ri-|| guru_staff : "memiliki"
+
   }
 
 

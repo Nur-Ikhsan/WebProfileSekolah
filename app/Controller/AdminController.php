@@ -8,19 +8,24 @@ use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\AdminRequest;
 use Rubygroup\WebProfileSekolah\Repository\AdminRepository;
 use Rubygroup\WebProfileSekolah\Repository\SessionRepository;
+use Rubygroup\WebProfileSekolah\Repository\SlideshowRepository;
 use Rubygroup\WebProfileSekolah\Service\AdminService;
 use Rubygroup\WebProfileSekolah\Service\SessionService;
+use Rubygroup\WebProfileSekolah\Service\SlideshowService;
 
 class AdminController
 {
     private AdminService $adminService;
     private SessionService $sessionService;
+    private SlideshowService $slideshowService;
 
     public function __construct()
     {
         $connection = Database::getConnection();
         $adminRepository = new AdminRepository($connection);
         $this->adminService = new AdminService($adminRepository);
+        $slideshowRepository = new SlideshowRepository($connection);
+        $this->slideshowService = new SlideshowService($slideshowRepository);
 
         $sessionRepository = new SessionRepository($connection);
         $this->sessionService = new SessionService($sessionRepository, $adminRepository);
@@ -28,18 +33,31 @@ class AdminController
 
     public function index(): void
     {
+        $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int) $_GET['perPage'] : 10;
+        // Menghitung total jumlah slideshow
+        $totalCount = count($this->slideshowService->getAllSlideshows());
+        $slideshows = $this->slideshowService->getAllSlideshowsPagination($page, $perPage);
         $admin = $this->sessionService->findSession();
         if ($admin === null) {
             View::redirect('/admin/login');
         } else {
             View::render('Admin/index', [
                 'title' => 'Dashboard Admin',
+                'slideshows' => $slideshows,
                 'admin' => [
                     'username' => $admin->getUsername()
+                ],
+                'pagination' => [
+                    'page' => $page,
+                    'perPage' => $perPage,
+                    'totalCount' => $totalCount,
+                    'totalPages' => ceil($totalCount / $perPage)
                 ]
             ]);
         }
     }
+
 
     public function register(): void
     {

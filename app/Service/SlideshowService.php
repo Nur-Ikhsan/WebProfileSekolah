@@ -19,8 +19,33 @@ class SlideshowService
         $this->slideshowRepository = $slideshowRepository;
     }
 
+    private function validateImageFile(array $file): void
+    {
+        $allowedExtensions = ['jpg', 'jpeg', 'png'];
+
+        $fileName = $file['name'];
+        $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+        if (empty($fileName)) {
+            throw new ValidationException('Tidak ada perubahan, File gambar tidak boleh kosong.');
+        }
+
+        if ($file['size'] > 1000000) {
+            throw new ValidationException('Ukuran file gambar tidak boleh lebih dari 1MB.');
+        }
+
+        if ($file['error'] !== 0) {
+            throw new ValidationException('File gambar tidak valid.');
+        }
+
+        if (!in_array($fileExtension, $allowedExtensions)) {
+            throw new ValidationException('File gambar tidak valid. Hanya file JPG, JPEG, dan PNG yang diperbolehkan.');
+        }
+    }
+
     public function createSlideshow(SlideshowRequest $request): SlideshowResponse
     {
+        $this->validateImageFile($request->foto);
 
         $slideshow = new Slideshow();
         $slideshow->setId(Uuid::uuid4()->toString());
@@ -32,10 +57,17 @@ class SlideshowService
         return new SlideshowResponse($savedSlideshow);
     }
 
+    public function getAllSlideshowsPagination(int $page, int $perPage): array
+    {
+        $offset = ($page - 1) * $perPage;
+        return $this->slideshowRepository->getAllPagination($perPage, $offset);
+    }
+
     public function getAllSlideshows(): array
     {
         return $this->slideshowRepository->getAll();
     }
+
 
     private function uploadPhoto(array $file): string
     {
@@ -64,8 +96,10 @@ class SlideshowService
         }
     }
 
-    public function updateSlideshow(string $id, SlideshowRequest $request): SlideshowResponse
+    public function editSlideshow(string $id, SlideshowRequest $request): SlideshowResponse
     {
+        $this->validateImageFile($request->foto);
+
         $slideshow = $this->slideshowRepository->findById($id);
         if ($slideshow === null) {
             throw new \Exception('Slideshow not found');
@@ -79,6 +113,7 @@ class SlideshowService
 
         $slideshow->setJudul($request->judul);
         if ($request->foto !== null) {
+            $this->validateImageFile($request->foto);
             $slideshow->setFoto($this->uploadPhoto($request->foto));
         }
 

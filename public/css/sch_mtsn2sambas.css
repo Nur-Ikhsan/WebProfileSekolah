@@ -702,19 +702,24 @@ blockquote {
 }
 
 .page-link {
-  border: 0;
+  border: 1.5px solid #31408D;
   border-radius: var(--border-radius-small);
-  color: var(--p-color);
+  color: black;
   font-family: var(--title-font-family);
   margin: 0 5px;
   padding: 10px 20px;
+  font-weight: bold;
 }
 
 .page-link:hover,
 .page-item:first-child .page-link:hover,
 .page-item:last-child .page-link:hover {
-  background-color: var(--secondary-color);
+  background-color: rgba(3, 21, 100, 0.56);
   color: var(--white-color);
+}
+
+.page-link:hover .bi-chevron-double-left, .page-link:hover .bi-chevron-double-right {
+  color: white;
 }
 
 .page-item:first-child .page-link {
@@ -723,13 +728,14 @@ blockquote {
 
 .page-item:first-child .page-link,
 .page-item:last-child .page-link {
-  background-color: var(--section-bg-color);
+  /*background-color: rgba(13, 202, 240, 0.22);*/
   border-radius: var(--border-radius-small);
+    border: 0;
 }
 
 .active>.page-link, .page-link.active {
-  background-color: var(--secondary-color);
-  border-color: var(--secondary-color);
+  background-color: #31408D;
+  border-color: #31408D;
 }
 
 

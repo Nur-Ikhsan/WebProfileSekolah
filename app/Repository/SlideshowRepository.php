@@ -26,9 +26,11 @@ class SlideshowRepository
         return $slideshow;
     }
 
-    public function getAll(): array
+    public function getAllPagination(int $limit, int $offset): array
     {
-        $statement = $this->connection->prepare('SELECT * FROM slideshow');
+        $statement = $this->connection->prepare('SELECT * FROM slideshow ORDER BY judul_slideshow LIMIT :limit OFFSET :offset');
+        $statement->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
         $statement->execute();
 
         $slideshows = [];
@@ -43,6 +45,7 @@ class SlideshowRepository
 
         return $slideshows;
     }
+
 
     public function delete(Slideshow $slideshow): void
     {
@@ -78,5 +81,23 @@ class SlideshowRepository
         ]);
 
         return $slideshow;
+    }
+
+    public function getAll()
+    {
+        $statement = $this->connection->prepare('SELECT * FROM slideshow ORDER BY judul_slideshow');
+        $statement->execute();
+
+        $slideshows = [];
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $slideshow = new Slideshow();
+            $slideshow->setId($row['id_slideshow']);
+            $slideshow->setJudul($row['judul_slideshow']);
+            $slideshow->setFoto($row['foto']);
+
+            $slideshows[] = $slideshow;
+        }
+
+        return $slideshows;
     }
 }

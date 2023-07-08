@@ -28,9 +28,12 @@ class SlideshowController
         $this->sessionService = new SessionService($sessionRepository, $adminRepository);
     }
 
-    public function uploadSlideshow(): void
+    public function tambahSlideshow(): void
     {
+        $admin = $this->sessionService->findSession();
         $request = new SlideshowRequest();
+        $title = null;
+        $message = null;
         $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -38,31 +41,31 @@ class SlideshowController
             $request->foto = $_FILES['foto'];
 
             try {
-                $slideshowResponse = $this->slideshowService->createSlideshow($request);
-
-                View::redirect('/admin');
+                if ($this->slideshowService->createSlideshow($request)){
+                    $title = 'Data Berhasil Tersimpan';
+                    $message = 'Selamat data yang anda tambah berhasil disimpan';
+                }
             } catch (ValidationException $exception) {
+                $title = 'Data Gagal Tersimpan';
+                $message = 'Silakan coba lagi untuk menyelesaikan permintaan';
                 $error = $exception->getMessage();
             }
         }
 
-        View::render('Admin/Slideshow/upload', [
+        View::render('Admin/Slideshow/tambah', [
             'title' => 'Upload Slideshow',
-            'error' => $error
+            'message' => [
+                'title' => $title,
+                'description' => $message,
+                'error' => $error
+            ],
+            'admin' => [
+                'username' => $admin->getUsername()
+            ]
         ]);
     }
 
-    public function viewAllSlideshows(): void
-    {
-        $slideshows = $this->slideshowService->getAllSlideshows();
-
-        View::render('Admin/Slideshow/viewAll', [
-            'title' => 'All Slideshows',
-            'slideshows' => $slideshows
-        ]);
-    }
-
-    public function delete(string $id): void
+    public function deleteSlideshow(string $id): void
     {
         try {
             $this->slideshowService->deleteSlideshow($id);
@@ -78,10 +81,12 @@ class SlideshowController
 
     }
 
-    public function edit(string $id): void
+    public function editSlideshow(string $id): void
     {
         $admin = $this->sessionService->findSession();
         $request = new SlideshowRequest();
+        $title = null;
+        $message = null;
         $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -89,18 +94,17 @@ class SlideshowController
             $request->foto = $_FILES['foto'];
 
             try {
-                $this->slideshowService->updateSlideshow($id, $request);
+                if ($this->slideshowService->editSlideshow($id, $request)){
+                    $title = 'Data Berhasil Tersimpan';
+                    $message = 'Selamat data yang anda edit berhasil disimpan';
+                }
 
                 View::redirect('/admin');
-            } catch (\Exception $e) {
+            } catch (ValidationException $exception) {
                 // Handle error jika terjadi kesalahan saat mengedit slideshow
-                View::render('error', [
-                    'title' => 'Error',
-                    'message' => $e->getMessage(),
-                    'admin' => [
-                        'username' => $admin->getUsername()
-                    ]
-                ]);
+                $title = 'Data Gagal Tersimpan';
+                $message = 'Silakan coba lagi untuk menyelesaikan permintaan';
+                $error = $exception->getMessage();
             }
         }
 
@@ -112,6 +116,11 @@ class SlideshowController
             'slideshow' => $slideshow,
             'admin' => [
                 'username' => $admin->getUsername()
+            ],
+            'message' => [
+                'title' => $title,
+                'description' => $message,
+                'error' => $error
             ]
         ]);
     }

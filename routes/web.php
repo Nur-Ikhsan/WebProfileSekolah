@@ -6,6 +6,7 @@ use Rubygroup\WebProfileSekolah\App\Router;
 use Rubygroup\WebProfileSekolah\Config\Database;
 use Rubygroup\WebProfileSekolah\Controller\HomeController;
 use Rubygroup\WebProfileSekolah\Controller\AdminController;
+use Rubygroup\WebProfileSekolah\Controller\SekolahController;
 use Rubygroup\WebProfileSekolah\Controller\SlideshowController;
 
 Database::getConnection('production');
@@ -31,7 +32,9 @@ Router::add('/admin/password', AdminController::class, 'changePassword');
 
 Router::add('/admin/k/k', AdminController::class, 'k');
 
-Router::add('/admin/slideshow/upload', SlideshowController::class, 'uploadSlideshow');
-Router::add('/admin/slideshow', SlideshowController::class, 'viewAllSlideshows');
-Router::add('/admin/slideshow/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', SlideshowController::class, 'delete');
-Router::add('/admin/slideshow/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', SlideshowController::class, 'edit');
+Router::add('/admin/slideshow/tambah', SlideshowController::class, 'tambahSlideshow');
+Router::add('/admin/slideshow/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', SlideshowController::class, 'deleteSlideshow');
+Router::add('/admin/slideshow/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', SlideshowController::class, 'editSlideshow');
+
+Router::add('/admin/sekolah/tentang', SekolahController::class, 'tentang');
+Router::add('/admin/sekolah/tentang/edit', SekolahController::class, 'editSekolah');

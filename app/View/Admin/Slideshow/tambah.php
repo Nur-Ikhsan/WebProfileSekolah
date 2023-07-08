@@ -170,6 +170,7 @@
     </aside>
 
     <main id="main" class="main">
+
         <div id="SweetAlert2">
             <?php if (($model['message']['title'] != null) and ($model['message']['description'] != null)): ?>
                 <?php if ($model['message']['error'] == null): ?>
@@ -208,6 +209,7 @@
                 <?php endif; ?>
             <?php endif; ?>
         </div>
+
         <div class="container">
             <div class="row align-items-center">
 
@@ -226,12 +228,12 @@
             <div class="row align-items-center box-edit">
                 <div class="col-12">
                     <form class="row justify-content-center"
-                          action="/admin/slideshow/edit/<?= $slideshow->getId() ?>" method="post"
+                          action="/admin/slideshow/tambah" method="post"
                           enctype="multipart/form-data">
-                        <h4 class="text-center pb-3">Edit Data Slide Show Beranda</h4>
+                        <h4 class="text-center pb-3">Tambah Data Slide Show Beranda</h4>
                         <div class="" id="drop-zone">
                             <div class="image-wrapper">
-                                <img id="preview-image" src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" alt="">
+                                <img id="preview-image" alt="">
                             </div>
                             <svg id="svg-image" width="48" height="51" viewBox="0 0 48 51" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -247,21 +249,22 @@
                                 </defs>
                             </svg>
                             <p id="upload-message">Select a file or drag here</p>
-                            <p id="button-image" class="button-admin">Pilih Foto</p>
+                            <p id="button-image" class="button-admin px-4">Pilih Foto</p>
                             <input type="file" id="myfile" name="foto" hidden="">
                         </div>
                         <div class="pos-zone row no-gutters">
                             <div class="col-2 p-0"><label for="judul">Judul</label></div>
-                            <div class="col-9 p-0"><input type="text" class="w-100" name="judul" id="judul" class="form-control" value="<?= $slideshow->getJudul() ?>"></div>
+                            <div class="col-9 p-0"><input type="text" class="w-100" name="judul" id="judul"
+                                                          class="form-control" required></div>
                         </div>
                         <div class="pos-zone row no-gutters">
-                            <div class="p-0 d-flex">
+                            <div class="p-0 d-flex ">
                                 <button type="submit" id="button-simpan" class="button-admin px-4">Simpan</button>
-                                <button id="close-button" class="button-admin delete px-4 ml-3 " style="display: none;">
+                                <button id="close-button" class="button-admin delete px-4" style="display: none;">
                                     Hapus Foto
                                 </button>
                                 <a href="/admin"
-                                   class="button-admin batal px-4 ml-3 ">Batal</a>
+                                   class="button-admin batal px-4">Batal</a>
                             </div>
                         </div>
 

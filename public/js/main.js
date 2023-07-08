@@ -76,8 +76,7 @@ inputElement.addEventListener('change', function (e) {
     reader.readAsDataURL(clickFile);
     reader.onloadend = function () {
       const result = reader.result;
-      let src = this.result;
-      img.src = src;
+      img.src = this.result;
       img.alt = clickFile.name;
     };
     showCloseButton();
@@ -90,7 +89,7 @@ dropZone.addEventListener('dragover', e => {
   e.preventDefault();
 });
 
-dropZone.addEventListener('drop', e => {
+dropZone.addEventListener('drop', function (e) {
   e.preventDefault();
   img.style.display = 'block';
   let file = e.dataTransfer.files[0];
@@ -102,11 +101,13 @@ dropZone.addEventListener('drop', e => {
     p.style.display = 'none';
     buttonImage.style.display = 'none';
     svgImage.style.display = 'none';
-    let src = this.result;
-    img.src = src;
+    img.src = this.result;
     img.alt = file.name;
   };
   showCloseButton();
+
+  // Simpan file yang dijatuhkan ke dalam input file
+  inputElement.files = e.dataTransfer.files;
 });
 
 // Periksa apakah src memiliki nilai

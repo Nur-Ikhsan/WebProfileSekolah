@@ -554,7 +554,6 @@
 
 .button-admin {
     display: flex;
-    width: 118px;
     height: 41px;
     padding: 3px 8px 2px 7px;
     justify-content: center;
@@ -565,6 +564,36 @@
     color: #FFF;
     text-align: center;
     font-weight: 700;
+    border: none;
+}
+
+.button-admin.delete {
+    background: #FF0000;
+    color: #FFF;
+    margin-left: 1rem !important
+}
+
+.button-admin.delete:hover {
+    background: #bd2130;
+    color: #FFF;
+    margin-left: 1rem !important
+}
+
+.button-admin.batal {
+    background-color: #6C757D;
+    color: #FFF;
+    margin-left: 1rem !important
+}
+
+.button-admin.batal:hover {
+    background-color: #5d646e;
+    color: #FFF;
+    margin-left: 1rem !important
+}
+
+.button-admin:hover {
+    background: #012970;
+    color: #FFF;
 }
 
 #svg-image {
@@ -595,25 +624,6 @@
     padding: 0;
 }
 
-.button-admin {
-    border: none;
-}
-
-#close-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .close-icon {
     color: #FF0000;
     font-size: 20px;
@@ -622,4 +632,59 @@
 
 .image-wrapper {
     position: relative;
+}
+
+
+.slideshow-table thead tr {
+    background-color: #E9E9E9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slideshow-table i.bi-pencil-square {
+    color: #E7B10A;
+}
+
+.slideshow-table i.bi-trash {
+    color: #FF0000;
+}
+
+.bi-chevron-double-right, .bi-chevron-double-left {
+    color: #31408D;
+}
+
+.modal-headers {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--bs-modal-header-padding);
+    border-top-left-radius: var(--bs-modal-inner-border-radius);
+    border-top-right-radius: var(--bs-modal-inner-border-radius)
+}
+
+.modal-headers .btn-closes {
+    padding: calc(var(--bs-modal-header-padding-y) * .5) calc(var(--bs-modal-header-padding-x) * .5);
+    margin: calc(-.5 * var(--bs-modal-header-padding-y)) calc(-.5 * var(--bs-modal-header-padding-x)) calc(-.5 * var(--bs-modal-header-padding-y)) auto
+}
+
+.btn-closes {
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: .05em .05em;
+    color: #000;
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FF0000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+    border: 0;
+    border-radius: .375rem;
+    opacity: .5
+}
+
+.modal-footer {
+    border-top: none; !important;
+    /*padding: 0; !important; ubah jadi padding bottom saja*/
+    padding-bottom: 20px;
+}
+
+.modal-content {
+    background-color: #F6F9FF;
 }
