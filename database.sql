@@ -44,7 +44,8 @@ CREATE TABLE sekolah (
 CREATE TABLE fasilitas (
                            id_fasilitas VARCHAR(255) PRIMARY KEY,
                            nama_fasilitas VARCHAR(255),
-                           deskripsi TEXT
+                           deskripsi TEXT,
+                           foto VARCHAR(255)
 );
 
 CREATE TABLE kegiatan (

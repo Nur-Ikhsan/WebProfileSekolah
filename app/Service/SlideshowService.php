@@ -85,7 +85,8 @@ class SlideshowService
         // Menghapus data slideshow dari database
         $slideshow = $this->slideshowRepository->findById($id);
         if ($slideshow === null) {
-            throw new \Exception('Slideshow not found');
+            throw new ValidationException('Not Found');
+
         }
         $this->slideshowRepository->delete($slideshow);
 
@@ -102,7 +103,7 @@ class SlideshowService
 
         $slideshow = $this->slideshowRepository->findById($id);
         if ($slideshow === null) {
-            throw new \Exception('Slideshow not found');
+            throw new ValidationException('Not Found');
         }
 
         // Menghapus file foto dari direktori
@@ -127,7 +128,7 @@ class SlideshowService
     {
         $slideshow = $this->slideshowRepository->findById($id);
         if ($slideshow === null) {
-            throw new \Exception('Slideshow not found');
+            throw new ValidationException('Not Found');
         }
 
         return $slideshow;

@@ -80,7 +80,7 @@ class SekolahController
             }
         }
 
-        View::render('Admin/Sekolah/edit', [
+        View::render('Admin/Sekolah/edit-tentang', [
             'title' => 'Edit Sekolah',
             'sekolah' => $sekolah,
             'error' => $error,

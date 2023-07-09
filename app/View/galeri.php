@@ -82,7 +82,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="gallery-item" style="">
                             <img src="images/img1.jpg" alt="Gallery Image 1">
-                            <p>Gambar Lima</p>
+                            <p>Gambar Lima.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">

@@ -108,7 +108,12 @@ class SlideshowController
             }
         }
 
-        $slideshow = $this->slideshowService->getSlideshowById($id);
+        try {
+            $slideshow = $this->slideshowService->getSlideshowById($id);
+        } catch (ValidationException $e) {
+            View::render404();
+            return;
+        }
 
         View::render('Admin/Slideshow/edit', [
             'title' => 'Edit Slideshow',

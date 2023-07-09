@@ -26,8 +26,6 @@
 
     <link href="/css/sch_mtsn2sambas.css" rel="stylesheet">
 
-    <link href="/css/style.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

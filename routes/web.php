@@ -4,6 +4,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Rubygroup\WebProfileSekolah\App\Router;
 use Rubygroup\WebProfileSekolah\Config\Database;
+use Rubygroup\WebProfileSekolah\Controller\FasilitasController;
+use Rubygroup\WebProfileSekolah\Controller\GuruStaffController;
 use Rubygroup\WebProfileSekolah\Controller\HomeController;
 use Rubygroup\WebProfileSekolah\Controller\AdminController;
 use Rubygroup\WebProfileSekolah\Controller\SekolahController;
@@ -30,7 +32,7 @@ Router::add('/admin/register', AdminController::class, 'register');
 Router::add('/admin/login', AdminController::class, 'login');
 Router::add('/admin/logout', AdminController::class, 'logout');
 Router::add('/admin/profile', AdminController::class, 'editProfile');
-Router::add('/admin/password', AdminController::class, 'changePassword');
+Router::add('/admin/ganti-password', AdminController::class, 'changePassword');
 
 Router::add('/admin/k/k', AdminController::class, 'k');
 
@@ -40,3 +42,13 @@ Router::add('/admin/slideshow/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}
 
 Router::add('/admin/sekolah/tentang', SekolahController::class, 'tentang');
 Router::add('/admin/sekolah/tentang/edit', SekolahController::class, 'editSekolah');
+
+Router::add('/admin/sekolah/fasilitas', FasilitasController::class, 'showFasilitas');
+Router::add('/admin/sekolah/fasilitas/tambah', FasilitasController::class, 'tambahFasilitas');
+Router::add('/admin/sekolah/fasilitas/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', FasilitasController::class, 'editFasilitas');
+Router::add('/admin/sekolah/fasilitas/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', FasilitasController::class, 'deleteFasilitas');
+
+Router::add('/admin/sekolah/guru-staff', GuruStaffController::class, 'showGuruStaff');
+Router::add('/admin/sekolah/guru-staff/tambah', GuruStaffController::class, 'tambahGuruStaff');
+Router::add('/admin/sekolah/guru-staff/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', GuruStaffController::class, 'editGuruStaff');
+Router::add('/admin/sekolah/guru-staff/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', GuruStaffController::class, 'deleteGuruStaff');

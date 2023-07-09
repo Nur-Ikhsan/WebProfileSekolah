@@ -74,55 +74,55 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/admin">
+                <a class="nav-link " href="/admin">
                     <i class="bi bi-grid "></i>
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#" aria-expanded="true">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-building"></i><span>Profil Sekolah</span><i
                             class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a class="nav-link" href="/admin/sekolah/tentang">
+                        <a href="/admin/sekolah/tentang">
                             <i class="bi bi-circle"></i><span>Tentang</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-accordion.html">
+                        <a href="/admin/sekolah/fasilitas">
                             <i class="bi bi-circle"></i><span>Fasilitas</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-badges.html">
+                        <a href="/admin/sekolah/kegiatan-sekolah">
                             <i class="bi bi-circle"></i><span>Kegiatan Sekolah</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-breadcrumbs.html">
+                        <a href="/admin/sekolah/visi-misi">
                             <i class="bi bi-circle"></i><span>Visi dan Misi</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-buttons.html">
+                        <a href="/admin/sekolah/guru-staff">
                             <i class="bi bi-circle"></i><span>Guru dan Staff</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-cards.html">
+                        <a href="/admin/sekolah/ekstrakurikuler">
                             <i class="bi bi-circle"></i><span>Ekstrakurikuler</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-carousel.html">
+                        <a href="/admin/sekolah/struktur-organisasi">
                             <i class="bi bi-circle"></i><span>Struktur Organisasi</span>
                         </a>
                     </li>
                     <li>
-                        <a href="components-list-group.html">
+                        <a href="/admin/sekolah/prestasi">
                             <i class="bi bi-circle"></i><span>Prestasi</span>
                         </a>
                     </li>
@@ -131,28 +131,28 @@
             </li><!-- End Profile Sekolah Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="users-profile.html">
+                <a class="nav-link collapsed" href="/admin/kurikulum">
                     <i class="bi bi-layout-text-window-reverse"></i>
                     <span>Kurikulum</span>
                 </a>
             </li><!-- End Kurikulum Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-faq.html">
+                <a class="nav-link collapsed" href="/admin/berita">
                     <i class="bi bi-newspaper"></i>
-                    <span>Bertia</span>
+                    <span>Berita</span>
                 </a>
             </li><!-- End Berita Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-contact.html">
+                <a class="nav-link collapsed" href="/admin/galeri">
                     <i class="bi bi-images"></i>
                     <span>Galeri</span>
                 </a>
             </li><!-- End Galeri Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.html">
+                <a class="nav-link collapsed" href="/admin/check-register">
                     <i class="bi bi-person-check"></i>
                     <span>Check Register</span>
                 </a>
