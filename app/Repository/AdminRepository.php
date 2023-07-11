@@ -3,10 +3,14 @@
 namespace Rubygroup\WebProfileSekolah\Repository;
 
 use Rubygroup\WebProfileSekolah\Entity\Admin;
+use Rubygroup\WebProfileSekolah\Entity\GuruStaff;
+
 
 class AdminRepository
 {
     private \PDO $connection;
+    private GuruStaff $guruStaff;
+    private GuruStaffRepository $guruStaffRepository;
 
     public function __construct(\PDO $connection)
     {
@@ -14,11 +18,13 @@ class AdminRepository
     }
 
     public function save(Admin $admin): Admin{
-        $statement = $this->connection->prepare('INSERT INTO admin (username, password) VALUES (?, ?)');
+        $statement = $this->connection->prepare('INSERT INTO admin (id, username, password, id_guru_staff) VALUES (?, ?, ?, ?)');
         $statement
             ->execute([
+                $admin->getId(),
                 $admin->getUsername(),
-                $admin->getPassword()
+                $admin->getPassword(),
+                $admin->getGuruStaff()->getIdGuruStaff()
             ]);
         return $admin;
     }
@@ -46,7 +52,7 @@ class AdminRepository
         $this->connection->exec('DELETE FROM admin');
     }
 
-    public function findById(string $getAdminId)
+    public function findById(string $getAdminId) : ?Admin
     {
         $statement = $this->connection->prepare('SELECT * FROM admin WHERE id = ?');
         $statement->execute([$getAdminId]);
@@ -60,9 +66,25 @@ class AdminRepository
             $admin->setId((int)$row['id']);
             $admin->setUsername((string)$row['username']);
             $admin->setPassword((string)$row['password']);
+
+            $this->guruStaffRepository = new GuruStaffRepository($this->connection);
+            $this->guruStaff = $this->guruStaffRepository->findById((string)$row['id_guru_staff']);
+            $admin->setGuruStaff($this->guruStaff);
+
             return $admin;
         } finally {
             $statement->closeCursor();
         }
+    }
+
+    // change password
+    public function updatePassword(Admin $admin): Admin
+    {
+        $statement = $this->connection->prepare('UPDATE admin SET password = ? WHERE id = ?');
+        $statement->execute([
+            $admin->getPassword(),
+            $admin->getId()
+        ]);
+        return $admin;
     }
 }

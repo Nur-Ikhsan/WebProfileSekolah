@@ -7,20 +7,29 @@ use Rubygroup\WebProfileSekolah\Config\Database;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\AdminRequest;
 use Rubygroup\WebProfileSekolah\Repository\AdminRepository;
+use Rubygroup\WebProfileSekolah\Repository\GuruStaffRepository;
 use Rubygroup\WebProfileSekolah\Repository\SessionRepository;
+use Rubygroup\WebProfileSekolah\Repository\SlideshowRepository;
 use Rubygroup\WebProfileSekolah\Service\AdminService;
+use Rubygroup\WebProfileSekolah\Service\GuruStaffService;
 use Rubygroup\WebProfileSekolah\Service\SessionService;
+use Rubygroup\WebProfileSekolah\Service\SlideshowService;
 
 class AdminController
 {
     private AdminService $adminService;
     private SessionService $sessionService;
+    private SlideshowService $slideshowService;
+    private GuruStaffService $guruStaffService;
 
     public function __construct()
     {
         $connection = Database::getConnection();
         $adminRepository = new AdminRepository($connection);
         $this->adminService = new AdminService($adminRepository);
+        $slideshowRepository = new SlideshowRepository($connection);
+        $this->slideshowService = new SlideshowService($slideshowRepository);
+        $this->guruStaffService = new GuruStaffService(new GuruStaffRepository($connection));
 
         $sessionRepository = new SessionRepository($connection);
         $this->sessionService = new SessionService($sessionRepository, $adminRepository);
@@ -28,28 +37,48 @@ class AdminController
 
     public function index(): void
     {
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 10;
+        // Menghitung total jumlah slideshow
+        $totalCount = count($this->slideshowService->getAllSlideshows());
+        $slideshows = $this->slideshowService->getAllSlideshowsPagination($page, $perPage);
         $admin = $this->sessionService->findSession();
         if ($admin === null) {
             View::redirect('/admin/login');
         } else {
             View::render('Admin/index', [
                 'title' => 'Dashboard Admin',
+                'slideshows' => $slideshows,
                 'admin' => [
-                    'username' => $admin->getUsername()
+                    'id' => $admin->getId(),
+                    'username' => $admin->getUsername(),
+                    'nama' => $admin->getGuruStaff()->getNamaGuru(),
+                    'jabatan' => $admin->getGuruStaff()->getJabatan(),
+                    'foto' => $admin->getGuruStaff()->getFoto()
+                ],
+                'pagination' => [
+                    'page' => $page,
+                    'perPage' => $perPage,
+                    'totalCount' => $totalCount,
+                    'totalPages' => ceil($totalCount / $perPage)
                 ]
             ]);
         }
     }
 
+
     public function register(): void
     {
         $admin = $this->sessionService->findSession();
+        $guruStaff = $this->guruStaffService->getAllGuruStaff();
         $request = new AdminRequest();
         $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $request->username = $_POST['username'];
             $request->password = $_POST['password'];
+            $guruStaff = $this->guruStaffService->getGuruStaffById($_POST['id_guru_staff']);
+            $request->guruStaff = $guruStaff;
 
             try {
                 $this->adminService->register($request);
@@ -65,7 +94,8 @@ class AdminController
 
         View::render('Admin/register', [
             'title' => 'Register Admin',
-            'error' => $error
+            'error' => $error,
+            'guruStaff' => $guruStaff
         ]);
     }
 
@@ -140,34 +170,32 @@ class AdminController
     public function changePassword(): void
     {
         $admin = $this->sessionService->findSession();
-        $request = new AdminRequest();
         $error = null;
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $request->password = $_POST['password'];
-            $request->newPassword = $_POST['newPassword'];
-            $request->confirmNewPassword = $_POST['confirmNewPassword'];
-
-            try {
-                $this->adminService->changePassword($request, $admin->getId());
-                View::redirect('/admin/profile');
-            } catch (ValidationException $exception) {
-                $error = $exception->getMessage();
-            }
-        }
 
         if ($admin === null) {
             View::redirect('/admin/login');
         }
 
 
-        View::render('Admin/changePassword', [
-            'title' => 'Change Password Admin',
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $oldPassword = $_POST['oldPassword'];
+            $newPassword = $_POST['newPassword'];
+            $confirmNewPassword = $_POST['confirmNewPassword'];
+
+            try {
+                $this->adminService->gantiPassword($admin->getUsername(), $oldPassword, $newPassword, $confirmNewPassword);
+                View::redirect('/admin');
+            } catch (ValidationException $exception) {
+                $error = $exception->getMessage();
+            }
+        }
+
+        View::render('Admin/ganti-password', [
+            'title' => 'Ganti Password',
+            'error' => $error,
             'admin' => [
                 'username' => $admin->getUsername()
             ],
-            'error' => $error
         ]);
-
     }
 }

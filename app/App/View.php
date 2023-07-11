@@ -21,4 +21,11 @@ class View
             exit();
         }
     }
+
+    // buat static render 404
+    public static function render404(): void
+    {
+        http_response_code(404);
+        View::render('404');
+    }
 }

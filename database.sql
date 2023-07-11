@@ -35,9 +35,8 @@ CREATE TABLE sekolah (
                          telepon VARCHAR(20),
                          email VARCHAR(255),
                          website VARCHAR(255),
-                         visi TEXT,
-                         misi TEXT,
-                         struktur_organisasi VARCHAR(255)
+                         judul_pengantar VARCHAR(255),
+                         deskripsi TEXT
 );
 
 
@@ -45,7 +44,8 @@ CREATE TABLE sekolah (
 CREATE TABLE fasilitas (
                            id_fasilitas VARCHAR(255) PRIMARY KEY,
                            nama_fasilitas VARCHAR(255),
-                           deskripsi TEXT
+                           deskripsi TEXT,
+                           foto VARCHAR(255)
 );
 
 CREATE TABLE kegiatan (
@@ -82,22 +82,56 @@ CREATE TABLE berita (
                         foto VARCHAR(255)
 );
 
-ALTER TABLE fasilitas ADD COLUMN id_sekolah INT;
+CREATE TABLE Prestasi (
+                          id_prestasi VARCHAR(255) PRIMARY KEY,
+                          tanggal DATE,
+                          kategori VARCHAR(255),
+                          nama_prestasi VARCHAR(255)
+);
+
+CREATE TABLE `ket_sekolah` (
+                                      id VARCHAR(255) PRIMARY KEY,
+                                      struktur_organisasi VARCHAR(255),
+                                      nama_kurikulum VARCHAR(255),
+                                      deskripsi_kurikulum VARCHAR(255),
+                                      visi VARCHAR(255),
+                                      misi VARCHAR(255)
+);
+
+CREATE TABLE Kurikulum (
+                           id_kurikulum VARCHAR(255) PRIMARY KEY,
+                           komponen VARCHAR(255),
+                           sub_komponen VARCHAR(255),
+                           kategori VARCHAR(255),
+                           alokasi_waktu INT,
+                           kelas VARCHAR(255),
+                           id_sekolah VARCHAR(255),
+                           FOREIGN KEY (id_sekolah) REFERENCES Sekolah (id_sekolah)
+);
+
+ALTER TABLE fasilitas ADD COLUMN id_sekolah VARCHAR(255);
 ALTER TABLE fasilitas ADD CONSTRAINT fk_fasilitas_sekolah FOREIGN KEY (id_sekolah) REFERENCES sekolah(id_sekolah);
 
-ALTER TABLE kegiatan ADD COLUMN id_sekolah INT;
+ALTER TABLE kegiatan ADD COLUMN id_sekolah VARCHAR(255);
 ALTER TABLE kegiatan ADD CONSTRAINT fk_kegiatan_sekolah FOREIGN KEY (id_sekolah) REFERENCES sekolah (id_sekolah);
 
-ALTER TABLE guru_staff ADD COLUMN id_sekolah INT;
+ALTER TABLE guru_staff ADD COLUMN id_sekolah VARCHAR(255);
 ALTER TABLE guru_staff ADD CONSTRAINT fk_gurustaff_sekolah FOREIGN KEY (id_sekolah) REFERENCES sekolah (id_sekolah);
 
-ALTER TABLE galeri ADD COLUMN id_sekolah INT;
+ALTER TABLE galeri ADD COLUMN id_sekolah VARCHAR(255);
 ALTER TABLE galeri ADD CONSTRAINT fk_galeri_sekolah FOREIGN KEY (id_sekolah) REFERENCES sekolah (id_sekolah);
 
-ALTER TABLE berita ADD COLUMN id_sekolah INT;
+ALTER TABLE berita ADD COLUMN id_sekolah VARCHAR(255);
 ALTER TABLE berita ADD CONSTRAINT fk_berita_sekolah FOREIGN KEY (id_sekolah) REFERENCES sekolah (id_sekolah);
 
-ALTER TABLE admin ADD COLUMN id_guru INT;
+ALTER TABLE prestasi ADD COLUMN id_sekolah VARCHAR(255);
+ALTER TABLE prestasi ADD CONSTRAINT fk_sekolah_prestasi FOREIGN KEY (id_sekolah) REFERENCES Sekolah (id_sekolah);
+
+ALTER TABLE ket_sekolah ADD COLUMN id_sekolah VARCHAR(255);
+ALTER TABLE ket_sekolah ADD CONSTRAINT fk_sekolah_ket_sekolah FOREIGN KEY (id_sekolah) REFERENCES Sekolah (id_sekolah);
+
+
+ALTER TABLE admin ADD COLUMN id_guru_staff VARCHAR(255);
 ALTER TABLE admin ADD CONSTRAINT fk_admin_guru_staff FOREIGN KEY (id_guru_staff) REFERENCES guru_staff (id_guru_staff);
 
 

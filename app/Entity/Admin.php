@@ -6,6 +6,23 @@ class Admin
     private string $id;
     private string $username;
     private string $password;
+    private GuruStaff $guruStaff;
+
+    /**
+     * @return GuruStaff
+     */
+    public function getGuruStaff(): GuruStaff
+    {
+        return $this->guruStaff;
+    }
+
+    /**
+     * @param GuruStaff $guruStaff
+     */
+    public function setGuruStaff(GuruStaff $guruStaff): void
+    {
+        $this->guruStaff = $guruStaff;
+    }
 
     /**
      * @return string|null
