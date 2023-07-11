@@ -82,19 +82,19 @@
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="gallery-item" style="">
                             <img src="images/img1.jpg" alt="Gallery Image 1">
-                            <p>Gambar Lima</p>
+                            <p>Nama Kegiatan</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="gallery-item" style="">
                             <img src="images/img2.jpg" alt="Gallery Image 2">
-                            <p>Gambar Lima</p>
+                            <p>Nama Kegiatan</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="gallery-item" style="">
                             <img src="images/img1.jpg" alt="Gallery Image 3">
-                            <p>Gambar Lima</p>
+                            <p>Nama Kegiatan</p>
                         </div>
                     </div>
 
@@ -114,7 +114,7 @@
                     </li>
 
                     <li class="page-item">
-                        <a class="page-link" href="#">2</a>
+                        <a class="page-link" href="/galeri2">2</a>
                     </li>
 
                     <li class="page-item">
