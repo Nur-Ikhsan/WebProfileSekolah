@@ -82,12 +82,15 @@ CREATE TABLE slideshow
     foto            VARCHAR(255)
 );
 
+drop table berita;
+
 CREATE TABLE berita
 (
     id_berita    VARCHAR(255) PRIMARY KEY,
+    tanggal       DATE,
     judul_berita VARCHAR(255),
-    deskripsi    TEXT,
-    foto         VARCHAR(255)
+    foto         VARCHAR(255),
+    isi_berita    TEXT
 );
 
 CREATE TABLE Prestasi

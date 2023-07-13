@@ -61,11 +61,11 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true" href="#">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-building"></i><span>Profil Sekolah</span><i
-                            class="bi bi-chevron-down ms-auto"></i>
+                        class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="/admin/sekolah/tentang">
                             <i class="bi bi-circle"></i><span>Tentang</span>
@@ -87,7 +87,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="/admin/sekolah/guru-staff">
+                        <a href="/admin/sekolah/guru-staff">
                             <i class="bi bi-circle"></i><span>Guru dan Staff</span>
                         </a>
                     </li>
@@ -125,7 +125,7 @@
             </li><!-- End Berita Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/admin/galeri">
+                <a class="nav-link" href="/admin/galeri">
                     <i class="bi bi-images"></i>
                     <span>Galeri</span>
                 </a>
@@ -166,7 +166,7 @@
                         }
                       }).then(function (result) {
                         if (result.isConfirmed) {
-                          window.location.href = '/admin/sekolah/guru-staff';
+                          window.location.href = '/admin/galeri';
                         }
                       });
                     </script>
@@ -185,7 +185,7 @@
                         }
                       }).then(function (result) {
                         if (result.isConfirmed) {
-                          window.location.href = '/admin/sekolah/guru-staff';
+                          window.location.href = '/admin/galeri';
                         }
                       });
                     </script>
@@ -195,94 +195,81 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-5 col-lg-12">
-                    <h4 class="secondary-color">Guru & Staff</h4>
+                    <h4 class="secondary-color">Galeri</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/index">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Profile Sekolah</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Guru & Staff</li>
+                            <li class="breadcrumb-item active" aria-current="page">Galeri</li>
                         </ol>
                     </nav>
                 </div>
             </div>
             <div class="row align-items-center box-edit">
                 <div class="col-12">
-                    <h4 class="text-center pb-3">Daftar Guru & Staff</h4>
+                    <h4 class="text-center pb-3">Daftar Galeri</h4>
                     <div>
                         <div class="col-12 p-0 justify-content-end d-flex">
                             <button type="button" class="button-admin mb-1" data-bs-toggle="modal"
-                                    data-bs-target="#tambahGuruStaffModal">
+                                    data-bs-target="#tambahGaleriModal">
                                 <span class="p-4"><i class="bi bi-plus-circle"></i><span class="m-3">Tambah Data</span></span>
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table guru-staff-table">
+                    <table class="table galeri-table">
                         <thead>
                         <tr>
                             <th scope="col" class="py-3 text-center">No</th>
-                            <th scope="col" class="py-3 text-center">Foto</th>
-                            <th scope="col" class="py-3 text-center">Nama Guru/Staff</th>
-                            <th scope="col" class="py-3 text-center">Jabatan</th>
+                            <th scope="col" class="py-3 text-center">Judul Galeri</th>
+                            <th scope="col" class="py-3 text-center">Gambar</th>
+                            <th scope="col" class="py-3 text-center">Nama Kegiatan</th>
                             <th scope="col" class="py-3 text-center">Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($model['guruStaffList'] as $index => $guruStaff) : ?>
-                        <?php $index -= 1; if ($guruStaff->getJabatan() != 'ADMIN') { ?>
+                        <?php foreach ($model['galeriList'] as $index => $galeri) : ?>
                                 <tr>
-                                    <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
+                                    <td class="text-center"><?= ($index + 1) ?></td>
+                                    <td><?= $galeri->getJudulGaleri() ?></td>
                                     <td class="text-center">
-                                        <img src="/images/upload/guru-staff/<?= $guruStaff->getFoto() ?>"
+                                        <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>"
                                              alt="Foto Guru/Staff" width="100">
                                     </td>
-                                    <td><?= $guruStaff->getNamaGuru() ?></td>
-                                    <td><?= $guruStaff->getJabatan() ?></td>
+                                    <td><?= $galeri->getDeskripsi() ?></td>
                                     <td class="text-center">
                                         <a href="#" data-bs-toggle="modal"
-                                           data-bs-target="#editGuruStaffModal<?= $guruStaff->getIdGuruStaff() ?>">
+                                           data-bs-target="#editGaleriModal<?= $galeri->getIdGaleri() ?>">
                                             <i class="bi bi-pencil-square"></i>
                                         </a> |
                                         <a href="#" data-bs-toggle="modal"
-                                           data-bs-target="#deleteGuruStaffModal<?= $guruStaff->getIdGuruStaff() ?>">
+                                           data-bs-target="#deleteGaleriModal<?= $galeri->getIdGaleri() ?>">
                                             <i class="bi bi-trash"></i>
                                         </a>
                                     </td>
                                 </tr>
 
                                 <!-- Edit Guru/Staff Modal -->
-                                <div class="modal fade" id="editGuruStaffModal<?= $guruStaff->getIdGuruStaff() ?>"
-                                     tabindex="-1" aria-labelledby="editGuruStaffModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="editGaleriModal<?= $galeri->getIdGaleri() ?>" tabindex="-1" aria-labelledby="editGaleriModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="editGuruStaffModalLabel">Edit Guru &
-                                                    Staff</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
+                                                <h5 class="modal-title" id="editGaleriLabel">Edit Galeri</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <form method="POST"
-                                                      action="/admin/sekolah/guru-staff/edit/<?= $guruStaff->getIdGuruStaff() ?>"
-                                                      enctype="multipart/form-data">
-                                                    <input type="hidden" name="_method" value="PUT">
+                                                <form action="/admin/galeri/edit/<?= $galeri->getIdGaleri() ?>" method="POST" enctype="multipart/form-data">
                                                     <div class="mb-3">
-                                                        <label for="edit-nama" class="form-label">Nama
-                                                            Guru/Staff</label>
-                                                        <input type="text" class="form-control" id="edit-nama"
-                                                               name="namaGuru" required
-                                                               value="<?= $guruStaff->getNamaGuru() ?>">
+                                                        <label for="editJudulGaleri" class="form-label">Judul Galeri</label>
+                                                        <input type="text" class="form-control" id="editJudulGaleri" name="judul" value="<?= $galeri->getJudulGaleri() ?>" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="edit-jabatan" class="form-label">Jabatan</label>
-                                                        <textarea class="form-control" id="edit-jabatan" name="jabatan"
-                                                                  required><?= $guruStaff->getJabatan() ?></textarea>
+                                                        <label for="editDeskripsi" class="form-label">Nama Kegiatan</label>
+                                                        <textarea class="form-control" id="editDeskripsi" name="deskripsi" required><?= $galeri->getDeskripsi() ?></textarea>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="edit-foto" class="form-label">Gambar</label>
-                                                        <input type="file" class="form-control" id="edit-foto"
-                                                               name="foto" value="<?= $guruStaff->getFoto() ?>">
+                                                        <label for="editFoto" class="form-label">Foto</label>
+                                                        <input type="file" class="form-control" id="editFoto" name="foto">
                                                     </div>
                                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                                 </form>
@@ -292,33 +279,24 @@
                                 </div>
 
                                 <!-- Delete Guru/Staff Modal -->
-                                <div class="modal fade" id="deleteGuruStaffModal<?= $guruStaff->getIdGuruStaff() ?>"
-                                     tabindex="-1" aria-labelledby="deleteGuruStaffModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteGaleriModal<?= $galeri->getIdGaleri() ?>" tabindex="-1" aria-labelledby="deleteGaleriModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-headers">
-                                                <button class="close-icon btn-closes" type="button"
-                                                        data-bs-dismiss="modal" aria-label="Close"
-                                                        id="modalCloseButton"></button>
+                                                <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal" aria-label="Close" id="modalCloseButton"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus
-                                                    Data Slide Show Beranda?</h6>
+                                                <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data Galeri?</h6>
                                                 <br>
-                                                <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data
-                                                    ini?</p>
+                                                <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
                                             </div>
                                             <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary pl-4"
-                                                        data-bs-dismiss="modal">Batal
-                                                </button>
-                                                <a href="/admin/sekolah/guru-staff/delete/<?= $guruStaff->getIdGuruStaff() ?>"
-                                                   class="btn btn-danger px-4">Hapus</a>
+                                                <button type="button" class="btn btn-secondary pl-4" data-bs-dismiss="modal">Batal</button>
+                                                <a href="/admin/galeri/delete/<?= $galeri->getIdGaleri() ?>" class="btn btn-danger px-4">Hapus</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            <?php } ?>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -393,22 +371,22 @@
     </footer>
 </div>
 <!-- Tambah Guru/Staff Modal -->
-<div class="modal fade" id="tambahGuruStaffModal" tabindex="-1" aria-labelledby="tambahGuruStaffModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahGaleriModal" tabindex="-1" aria-labelledby="tambahGuruStaffModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tambahGuruStaffModalLabel">Tambah Guru & Staff</h5>
+                <h5 class="modal-title" id="tambahGalerModalLabel">Tambah Galeri</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/admin/sekolah/guru-staff/tambah" enctype="multipart/form-data">
+                <form action="/admin/galeri/tambah" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Guru/Staff</label>
-                        <input type="text" class="form-control" id="namaGuru" name="namaGuru" required>
+                        <label for="judulGaleri" class="form-label">Judul Galeri</label>
+                        <input type="text" class="form-control" id="judulGaleri" name="judul" required>
                     </div>
                     <div class="mb-3">
-                        <label for="deskripsi" class="form-label">Jabatan</label>
-                        <textarea class="form-control" id="jabatan" name="jabatan" required></textarea>
+                        <label for="deskripsi" class="form-label">Nama Kegiatan</label>
+                        <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="foto" class="form-label">Gambar</label>

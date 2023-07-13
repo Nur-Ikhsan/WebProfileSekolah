@@ -6,6 +6,7 @@ use Rubygroup\WebProfileSekolah\App\Router;
 use Rubygroup\WebProfileSekolah\Config\Database;
 use Rubygroup\WebProfileSekolah\Controller\EkstrakurikulerController;
 use Rubygroup\WebProfileSekolah\Controller\FasilitasController;
+use Rubygroup\WebProfileSekolah\Controller\GaleriController;
 use Rubygroup\WebProfileSekolah\Controller\GuruStaffController;
 use Rubygroup\WebProfileSekolah\Controller\HomeController;
 use Rubygroup\WebProfileSekolah\Controller\AdminController;
@@ -77,3 +78,8 @@ Router::add('/admin/sekolah/prestasi', PrestasiController::class, 'showPrestasiP
 Router::add('/admin/sekolah/prestasi/tambah', PrestasiController::class, 'tambahPrestasi');
 Router::add('/admin/sekolah/prestasi/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', PrestasiController::class, 'editPrestasi');
 Router::add('/admin/sekolah/prestasi/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', PrestasiController::class, 'deletePrestasi');
+
+Router::add('/admin/galeri', GaleriController::class, 'showGaleriPagination');
+Router::add('/admin/galeri/tambah', GaleriController::class, 'tambahGaleri');
+Router::add('/admin/galeri/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', GaleriController::class, 'editGaleri');
+Router::add('/admin/galeri/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', GaleriController::class, 'deleteGaleri');

@@ -4,44 +4,43 @@ namespace Rubygroup\WebProfileSekolah\Controller;
 
 use Rubygroup\WebProfileSekolah\App\View;
 use Rubygroup\WebProfileSekolah\Config\Database;
-use Rubygroup\WebProfileSekolah\Entity\GuruStaff;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
-use Rubygroup\WebProfileSekolah\Model\GuruStaffRequest;
+use Rubygroup\WebProfileSekolah\Model\GaleriRequest;
 use Rubygroup\WebProfileSekolah\Repository\AdminRepository;
-use Rubygroup\WebProfileSekolah\Repository\GuruStaffRepository;
+use Rubygroup\WebProfileSekolah\Repository\GaleriRepository;
 use Rubygroup\WebProfileSekolah\Repository\SessionRepository;
-use Rubygroup\WebProfileSekolah\Service\GuruStaffService;
+use Rubygroup\WebProfileSekolah\Service\GaleriService;
 use Rubygroup\WebProfileSekolah\Service\SessionService;
 
-class GuruStaffController
+class GaleriController
 {
-    private GuruStaffService $guruStaffService;
+    private GaleriService $galeriService;
     private SessionService $sessionService;
 
     public function __construct()
     {
         $connection = Database::getConnection();
-        $guruStaffRepository = new GuruStaffRepository($connection);
+        $GaleriRepository = new GaleriRepository($connection);
         $adminRepository = new AdminRepository($connection);
-        $this->guruStaffService = new GuruStaffService($guruStaffRepository);
+        $this->galeriService = new GaleriService($GaleriRepository);
 
         $sessionRepository = new SessionRepository($connection);
         $this->sessionService = new SessionService($sessionRepository, $adminRepository);
     }
 
-    public function showGuruStaffPagination($title = null, $message = null, $error = null): void
+    public function showGaleriPagination($title = null, $message = null, $error = null): void
     {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 10;
 
-        $totalCount = count($this->guruStaffService->getAllGuruStaff());
-        $GuruStaffList = $this->guruStaffService->getAllGuruStaffPagination($page, $perPage);
+        $totalCount = count($this->galeriService->getAllGaleri());
+        $galeriList = $this->galeriService->getAllGaleriPagination($page, $perPage);
         $admin = $this->sessionService->findSession();
         if ($admin === null) {
             View::redirect('/admin/login');
         } else {
-            View::render('Admin/Sekolah/guru-staff', [
-                'title' => 'Daftar Guru & Staff',
+            View::render('Admin/Galeri/galeri', [
+                'title' => 'Daftar Galeri',
                 'admin' => [
                     'id' => $admin->getId(),
                     'username' => $admin->getUsername(),
@@ -49,7 +48,7 @@ class GuruStaffController
                     'jabatan' => $admin->getGuruStaff()->getJabatan(),
                     'foto' => $admin->getGuruStaff()->getFoto()
                 ],
-                'guruStaffList' => $GuruStaffList,
+                'galeriList' => $galeriList,
                 'pagination' => [
                     'page' => $page,
                     'perPage' => $perPage,
@@ -62,23 +61,22 @@ class GuruStaffController
                 ]
             ]);
         }
-
     }
 
-    public function tambahGuruStaff(): void
+    public function tambahGaleri(): void
     {
-        $request = new GuruStaffRequest();
+        $request = new GaleriRequest();
         $title = null;
         $message = null;
         $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $request->namaGuru = $_POST['namaGuru'];
-            $request->jabatan = $_POST['jabatan'];
+            $request->judulGaleri = $_POST['judul'];
+            $request->deskripsi = $_POST['deskripsi'];
             $request->foto = $_FILES['foto'];
 
             try {
-                if ($this->guruStaffService->createGuruStaff($request)) {
+                if ($this->galeriService->createGaleri($request)) {
                     $title = 'Data Berhasil Tersimpan';
                     $message = 'Selamat data yang Anda tambah berhasil disimpan';
                 }
@@ -89,25 +87,25 @@ class GuruStaffController
             }
         }
 
-        $this->showGuruStaffPagination($title, $message, $error);
+        $this->showGaleriPagination($title, $message, $error);
     }
 
-    public function editGuruStaff(string $id): void
+    public function editGaleri(string $id): void
     {
-        $request = new GuruStaffRequest();
+        $request = new GaleriRequest();
         $title = null;
         $message = null;
         $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $request->namaGuru = $_POST['namaGuru'];
-            $request->jabatan = $_POST['jabatan'];
+            $request->judulGaleri = $_POST['judul'];
+            $request->deskripsi = $_POST['deskripsi'];
             $request->foto = $_FILES['foto'];
 
             try {
-                if ($this->guruStaffService->updateGuruStaff($id, $request)) {
+                if ($this->galeriService->updateGaleri($id, $request)) {
                     $title = 'Data Berhasil Tersimpan';
-                    $message = 'Selamat data yang Anda edit berhasil disimpan';
+                    $message = 'Selamat data yang Anda tambah berhasil disimpan';
                 }
             } catch (ValidationException $exception) {
                 $title = 'Data Gagal Tersimpan';
@@ -116,16 +114,16 @@ class GuruStaffController
             }
         }
 
-        $this->showGuruStaffPagination($title, $message, $error);
+        $this->showGaleriPagination($title, $message, $error);
     }
 
-    public function deleteGuruStaff(string $id): void
+    public function deleteGaleri(string $id): void
     {
         $title = null;
         $message = null;
         $error = null;
         try {
-            if ($this->guruStaffService->deleteGuruStaff($id)) {
+            if ($this->galeriService->deleteGaleri($id)) {
                 $title = 'Data Berhasil Terhapus';
                 $message = 'Selamat data Anda berhasil dihapus';
             }
@@ -134,9 +132,6 @@ class GuruStaffController
             $message = 'Silakan coba lagi untuk menyelesaikan permintaan';
             $error = $exception->getMessage();
         }
-
-        $this->showGuruStaffPagination($title, $message, $error);
+        $this->showGaleriPagination($title, $message, $error);
     }
-
-
 }
