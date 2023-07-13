@@ -25,7 +25,7 @@ Router::add('/visi-misi', HomeController::class, 'visiMisi');
 Router::add('/tujuan', HomeController::class, 'tujuan');
 Router::add('/kurikulum', HomeController::class, 'kurikulum');
 Router::add('/galeri', HomeController::class, 'galeri');
-
+Router::add('/struktur-organisasi', HomeController::class, 'strukturOrganisasi');
 
 
 // Rute untuk admin

@@ -69,6 +69,13 @@ function kurikulum(): void
             ]
         );
     }
+    function strukturOrganisasi(): void
+    {
+        View::render('struktur-organisasi',[
+                'title' => 'Struktur Organisasi Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
 
 
 
