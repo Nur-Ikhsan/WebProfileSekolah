@@ -14,7 +14,7 @@ class SlideshowRepository
         $this->connection = $connection;
     }
 
-    public function save(Slideshow $slideshow): Slideshow
+    public function saveSlideshow(Slideshow $slideshow): Slideshow
     {
         $statement = $this->connection->prepare('INSERT INTO slideshow (id_slideshow, judul_slideshow, foto) VALUES (?, ?, ?)');
         $statement->execute([
@@ -26,7 +26,7 @@ class SlideshowRepository
         return $slideshow;
     }
 
-    public function getAllPagination(int $limit, int $offset): array
+    public function getAllSlideshowsPagination(int $limit, int $offset): array
     {
         $statement = $this->connection->prepare('SELECT * FROM slideshow ORDER BY judul_slideshow LIMIT :limit OFFSET :offset');
         $statement->bindValue(':limit', $limit, PDO::PARAM_INT);
@@ -47,13 +47,13 @@ class SlideshowRepository
     }
 
 
-    public function delete(Slideshow $slideshow): void
+    public function deleteSlideshow(Slideshow $slideshow): void
     {
         $statement = $this->connection->prepare('DELETE FROM slideshow WHERE id_slideshow = ?');
         $statement->execute([$slideshow->getId()]);
     }
 
-    public function findById(string $id): ?Slideshow
+    public function findSlideshowById(string $id): ?Slideshow
     {
         $statement = $this->connection->prepare('SELECT * FROM slideshow WHERE id_slideshow = ?');
         $statement->execute([$id]);
@@ -71,7 +71,7 @@ class SlideshowRepository
         return $slideshow;
     }
 
-    public function update(Slideshow $slideshow): Slideshow
+    public function updateSlideshow(Slideshow $slideshow): Slideshow
     {
         $statement = $this->connection->prepare('UPDATE slideshow SET judul_slideshow = ?, foto = ? WHERE id_slideshow = ?');
         $statement->execute([
@@ -83,7 +83,7 @@ class SlideshowRepository
         return $slideshow;
     }
 
-    public function getAll()
+    public function getAllSlideshows()
     {
         $statement = $this->connection->prepare('SELECT * FROM slideshow ORDER BY judul_slideshow');
         $statement->execute();

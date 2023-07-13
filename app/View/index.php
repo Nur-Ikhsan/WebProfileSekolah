@@ -6,10 +6,6 @@
                 <img src="images/logo.png" alt="logo" class="logo-img"/>
             </a>
 
-            <!--            <div class="d-lg-none ms-auto me-4">-->
-            <!--                <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
-            <!--            </div>-->
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -51,10 +47,6 @@
                         <a class="nav-link" href="/admin/login">login</a>
                     </li>
                 </ul>
-
-                <!--                <div class="d-none d-lg-block">-->
-                <!--                    <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
-                <!--                </div>-->
             </div>
         </div>
     </nav>

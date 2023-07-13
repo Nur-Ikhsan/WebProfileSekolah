@@ -13,23 +13,23 @@
             <nav class="header-nav ms-auto">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/images/logo1.png" alt="Profile" class="rounded-circle" height="36px" width="36px">
-                    <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?= $model['admin']['username'] ?></span>
+                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>" alt="Profile" class="rounded-circle" height="36px" width="36px">
+                    <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?= $model['admin']['username'] ?? 'null' ?></span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>Kevin Anderson</h6>
-                        <span>Web Designer</span>
+                        <h6><?= $model['admin']['nama'] ?? 'ADMIN' ?></h6>
+                        <span><?= $model['admin']['jabatan'] ?? 'Admin' ?></span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                        <a class="dropdown-item d-flex align-items-center" href="/admin/ganti-password">
                             <i class="bi bi-person"></i>
-                            <span>My Profile</span>
+                            <span>Ganti Password</span>
                         </a>
                     </li>
                     <li>
@@ -37,29 +37,9 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                            <i class="bi bi-gear"></i>
-                            <span>Account Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                            <i class="bi bi-question-circle"></i>
-                            <span>Need Help?</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
+                        <a class="dropdown-item d-flex align-items-center" href="/admin/logout">
                             <i class="bi bi-box-arrow-right"></i>
-                            <span>Sign Out</span>
+                            <span>LogOut</span>
                         </a>
                     </li>
 
@@ -74,18 +54,18 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link " href="/admin">
+                <a class="nav-link collapsed" href="/admin">
                     <i class="bi bi-grid "></i>
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true" href="#">
                     <i class="bi bi-building"></i><span>Profil Sekolah</span><i
-                        class="bi bi-chevron-down ms-auto"></i>
+                            class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="/admin/sekolah/tentang">
                             <i class="bi bi-circle"></i><span>Tentang</span>
@@ -107,7 +87,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/admin/sekolah/guru-staff">
+                        <a class="nav-link" href="/admin/sekolah/guru-staff">
                             <i class="bi bi-circle"></i><span>Guru dan Staff</span>
                         </a>
                     </li>
@@ -186,7 +166,7 @@
                         }
                       }).then(function (result) {
                         if (result.isConfirmed) {
-                          window.location.href = '/admin/sekolah/fasilitas';
+                          window.location.href = '/admin/sekolah/guru-staff';
                         }
                       });
                     </script>
@@ -205,7 +185,7 @@
                         }
                       }).then(function (result) {
                         if (result.isConfirmed) {
-                          window.location.href = '/admin/sekolah/fasilitas';
+                          window.location.href = '/admin/sekolah/guru-staff';
                         }
                       });
                     </script>
@@ -215,7 +195,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-5 col-lg-12">
-                    <h4 class="secondary-color">Tentang Sekolah</h4>
+                    <h4 class="secondary-color">Guru & Staff</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/index">Home</a></li>
@@ -250,6 +230,7 @@
                         </thead>
                         <tbody>
                         <?php foreach ($model['guruStaffList'] as $index => $guruStaff) : ?>
+                        <?php if ( $guruStaff->getJabatan() == 'ADMIN' ){} else{?>
                             <tr>
                                 <td class="text-center"><?= ($index + 1) ?></td>
                                 <td class="text-center">
@@ -275,23 +256,23 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="editFasilitasModalLabel">Edit Fasilitas</h5>
+                                            <h5 class="modal-title" id="editGuruStaffModalLabel">Edit Guru & Staff</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST" action="/admin/sekolah/fasilitas/edit/<?= $fasilitas->getId() ?>" enctype="multipart/form-data">
+                                            <form method="POST" action="/admin/sekolah/guru-staff/edit/<?= $guruStaff->getIdGuruStaff() ?>" enctype="multipart/form-data">
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <div class="mb-3">
-                                                    <label for="edit-nama" class="form-label">Nama Fasilitas</label>
-                                                    <input type="text" class="form-control" id="edit-nama" name="nama" required value="<?= $fasilitas->getNama() ?>">
+                                                    <label for="edit-nama" class="form-label">Nama Guru/Staff</label>
+                                                    <input type="text" class="form-control" id="edit-nama" name="namaGuru" required value="<?= $guruStaff->getNamaGuru() ?>">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="edit-deskripsi" class="form-label">Deskripsi</label>
-                                                    <textarea class="form-control" id="edit-deskripsi" name="deskripsi" required ><?= $fasilitas->getDeskripsi() ?></textarea>
+                                                    <label for="edit-jabatan" class="form-label">Jabatan</label>
+                                                    <textarea class="form-control" id="edit-jabatan" name="jabatan" required ><?= $guruStaff->getJabatan() ?></textarea>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="edit-foto" class="form-label">Gambar</label>
-                                                    <input type="file" class="form-control" id="edit-foto" name="foto" value="<?= $fasilitas->getFoto() ?>">
+                                                    <input type="file" class="form-control" id="edit-foto" name="foto" value="<?= $guruStaff->getFoto() ?>">
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                             </form>
@@ -303,7 +284,6 @@
                             <!-- Delete Guru/Staff Modal -->
                             <div class="modal fade" id="deleteGuruStaffModal<?= $guruStaff->getIdGuruStaff() ?>" tabindex="-1" aria-labelledby="deleteGuruStaffModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
                                         <div class="modal-content">
                                             <div class="modal-headers">
                                                 <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal" aria-label="Close" id="modalCloseButton"></button>
@@ -315,16 +295,68 @@
                                             </div>
                                             <div class="modal-footer justify-content-center">
                                                 <button type="button" class="btn btn-secondary pl-4" data-bs-dismiss="modal">Batal</button>
-                                                <a href="/admin/sekolah/fasilitas/delete/<?= $fasilitas->getId() ?>" class="btn btn-danger px-4">Hapus</a>
+                                                <a href="/admin/sekolah/guru-staff/delete/<?= $guruStaff->getIdGuruStaff() ?>" class="btn btn-danger px-4">Hapus</a>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
-
+                        <?php } ?>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
+                    <nav aria-label="Halaman" class="d-flex justify-content-center">
+                        <ul class="pagination">
+                            <?php if ($model['pagination']['page'] > 1): ?>
+                                <li class="page-item">
+                                    <a class="page-link" href="/admin/sekolah/guru-staff?page=<?= $model['pagination']['page'] - 1 ?>" aria-label="Sebelumnya">
+                                        <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+                                    </a>
+                                </li>
+                            <?php else: ?>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" aria-label="Sebelumnya">
+                                        <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+
+                            <?php
+                            $start = max($model['pagination']['page'] - 2, 1);
+                            $end = min($start + 4, $model['pagination']['totalPages']);
+                            $diff = $end - $start + 1;
+
+                            if ($diff < 5 && $start > 1) {
+                                $start = max(1, $end - 4);
+                            }
+
+                            for ($i = $start; $i <= $end; $i++):
+                                ?>
+                                <?php if ($i == $model['pagination']['page']): ?>
+                                <li class="page-item active" aria-current="page">
+                                    <a class="page-link" href="#"><?= $i ?></a>
+                                </li>
+                            <?php else: ?>
+                                <li class="page-item">
+                                    <a class="page-link" href="/admin/sekolah/guru-staff?page=<?= $i ?>"><?= $i ?></a>
+                                </li>
+                            <?php endif; ?>
+                            <?php endfor; ?>
+
+                            <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
+                                <li class="page-item">
+                                    <a class="page-link" href="/admin/sekolah/guru-staff?page=<?= $model['pagination']['page'] + 1 ?>" aria-label="Berikutnya">
+                                        <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+                                    </a>
+                                </li>
+                            <?php else: ?>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" aria-label="Berikutnya">
+                                        <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -341,25 +373,24 @@
             </div>
         </div>
     </footer>
-
 </div>
 <!-- Tambah Guru/Staff Modal -->
 <div class="modal fade" id="tambahGuruStaffModal" tabindex="-1" aria-labelledby="tambahGuruStaffModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tambahFasilitasModalLabel">Tambah Fasilitas</h5>
+                <h5 class="modal-title" id="tambahGuruStaffModalLabel">Tambah Guru & Staff</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/admin/sekolah/fasilitas/tambah" enctype="multipart/form-data">
+                <form method="POST" action="/admin/sekolah/guru-staff/tambah" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Fasilitas</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
+                        <label for="nama" class="form-label">Nama Guru/Staff</label>
+                        <input type="text" class="form-control" id="namaGuru" name="namaGuru" required>
                     </div>
                     <div class="mb-3">
-                        <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
+                        <label for="deskripsi" class="form-label">Jabatan</label>
+                        <textarea class="form-control" id="jabatan" name="jabatan" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="foto" class="form-label">Gambar</label>

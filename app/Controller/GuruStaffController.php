@@ -4,6 +4,7 @@ namespace Rubygroup\WebProfileSekolah\Controller;
 
 use Rubygroup\WebProfileSekolah\App\View;
 use Rubygroup\WebProfileSekolah\Config\Database;
+use Rubygroup\WebProfileSekolah\Entity\GuruStaff;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\GuruStaffRequest;
 use Rubygroup\WebProfileSekolah\Repository\AdminRepository;
@@ -28,25 +29,40 @@ class GuruStaffController
         $this->sessionService = new SessionService($sessionRepository, $adminRepository);
     }
 
-    public function showGuruStaff($title = null, $message = null, $error = null): void
+    public function showGuruStaffPagination($title = null, $message = null, $error = null): void
     {
-        $admin = $this->sessionService->findSession();
-        $guruStaffList = $this->guruStaffService->getAllGuruStaff();
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 10;
 
-        View::render('Admin/Sekolah/guru-staff', [
-            'title' => 'Daftar Guru & Staff',
-            'model' => [
+        $totalCount = count($this->guruStaffService->getAllGuruStaff());
+        $GuruStaffList = $this->guruStaffService->getAllGuruStaffPagination($page, $perPage);
+        $admin = $this->sessionService->findSession();
+        if ($admin === null) {
+            View::redirect('/admin/login');
+        } else {
+            View::render('Admin/Sekolah/guru-staff', [
+                'title' => 'Daftar Guru & Staff',
                 'admin' => [
-                    'username' => $admin->getUsername()
+                    'id' => $admin->getId(),
+                    'username' => $admin->getUsername(),
+                    'nama' => $admin->getGuruStaff()->getNamaGuru(),
+                    'jabatan' => $admin->getGuruStaff()->getJabatan(),
+                    'foto' => $admin->getGuruStaff()->getFoto()
                 ],
-                'guruStaffList' => $guruStaffList,
+                'guruStaffList' => $GuruStaffList,
+                'pagination' => [
+                    'page' => $page,
+                    'perPage' => $perPage,
+                    'totalPages' => ceil($totalCount / $perPage)
+                ],
                 'message' => [
                     'title' => $title,
                     'description' => $message,
                     'error' => $error
                 ]
-            ]
-        ]);
+            ]);
+        }
+
     }
 
     public function tambahGuruStaff(): void
@@ -73,7 +89,7 @@ class GuruStaffController
             }
         }
 
-        $this->showGuruStaff($title, $message, $error);
+        $this->showGuruStaffPagination($title, $message, $error);
     }
 
     public function editGuruStaff(string $id): void
@@ -102,7 +118,7 @@ class GuruStaffController
             }
         }
 
-        $this->showGuruStaff($title, $message, $error);
+        $this->showGuruStaffPagination($title, $message, $error);
     }
 
     public function deleteGuruStaff(string $id): void
@@ -121,6 +137,8 @@ class GuruStaffController
             $error = $exception->getMessage();
         }
 
-        $this->showGuruStaff($title, $message, $error);
+        $this->showGuruStaffPagination($title, $message, $error);
     }
+
+
 }

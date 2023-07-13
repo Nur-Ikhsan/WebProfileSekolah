@@ -14,7 +14,7 @@ class FasilitasRepository
         $this->connection = $connection;
     }
 
-    public function save(Fasilitas $fasilitas): Fasilitas
+    public function saveFasilitas(Fasilitas $fasilitas): Fasilitas
     {
         $statement = $this->connection->prepare('INSERT INTO fasilitas (id_fasilitas, nama_fasilitas, deskripsi, foto) VALUES (?, ?, ?, ?)');
         $statement->execute([
@@ -27,7 +27,7 @@ class FasilitasRepository
         return $fasilitas;
     }
 
-    public function findById(string $id): ?Fasilitas
+    public function findFasilitasById(string $id): ?Fasilitas
     {
         $statement = $this->connection->prepare('SELECT * FROM fasilitas WHERE id_fasilitas = ?');
         $statement->execute([$id]);
@@ -46,7 +46,7 @@ class FasilitasRepository
         return $fasilitas;
     }
 
-    public function update(Fasilitas $fasilitas): Fasilitas
+    public function updateFasilitas(Fasilitas $fasilitas): Fasilitas
     {
         $statement = $this->connection->prepare('UPDATE fasilitas SET nama_fasilitas = ?, deskripsi = ?, foto = ? WHERE id_fasilitas = ?');
         $statement->execute([
@@ -59,14 +59,14 @@ class FasilitasRepository
         return $fasilitas;
     }
 
-    public function delete(Fasilitas $fasilitas): bool
+    public function deleteFasilitas(Fasilitas $fasilitas): bool
     {
         $statement = $this->connection->prepare('DELETE FROM fasilitas WHERE id_fasilitas = ?');
         $statement->execute([$fasilitas->getId()]);
         return $statement->rowCount() > 0;
     }
 
-    public function getAll(): array
+    public function getAllFasilitas(): array
     {
         $statement = $this->connection->prepare('SELECT * FROM fasilitas');
         $statement->execute();
@@ -84,4 +84,27 @@ class FasilitasRepository
 
         return $fasilitasList;
     }
+
+    public function getAllFasilitasPagination (int $limit, int $offset): array
+    {
+        $statement = $this->connection->prepare('SELECT * FROM fasilitas ORDER BY nama_fasilitas LIMIT :limit OFFSET :offset');
+        $statement->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $statement->execute();
+
+        $fasilitasList = [];
+        while ($row = $statement->fetch()) {
+            $fasilitas = new Fasilitas();
+            $fasilitas->setId((string)$row['id_fasilitas']);
+            $fasilitas->setNama((string)$row['nama_fasilitas']);
+            $fasilitas->setDeskripsi((string)$row['deskripsi']);
+            $fasilitas->setFoto((string)$row['foto']);
+
+            $fasilitasList[] = $fasilitas;
+        }
+
+        return $fasilitasList;
+    }
+
+
 }

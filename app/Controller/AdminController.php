@@ -59,7 +59,6 @@ class AdminController
                 'pagination' => [
                     'page' => $page,
                     'perPage' => $perPage,
-                    'totalCount' => $totalCount,
                     'totalPages' => ceil($totalCount / $perPage)
                 ]
             ]);
