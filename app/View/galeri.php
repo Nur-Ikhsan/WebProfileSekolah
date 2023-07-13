@@ -1,5 +1,77 @@
 <main>
-    <section class="bg-image" style="background-image: url('images/img1.jpg');">
+    <nav class="navbar navbar-expand-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="logo" class="logo-img"/>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index">Beranda</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
+
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
+
+                            <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
+
+                            <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kurikulum">Kurikulum</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/berita">berita</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/galeri">galeri</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/login">login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="site-header d-flex flex-column justify-content-center align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-5 col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
+
+                            <li class="breadcrumb-item active" aria-current="page">Berita</li>
+                        </ol>
+                    </nav>
+
+                    <h2 class="text-white">Berita</h2>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-image" style="">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6 ">

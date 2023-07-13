@@ -1,5 +1,54 @@
 <main>
+    <nav class="navbar navbar-expand-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="logo" class="logo-img"/>
+            </a>
 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index">Beranda</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
+
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
+
+                            <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
+
+                            <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kurikulum">Kurikulum</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/berita">berita</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/galeri">galeri</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/login">login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 
     <header class="site-header d-flex flex-column justify-content-center align-items-center">
@@ -25,73 +74,141 @@
 
     <section class="section-padding">
         <div class="container">
-            <div class="row">
-
-                <div class="col-lg-12 col-12 text-center">
-                    <h3 class="mb-4">Berita Populer</h3>
-                </div>
-
-                <div class="col-lg-8 col-12 mt-3 mx-auto">
-                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <div class="d-flex">
-                            <img id="pointer" src="images/topics/undraw_Remote_design_team_re_urdx.png"
-                                class="custom-block-image img-fluid" alt="">
-
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2">Web Design</h5>
-
-                                    <p class="mb-0">Topic Listing includes home, listing, detail and contact pages. Feel
-                                        free to modify this template for your custom websites.</p>
-
-                                    <a href="/main_berita" class="btn custom-btn mt-3 mt-lg-4">Read More</a>
-                                </div>
-
-                                <span class="badge bg-design rounded-pill ms-auto">14</span>
-                            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <a href="#">Read More</a>
                         </div>
-                    </div>
-
-                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <div class="d-flex">
-                            <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid"
-                                alt="">
-
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2">Advertising</h5>
-
-                                    <p class="mb-0">Visit TemplateMo website to download free CSS templates. Lorem ipsum
-                                        dolor, sit amet consectetur adipisicing elit animi necessitatibus</p>
-
-                                    <a href="/main_berita" class="btn custom-btn mt-3 mt-lg-4">Read More</a>
-                                </div>
-
-                                <span class="badge bg-advertising rounded-pill ms-auto">30</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <div class="d-flex">
-                            <img src="images/topics/undraw_Podcast_audience_re_4i5q.png"
-                                class="custom-block-image img-fluid" alt="">
-
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2">Podcast</h5>
-
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit animi
-                                        necessitatibus</p>
-
-                                    <a href="/main_berita" class="btn custom-btn mt-3 mt-lg-4">Read More</a>
-                                </div>
-
-                                <span class="badge bg-music rounded-pill ms-auto">20</span>
-                            </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row">
+                    <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
+                        <img class="rounded-4 img-fluid img-responsive" src="/images/faq_graphic.jpg" alt="img">
+                    </div>
+                    <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
+                        <h6>Pendaftaran Peserta Didik Baru</h6>
+                        <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2
+                            Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
+                        <a href="#" class="btn custom-btn mt-3 mt-lg-4 button-color">Read More</a>
+                    </div>
+                </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                            <a href="#">Read More</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
                 <div class="col-lg-12 col-12">
                     <nav aria-label="Page navigation example">
@@ -132,82 +249,5 @@
                 </div>
 
             </div>
-        </div>
-    </section>
-
-
-    <section class="section-padding section-bg">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-12 col-12">
-                    <h3 class="mb-4">Trending Topics</h3>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
-                    <div class="custom-block bg-white shadow-lg">
-                        <a href="topics-detail.html">
-                            <div class="d-flex">
-                                <div>
-                                    <h5 class="mb-2">Investment</h5>
-
-                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                </div>
-
-                                <span class="badge bg-finance rounded-pill ms-auto">30</span>
-                            </div>
-
-                            <img src="images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid"
-                                alt="">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-12 mt-lg-3">
-                    <div class="custom-block custom-block-overlay">
-                        <div class="d-flex flex-column h-100">
-                            <img src="images/businesswoman-using-tablet-analysis.jpg"
-                                class="custom-block-image img-fluid" alt="">
-
-                            <div class="custom-block-overlay-text d-flex">
-                                <div>
-                                    <h5 class="text-white mb-2">Finance</h5>
-
-                                    <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
-                                        animi necessitatibus aperiam repudiandae nam omnis</p>
-
-                                    <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Read More</a>
-                                </div>
-
-                                <span class="badge bg-finance rounded-pill ms-auto">25</span>
-                            </div>
-
-                            <div class="social-share d-flex">
-                                <p class="text-white me-4">Share:</p>
-
-                                <ul class="social-icon">
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-twitter"></a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-facebook"></a>
-                                    </li>
-
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-pinterest"></a>
-                                    </li>
-                                </ul>
-
-                                <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
-                            </div>
-
-                            <div class="section-overlay"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </section>
 </main>
