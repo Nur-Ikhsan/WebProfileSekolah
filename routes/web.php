@@ -4,12 +4,16 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Rubygroup\WebProfileSekolah\App\Router;
 use Rubygroup\WebProfileSekolah\Config\Database;
+use Rubygroup\WebProfileSekolah\Controller\EkstrakurikulerController;
 use Rubygroup\WebProfileSekolah\Controller\FasilitasController;
 use Rubygroup\WebProfileSekolah\Controller\GuruStaffController;
 use Rubygroup\WebProfileSekolah\Controller\HomeController;
 use Rubygroup\WebProfileSekolah\Controller\AdminController;
+use Rubygroup\WebProfileSekolah\Controller\KegiatanController;
+use Rubygroup\WebProfileSekolah\Controller\PrestasiController;
 use Rubygroup\WebProfileSekolah\Controller\SekolahController;
 use Rubygroup\WebProfileSekolah\Controller\SlideshowController;
+use Rubygroup\WebProfileSekolah\Controller\KetSekolahController;
 
 Database::getConnection('production');
 
@@ -43,12 +47,33 @@ Router::add('/admin/slideshow/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}
 Router::add('/admin/sekolah/tentang', SekolahController::class, 'tentang');
 Router::add('/admin/sekolah/tentang/edit', SekolahController::class, 'editSekolah');
 
-Router::add('/admin/sekolah/fasilitas', FasilitasController::class, 'showFasilitas');
+Router::add('/admin/sekolah/fasilitas', FasilitasController::class, 'showFasilitasPagination');
 Router::add('/admin/sekolah/fasilitas/tambah', FasilitasController::class, 'tambahFasilitas');
 Router::add('/admin/sekolah/fasilitas/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', FasilitasController::class, 'editFasilitas');
 Router::add('/admin/sekolah/fasilitas/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', FasilitasController::class, 'deleteFasilitas');
 
-Router::add('/admin/sekolah/guru-staff', GuruStaffController::class, 'showGuruStaff');
+Router::add('/admin/sekolah/guru-staff', GuruStaffController::class, 'showGuruStaffPagination');
 Router::add('/admin/sekolah/guru-staff/tambah', GuruStaffController::class, 'tambahGuruStaff');
 Router::add('/admin/sekolah/guru-staff/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', GuruStaffController::class, 'editGuruStaff');
 Router::add('/admin/sekolah/guru-staff/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', GuruStaffController::class, 'deleteGuruStaff');
+
+Router::add('/admin/sekolah/kegiatan-sekolah', KegiatanController::class, 'showKegiatanPagination');
+Router::add('/admin/sekolah/kegiatan-sekolah/tambah', KegiatanController::class, 'tambahKegiatan');
+Router::add('/admin/sekolah/kegiatan-sekolah/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', KegiatanController::class, 'editKegiatan');
+Router::add('/admin/sekolah/kegiatan-sekolah/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', KegiatanController::class, 'hapusKegiatan');
+
+Router::add('/admin/sekolah/visi-misi', KetSekolahController::class, 'visiMisi');
+Router::add('/admin/sekolah/visi-misi/edit', KetSekolahController::class, 'editVisiMisi');
+
+Router::add('/admin/sekolah/struktur-organisasi', KetSekolahController::class, 'strukturOrganisasi');
+Router::add('/admin/sekolah/struktur-organisasi/edit', KetSekolahController::class, 'editStrukturOrganisasi');
+
+Router::add('/admin/sekolah/ekstrakurikuler', EkstrakurikulerController::class, 'showEkstrakurikulerPagination');
+Router::add('/admin/sekolah/ekstrakurikuler/tambah', EkstrakurikulerController::class, 'tambahEkstrakurikuler');
+Router::add('/admin/sekolah/ekstrakurikuler/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', EkstrakurikulerController::class, 'editEkstrakurikuler');
+Router::add('/admin/sekolah/ekstrakurikuler/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', EkstrakurikulerController::class, 'deleteEkstrakurikuler');
+
+Router::add('/admin/sekolah/prestasi', PrestasiController::class, 'showPrestasiPagination');
+Router::add('/admin/sekolah/prestasi/tambah', PrestasiController::class, 'tambahPrestasi');
+Router::add('/admin/sekolah/prestasi/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', PrestasiController::class, 'editPrestasi');
+Router::add('/admin/sekolah/prestasi/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', PrestasiController::class, 'deletePrestasi');

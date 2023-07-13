@@ -8,43 +8,22 @@ use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\GuruStaffRequest;
 use Rubygroup\WebProfileSekolah\Model\GuruStaffResponse;
 use Rubygroup\WebProfileSekolah\Repository\GuruStaffRepository;
+use Rubygroup\WebProfileSekolah\Validation\ValidationUtil;
 
 class GuruStaffService
 {
     private GuruStaffRepository $guruStaffRepository;
+    private ValidationUtil $validationUtil;
 
     public function __construct(GuruStaffRepository $guruStaffRepository)
     {
         $this->guruStaffRepository = $guruStaffRepository;
+        $this->validationUtil = new ValidationUtil();
     }
 
-    private function validateImageFile(array $file): void
+    public function createGuruStaff(GuruStaffRequest $request): GuruStaff
     {
-        $allowedExtensions = ['jpg', 'jpeg', 'png'];
-
-        $fileName = $file['name'];
-        $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-
-        if (empty($fileName)) {
-            throw new ValidationException('Tidak ada perubahan, File gambar tidak boleh kosong.');
-        }
-
-        if ($file['size'] > 1000000) {
-            throw new ValidationException('Ukuran file gambar tidak boleh lebih dari 1MB.');
-        }
-
-        if ($file['error'] !== 0) {
-            throw new ValidationException('File gambar tidak valid.');
-        }
-
-        if (!in_array($fileExtension, $allowedExtensions)) {
-            throw new ValidationException('File gambar tidak valid. Hanya file JPG, JPEG, dan PNG yang diperbolehkan.');
-        }
-    }
-
-    public function createGuruStaff(GuruStaffRequest $request): GuruStaffResponse
-    {
-        $this->validateImageFile($request->foto);
+        $this->validationUtil->validateImageFile($request->foto);
 
         $guruStaff = new GuruStaff();
         $guruStaff->setIdGuruStaff(Uuid::uuid4()->toString());
@@ -52,14 +31,12 @@ class GuruStaffService
         $guruStaff->setJabatan($request->jabatan);
         $guruStaff->setFoto($this->uploadPhoto($request->foto));
 
-        $savedGuruStaff = $this->guruStaffRepository->save($guruStaff);
-
-        return new GuruStaffResponse($savedGuruStaff);
+        return $this->guruStaffRepository->saveGuruStaff($guruStaff);
     }
 
     public function getGuruStaffById(string $id): GuruStaff
     {
-        $guruStaff = $this->guruStaffRepository->findById($id);
+        $guruStaff = $this->guruStaffRepository->findGuruStaffById($id);
         if ($guruStaff === null) {
             throw new ValidationException('Guru & Staff tidak ditemukan.');
         }
@@ -67,17 +44,17 @@ class GuruStaffService
         return $guruStaff;
     }
 
-    public function updateGuruStaff(string $id, GuruStaffRequest $request): GuruStaffResponse
+    public function updateGuruStaff(string $id, GuruStaffRequest $request): GuruStaff
     {
-        $this->validateImageFile($request->foto);
+        $this->validationUtil->validateImageFile($request->foto);
 
-        $guruStaff = $this->guruStaffRepository->findById($id);
+        $guruStaff = $this->guruStaffRepository->findGuruStaffById($id);
         if ($guruStaff === null) {
             throw new ValidationException('Guru & Staff tidak ditemukan.');
         }
 
         // Menghapus file foto dari direktori
-        $filePath = 'images/upload/guru_staff/' . $guruStaff->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
+        $filePath = 'images/upload/guru-staff/' . $guruStaff->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
         if (file_exists($filePath)) {
             unlink($filePath);
         }
@@ -85,34 +62,31 @@ class GuruStaffService
         $guruStaff->setNamaGuru($request->namaGuru);
         $guruStaff->setJabatan($request->jabatan);
         if ($request->foto !== null) {
-            $this->validateImageFile($request->foto);
             $guruStaff->setFoto($this->uploadPhoto($request->foto));
         }
 
-        $updatedGuruStaff = $this->guruStaffRepository->update($guruStaff);
-
-        return new GuruStaffResponse($updatedGuruStaff);
+        return $this->guruStaffRepository->updateGuruStaff($guruStaff);
     }
 
     public function deleteGuruStaff(string $id): bool
     {
-        $guruStaff = $this->guruStaffRepository->findById($id);
+        $guruStaff = $this->guruStaffRepository->findGuruStaffById($id);
         if ($guruStaff === null) {
             throw new ValidationException('Guru & Staff tidak ditemukan.');
         }
 
         // Menghapus file foto dari direktori
-        $filePath = 'images/upload/guru_staff/' . $guruStaff->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
+        $filePath = 'images/upload/guru-staff/' . $guruStaff->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
         if (file_exists($filePath)) {
             unlink($filePath);
         }
 
-        return $this->guruStaffRepository->delete($guruStaff);
+        return $this->guruStaffRepository->deleteGuruStaff($guruStaff);
     }
 
     private function uploadPhoto(array $file): string
     {
-        $targetDirectory = 'images/upload/guru_staff/'; // Replace with the actual path
+        $targetDirectory = 'images/upload/guru-staff/'; // Replace with the actual path
         $targetFileName = uniqid() . '_' . basename($file['name']);
         $targetFilePath = $targetDirectory . $targetFileName;
 
@@ -121,8 +95,14 @@ class GuruStaffService
         return $targetFileName;
     }
 
-    public function getAllGuruStaff()
+    public function getAllGuruStaff(): array
     {
-        return $this->guruStaffRepository->getAll();
+        return $this->guruStaffRepository->getAllGuruStaff();
+    }
+
+    public function getAllGuruStaffPagination($page, $perPage): array
+    {
+        $offset = ($page - 1) * $perPage;
+        return $this->guruStaffRepository->getAllGuruStaffPagination($perPage, $offset);
     }
 }

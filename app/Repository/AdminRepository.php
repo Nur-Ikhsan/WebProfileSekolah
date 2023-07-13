@@ -68,7 +68,7 @@ class AdminRepository
             $admin->setPassword((string)$row['password']);
 
             $this->guruStaffRepository = new GuruStaffRepository($this->connection);
-            $this->guruStaff = $this->guruStaffRepository->findById((string)$row['id_guru_staff']);
+            $this->guruStaff = $this->guruStaffRepository->findGuruStaffById((string)$row['id_guru_staff']);
             $admin->setGuruStaff($this->guruStaff);
 
             return $admin;

@@ -28,28 +28,41 @@ class FasilitasController
         $this->sessionService = new SessionService($sessionRepository, $adminRepository);
     }
 
-    public function showFasilitas($title = null,
-                                  $message = null,
-                                  $error = null
-    ): void
+    public function ShowFasilitasPagination($title = null,
+                                            $message = null,
+                                            $error = null): void
     {
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 10;
+        // Menghitung total jumlah slideshow
+        $totalCount = count($this->fasilitasService->getAllFasilitas());
+        $fasilitasList = $this->fasilitasService->getAllFasilitasPagination($page, $perPage);
         $admin = $this->sessionService->findSession();
-        $fasilitasList = $this->fasilitasService->getAllFasilitas();
-
-        View::render('Admin/Sekolah/fasilitas', [
-            'title' => 'Daftar Fasilitas',
-            'model' => [
+        if ($admin === null) {
+            View::redirect('/admin/login');
+        } else {
+            View::render('Admin/Sekolah/fasilitas', [
+                'title' => 'Daftar Fasilitas',
                 'admin' => [
-                    'username' => $admin->getUsername()
+                    'id' => $admin->getId(),
+                    'username' => $admin->getUsername(),
+                    'nama' => $admin->getGuruStaff()->getNamaGuru(),
+                    'jabatan' => $admin->getGuruStaff()->getJabatan(),
+                    'foto' => $admin->getGuruStaff()->getFoto()
                 ],
                 'fasilitasList' => $fasilitasList,
+                'pagination' => [
+                    'page' => $page,
+                    'perPage' => $perPage,
+                    'totalPages' => ceil($totalCount / $perPage)
+                ],
                 'message' => [
                     'title' => $title,
                     'description' => $message,
                     'error' => $error
                 ]
-            ]
-        ]);
+            ]);
+        }
     }
 
     public function tambahFasilitas(): void
@@ -76,7 +89,7 @@ class FasilitasController
             }
         }
 
-        $this->showFasilitas($title, $message, $error);
+        $this->ShowFasilitasPagination($title, $message, $error);
     }
 
     public function editFasilitas(string $id): void
@@ -93,11 +106,9 @@ class FasilitasController
 
             try {
                 if ($this->fasilitasService->updateFasilitas($id, $request)) {
-                    $title = 'Data Berhasil Tersimpan';
-                    $message = 'Selamat data yang Anda edit berhasil disimpan';
+                    $title = 'Data Berhasil Diperbarui';
+                    $message = 'Selamat data yang Anda ubah berhasil diperbarui';
                 }
-
-                View::redirect('/admin/sekolah/fasilitas');
             } catch (ValidationException $exception) {
                 $title = 'Data Gagal Tersimpan';
                 $message = 'Silakan coba lagi untuk menyelesaikan permintaan';
@@ -105,7 +116,7 @@ class FasilitasController
             }
         }
 
-        $this->showFasilitas($title, $message, $error);
+        $this->ShowFasilitasPagination($title, $message, $error);
     }
 
     public function deleteFasilitas(string $id): void
@@ -114,7 +125,7 @@ class FasilitasController
         $message = null;
         $error = null;
         try {
-            if($this->fasilitasService->deleteFasilitas($id)) {
+            if ($this->fasilitasService->deleteFasilitas($id)) {
                 $title = 'Data Berhasil Terhapus';
                 $message = 'Selamat data Anda berhasil dihapus';
             }
@@ -124,6 +135,6 @@ class FasilitasController
             $error = $exception->getMessage();
         }
 
-        $this->showFasilitas($title, $message, $error);
+        $this->ShowFasilitasPagination($title, $message, $error);
     }
 }

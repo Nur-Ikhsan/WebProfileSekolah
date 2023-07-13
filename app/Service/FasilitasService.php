@@ -8,43 +8,22 @@ use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\FasilitasRequest;
 use Rubygroup\WebProfileSekolah\Model\FasilitasResponse;
 use Rubygroup\WebProfileSekolah\Repository\FasilitasRepository;
+use Rubygroup\WebProfileSekolah\Validation\ValidationUtil;
 
 class FasilitasService
 {
     private FasilitasRepository $fasilitasRepository;
+    private ValidationUtil $validationUtil;
 
     public function __construct(FasilitasRepository $fasilitasRepository)
     {
         $this->fasilitasRepository = $fasilitasRepository;
-    }
-
-    private function validateImageFile(array $file): void
-    {
-        $allowedExtensions = ['jpg', 'jpeg', 'png'];
-
-        $fileName = $file['name'];
-        $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-
-        if (empty($fileName)) {
-            throw new ValidationException('Tidak ada perubahan, File gambar tidak boleh kosong.');
-        }
-
-        if ($file['size'] > 1000000) {
-            throw new ValidationException('Ukuran file gambar tidak boleh lebih dari 1MB.');
-        }
-
-        if ($file['error'] !== 0) {
-            throw new ValidationException('File gambar tidak valid.');
-        }
-
-        if (!in_array($fileExtension, $allowedExtensions)) {
-            throw new ValidationException('File gambar tidak valid. Hanya file JPG, JPEG, dan PNG yang diperbolehkan.');
-        }
+        $this->validationUtil = new ValidationUtil();
     }
 
     public function createFasilitas(FasilitasRequest $request): FasilitasResponse
     {
-        $this->validateImageFile($request->foto);
+        $this->validationUtil->validateImageFile($request->foto);
 
         $fasilitas = new Fasilitas();
         $fasilitas->setId(Uuid::uuid4()->toString());
@@ -52,14 +31,14 @@ class FasilitasService
         $fasilitas->setDeskripsi($request->deskripsi);
         $fasilitas->setFoto($this->uploadPhoto($request->foto));
 
-        $savedFasilitas = $this->fasilitasRepository->save($fasilitas);
+        $savedFasilitas = $this->fasilitasRepository->saveFasilitas($fasilitas);
 
         return new FasilitasResponse($savedFasilitas);
     }
 
     public function getFasilitasById(string $id): Fasilitas
     {
-        $fasilitas = $this->fasilitasRepository->findById($id);
+        $fasilitas = $this->fasilitasRepository->findFasilitasById($id);
         if ($fasilitas === null) {
             throw new ValidationException('Fasilitas tidak ditemukan.');
         }
@@ -69,9 +48,9 @@ class FasilitasService
 
     public function updateFasilitas(string $id, FasilitasRequest $request): FasilitasResponse
     {
-        $this->validateImageFile($request->foto);
+        $this->validationUtil->validateImageFile($request->foto);
 
-        $fasilitas = $this->fasilitasRepository->findById($id);
+        $fasilitas = $this->fasilitasRepository->findFasilitasById($id);
         if ($fasilitas === null) {
             throw new ValidationException('Fasilitas tidak ditemukan.');
         }
@@ -85,18 +64,17 @@ class FasilitasService
         $fasilitas->setNama($request->nama);
         $fasilitas->setDeskripsi($request->deskripsi);
         if ($request->foto !== null) {
-            $this->validateImageFile($request->foto);
             $fasilitas->setFoto($this->uploadPhoto($request->foto));
         }
 
-        $updatedFasilitas = $this->fasilitasRepository->update($fasilitas);
+        $updatedFasilitas = $this->fasilitasRepository->updateFasilitas($fasilitas);
 
         return new FasilitasResponse($updatedFasilitas);
     }
 
     public function deleteFasilitas(string $id): bool
     {
-        $fasilitas = $this->fasilitasRepository->findById($id);
+        $fasilitas = $this->fasilitasRepository->findFasilitasById($id);
         if ($fasilitas === null) {
             throw new ValidationException('Fasilitas tidak ditemukan.');
         }
@@ -107,7 +85,7 @@ class FasilitasService
             unlink($filePath);
         }
 
-        return $this->fasilitasRepository->delete($fasilitas);
+        return $this->fasilitasRepository->deleteFasilitas($fasilitas);
     }
 
     private function uploadPhoto(array $file): string
@@ -121,8 +99,14 @@ class FasilitasService
         return $targetFileName;
     }
 
-    public function getAllFasilitas()
+    public function getAllFasilitas(): array
     {
-        return $this->fasilitasRepository->getAll();
+        return $this->fasilitasRepository->getAllFasilitas();
+    }
+
+    public function getAllFasilitasPagination($page, $perPage): array
+    {
+        $offset = ($page - 1) * $perPage;
+        return $this->fasilitasRepository->getAllFasilitasPagination($perPage, $offset);
     }
 }

@@ -36,6 +36,10 @@ class SlideshowController
         $message = null;
         $error = null;
 
+        if ($admin === null) {
+            View::redirect('/admin/login');
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $request->judul = $_POST['judul'];
             $request->foto = $_FILES['foto'];
@@ -60,7 +64,11 @@ class SlideshowController
                 'error' => $error
             ],
             'admin' => [
-                'username' => $admin->getUsername()
+                'id' => $admin->getId(),
+                'username' => $admin->getUsername(),
+                'nama' => $admin->getGuruStaff()->getNamaGuru(),
+                'jabatan' => $admin->getGuruStaff()->getJabatan(),
+                'foto' => $admin->getGuruStaff()->getFoto()
             ]
         ]);
     }
@@ -88,6 +96,10 @@ class SlideshowController
         $title = null;
         $message = null;
         $error = null;
+
+        if ($admin === null) {
+            View::redirect('/admin/login');
+        }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $request->judul = $_POST['judul'];
@@ -120,7 +132,11 @@ class SlideshowController
             'error' => $error,
             'slideshow' => $slideshow,
             'admin' => [
-                'username' => $admin->getUsername()
+                'id' => $admin->getId(),
+                'username' => $admin->getUsername(),
+                'nama' => $admin->getGuruStaff()->getNamaGuru(),
+                'jabatan' => $admin->getGuruStaff()->getJabatan(),
+                'foto' => $admin->getGuruStaff()->getFoto()
             ],
             'message' => [
                 'title' => $title,

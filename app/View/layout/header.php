@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="/asset/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+<!--    <script src="/../WebProfileSekolah/public/asset/tinymce/tinymce.min.js" referrerpolicy="origin"></script>-->
 </head>
 
 <body id="top">

@@ -34,11 +34,19 @@ class SekolahController
         $admin = $this->sessionService->findSession();
         $sekolah = $this->sekolahService->getSekolah();
 
+        if ($admin === null) {
+            View::redirect('/admin/login');
+        }
+
         View::render('Admin/Sekolah/tentang', [
             'title' => 'Tentang Sekolah',
             'sekolah' => $sekolah,
             'admin' => [
-                'username' => $admin->getUsername()
+                'id' => $admin->getId(),
+                'username' => $admin->getUsername(),
+                'nama' => $admin->getGuruStaff()->getNamaGuru(),
+                'jabatan' => $admin->getGuruStaff()->getJabatan(),
+                'foto' => $admin->getGuruStaff()->getFoto()
             ]
         ]);
     }
@@ -51,6 +59,10 @@ class SekolahController
         $title = null;
         $message = null;
         $error = null;
+
+        if ($admin === null) {
+            View::redirect('/admin/login');
+        }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $request->nama = $_POST['nama'];
@@ -85,7 +97,11 @@ class SekolahController
             'sekolah' => $sekolah,
             'error' => $error,
             'admin' => [
-                'username' => $admin->getUsername()
+                'id' => $admin->getId(),
+                'username' => $admin->getUsername(),
+                'nama' => $admin->getGuruStaff()->getNamaGuru(),
+                'jabatan' => $admin->getGuruStaff()->getJabatan(),
+                'foto' => $admin->getGuruStaff()->getFoto()
             ],
             'message' => [
                 'title' => $title,
@@ -94,4 +110,7 @@ class SekolahController
             ]
         ]);
     }
+
+
+
 }

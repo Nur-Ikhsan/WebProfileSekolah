@@ -111,10 +111,15 @@ package "sch_mtsn2sambas" {
       kelas
     }
 
+    entity "Ekstrakurikuler" as ekstrakurikuler <<T, TABLE_BORDER_COLOR>> {
+      + id_ekstrakurikuler [PK]
+      --
+      icon
+      judul_ekstrakurikuler
+      deskripsi
+    }
+
     sekolah ||-ri-o{ kurikulum : "memiliki"
-
-
-
     sekolah ||-ri-o{ fasilitas : "memiliki"
     sekolah ||-ri-o{ kegiatan : "mengadakan"
     sekolah ||-ri-o{ guru_staff : "memiliki"
