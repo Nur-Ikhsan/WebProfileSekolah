@@ -115,18 +115,19 @@
                     </div>
                 </div>
             </div>
-                <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row">
-                    <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
-                        <img class="rounded-4 img-fluid img-responsive" src="/images/faq_graphic.jpg" alt="img">
-                    </div>
-                    <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
-                        <h6>Pendaftaran Peserta Didik Baru</h6>
-                        <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2
-                            Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
-                        <a href="#" class="btn custom-btn mt-3 mt-lg-4 button-color">Read More</a>
-                    </div>
+
+            <div class="my-4 col-lg-12 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row my-2">
+                <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
+                    <img class="rounded-4 img-fluid img-responsive" src="/images/faq_graphic.jpg" alt="img">
                 </div>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
+                    <h6>Pendaftaran Peserta Didik Baru</h6>
+                    <p class="text-box" style="color: gray;">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2 Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
+                    <a href="#" class="btn custom-btn mt-3 mt-lg-4 button-color">Read More</a>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 my-2">
                 <div class="col">
                     <div class="card h-100">
                         <img src="..." class="card-img-top" alt="...">
@@ -167,7 +168,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 my-4">
                 <div class="col">
                     <div class="card h-100">
                         <img src="..." class="card-img-top" alt="...">
@@ -210,7 +212,7 @@
             </div>
 
 
-                <div class="col-lg-12 col-12">
+            <div class="col-lg-12 col-12">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center mb-0">
                             <li class="page-item">
