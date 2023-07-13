@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Rubygroup\WebProfileSekolah\App\Router;
 use Rubygroup\WebProfileSekolah\Config\Database;
+use Rubygroup\WebProfileSekolah\Controller\BeritaController;
 use Rubygroup\WebProfileSekolah\Controller\EkstrakurikulerController;
 use Rubygroup\WebProfileSekolah\Controller\FasilitasController;
 use Rubygroup\WebProfileSekolah\Controller\GaleriController;
@@ -83,3 +84,8 @@ Router::add('/admin/galeri', GaleriController::class, 'showGaleriPagination');
 Router::add('/admin/galeri/tambah', GaleriController::class, 'tambahGaleri');
 Router::add('/admin/galeri/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', GaleriController::class, 'editGaleri');
 Router::add('/admin/galeri/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', GaleriController::class, 'deleteGaleri');
+
+Router::add('/admin/berita', BeritaController::class, 'showBeritaPagination');
+Router::add('/admin/berita/tambah', BeritaController::class, 'tambahBerita');
+Router::add('/admin/berita/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', BeritaController::class, 'editBerita');
+Router::add('/admin/berita/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', BeritaController::class, 'deleteBerita');
