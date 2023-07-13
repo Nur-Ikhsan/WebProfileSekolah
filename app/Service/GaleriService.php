@@ -56,22 +56,24 @@ class GaleriService
 
     public function updateGaleri(string $id, GaleriRequest $request): Galeri
     {
-        $this->validationUtil->validateImageFile($request->foto);
+
 
         $galeri = $this->galeriRepository->findGaleriById($id);
         if ($galeri === null) {
             throw new ValidationException('Galeri tidak ditemukan.');
         }
 
-        // Menghapus file foto dari direktori
-        $filePath = 'images/upload/galeri/' . $galeri->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
-        if (file_exists($filePath)) {
-            unlink($filePath);
+        if (!empty($request->foto['name'])){
+            $this->validationUtil->validateImageFile($request->foto);
+            // Menghapus file foto dari direktori
+            $filePath = 'images/upload/galeri/' . $galeri->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $galeri->setFoto($this->uploadPhoto($request->foto));
         }
-
         $galeri->setJudulGaleri($request->judulGaleri);
         $galeri->setDeskripsi($request->deskripsi);
-        $galeri->setFoto($this->uploadPhoto($request->foto));
 
         return $this->galeriRepository->updateGaleri($galeri);
     }

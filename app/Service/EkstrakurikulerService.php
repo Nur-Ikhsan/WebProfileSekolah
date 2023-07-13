@@ -48,22 +48,23 @@ class EkstrakurikulerService
 
     public function updateEkstrakurikuler(string $id, EkstrakurikulerRequest $request): Ekstrakurikuler
     {
-        $this->validationUtil->validateImageFile($request->icon);
-
         $ekstrakurikuler = $this->ekstrakurikulerRepository->findEkstrakurikulerById($id);
         if (!$ekstrakurikuler) {
             throw new ValidationException("Ekstrakurikuler not found for id $id");
         }
 
-        // Menghapus file foto dari direktori
-        $filePath = 'images/upload/ekstrakurikuler/' . $ekstrakurikuler->getIcon(); // Ganti dengan path direktori tempat menyimpan foto
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
-
-        if ($request->icon != null) {
+        if (!empty($request->foto['name'])){
+            $this->validationUtil->validateImageFile($request->icon);
+            // Menghapus file foto dari direktori
+            $filePath = 'images/upload/ekstrakurikuler/' . $ekstrakurikuler->getIcon(); // Ganti dengan path direktori tempat menyimpan foto
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
             $ekstrakurikuler->setIcon($this->uploadPhoto($request->icon));
         }
+
+        $ekstrakurikuler->setNamaEkstrakurikuler($request->namaEkstrakurikuler);
+        $ekstrakurikuler->setDeskripsi($request->deskripsi);
 
         $updatedEkstrakurikuler = $this->ekstrakurikulerRepository->updateEkstrakurikuler($ekstrakurikuler);
         return $updatedEkstrakurikuler;

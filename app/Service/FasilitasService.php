@@ -6,7 +6,6 @@ use Ramsey\Uuid\Uuid;
 use Rubygroup\WebProfileSekolah\Entity\Fasilitas;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\FasilitasRequest;
-use Rubygroup\WebProfileSekolah\Model\FasilitasResponse;
 use Rubygroup\WebProfileSekolah\Repository\FasilitasRepository;
 use Rubygroup\WebProfileSekolah\Validation\ValidationUtil;
 
@@ -21,7 +20,7 @@ class FasilitasService
         $this->validationUtil = new ValidationUtil();
     }
 
-    public function createFasilitas(FasilitasRequest $request): FasilitasResponse
+    public function createFasilitas(FasilitasRequest $request): Fasilitas
     {
         $this->validationUtil->validateImageFile($request->foto);
 
@@ -31,9 +30,7 @@ class FasilitasService
         $fasilitas->setDeskripsi($request->deskripsi);
         $fasilitas->setFoto($this->uploadPhoto($request->foto));
 
-        $savedFasilitas = $this->fasilitasRepository->saveFasilitas($fasilitas);
-
-        return new FasilitasResponse($savedFasilitas);
+        return $this->fasilitasRepository->saveFasilitas($fasilitas);
     }
 
     public function getFasilitasById(string $id): Fasilitas
@@ -46,30 +43,26 @@ class FasilitasService
         return $fasilitas;
     }
 
-    public function updateFasilitas(string $id, FasilitasRequest $request): FasilitasResponse
+    public function updateFasilitas(string $id, FasilitasRequest $request): Fasilitas
     {
-        $this->validationUtil->validateImageFile($request->foto);
-
         $fasilitas = $this->fasilitasRepository->findFasilitasById($id);
         if ($fasilitas === null) {
             throw new ValidationException('Fasilitas tidak ditemukan.');
         }
 
-        // Menghapus file foto dari direktori
-        $filePath = 'images/upload/fasilitas/' . $fasilitas->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
-
-        $fasilitas->setNama($request->nama);
-        $fasilitas->setDeskripsi($request->deskripsi);
-        if ($request->foto !== null) {
+        if (!empty($request->foto['name'])){
+            $this->validationUtil->validateImageFile($request->foto);
+            // Menghapus file foto dari direktori
+            $filePath = 'images/upload/fasilitas/' . $fasilitas->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
             $fasilitas->setFoto($this->uploadPhoto($request->foto));
         }
+        $fasilitas->setNama($request->nama);
+        $fasilitas->setDeskripsi($request->deskripsi);
 
-        $updatedFasilitas = $this->fasilitasRepository->updateFasilitas($fasilitas);
-
-        return new FasilitasResponse($updatedFasilitas);
+        return $this->fasilitasRepository->updateFasilitas($fasilitas);
     }
 
     public function deleteFasilitas(string $id): bool
