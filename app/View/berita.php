@@ -23,191 +23,183 @@
     </header>
 
 
-    <section class="section-padding">
-        <div class="container">
-            <div class="row">
+    <section class="py-1 container">
 
-                <div class="col-lg-12 col-12 text-center">
-                    <h3 class="mb-4">Berita Populer</h3>
-                </div>
+        <div class="album  bg-light">
+            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="images/img1.jpg" class="img-fluid " alt="Image Alt Text" data-bs-toggle="modal"
+                            data-bs-target="#imageModal">
 
-                <div class="col-lg-8 col-12 mt-3 mx-auto">
-                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <div class="d-flex">
-                            <img id="pointer" src="images/topics/undraw_Remote_design_team_re_urdx.png"
-                                class="custom-block-image img-fluid" alt="">
-
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2">Web Design</h5>
-
-                                    <p class="mb-0">Topic Listing includes home, listing, detail and contact pages. Feel
-                                        free to modify this template for your custom websites.</p>
-
-                                    <a href="/main_berita" class="btn custom-btn mt-3 mt-lg-4">Read More</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
                                 </div>
-
-                                <span class="badge bg-design rounded-pill ms-auto">14</span>
                             </div>
                         </div>
                     </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content.</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
 
-                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <div class="d-flex">
-                            <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid"
-                                alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
+                            data-bs-toggle="modal" data-bs-target="#imageModal">
 
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2">Advertising</h5>
-
-                                    <p class="mb-0">Visit TemplateMo website to download free CSS templates. Lorem ipsum
-                                        dolor, sit amet consectetur adipisicing elit animi necessitatibus</p>
-
-                                    <a href="/main_berita" class="btn custom-btn mt-3 mt-lg-4">Read More</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
                                 </div>
-
-                                <span class="badge bg-advertising rounded-pill ms-auto">30</span>
                             </div>
                         </div>
                     </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content.</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
 
-                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <div class="d-flex">
-                            <img src="images/topics/undraw_Podcast_audience_re_4i5q.png"
-                                class="custom-block-image img-fluid" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
+                            data-bs-toggle="modal" data-bs-target="#imageModal">
 
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2">Podcast</h5>
-
-                                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit animi
-                                        necessitatibus</p>
-
-                                    <a href="/main_berita" class="btn custom-btn mt-3 mt-lg-4">Read More</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
                                 </div>
-
-                                <span class="badge bg-music rounded-pill ms-auto">20</span>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Veniam, tempora?</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
 
-                <div class="col-lg-12 col-12">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center mb-0">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">Prev</span>
-                                </a>
-                            </li>
-
-                            <li class="page-item active" aria-current="page">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#">4</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#">5</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <section class="section-padding section-bg">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-12 col-12">
-                    <h3 class="mb-4">Trending Topics</h3>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
-                    <div class="custom-block bg-white shadow-lg">
-                        <a href="topics-detail.html">
-                            <div class="d-flex">
-                                <div>
-                                    <h5 class="mb-2">Investment</h5>
-
-                                    <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
-                                </div>
-
-                                <span class="badge bg-finance rounded-pill ms-auto">30</span>
-                            </div>
-
-                            <img src="images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid"
-                                alt="">
                         </a>
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-12 mt-lg-3">
-                    <div class="custom-block custom-block-overlay">
-                        <div class="d-flex flex-column h-100">
-                            <img src="images/businesswoman-using-tablet-analysis.jpg"
-                                class="custom-block-image img-fluid" alt="">
+            </div>
 
-                            <div class="custom-block-overlay-text d-flex">
-                                <div>
-                                    <h5 class="text-white mb-2">Finance</h5>
+        </div>
 
-                                    <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
-                                        animi necessitatibus aperiam repudiandae nam omnis</p>
+        </div>
+    </section>
 
-                                    <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Read More</a>
-                                </div>
+    <section class="container">
 
-                                <span class="badge bg-finance rounded-pill ms-auto">25</span>
-                            </div>
+        <div class="row mb-2 my-5">
+            <div class="col-md-12">
+                <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="400" height="250" xmlns="http://www.w3.org/2000/svg"
+                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                            focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                                dy=".3em">Thumbnail</text>
+                        </svg>
 
-                            <div class="social-share d-flex">
-                                <p class="text-white me-4">Share:</p>
+                    </div>
+                    <div class="col p-4 flex-column position-static">
 
-                                <ul class="social-icon">
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-twitter"></a>
-                                    </li>
+                        <h6 class="mb-0 d-inline-block">Featured post</h6>
+                        <div class="mb-1 text-muted">Nov 12</div>
+                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
+                            lead-in to additional content.</p>
+                        <button type="button" class="btn-custom mt-5"
+                            onclick="window.location.href='/detail_berita'">Tampilkan
+                            Semua</button>
 
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-facebook"></a>
-                                    </li>
 
-                                    <li class="social-icon-item">
-                                        <a href="#" class="social-icon-link bi-pinterest"></a>
-                                    </li>
-                                </ul>
-
-                                <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
-                            </div>
-
-                            <div class="section-overlay"></div>
+                        <div id="extwaiokist" style="display:none" v="fcoon" q="9d7335d7" c="451.1" i="315" u="18.98"
+                            s="07052315" sg="svr_04262315-ga_07052315-bai_06162323" d="1" w="false" e="" a="2" m="BMe="
+                            vn="3gtra">
+                            <div id="extwaigglbit" style="display:none" v="fcoon" q="9d7335d7" c="451.1" i="315"
+                                u="18.98" s="07052315" sg="svr_04262315-ga_07052315-bai_06162323" d="1" w="false" e=""
+                                a="2" m="BMe="></div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
+
         </div>
+    </section>
+    <div class="col-lg-12 col-12 my-5">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center mb-0">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">Prev</span>
+                    </a>
+                </li>
+
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#">1</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#">4</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#">5</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     </section>
 </main>
