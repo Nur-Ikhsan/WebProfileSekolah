@@ -28,7 +28,9 @@
                     <div class="form-floating mb-3">
                         <select name="id_guru_staff" class="form-select" id="id_guru_staff">
                             <?php foreach ($model['guruStaff'] as $guruStaff) : ?>
+                            <?php if ($guruStaff->getJabatan() != 'ADMIN') { ?>
                                 <option value="<?= $guruStaff->getIdGuruStaff() ?>"><?= $guruStaff->getNamaGuru() ?></option>
+                            <?php } ?>
                             <?php endforeach; ?>
                         </select>
                         <label for="id_guru_staff">Pilih Guru</label>

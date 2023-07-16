@@ -6,6 +6,7 @@ class Admin
     private string $id;
     private string $username;
     private string $password;
+    private string $status;
     private GuruStaff $guruStaff;
 
     /**
@@ -70,6 +71,22 @@ class Admin
     public function setPassword(string $password): void
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus(string $status): void
+    {
+        $this->status = $status;
     }
 
 

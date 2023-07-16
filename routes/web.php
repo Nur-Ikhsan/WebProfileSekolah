@@ -89,3 +89,7 @@ Router::add('/admin/berita', BeritaController::class, 'showBeritaPagination');
 Router::add('/admin/berita/tambah', BeritaController::class, 'tambahBerita');
 Router::add('/admin/berita/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', BeritaController::class, 'editBerita');
 Router::add('/admin/berita/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', BeritaController::class, 'deleteBerita');
+
+Router::add('/admin/check-register', AdminController::class, 'showAdminPagination');
+Router::add('/admin/check-register/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', AdminController::class, 'changeStatus');
+Router::add('/admin/check-register/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', AdminController::class, 'deleteAdmin');
