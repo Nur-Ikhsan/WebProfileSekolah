@@ -84,7 +84,7 @@ class KetSekolahRepository
                 $kurikulum = new KetSekolah();
                 $kurikulum->setId($row['id']);
                 $kurikulum->setNamaKurikulum($row['nama_kurikulum']);
-                $kurikulum->setDekripsiKurikulum($row['dekripsi_kurikulum']);
+                $kurikulum->setDekripsiKurikulum($row['deskripsi_kurikulum']);
                 return $kurikulum;
             } else {
                 return null;

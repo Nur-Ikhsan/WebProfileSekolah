@@ -13,7 +13,8 @@
             <nav class="header-nav ms-auto">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>" alt="Profile" class="rounded-circle" height="36px" width="36px">
+                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>"
+                         alt="Profile" class="rounded-circle" height="36px" width="36px">
                     <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?= $model['admin']['username'] ?? 'null' ?></span>
                 </a><!-- End Profile Iamge Icon -->
 
@@ -63,7 +64,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-building"></i><span>Profil Sekolah</span><i
-                        class="bi bi-chevron-down ms-auto"></i>
+                            class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
@@ -229,74 +230,88 @@
                         </thead>
                         <tbody>
                         <?php foreach ($model['galeriList'] as $index => $galeri) : ?>
-                                <tr>
-                                    <td class="text-center"><?= ($index + 1) ?></td>
-                                    <td><?= $galeri->getJudulGaleri() ?></td>
-                                    <td class="text-center">
-                                        <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>"
-                                             alt="Foto Guru/Staff" width="100">
-                                    </td>
-                                    <td><?= $galeri->getDeskripsi() ?></td>
-                                    <td class="text-center">
-                                        <a href="#" data-bs-toggle="modal"
-                                           data-bs-target="#editGaleriModal<?= $galeri->getIdGaleri() ?>">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a> |
-                                        <a href="#" data-bs-toggle="modal"
-                                           data-bs-target="#deleteGaleriModal<?= $galeri->getIdGaleri() ?>">
-                                            <i class="bi bi-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td class="text-center"><?= ($index + 1) ?></td>
+                                <td><?= $galeri->getJudulGaleri() ?></td>
+                                <td class="text-center">
+                                    <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>"
+                                         alt="Foto Guru/Staff" width="100">
+                                </td>
+                                <td><?= $galeri->getDeskripsi() ?></td>
+                                <td class="text-center">
+                                    <a href="#" data-bs-toggle="modal"
+                                       data-bs-target="#editGaleriModal<?= $galeri->getIdGaleri() ?>">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a> |
+                                    <a href="#" data-bs-toggle="modal"
+                                       data-bs-target="#deleteGaleriModal<?= $galeri->getIdGaleri() ?>">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
 
-                                <!-- Edit Guru/Staff Modal -->
-                                <div class="modal fade" id="editGaleriModal<?= $galeri->getIdGaleri() ?>" tabindex="-1" aria-labelledby="editGaleriModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="editGaleriLabel">Edit Galeri</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="/admin/galeri/edit/<?= $galeri->getIdGaleri() ?>" method="POST" enctype="multipart/form-data">
-                                                    <div class="mb-3">
-                                                        <label for="editJudulGaleri" class="form-label">Judul Galeri</label>
-                                                        <input type="text" class="form-control" id="editJudulGaleri" name="judul" value="<?= $galeri->getJudulGaleri() ?>" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="editDeskripsi" class="form-label">Nama Kegiatan</label>
-                                                        <textarea class="form-control" id="editDeskripsi" name="deskripsi" required><?= $galeri->getDeskripsi() ?></textarea>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="editFoto" class="form-label">Foto</label>
-                                                        <input type="file" class="form-control" id="editFoto" name="foto">
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                                </form>
-                                            </div>
+                            <!-- Edit Guru/Staff Modal -->
+                            <div class="modal fade" id="editGaleriModal<?= $galeri->getIdGaleri() ?>" tabindex="-1"
+                                 aria-labelledby="editGaleriModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editGaleriLabel">Edit Galeri</h5>
+                                            <button type="button" class="btn-closes" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/admin/galeri/edit/<?= $galeri->getIdGaleri() ?>"
+                                                  method="POST" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label for="editJudulGaleri" class="form-label">Judul Galeri</label>
+                                                    <input type="text" class="form-control" id="editJudulGaleri"
+                                                           name="judul" value="<?= $galeri->getJudulGaleri() ?>"
+                                                           required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="editDeskripsi" class="form-label">Nama Kegiatan</label>
+                                                    <textarea class="form-control" id="editDeskripsi" name="deskripsi"
+                                                              required><?= $galeri->getDeskripsi() ?></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="editFoto" class="form-label">Foto</label>
+                                                    <input type="file" class="form-control" id="editFoto" name="foto">
+                                                </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Delete Guru/Staff Modal -->
-                                <div class="modal fade" id="deleteGaleriModal<?= $galeri->getIdGaleri() ?>" tabindex="-1" aria-labelledby="deleteGaleriModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-headers">
-                                                <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal" aria-label="Close" id="modalCloseButton"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data Galeri?</h6>
-                                                <br>
-                                                <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
-                                            </div>
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-secondary pl-4" data-bs-dismiss="modal">Batal</button>
-                                                <a href="/admin/galeri/delete/<?= $galeri->getIdGaleri() ?>" class="btn btn-danger px-4">Hapus</a>
-                                            </div>
+                            <!-- Delete Guru/Staff Modal -->
+                            <div class="modal fade" id="deleteGaleriModal<?= $galeri->getIdGaleri() ?>" tabindex="-1"
+                                 aria-labelledby="deleteGaleriModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-headers">
+                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close" id="modalCloseButton"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data
+                                                Galeri?</h6>
+                                            <br>
+                                            <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary pl-4"
+                                                    data-bs-dismiss="modal">Batal
+                                            </button>
+                                            <a href="/admin/galeri/delete/<?= $galeri->getIdGaleri() ?>"
+                                               class="btn btn-danger px-4">Hapus</a>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -304,7 +319,9 @@
                         <ul class="pagination">
                             <?php if ($model['pagination']['page'] > 1): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/guru-staff?page=<?= $model['pagination']['page'] - 1 ?>" aria-label="Sebelumnya">
+                                    <a class="page-link"
+                                       href="/admin/sekolah/guru-staff?page=<?= $model['pagination']['page'] - 1 ?>"
+                                       aria-label="Sebelumnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                                     </a>
                                 </li>
@@ -340,7 +357,9 @@
 
                             <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/guru-staff?page=<?= $model['pagination']['page'] + 1 ?>" aria-label="Berikutnya">
+                                    <a class="page-link"
+                                       href="/admin/sekolah/guru-staff?page=<?= $model['pagination']['page'] + 1 ?>"
+                                       aria-label="Berikutnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                                     </a>
                                 </li>
@@ -371,12 +390,13 @@
     </footer>
 </div>
 <!-- Tambah Guru/Staff Modal -->
-<div class="modal fade" id="tambahGaleriModal" tabindex="-1" aria-labelledby="tambahGuruStaffModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahGaleriModal" tabindex="-1" aria-labelledby="tambahGuruStaffModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tambahGalerModalLabel">Tambah Galeri</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="/admin/galeri/tambah" method="POST" enctype="multipart/form-data">
@@ -392,7 +412,9 @@
                         <label for="foto" class="form-label">Gambar</label>
                         <input type="file" class="form-control" id="foto" name="foto" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -13,7 +13,8 @@
             <nav class="header-nav ms-auto">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>" alt="Profile" class="rounded-circle" height="36px" width="36px">
+                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>"
+                         alt="Profile" class="rounded-circle" height="36px" width="36px">
                     <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?= $model['admin']['username'] ?? 'null' ?></span>
                 </a><!-- End Profile Iamge Icon -->
 
@@ -63,7 +64,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-building"></i><span>Profil Sekolah</span><i
-                        class="bi bi-chevron-down ms-auto"></i>
+                            class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
@@ -223,69 +224,90 @@
                         </thead>
                         <tbody>
                         <?php foreach ($model['adminList'] as $index => $dataAdmin) : ?>
-                        <?php if ($dataAdmin->getGuruStaff()->getJabatan() != 'ADMIN') { ?>
-                            <tr>
-                                <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
-                                <td class="text-center"><?= $dataAdmin->getUsername() ?></td>
-                                <td class="text-center"><?= $dataAdmin->getGuruStaff()->getNamaGuru() ?></td>
-                                <td class="text-center"><?= $dataAdmin->getStatus() ?></td>
-                                <td class="text-center">
-                                    <a href="#" data-bs-toggle="modal"
-                                       data-bs-target="#editCheckRegisterModal<?= $dataAdmin->getId() ?>">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a> |
-                                    <a href="#" data-bs-toggle="modal"
-                                       data-bs-target="#deleteCheckRegisterModal<?= $dataAdmin->getId() ?>">
-                                        <i class="bi bi-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            <?php if ($dataAdmin->getGuruStaff()->getJabatan() != 'ADMIN') { ?>
+                                <tr>
+                                    <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
+                                    <td class="text-center"><?= $dataAdmin->getUsername() ?></td>
+                                    <td class="text-center"><?= $dataAdmin->getGuruStaff()->getNamaGuru() ?></td>
+                                    <td class="text-center"><?= $dataAdmin->getStatus() ?></td>
+                                    <td class="text-center">
+                                        <a href="#" data-bs-toggle="modal"
+                                           data-bs-target="#editCheckRegisterModal<?= $dataAdmin->getId() ?>">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a> |
+                                        <a href="#" data-bs-toggle="modal"
+                                           data-bs-target="#deleteCheckRegisterModal<?= $dataAdmin->getId() ?>">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
 
-                            <!-- Edit Check Register Modal -->
-                            <div class="modal fade" id="editCheckRegisterModal<?= $dataAdmin->getId() ?>" tabindex="-1" aria-labelledby="editCheckRegisterModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="editCheckRegisterModalLabel">Edit Prestasi</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form method="POST" action="/admin/check-register/edit/<?= $dataAdmin->getId() ?>" enctype="multipart/form-data">
-                                                <input type="hidden" name="_method" value="PUT">
-                                                <div class="mb-3">
-                                                    <label for="edit-nama-prestasi" class="form-label">Status</label>
-                                                    <select name="status" class="form-select" id="status">
-                                                            <option value="ACTIVE">ACTIVE</option>
-                                                        <option value="NON-ACTIVE">NON-ACTIVE</option>
-                                                    </select>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Simpan</button>
-                                            </form>
+                                <!-- Edit Check Register Modal -->
+                                <div class="modal fade" id="editCheckRegisterModal<?= $dataAdmin->getId() ?>"
+                                     tabindex="-1" aria-labelledby="editCheckRegisterModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editCheckRegisterModalLabel">Edit
+                                                    Prestasi</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="POST"
+                                                      action="/admin/check-register/edit/<?= $dataAdmin->getId() ?>"
+                                                      enctype="multipart/form-data">
+                                                    <input type="hidden" name="_method" value="PUT">
+                                                    <div class="mb-3">
+                                                        <label for="edit-nama-prestasi"
+                                                               class="form-label">Status</label>
+                                                        <select name="status" class="form-select" id="status">
+                                                            <option value="ACTIVE" <?= $dataAdmin->getStatus() === 'ACTIVE' ? 'selected' : '' ?>>
+                                                                ACTIVE
+                                                            </option>
+                                                            <option value="NON-ACTIVE" <?= $dataAdmin->getStatus() === 'NON-ACTIVE' ? 'selected' : '' ?>>
+                                                                NON-ACTIVE
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="submit" class="btn btn-primary px-4">Simpan
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Hapus Prestasi Modal -->
-                            <div class="modal fade" id="deleteCheckRegisterModal<?= $dataAdmin->getId() ?>" tabindex="-1" aria-labelledby="deleteCheckRegisterModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-headers">
-                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal" aria-label="Close" id="modalCloseButton"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data Akun Admin?</h6>
-                                            <br>
-                                            <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
-                                        </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary pl-4" data-bs-dismiss="modal">Batal</button>
-                                            <a href="/admin/check-register/delete/<?= $dataAdmin->getId() ?>" class="btn btn-danger px-4">Hapus</a>
+                                <!-- Hapus Prestasi Modal -->
+                                <div class="modal fade" id="deleteCheckRegisterModal<?= $dataAdmin->getId() ?>"
+                                     tabindex="-1" aria-labelledby="deleteCheckRegisterModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-headers">
+                                                <button class="close-icon btn-closes" type="button"
+                                                        data-bs-dismiss="modal" aria-label="Close"
+                                                        id="modalCloseButton"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus
+                                                    Data Akun Admin?</h6>
+                                                <br>
+                                                <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data
+                                                    ini?</p>
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary pl-4"
+                                                        data-bs-dismiss="modal">Batal
+                                                </button>
+                                                <a href="/admin/check-register/delete/<?= $dataAdmin->getId() ?>"
+                                                   class="btn btn-danger px-4">Hapus</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -293,7 +315,9 @@
                         <ul class="pagination">
                             <?php if ($model['pagination']['page'] > 1): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/check-register?page=<?= $model['pagination']['page'] - 1 ?>" aria-label="Sebelumnya">
+                                    <a class="page-link"
+                                       href="/admin/check-register?page=<?= $model['pagination']['page'] - 1 ?>"
+                                       aria-label="Sebelumnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                                     </a>
                                 </li>
@@ -329,7 +353,9 @@
 
                             <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/check-register?page=<?= $model['pagination']['page'] + 1 ?>" aria-label="Berikutnya">
+                                    <a class="page-link"
+                                       href="/admin/check-register?page=<?= $model['pagination']['page'] + 1 ?>"
+                                       aria-label="Berikutnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                                     </a>
                                 </li>

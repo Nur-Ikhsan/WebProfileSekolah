@@ -72,6 +72,7 @@ class AdminController
         $guruStaff = $this->guruStaffService->getAllGuruStaff();
         $request = new AdminRequest();
         $error = null;
+        $success = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $request->username = $_POST['username'];
@@ -81,7 +82,7 @@ class AdminController
 
             try {
                 $this->adminService->register($request);
-                View::redirect('/admin/login');
+                $success = 'Akun Anda Belum Aktif, Silahkan Hubungi Admin Untuk Mengaktifkan Akun Anda';
             } catch (ValidationException $exception) {
                 $error = $exception->getMessage();
             }
@@ -94,6 +95,7 @@ class AdminController
         View::render('Admin/register', [
             'title' => 'Register Admin',
             'error' => $error,
+            'success' => $success,
             'guruStaff' => $guruStaff
         ]);
     }
@@ -170,6 +172,7 @@ class AdminController
     {
         $admin = $this->sessionService->findSession();
         $error = null;
+        $success = null;
 
         if ($admin === null) {
             View::redirect('/admin/login');
@@ -183,7 +186,7 @@ class AdminController
 
             try {
                 $this->adminService->gantiPassword($admin->getUsername(), $oldPassword, $newPassword, $confirmNewPassword);
-                View::redirect('/admin');
+                $success = 'Password Berhasil Diganti';
             } catch (ValidationException $exception) {
                 $error = $exception->getMessage();
             }
@@ -192,6 +195,7 @@ class AdminController
         View::render('Admin/ganti-password', [
             'title' => 'Ganti Password',
             'error' => $error,
+            'success' => $success,
             'admin' => [
                 'username' => $admin->getUsername()
             ],

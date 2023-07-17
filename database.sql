@@ -94,11 +94,11 @@ CREATE TABLE berita
     isi_berita    TEXT
 );
 
-CREATE TABLE Prestasi
+CREATE TABLE prestasi
 (
     id_prestasi   VARCHAR(255) PRIMARY KEY,
     tanggal       DATE,
-    kategori      VARCHAR(255),
+    kategori      ENUM('Prestasi Siswa','Prestasi Guru','Prestasi Sekolah'),
     nama_prestasi VARCHAR(255)
 );
 
@@ -112,14 +112,12 @@ CREATE TABLE `ket_sekolah`
     misi                VARCHAR(255)
 );
 
-CREATE TABLE Kurikulum
+CREATE TABLE kurikulum
 (
     id_kurikulum  VARCHAR(255) PRIMARY KEY,
     komponen      VARCHAR(255),
     sub_komponen  VARCHAR(255),
-    kategori      VARCHAR(255),
-    alokasi_waktu INT,
-    kelas         VARCHAR(255),
+    kategori      ENUM('Kelompok A','Kelompok B','Muatan Lokal','Bimbingan dan Pelayanan','Pengembangan Diri'),
     id_sekolah    VARCHAR(255),
     FOREIGN KEY (id_sekolah) REFERENCES Sekolah (id_sekolah)
 );

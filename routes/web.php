@@ -12,6 +12,7 @@ use Rubygroup\WebProfileSekolah\Controller\GuruStaffController;
 use Rubygroup\WebProfileSekolah\Controller\HomeController;
 use Rubygroup\WebProfileSekolah\Controller\AdminController;
 use Rubygroup\WebProfileSekolah\Controller\KegiatanController;
+use Rubygroup\WebProfileSekolah\Controller\KurikulumController;
 use Rubygroup\WebProfileSekolah\Controller\PrestasiController;
 use Rubygroup\WebProfileSekolah\Controller\SekolahController;
 use Rubygroup\WebProfileSekolah\Controller\SlideshowController;
@@ -79,6 +80,12 @@ Router::add('/admin/sekolah/prestasi', PrestasiController::class, 'showPrestasiP
 Router::add('/admin/sekolah/prestasi/tambah', PrestasiController::class, 'tambahPrestasi');
 Router::add('/admin/sekolah/prestasi/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', PrestasiController::class, 'editPrestasi');
 Router::add('/admin/sekolah/prestasi/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', PrestasiController::class, 'deletePrestasi');
+
+Router::add('/admin/kurikulum', KurikulumController::class, 'showKurikulumPagination');
+Router::add('/admin/kurikulum/tambah', KurikulumController::class, 'tambahKurikulum');
+Router::add('/admin/kurikulum/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', KurikulumController::class, 'editKurikulum');
+Router::add('/admin/kurikulum/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', KurikulumController::class, 'deleteKurikulum');
+Router::add('/admin/kurikulum/edit', KurikulumController::class, 'editKurikulum2');
 
 Router::add('/admin/galeri', GaleriController::class, 'showGaleriPagination');
 Router::add('/admin/galeri/tambah', GaleriController::class, 'tambahGaleri');
