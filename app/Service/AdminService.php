@@ -26,7 +26,7 @@ class AdminService
         try {
             Database::beginTransaction();
             $admin = $this->adminRepository->findByUsername($request->username);
-            if($admin !== null) {
+            if ($admin !== null) {
                 throw new ValidationException('Username already exist');
             }
 
@@ -44,15 +44,15 @@ class AdminService
             $response->password = $admin->getPassword();
             Database::commitTransaction();
             return $response;
-        }catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             Database::rollbackTransaction();
-            throw $exception;
+            throw new ValidationException('Guru/Staff already exist');
         }
     }
 
     private function validate(AdminRequest $request): void
     {
-        if($request->username === null || $request->password == null || trim($request->password) == "" || trim($request->username) == "" ) {
+        if ($request->username === null || $request->password == null || trim($request->password) == "" || trim($request->username) == "") {
             throw new ValidationException('Username and Password is required');
         }
     }
@@ -64,13 +64,18 @@ class AdminService
         try {
             Database::beginTransaction();
             $admin = $this->adminRepository->findByUsername($request->username);
-            if($admin === null) {
+            if ($admin === null) {
                 throw new ValidationException('Username not found');
             }
 
-            if(!password_verify($request->password, $admin->getPassword())) {
+            if (!password_verify($request->password, $admin->getPassword())) {
                 throw new ValidationException('Password not match');
             }
+
+            if ($admin->getStatus() === 'NON-ACTIVE') {
+                throw new ValidationException('Admin is not active');
+            }
+
 
             $response = new AdminResponse();
             $response->id = $admin->getId();
@@ -78,7 +83,7 @@ class AdminService
             $response->password = $admin->getPassword();
             Database::commitTransaction();
             return $response;
-        }catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             Database::rollbackTransaction();
             throw $exception;
         }
@@ -110,4 +115,45 @@ class AdminService
         $this->adminRepository->updatePassword($admin);
     }
 
+    public function getAllAdmin(): array
+    {
+        return $this->adminRepository->getAllAdmin();
+    }
+
+    public function getAdminAdminPagination(int $page, int $perPage): array
+    {
+        $offset = ($page - 1) * $perPage;
+        return $this->adminRepository->getAllAdminPagination($perPage, $offset);
+    }
+
+    public function changeStatus(string $id, string $status, Admin $nowAdmin): Admin
+    {
+        $admin = $this->adminRepository->findById($id);
+
+        if ($admin->getId() === $nowAdmin->getId()) {
+            throw new ValidationException('Tidak dapat mengubah status admin sendiri');
+        }
+
+        if (!$admin) {
+            throw new ValidationException('Prestasi tidak ditemukan');
+        }
+
+        $admin->setStatus($status);
+        return $this->adminRepository->changeStatus($admin);
+    }
+
+    public function deleteAdmin(string $id, Admin $nowAdmin): void
+    {
+        $admin = $this->adminRepository->findById($id);
+
+        if ($admin->getId() === $nowAdmin->getId()) {
+            throw new ValidationException('Tidak dapat menghapus admin sendiri');
+        }
+
+        if (!$admin) {
+            throw new ValidationException('Admin tidak ditemukan');
+        }
+
+        $this->adminRepository->deleteAdmin($admin->getId());
+    }
 }

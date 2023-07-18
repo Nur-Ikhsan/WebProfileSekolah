@@ -1,18 +1,14 @@
 <main>
-
-
-
     <section class="corausel-section slide-width">
         <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
 
             <div class="carousel-inner">
                 <?php $count = 0; ?>
                 <?php foreach ($slideshows as $slideshow): ?>
-                <?php $count++; ?>
-                <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
-                    <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100"
-                        alt="<?= $slideshow->getJudul() ?>">
-                </div>
+                    <?php $count++; ?>
+                    <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
+                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100" alt="<?= $slideshow->getJudul() ?>">
+                    </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -29,20 +25,19 @@
 
                     <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                         <div class="input-group input-group-lg">
-                            <span class="input-group-text bi-search" id="basic-addon1">
+                                    <span class="input-group-text bi-search" id="basic-addon1">
 
-                            </span>
+                                    </span>
 
                             <input name="keyword" type="search" class="form-control" id="keyword"
-                                placeholder="Apa yang ingin Anda cari?" aria-label="Search">
+                                   placeholder="Apa yang ingin Anda cari?" aria-label="Search">
 
                             <button type="submit" class="form-control button-color">Cari</button>
                         </div>
                     </form>
                 </div>
 
-                <div
-                    class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row">
+                <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row">
                     <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
                         <img class="rounded-4 img-fluid img-responsive" src="/images/faq_graphic.jpg" alt="img">
                     </div>
@@ -180,22 +175,22 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="design-tab" data-bs-toggle="tab"
-                            data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane"
-                            aria-selected="true">Tentang
+                                data-bs-target="#design-tab-pane" type="button" role="tab"
+                                aria-controls="design-tab-pane" aria-selected="true">Tentang
                         </button>
                     </li>
 
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
-                            data-bs-target="#marketing-tab-pane" type="button" role="tab"
-                            aria-controls="marketing-tab-pane" aria-selected="false">Fasilitas
+                                data-bs-target="#marketing-tab-pane" type="button" role="tab"
+                                aria-controls="marketing-tab-pane" aria-selected="false">Fasilitas
                         </button>
                     </li>
 
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="finance-tab" data-bs-toggle="tab"
-                            data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane"
-                            aria-selected="false">Kegiatan Sekolah
+                                data-bs-target="#finance-tab-pane" type="button" role="tab"
+                                aria-controls="finance-tab-pane" aria-selected="false">Kegiatan Sekolah
                         </button>
                     </li>
 
@@ -310,41 +305,17 @@
                             <div class="row">
                                 <div class="slider">
                                     <div class="owl-carousel">
-                                        <div class="slider-card">
-                                            <div class="d-flex justify-content-center align-items-center mb-4">
-                                                <img src="/images/1.jpg" alt="">
+                                        <?php foreach ($guruStaffList as $guruStaff): ?>
+                                        <?php if ($guruStaff->getJabatan() != 'ADMIN') { ?>
+                                            <div class="slider-card">
+                                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                                    <img src="/images/upload/guru-staff/<?php echo $guruStaff->getFoto(); ?>" alt="">
+                                                </div>
+                                                <h5 class="mb-0 text-center"><b><?php echo $guruStaff->getNamaGuru(); ?></b></h5>
+                                                <p class="text-center p-4"><?php echo $guruStaff->getJabatan(); ?></p>
                                             </div>
-                                            <h5 class="mb-0 text-center"><b>Iskandar, S.Pd.I.</b></h5>
-                                            <p class="text-center p-4">Qur'an Hadits</p>
-                                        </div>
-                                        <div class="slider-card">
-                                            <div class="d-flex justify-content-center align-items-center mb-4">
-                                                <img src="/images/2.jpg" alt="">
-                                            </div>
-                                            <h5 class="mb-0 text-center"><b>Parmin, S.Ag.</b></h5>
-                                            <p class="text-center p-4">Qur'an Hadits</p>
-                                        </div>
-                                        <div class="slider-card">
-                                            <div class="d-flex justify-content-center align-items-center mb-4">
-                                                <img src="/images/3.jpg" alt="">
-                                            </div>
-                                            <h5 class="mb-0 text-center"><b>Sri Yani, S.Ag.</b></h5>
-                                            <p class="text-center p-4">Aqidah Akhlak</p>
-                                        </div>
-                                        <div class="slider-card">
-                                            <div class="d-flex justify-content-center align-items-center mb-4">
-                                                <img src="/images/4.jpg" alt="">
-                                            </div>
-                                            <h5 class="mb-0 text-center"><b>Naim, S.Pd.</b></h5>
-                                            <p class="text-center p-4">Matematika</p>
-                                        </div>
-                                        <div class="slider-card">
-                                            <div class="d-flex justify-content-center align-items-center mb-4">
-                                                <img src="/images/5.jpg" alt="">
-                                            </div>
-                                            <h5 class="mb-0 text-center"><b>Jamiat, S.Pd.</b></h5>
-                                            <p class="text-center p-4">Matematika</p>
-                                        </div>
+                                        <?php } ?>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>
@@ -358,14 +329,11 @@
 
     <section class="timeline-section section-padding">
         <div class="section-overlay"></div>
-
         <div class="container">
             <div class="row">
-
                 <div class="col-12 text-center">
                     <h1 class="text-white mb-4">Ekstrakurikuler</h1>
                 </div>
-
                 <div class="col-lg-10 col-12 mx-auto">
                     <div class="timeline-container">
                         <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
@@ -373,65 +341,22 @@
                                 <div class="inner"></div>
                             </div>
 
-                            <li>
-                                <h4 class="text-white mb-3">Pramuka</h4>
-
-                                <p class="text-white">Melatih peserta didik untuk terampil dan mandiri dan melatih untuk
-                                    berorganisasi dan kepemimpinan Memiliki jiwa sosial dan peduli kepada orang
-                                    lain.</p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/pramuka.png">
-                                </div>
-                            </li>
-
-                            <li>
-                                <h4 class="text-white mb-3">PMR</h4>
-
-                                <p class="text-white">Palang Merah Remaja (PMR) adalah organisasi kepanduan dan
-                                    kemanusiaan yang bergerak di bidang sosial dan kesehatan. </p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/pmr.png">
-                                </div>
-                            </li>
-                            <li>
-                                <h4 class="text-white mb-3">Olahraga</h4>
-
-                                <p class="text-white">Melibatkan siswa dalam berbagai jenis olahraga yakni futsal, voli
-                                    ball, tenis meja, bulu tangkis, dan bela diri.</p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/olahraga.png">
-                                </div>
-                            </li>
-                            <li>
-                                <h4 class="text-white mb-3">Seni</h4>
-
-                                <p class="text-white">Kegiatan di sekolah yang berfokus pada pengembangan bakat seni dan
-                                    pemahaman terhadap budaya serta keagamaan yakni Seni Tari dan Tilawah</p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/Seni.png">
-                                </div>
-                            </li>
-
-                            <li>
-                                <h4 class="text-white mb-3">Bahasa</h4>
-
-                                <p class="text-white">Memberikan kesempatan kepada siswa untuk memperdalam pemahaman dan
-                                    penggunaan Bahasa Inggris dan Arab di luar jam pelajaran reguler.</p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/bahasa.png">
-                                </div>
-                            </li>
+                            <?php foreach ($ekstrakurikulerList as $ekstrakurikuler): ?>
+                                <li>
+                                    <h4 class="text-white mb-3"><?= $ekstrakurikuler->getNamaEkstrakurikuler() ?></h4>
+                                    <p class="text-white"><?= $ekstrakurikuler->getDeskripsi() ?></p>
+                                    <div class="icon-holder">
+                                        <img src="/images/upload/ekstrakurikuler/<?= $ekstrakurikuler->getIcon() ?>">
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
 
     <section class="faq-section section-padding">
@@ -450,57 +375,73 @@
 
                 <div class="col-lg-6 col-12 m-auto">
                     <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Prestasi Siswa
-                                </button>
-                            </h2>
+                        <?php
+                        $kategoriList = [];
+                        foreach ($prestasiList as $prestasi) {
+                            $kategori = $prestasi->getKategori();
+                            if (!array_key_exists($kategori, $kategoriList)) {
+                                $kategoriList[$kategori] = [];
+                            }
+                            $kategoriList[$kategori][] = $prestasi->getNama();
+                        }
+                        ?>
 
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
+                        <?php $index = 0; ?>
+                        <?php foreach ($kategoriList as $kategori => $prestasiNames): ?>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading<?= $index ?>">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse<?= $index ?>" aria-expanded="false"
+                                            aria-controls="collapse<?= $index ?>">
+                                        <?= $kategori ?>
+                                    </button>
+                                </h2>
+
+                                <div id="collapse<?= $index ?>" class="accordion-collapse collapse"
+                                     aria-labelledby="heading<?= $index ?>"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <?php foreach ($prestasiNames as $prestasiName): ?>
+                                            <div class="accordion-body">
+                                                <?= $prestasiName ?>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Prestasi Guru
-                                </button>
-                            </h2>
-
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Prestasi Sekolah
-                                </button>
-                            </h2>
-
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
-                                </div>
-                            </div>
-                        </div>
+                            <?php $index++; ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
+
+    <div class="tab-pane fade" id="education-tab-pane" role="tabpanel"
+         aria-labelledby="education-tab" tabindex="0">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="mb-4">Guru dan Staff</h1>
+            </div>
+            <div class="slider">
+                <div class="owl-carousel">
+                    <?php foreach ($guruStaffList as $guruStaff): ?>
+                        <?php if ($guruStaff->getJabatan() != 'ADMIN') { ?>
+                            <div class="slider-card">
+                                <div class="d-flex justify-content-center align-items-center mb-4">
+                                    <img src="/images/upload/guru-staff/<?php echo $guruStaff->getFoto(); ?>" alt="">
+                                </div>
+                                <h5 class="mb-0 text-center"><b><?php echo $guruStaff->getNamaGuru(); ?></b></h5>
+                                <p class="text-center p-4"><?php echo $guruStaff->getJabatan(); ?></p>
+                            </div>
+                        <?php } ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </main>

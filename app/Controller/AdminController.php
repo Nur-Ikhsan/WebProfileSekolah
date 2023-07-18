@@ -72,6 +72,7 @@ class AdminController
         $guruStaff = $this->guruStaffService->getAllGuruStaff();
         $request = new AdminRequest();
         $error = null;
+        $success = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $request->username = $_POST['username'];
@@ -81,7 +82,7 @@ class AdminController
 
             try {
                 $this->adminService->register($request);
-                View::redirect('/admin/login');
+                $success = 'Akun Anda Belum Aktif, Silahkan Hubungi Admin Untuk Mengaktifkan Akun Anda';
             } catch (ValidationException $exception) {
                 $error = $exception->getMessage();
             }
@@ -94,6 +95,7 @@ class AdminController
         View::render('Admin/register', [
             'title' => 'Register Admin',
             'error' => $error,
+            'success' => $success,
             'guruStaff' => $guruStaff
         ]);
     }
@@ -170,6 +172,7 @@ class AdminController
     {
         $admin = $this->sessionService->findSession();
         $error = null;
+        $success = null;
 
         if ($admin === null) {
             View::redirect('/admin/login');
@@ -183,7 +186,7 @@ class AdminController
 
             try {
                 $this->adminService->gantiPassword($admin->getUsername(), $oldPassword, $newPassword, $confirmNewPassword);
-                View::redirect('/admin');
+                $success = 'Password Berhasil Diganti';
             } catch (ValidationException $exception) {
                 $error = $exception->getMessage();
             }
@@ -192,9 +195,89 @@ class AdminController
         View::render('Admin/ganti-password', [
             'title' => 'Ganti Password',
             'error' => $error,
+            'success' => $success,
             'admin' => [
                 'username' => $admin->getUsername()
             ],
         ]);
+    }
+
+    public function showAdminPagination($title = null, $message = null, $error = null): void
+    {
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 10;
+
+        $totalCount = count($this->adminService->getAllAdmin());
+        $adminList = $this->adminService->getAdminAdminPagination($page, $perPage);
+        $admin = $this->sessionService->findSession();
+        if ($admin === null) {
+            View::redirect('/admin/login');
+        } else {
+            View::render('Admin/check-register', [
+                'title' => $title,
+                'adminList' => $adminList,
+                'admin' => [
+                    'id' => $admin->getId(),
+                    'username' => $admin->getUsername(),
+                    'nama' => $admin->getGuruStaff()->getNamaGuru(),
+                    'jabatan' => $admin->getGuruStaff()->getJabatan(),
+                    'foto' => $admin->getGuruStaff()->getFoto()
+                ],
+                'pagination' => [
+                    'page' => $page,
+                    'perPage' => $perPage,
+                    'totalPages' => ceil($totalCount / $perPage)
+                ],
+                'message' => [
+                    'title' => $title,
+                    'description' => $message,
+                    'error' => $error
+                ]
+            ]);
+        }
+    }
+
+    public function changeStatus(string $id): void
+    {
+        $admin = $this->sessionService->findSession();
+        $title = null;
+        $message = null;
+        $error = null;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $status = $_POST['status'];
+
+            try {
+                $this->adminService->changeStatus($id, $status, $admin);
+                $title = 'Berhasil';
+                $message = 'Status Admin Berhasil Diubah';
+            } catch (ValidationException $exception) {
+                $title = 'Gagal';
+                $message = 'Silakan coba lagi untuk menyelesaikan permintaan';
+                $error = $exception->getMessage();
+            }
+        }
+
+        $this->showAdminPagination($title, $message, $error);
+    }
+
+    public function deleteAdmin(string $id): void
+    {
+        $admin = $this->sessionService->findSession();
+        $title = null;
+        $message = null;
+        $error = null;
+
+        try {
+            $this->adminService->deleteAdmin($id, $admin);
+            $title = 'Berhasil';
+            $message = 'Status Admin Berhasil Diubah';
+        } catch (ValidationException $exception) {
+            $title = 'Gagal';
+            $message = 'Silakan coba lagi untuk menyelesaikan permintaan';
+            $error = $exception->getMessage();
+        }
+
+        $this->showAdminPagination($title, $message, $error);
     }
 }

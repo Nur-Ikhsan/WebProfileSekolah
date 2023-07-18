@@ -55,19 +55,18 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/admin">
+                <a class="nav-link  collapsed" href="/admin">
                     <i class="bi bi-grid "></i>
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true"
-                   href="#">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-building"></i><span>Profil Sekolah</span><i
                             class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="/admin/sekolah/tentang">
                             <i class="bi bi-circle"></i><span>Tentang</span>
@@ -94,7 +93,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="/admin/sekolah/ekstrakurikuler">
+                        <a href="/admin/sekolah/ekstrakurikuler">
                             <i class="bi bi-circle"></i><span>Ekstrakurikuler</span>
                         </a>
                     </li>
@@ -134,7 +133,7 @@
             </li><!-- End Galeri Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/admin/check-register">
+                <a class="nav-link" href="/admin/check-register">
                     <i class="bi bi-person-check"></i>
                     <span>Check Register</span>
                 </a>
@@ -168,7 +167,7 @@
                         }
                       }).then(function (result) {
                         if (result.isConfirmed) {
-                          window.location.href = '/admin/sekolah/ekstrakurikuler';
+                          window.location.href = '/admin/check-register';
                         }
                       });
                     </script>
@@ -187,7 +186,7 @@
                         }
                       }).then(function (result) {
                         if (result.isConfirmed) {
-                          window.location.href = '/admin/sekolah/ekstrakurikuler';
+                          window.location.href = '/admin/check-register';
                         }
                       });
                     </script>
@@ -198,13 +197,11 @@
             <div class="row align-items-center">
 
                 <div class="col-5 col-lg-12">
-                    <h4 class="secondary-color">Ekstrakurikuler</h4>
+                    <h4 class="secondary-color">Check Register</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/index">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Profile Sekolah</a></li>
-
-                            <li class="breadcrumb-item active" aria-current="page">Ekstrakurikuler</li>
+                            <li class="breadcrumb-item active" aria-current="page">Check Register</li>
                         </ol>
                     </nav>
                 </div>
@@ -212,120 +209,105 @@
             </div>
             <div class="row align-items-center box-edit">
                 <div class="col-12">
-                    <h4 class="text-center pb-3">Daftar Ekstrakurikuler</h4>
-                    <div>
-                        <div class="col-12 p-0 justify-content-end d-flex">
-                            <button type="button" class="button-admin mb-1" data-bs-toggle="modal"
-                                    data-bs-target="#tambahEkstrakurikulerModal">
-                                <span class="p-4"><i class="bi bi-plus-circle"></i><span class="m-3">Tambah Data</span></span>
-                            </button>
-                        </div>
-                    </div>
+                    <h4 class="text-center pb-3">Check Register</h4>
                 </div>
-
                 <div class="table-responsive">
-                    <table class="table fasilitas-table">
+                    <table class="table check-register-table">
                         <thead>
                         <tr>
                             <th scope="col" class="py-3 text-center">No</th>
-                            <th scope="col" class="py-3 text-center">Icon</th>
-                            <th scope="col" class="py-3 text-center">Nama Ekstrakurikuler</th>
-                            <th scope="col" class="py-3 text-center">Deskripsi</th>
-                            <th scope="col" class="py-3 text-center col-2">Aksi</th>
+                            <th scope="col" class="py-3 text-center">Username</th>
+                            <th scope="col" class="py-3 text-center">Nama Guru/Staff</th>
+                            <th scope="col" class="py-3 text-center">Status</th>
+                            <th scope="col" class="py-3 text-center">Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($model['ekstrakurikulerList'] as $index => $ekstrakurikuler) : ?>
-                            <tr>
-                                <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
-                                <td class="text-center">
-                                    <img src="/images/upload/ekstrakurikuler/<?= $ekstrakurikuler->getIcon() ?>"
-                                         alt="Icon Fasilitas" width="100">
-                                </td>
-                                <td><?= $ekstrakurikuler->getNamaEkstrakurikuler() ?></td>
-                                <td><?= $ekstrakurikuler->getDeskripsi() ?></td>
-                                <td class="text-center">
-                                    <a href="#" data-bs-toggle="modal"
-                                       data-bs-target="#editEkstrakurikulerModal<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a> |
-                                    <a href="#" data-bs-toggle="modal"
-                                       data-bs-target="#deleteEkstrakurikulerModal<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>">
-                                        <i class="bi bi-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                        <?php foreach ($model['adminList'] as $index => $dataAdmin) : ?>
+                            <?php if ($dataAdmin->getGuruStaff()->getJabatan() != 'ADMIN') { ?>
+                                <tr>
+                                    <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
+                                    <td class="text-center"><?= $dataAdmin->getUsername() ?></td>
+                                    <td class="text-center"><?= $dataAdmin->getGuruStaff()->getNamaGuru() ?></td>
+                                    <td class="text-center"><?= $dataAdmin->getStatus() ?></td>
+                                    <td class="text-center">
+                                        <a href="#" data-bs-toggle="modal"
+                                           data-bs-target="#editCheckRegisterModal<?= $dataAdmin->getId() ?>">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a> |
+                                        <a href="#" data-bs-toggle="modal"
+                                           data-bs-target="#deleteCheckRegisterModal<?= $dataAdmin->getId() ?>">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
 
-                            <!-- Edit Ekstrakurikuler Modal -->
-                            <div class="modal fade"
-                                 id="editEkstrakurikulerModal<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>"
-                                 tabindex="-1" aria-labelledby="editEkstrakurikulerModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="editEkstrakurikulerModalLabel">Edit
-                                                Ekstrakurikuler</h5>
-                                            <button type="button" class="btn-closes" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form method="POST"
-                                                  action="/admin/sekolah/ekstrakurikuler/edit/<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>"
-                                                  enctype="multipart/form-data">
-                                                <input type="hidden" name="_method" value="PUT">
-                                                <div class="mb-3">
-                                                    <label for="edit-nama" class="form-label">Nama
-                                                        Ekstrakurikuler</label>
-                                                    <input type="text" class="form-control" id="edit-nama" name="nama"
-                                                           required
-                                                           value="<?= $ekstrakurikuler->getNamaEkstrakurikuler() ?>">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="edit-deskripsi" class="form-label">Deskripsi</label>
-                                                    <textarea class="form-control" id="edit-deskripsi" name="deskripsi"
-                                                              required><?= $ekstrakurikuler->getDeskripsi() ?></textarea>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="edit-foto" class="form-label">Icon</label>
-                                                    <input type="file" class="form-control" id="edit-icon" name="icon"
-                                                           value="<?= $ekstrakurikuler->getIcon() ?>">
-                                                </div>
-                                                <div class="modal-footer justify-content-center">
-                                                    <button type="submit" class="btn btn-primary px-4">Simpan</button>
-                                                </div>
-                                            </form>
+                                <!-- Edit Check Register Modal -->
+                                <div class="modal fade" id="editCheckRegisterModal<?= $dataAdmin->getId() ?>"
+                                     tabindex="-1" aria-labelledby="editCheckRegisterModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editCheckRegisterModalLabel">Edit
+                                                    Prestasi</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="POST"
+                                                      action="/admin/check-register/edit/<?= $dataAdmin->getId() ?>"
+                                                      enctype="multipart/form-data">
+                                                    <input type="hidden" name="_method" value="PUT">
+                                                    <div class="mb-3">
+                                                        <label for="edit-nama-prestasi"
+                                                               class="form-label">Status</label>
+                                                        <select name="status" class="form-select" id="status">
+                                                            <option value="ACTIVE" <?= $dataAdmin->getStatus() === 'ACTIVE' ? 'selected' : '' ?>>
+                                                                ACTIVE
+                                                            </option>
+                                                            <option value="NON-ACTIVE" <?= $dataAdmin->getStatus() === 'NON-ACTIVE' ? 'selected' : '' ?>>
+                                                                NON-ACTIVE
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="submit" class="btn btn-primary px-4">Simpan
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Hapus Ekstrakurikuler Modal -->
-                            <div class="modal fade"
-                                 id="deleteEkstrakurikulerModal<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>"
-                                 tabindex="-1" aria-labelledby="deleteEkstrakurikulerModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-headers">
-                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal"
-                                                    aria-label="Close" id="modalCloseButton"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data
-                                                Slide Show Beranda?</h6>
-                                            <br>
-                                            <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
-                                        </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary pl-4"
-                                                    data-bs-dismiss="modal">Batal
-                                            </button>
-                                            <a href="/admin/sekolah/ekstrakurikuler/delete/<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>"
-                                               class="btn btn-danger px-4">Hapus</a>
+                                <!-- Hapus Prestasi Modal -->
+                                <div class="modal fade" id="deleteCheckRegisterModal<?= $dataAdmin->getId() ?>"
+                                     tabindex="-1" aria-labelledby="deleteCheckRegisterModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-headers">
+                                                <button class="close-icon btn-closes" type="button"
+                                                        data-bs-dismiss="modal" aria-label="Close"
+                                                        id="modalCloseButton"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus
+                                                    Data Akun Admin?</h6>
+                                                <br>
+                                                <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data
+                                                    ini?</p>
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-secondary pl-4"
+                                                        data-bs-dismiss="modal">Batal
+                                                </button>
+                                                <a href="/admin/check-register/delete/<?= $dataAdmin->getId() ?>"
+                                                   class="btn btn-danger px-4">Hapus</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            <?php } ?>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -334,7 +316,7 @@
                             <?php if ($model['pagination']['page'] > 1): ?>
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/admin/sekolah/ekstrakurikuler?page=<?= $model['pagination']['page'] - 1 ?>"
+                                       href="/admin/check-register?page=<?= $model['pagination']['page'] - 1 ?>"
                                        aria-label="Sebelumnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                                     </a>
@@ -364,8 +346,7 @@
                                 </li>
                             <?php else: ?>
                                 <li class="page-item">
-                                    <a class="page-link"
-                                       href="/admin/sekolah/ekstrakurikuler?page=<?= $i ?>"><?= $i ?></a>
+                                    <a class="page-link" href="/admin/check-register?page=<?= $i ?>"><?= $i ?></a>
                                 </li>
                             <?php endif; ?>
                             <?php endfor; ?>
@@ -373,7 +354,7 @@
                             <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/admin/sekolah/ekstrakurikuler?page=<?= $model['pagination']['page'] + 1 ?>"
+                                       href="/admin/check-register?page=<?= $model['pagination']['page'] + 1 ?>"
                                        aria-label="Berikutnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                                     </a>
@@ -404,37 +385,6 @@
         </div>
     </footer>
 
-</div>
-<!-- Tambah Fasilitas Modal -->
-<div class="modal fade" id="tambahEkstrakurikulerModal" tabindex="-1" aria-labelledby="tambahEkstrakurikulerModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tambahEkstrakurikulerModalLabel">Tambah Ekstrakurikuler</h5>
-                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form method="POST" action="/admin/sekolah/ekstrakurikuler/tambah" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Nama Ekstrakurikuler</label>
-                        <input type="text" class="form-control" id="nama" name="nama" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="foto" class="form-label">Icon</label>
-                        <input type="file" class="form-control" id="icon" name="icon" required>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 </div>
 </div>
 

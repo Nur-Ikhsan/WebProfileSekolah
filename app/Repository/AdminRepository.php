@@ -42,14 +42,15 @@ class AdminRepository
             $admin->setId((string)$row['id']);
             $admin->setUsername((string)$row['username']);
             $admin->setPassword((string)$row['password']);
+            $admin->setStatus((string)$row['status']);
+
+            $this->guruStaffRepository = new GuruStaffRepository($this->connection);
+            $this->guruStaff = $this->guruStaffRepository->findGuruStaffById((string)$row['id_guru_staff']);
+            $admin->setGuruStaff($this->guruStaff);
             return $admin;
         } finally {
             $statement->closeCursor();
         }
-    }
-
-    public function deleteAll(): void{
-        $this->connection->exec('DELETE FROM admin');
     }
 
     public function findById(string $getAdminId) : ?Admin
@@ -63,9 +64,10 @@ class AdminRepository
                 return null;
             }
             $admin = new Admin();
-            $admin->setId((int)$row['id']);
+            $admin->setId((string)$row['id']);
             $admin->setUsername((string)$row['username']);
             $admin->setPassword((string)$row['password']);
+            $admin->setStatus((string)$row['status']);
 
             $this->guruStaffRepository = new GuruStaffRepository($this->connection);
             $this->guruStaff = $this->guruStaffRepository->findGuruStaffById((string)$row['id_guru_staff']);
@@ -86,5 +88,66 @@ class AdminRepository
             $admin->getId()
         ]);
         return $admin;
+    }
+
+    public function getAllAdmin(): array
+    {
+        $statement = $this->connection->prepare('SELECT * FROM admin');
+        $statement->execute();
+        $admins = [];
+        while ($row = $statement->fetch()) {
+            $admin = new Admin();
+            $admin->setId((string)$row['id']);
+            $admin->setUsername((string)$row['username']);
+            $admin->setPassword((string)$row['password']);
+            $admin->setStatus((string)$row['status']);
+
+            $this->guruStaffRepository = new GuruStaffRepository($this->connection);
+            $this->guruStaff = $this->guruStaffRepository->findGuruStaffById((string)$row['id_guru_staff']);
+            $admin->setGuruStaff($this->guruStaff);
+
+            $admins[] = $admin;
+        }
+        return $admins;
+    }
+
+    public function getAllAdminPagination(int $limit, int $offset): array
+    {
+        $statement = $this->connection->prepare('SELECT * FROM admin LIMIT ? OFFSET ?');
+        $statement->bindValue(1, $limit, \PDO::PARAM_INT);
+        $statement->bindValue(2, $offset, \PDO::PARAM_INT);
+        $statement->execute();
+        $admins = [];
+        while ($row = $statement->fetch()) {
+            $admin = new Admin();
+            $admin->setId((string)$row['id']);
+            $admin->setUsername((string)$row['username']);
+            $admin->setPassword((string)$row['password']);
+            $admin->setStatus((string)$row['status']);
+
+            $this->guruStaffRepository = new GuruStaffRepository($this->connection);
+            $this->guruStaff = $this->guruStaffRepository->findGuruStaffById((string)$row['id_guru_staff']);
+            $admin->setGuruStaff($this->guruStaff);
+
+            $admins[] = $admin;
+        }
+        return $admins;
+    }
+
+    public function changeStatus(Admin $admin): Admin
+    {
+        $statement = $this->connection->prepare('UPDATE admin SET status = ? WHERE id = ?');
+        $statement->execute([
+            $admin->getStatus(),
+            $admin->getId()
+        ]);
+        return $admin;
+    }
+
+    public function deleteAdmin(string $id): bool
+    {
+        $statement = $this->connection->prepare('DELETE FROM admin WHERE id = ?');
+        $statement->execute([$id]);
+        return $statement->rowCount() > 0;
     }
 }

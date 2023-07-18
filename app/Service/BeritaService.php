@@ -82,7 +82,7 @@ class BeritaService
             unlink($filePath);
         }
 
-        return $this->beritaRepository->deleteBerita($berita);
+        return $this->beritaRepository->deleteBerita($berita->getIdBerita());
     }
 
     public function getAllBerita(): array

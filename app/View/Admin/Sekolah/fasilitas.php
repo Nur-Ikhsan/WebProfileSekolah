@@ -277,7 +277,9 @@
                                                     <label for="edit-foto" class="form-label">Gambar</label>
                                                     <input type="file" class="form-control" id="edit-foto" name="foto" value="<?= $fasilitas->getFoto() ?>">
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                    </div>
                                             </form>
                                         </div>
                                     </div>
@@ -400,7 +402,9 @@
                         <label for="foto" class="form-label">Gambar</label>
                         <input type="file" class="form-control" id="foto" name="foto" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                    </div>
                 </form>
             </div>
         </div>

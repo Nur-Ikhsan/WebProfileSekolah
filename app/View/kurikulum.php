@@ -1,11 +1,4 @@
 <main>
-
-
-
-
-
-
-
     <section class="section-padding">
         <div class="container">
             <div class="row">
@@ -15,13 +8,9 @@
                         <div class="d-flex">
                             <div class="custom-block-topics-listing-info d-flex">
                                 <div>
-                                    <h5 class="mb-2 text-center">Kurikulum (K13)</h5>
+                                    <h5 class="mb-2 text-center"><?php echo $kurikulum->getNamaKurikulum(); ?></h5>
 
-                                    <p class="mb-0">Kurikulum 2013 merupakan kurikulum yang lebih mengutamakan
-                                        pemahaman, skill, dan pendidikan yang berkarakter, siswa dituntut untuk lebih
-                                        aktif dalam proses pembelajaran, siswa dituntut untuk paham atas materi serta
-                                        siswa harus aktif berdikusi dan mampu berpresentasi serta memiliki sopan santu
-                                        dan disiplin yang tinggi.</p>
+                                    <p class="mb-0"><?php echo $kurikulum->getDekripsiKurikulum(); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -34,56 +23,52 @@
                                 <div>
                                     <h5 class="mb-2 text-center">Struktur Kurikulum</h5>
                                     <div class="accordion" id="accordionExample">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingOne">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseOne" aria-expanded="true"
-                                                    aria-controls="collapseOne">
-                                                    Prestasi Siswa
-                                                </button>
-                                            </h2>
+                                        <?php foreach ($kurikulumList as $kategori => $kurikulumItems) { ?>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading<?php echo $kategori; ?>">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#collapse<?php echo $kategori; ?>"
+                                                            aria-expanded="false"
+                                                            aria-controls="collapse<?php echo $kategori; ?>">
+                                                        <?php echo $kategori; ?>
+                                                    </button>
+                                                </h2>
 
-                                            <div id="collapseOne" class="accordion-collapse collapse show"
-                                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
+                                                <div id="collapse<?php echo $kategori; ?>"
+                                                     class="accordion-collapse collapse"
+                                                     aria-labelledby="heading<?php echo $kategori; ?>"
+                                                     data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <?php foreach ($kurikulumItems as $kurikulumItem) { ?>
+                                                            <div class="accordion-item">
+                                                                <h3 class="accordion-header"
+                                                                    id="heading<?php echo $kurikulumItem->getId(); ?>">
+                                                                    <button class="accordion-button collapsed"
+                                                                            type="button"
+                                                                            data-bs-toggle="collapse"
+                                                                            data-bs-target="#collapse<?php echo $kurikulumItem->getId(); ?>"
+                                                                            aria-expanded="false"
+                                                                            aria-controls="collapse<?php echo $kurikulumItem->getId(); ?>">
+                                                                        <?php echo $kurikulumItem->getKomponen(); ?>
+                                                                    </button>
+                                                                </h3>
+
+                                                                <div
+                                                                        id="collapse<?php echo $kurikulumItem->getId(); ?>"
+                                                                        class="accordion-collapse collapse"
+                                                                        aria-labelledby="heading<?php echo $kurikulumItem->getId(); ?>"
+                                                                        data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php echo $kurikulumItem->getSubKomponen(); ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        <?php } ?>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingTwo">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                    aria-expanded="false" aria-controls="collapseTwo">
-                                                    Prestasi Guru
-                                                </button>
-                                            </h2>
-
-                                            <div id="collapseTwo" class="accordion-collapse collapse"
-                                                aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingThree">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                                    aria-expanded="false" aria-controls="collapseThree">
-                                                    Prestasi Sekolah
-                                                </button>
-                                            </h2>
-
-                                            <div id="collapseThree" class="accordion-collapse collapse"
-                                                aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Juara 1 MTK KSM Tk. Kabupaten Sambas ( 2017 )
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
