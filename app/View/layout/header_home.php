@@ -67,6 +67,7 @@
                         <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
                         <li><a class="dropdown-item" href="/fasilitas_sekolah">Fasilitas Sekolah</a></li>
                         <li><a class="dropdown-item" href="/guru_staff">Guru & Staff</a></li>
+                        <li><a class="dropdown-item" href="/kegiatan_sekolah">Kegiatan Sekolah</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

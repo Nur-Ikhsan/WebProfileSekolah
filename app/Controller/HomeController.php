@@ -141,14 +141,14 @@ class HomeController
     }
     function strukturOrganisasi(): void
     {
-        View::render('struktur-organisasi',[
+        View::renderHome('struktur_organisasi',[
                 'title' => 'Struktur Organisasi Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );
     }
     function ppdb(): void
     {
-        View::render('ppdb',[
+        View::renderHome('ppdb',[
                 'title' => 'PPBD Organisasi Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );
@@ -156,7 +156,7 @@ class HomeController
 
     function kontak(): void
     {
-        View::render('kontak',[
+        View::renderHome('kontak',[
                 'title' => 'Kontak Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );
@@ -164,23 +164,25 @@ class HomeController
 
     function ekstrakurikuler(): void
     {
-        View::render('ekstrakurikuler',[
+        View::renderHome('ekstrakurikuler',[
                 'title' => 'Ekstrakurikuler Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );
     }
 
+
     function fasilitasSekolah(): void
     {
-        View::render('fasilitas-sekolah',[
+        View::renderHome('fasilitas_sekolah',[
                 'title' => 'Fasilitas Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );
     }
 
+
     function kegiatanSekolah(): void
     {
-        View::render('kegiatan-sekolah',[
+        View::renderHome('kegiatan_sekolah',[
                 'title' => 'Fasilitas Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );
