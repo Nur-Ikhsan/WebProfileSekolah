@@ -255,7 +255,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="editKegiatanModalLabel">Edit Kegiatan</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form method="POST" action="/admin/sekolah/kegiatan-sekolah/edit/<?= $kegiatan->getIdKegiatan() ?>" enctype="multipart/form-data">
@@ -268,7 +268,9 @@
                                                     <label for="edit-deskripsi" class="form-label">Deskripsi</label>
                                                     <textarea class="form-control" id="edit-deskripsi" name="deskripsi" required ><?= $kegiatan->getDeskripsi() ?></textarea>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                    </div>
                                             </form>
                                         </div>
                                     </div>
@@ -375,7 +377,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tambahKegiatanModalLabel">Tambah Kegiatan</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form method="POST" action="/admin/sekolah/kegiatan-sekolah/tambah" enctype="multipart/form-data">
@@ -387,7 +389,9 @@
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                    </div>
                 </form>
             </div>
         </div>

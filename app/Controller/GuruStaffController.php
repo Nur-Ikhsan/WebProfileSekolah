@@ -109,8 +109,6 @@ class GuruStaffController
                     $title = 'Data Berhasil Tersimpan';
                     $message = 'Selamat data yang Anda edit berhasil disimpan';
                 }
-
-                View::redirect('/admin/sekolah/guru-staff');
             } catch (ValidationException $exception) {
                 $title = 'Data Gagal Tersimpan';
                 $message = 'Silakan coba lagi untuk menyelesaikan permintaan';

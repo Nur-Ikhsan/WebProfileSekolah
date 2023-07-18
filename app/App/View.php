@@ -14,6 +14,15 @@ class View
         require __DIR__ . '/../View/layout/footer.php';
     }
 
+    public static function renderHome(string $view, array $model = []): void
+    {
+        extract($model);
+
+        require __DIR__ . '/../View/layout/header_home.php';
+        require __DIR__ . '/../View/' . $view . '.php';
+        require __DIR__ . '/../View/layout/footer_home.php';
+    }
+
     public static function redirect(string $url)
     {
         header("Location: $url");

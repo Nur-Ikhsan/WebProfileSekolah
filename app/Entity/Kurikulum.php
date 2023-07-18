@@ -8,8 +8,6 @@ class Kurikulum
     private string $komponen;
     private string $subKomponen;
     private string $kategori;
-    private int $alokasiWaktu;
-    private string $kelas;
 
     /**
      * @return string
@@ -74,37 +72,4 @@ class Kurikulum
     {
         $this->kategori = $kategori;
     }
-
-    /**
-     * @return int
-     */
-    public function getAlokasiWaktu(): int
-    {
-        return $this->alokasiWaktu;
-    }
-
-    /**
-     * @param int $alokasiWaktu
-     */
-    public function setAlokasiWaktu(int $alokasiWaktu): void
-    {
-        $this->alokasiWaktu = $alokasiWaktu;
-    }
-
-    /**
-     * @return string
-     */
-    public function getKelas(): string
-    {
-        return $this->kelas;
-    }
-
-    /**
-     * @param string $kelas
-     */
-    public function setKelas(string $kelas): void
-    {
-        $this->kelas = $kelas;
-    }
-
 }

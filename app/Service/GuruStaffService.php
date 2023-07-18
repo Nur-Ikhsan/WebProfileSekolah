@@ -6,7 +6,6 @@ use Ramsey\Uuid\Uuid;
 use Rubygroup\WebProfileSekolah\Entity\GuruStaff;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\GuruStaffRequest;
-use Rubygroup\WebProfileSekolah\Model\GuruStaffResponse;
 use Rubygroup\WebProfileSekolah\Repository\GuruStaffRepository;
 use Rubygroup\WebProfileSekolah\Validation\ValidationUtil;
 
@@ -46,24 +45,24 @@ class GuruStaffService
 
     public function updateGuruStaff(string $id, GuruStaffRequest $request): GuruStaff
     {
-        $this->validationUtil->validateImageFile($request->foto);
+
 
         $guruStaff = $this->guruStaffRepository->findGuruStaffById($id);
         if ($guruStaff === null) {
             throw new ValidationException('Guru & Staff tidak ditemukan.');
         }
 
-        // Menghapus file foto dari direktori
-        $filePath = 'images/upload/guru-staff/' . $guruStaff->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
-
-        $guruStaff->setNamaGuru($request->namaGuru);
-        $guruStaff->setJabatan($request->jabatan);
-        if ($request->foto !== null) {
+        if (!empty($request->foto['name'])){
+            $this->validationUtil->validateImageFile($request->foto);
+            // Menghapus file foto dari direktori
+            $filePath = 'images/upload/guru-staff/' . $guruStaff->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
             $guruStaff->setFoto($this->uploadPhoto($request->foto));
         }
+        $guruStaff->setNamaGuru($request->namaGuru);
+        $guruStaff->setJabatan($request->jabatan);
 
         return $this->guruStaffRepository->updateGuruStaff($guruStaff);
     }

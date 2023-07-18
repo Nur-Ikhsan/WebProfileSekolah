@@ -3,10 +3,12 @@
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color: #ffffff;
+  --primary-color: #000000;
   --secondary-color: #348355;
   --section-bg-color:             #f0f8ff;
   --section-bg-color-dark: #348355;
+  --section-bg-color-soft: #96CCAB;
+
   --custom-btn-bg-color: #80f182;
   --custom-btn-bg-hover-color:    #13547a;
   --dark-color:                   #000000;
@@ -101,12 +103,6 @@ h6 {
   font-size: var(--h6-font-size);
 }
 
-ul li, li {
-  color: var(--p-color);
-  font-size: var(--p-font-size);
-  font-weight: var(--font-weight-normal);
-}
-
 a,
 button {
   touch-action: manipulation;
@@ -133,8 +129,8 @@ strong {
   SECTION               
 -----------------------------------------*/
 .section-padding {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .section-bg {
@@ -146,7 +142,7 @@ strong {
 }
 
 .section-overlay {
-  background-color: var(--secondary-color);
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   position: absolute;
   top: 0;
   left: 0;
@@ -225,6 +221,23 @@ strong {
   color: var(--white-color);
 }
 
+.btn-custom {
+  display: inline-block;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  color: #31408D;
+  background-color: transparent;
+  border: 2px solid #31408D;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-custom:hover {
+  background-color: #31408D;
+  color: #fff;
+}
+
 .custom-border-btn {
   background: transparent;
   border: 2px solid var(--custom-btn-bg-color);
@@ -241,6 +254,12 @@ strong {
   border-color: var(--white-color);
   color: var(--white-color);
 }
+
+.custom-block-topics-listing > .d-flex,
+  .custom-block-topics-listing-info,
+  .custom-block-topics-listing a {
+    flex-direction: column;
+  }
 
 
 /*---------------------------------------
@@ -287,8 +306,8 @@ strong {
 }
 
 .navbar {
-  background: transparent;
   z-index: 9;
+  background-color: var(--secondary-color);
 }
 
 .navbar-brand,
@@ -326,11 +345,14 @@ strong {
   color: var(--primary-color);
 }
 
+.navbar-nav .nav-link.aaa{
+  color: white; !important;
+}
+
 .navbar .dropdown-menu {
   background: var(--white-color);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
   border: 0;
-  display: inherit;
   opacity: 0;
   min-width: 9rem;
   margin-top: 20px;
@@ -499,7 +521,7 @@ strong {
 .hero-section .input-group {
   background-color: var(--white-color);
   border-radius: var(--border-radius-large);
-
+  padding: 10px 15px;
 }
 
 .hero-section .input-group-text {
@@ -616,6 +638,18 @@ strong {
 
 .social-share .bi-bookmark:hover {
   color: var(--secondary-color);
+}
+
+.search {
+ margin-top:140px;
+}
+
+
+.bg-image {
+  background-image: url('images/img1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vh; /* Menggunakan tinggi viewport */
 }
 
 .bg-design {
@@ -904,8 +938,8 @@ blockquote {
 .custom-form .form-control {
   border-radius: var(--border-radius-large);
   color: var(--p-color);
-  margin-bottom: 20px;
-  padding-top: 10px;
+  margin-bottom: 24px;
+  padding-top: 13px;
   padding-bottom: 13px;
   padding-left: 20px;
   outline: none;
@@ -1054,11 +1088,11 @@ blockquote {
 -----------------------------------------*/
 @media screen and (max-width: 991px) {
   h1 {
-    font-size: 40px;
+    font-size: 48px;
   }
 
   h2 {
-    font-size: 35px;
+    font-size: 36px;
   }
 
   h3 {
@@ -1181,7 +1215,7 @@ blockquote {
 @media (min-width: 800px) {
   .slide-width {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
   }
 }
 
@@ -1367,7 +1401,15 @@ blockquote {
 # Override some default Bootstrap stylings
 --------------------------------------------------------------*/
 /* Dropdown menus */
-
+.dropdown-menu {
+  border-radius: 4px;
+  padding: 10px 0;
+  animation-name: dropdown-animate;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  border: 0;
+  box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
+}
 
 .dropdown-menu .dropdown-header,
 .dropdown-menu .dropdown-footer {
@@ -2057,4 +2099,6 @@ thead tr {
   margin-top: 20px;
 }
 
-
+.bod {
+  color : black;
+}

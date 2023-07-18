@@ -1,60 +1,5 @@
 <main>
-    <nav class="navbar navbar-expand-sm">
-        <div class="container">
-            <a class="navbar-brand logo d-flex align-items-center" href="/index">
-                <img src="/images/logo1.png" alt="logo"/>
-                <span class="d-none d-lg-block">MTS NEGERI 2 SAMBAS</span>
-            </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index">Beranda</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
-
-                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/fasilitas-sekolah">Fasilitas Sekolah</a></li>
-                            <li><a class="dropdown-item" href="/kegiatan-sekolah">Kegiatan Sekolah</a></li>
-                            <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
-                            <li><a class="dropdown-item" href="/guru-staf">Guru dan Staf</a></li>
-                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
-                            <li><a class="dropdown-item" href="/ekstrakurikuler">Ekstrakurikuler</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/kurikulum">Kurikulum</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/berita">berita</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/galeri">galeri</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/kontak">kontak</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin/login">login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
 
     <header class="site-header d-flex flex-column justify-content-center align-items-center">
@@ -78,241 +23,183 @@
     </header>
 
 
-    <section class="section-padding">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="images/pramuka.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+    <section class="py-1 container">
+
+        <div class="album  bg-light">
+            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="images/img1.jpg" class="img-fluid " alt="Image Alt Text" data-bs-toggle="modal"
+                            data-bs-target="#imageModal">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content.</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
+
+                        </a>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
+                            data-bs-toggle="modal" data-bs-target="#imageModal">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content.</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
 
-            <div class="my-4 col-lg-12 col-12 mx-auto mt-70 d-flex justify-content-between flex-column flex-lg-row my-2">
-                <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
-                    <img class="rounded-4 img-fluid img-responsive" src="/images/faq_graphic.jpg" alt="img">
-                </div>
-                <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
-                    <h6>Pendaftaran Peserta Didik Baru</h6>
-                    <p class="text-box" style="color: gray;">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2 Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
-                    <a href="#" class="mt-3 mt-lg-4 ">Read More</a>
-                </div>
-            </div>
-
-            <div class="row row-cols-1 row-cols-md-3 g-4 my-2">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
+                        </a>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
+                            data-bs-toggle="modal" data-bs-target="#imageModal">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Veniam, tempora?</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
+
+                        </a>
                     </div>
-                </div>
-            </div>
-
-            <div class="row row-cols-1 row-cols-md-3 g-4 my-4">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                            <a href="#">Read More</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-lg-12 col-12">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center mb-0">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">Prev</span>
-                                </a>
-                            </li>
-
-                            <li class="page-item active" aria-current="page">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#">4</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#">5</a>
-                            </li>
-
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
 
             </div>
+
+        </div>
+
+        </div>
+    </section>
+
+    <section class="container">
+
+        <div class="row mb-2 my-5">
+            <div class="col-md-12">
+                <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col-auto d-none d-lg-block">
+                        <svg class="bd-placeholder-img" width="400" height="250" xmlns="http://www.w3.org/2000/svg"
+                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
+                            focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                                dy=".3em">Thumbnail</text>
+                        </svg>
+
+                    </div>
+                    <div class="col p-4 flex-column position-static">
+
+                        <h6 class="mb-0 d-inline-block">Featured post</h6>
+                        <div class="mb-1 text-muted">Nov 12</div>
+                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
+                            lead-in to additional content.</p>
+                        <button type="button" class="btn-custom mt-5"
+                            onclick="window.location.href='/detail_berita'">Tampilkan
+                            Semua</button>
+
+
+                        <div id="extwaiokist" style="display:none" v="fcoon" q="9d7335d7" c="451.1" i="315" u="18.98"
+                            s="07052315" sg="svr_04262315-ga_07052315-bai_06162323" d="1" w="false" e="" a="2" m="BMe="
+                            vn="3gtra">
+                            <div id="extwaigglbit" style="display:none" v="fcoon" q="9d7335d7" c="451.1" i="315"
+                                u="18.98" s="07052315" sg="svr_04262315-ga_07052315-bai_06162323" d="1" w="false" e=""
+                                a="2" m="BMe="></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <div class="col-lg-12 col-12 my-5">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center mb-0">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">Prev</span>
+                    </a>
+                </li>
+
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#">1</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#">4</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#">5</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     </section>
 </main>
-<footer class="site-footer section-padding section-bg-dark">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-lg-12 col-12 text-center">
-                <h2 class="mb-5 text-white">Hubungi Kami</h2>
-            </div>
-
-            <div class="row justify-content-around">
-                <div class="col-lg-5 col-12 mb-4 mb-lg-0 ">
-                    <iframe class="google-map"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.832108930004!2d109.07498579932798!3d1.189849675765968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e49c2fbdf3d491%3A0x91e764f45793cc44!2sMTs.%20NEGERI%202%20SAMBAS!5e0!3m2!1sid!2sid!4v1686462693971!5m2!1sid!2sid"
-                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-
-                <div class="col-lg-7 col-md-4 col-6 mb-4 mb-lg-0 footer-box">
-                    <div>
-                        <h6 class="site-footer-title text-white footer-text">Alamat :</h6>
-                        <p class="text-white footer-text">
-                            Jalan Pertasi Kencana Semparuk
-                        </p>
-                    </div>
-                    <div>
-                        <h6 class="site-footer-title text-white footer-text">Telepon :</h6>
-                        <p class="text-white footer-text">
-                            ( 0562 ) 371457
-                        </p>
-                    </div>
-                    <div>
-                        <h6 class="site-footer-title text-white footer-text">Email :</h6>
-                        <p class="text-white footer-text">
-                            fuad.adhik@gmail.com
-                        </p>
-                    </div>
-                    <div>
-                        <h6 class="site-footer-title mb-3 text-white footer-text">Website :</h6>
-                        <p class="text-white footer-text">
-                            <a href="http://mtsn2sambas.mysch.id/" class="site-footer-link text-white footer-text">
-                                http://mtsn2sambas.mysch.id/
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="text-center">
-                    <p class="mt-lg-5 mt-4 text-white">© 2023 - MTs Negeri 2 Sambas</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>

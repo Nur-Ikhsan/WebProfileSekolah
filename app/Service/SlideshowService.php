@@ -7,7 +7,6 @@ use Ramsey\Uuid\Uuid;
 use Rubygroup\WebProfileSekolah\Entity\Slideshow;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\SlideshowRequest;
-use Rubygroup\WebProfileSekolah\Model\SlideshowResponse;
 use Rubygroup\WebProfileSekolah\Repository\SlideshowRepository;
 use Rubygroup\WebProfileSekolah\Validation\ValidationUtil;
 
@@ -22,7 +21,7 @@ class SlideshowService
         $this->validationUtil = new ValidationUtil();
     }
 
-    public function createSlideshow(SlideshowRequest $request): SlideshowResponse
+    public function createSlideshow(SlideshowRequest $request): Slideshow
     {
         $this->validationUtil->validateImageFile($request->foto);
 
@@ -31,9 +30,7 @@ class SlideshowService
         $slideshow->setJudul($request->judul);
         $slideshow->setFoto($this->uploadPhoto($request->foto));
 
-        $savedSlideshow = $this->slideshowRepository->saveSlideshow($slideshow);
-
-        return new SlideshowResponse($savedSlideshow);
+        return $this->slideshowRepository->saveSlideshow($slideshow);
     }
 
     public function getAllSlideshowsPagination(int $page, int $perPage): array
@@ -76,29 +73,27 @@ class SlideshowService
         }
     }
 
-    public function editSlideshow(string $id, SlideshowRequest $request): SlideshowResponse
+    public function editSlideshow(string $id, SlideshowRequest $request): Slideshow
     {
-        $this->validationUtil->validateImageFile($request->foto);
+
 
         $slideshow = $this->slideshowRepository->findSlideshowById($id);
         if ($slideshow === null) {
             throw new ValidationException('Not Found');
         }
 
-        // Menghapus file foto dari direktori
-        $filePath = 'images/upload/slideshow/' . $slideshow->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
-
-        $slideshow->setJudul($request->judul);
-        if ($request->foto !== null) {
+        if (!empty($request->foto['name'])){
+            $this->validationUtil->validateImageFile($request->foto);
+            // Menghapus file foto dari direktori
+            $filePath = 'images/upload/slideshow/' . $slideshow->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
             $slideshow->setFoto($this->uploadPhoto($request->foto));
         }
+        $slideshow->setJudul($request->judul);
 
-        $updatedSlideshow = $this->slideshowRepository->updateSlideshow($slideshow);
-
-        return new SlideshowResponse($updatedSlideshow);
+        return $this->slideshowRepository->updateSlideshow($slideshow);
     }
 
     // find slideshow by id

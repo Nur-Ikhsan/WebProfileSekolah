@@ -1,4 +1,10 @@
-<script>tinymce.init({selector:'.textarea-tinymce'});</script>
+<script>tinymce.init({
+    selector:'.textarea-tinymce',
+    plugins: 'lists',
+    toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+    menubar: false,
+    statusbar: false
+  });</script>
 <div class="admin">
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center">

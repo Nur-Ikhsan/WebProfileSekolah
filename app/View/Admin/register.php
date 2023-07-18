@@ -1,40 +1,82 @@
-<div class="container col-xl-10 col-xxl-8 px-4 py-5">
-
-    <?php
-    if (isset($model['error'])) {
-        echo '<div class="row">
-                    <div class="alert alert-danger" role="alert">
-                        ' . $model['error'] . '
-                    </div>
-                </div>';
-    }
-    ?>
-    <div class="row align-items-center g-lg-5 py-5">
-        <div class="col-lg-7 text-center text-lg-start">
-            <h1 class="display-4 fw-bold lh-1 mb-3">Register</h1>
-            <p class="col-lg-10 fs-4">by <a target="_blank" href="#">Ruby Group</a></p>
+<div class="admin">
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div id="SweetAlert2">
+            <?php if (isset($model['error'])): ?>
+                    <script>
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Register Failed',
+                        html: '<?= $model['error'] ?>',
+                        confirmButtonText: 'Try Again',
+                        showCancelButton: false,
+                        allowOutsideClick: false,
+                        customClass: {
+                          confirmButton: 'button-admin delete px-4'
+                        }
+                      }).then(function (result) {
+                        if (result.isConfirmed) {
+                          window.location.href = '/admin/register';
+                        }
+                      });;
+                    </script>
+            <?php endif; ?>
+            <?php if (isset($model['success'])): ?>
+                <script>
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Register Success',
+                    html: '<?= $model['success'] ?>',
+                    confirmButtonText: 'Login',
+                    showCancelButton: false,
+                    allowOutsideClick: false,
+                    customClass: {
+                      confirmButton: 'button-admin px-4'
+                    }
+                  }).then(function (result) {
+                    if (result.isConfirmed) {
+                      window.location.href = '/admin/login';
+                    }
+                  });;
+                </script>
+            <?php endif; ?>
         </div>
-        <div class="col-md-10 mx-auto col-lg-5">
-            <form class="p-4 p-md-5 border rounded-3 bg-light" method="post" action="/admin/register">
-                <div class="form-floating mb-3">
-                    <input name="username" type="text" class="form-control" id="username" placeholder="username"
-                           value="<?= $_POST['username'] ?? '' ?>">
-                    <label for="username">Username</label>
-                    <div class="form-floating mb-3">
-                        <input name="password" type="password" class="form-control" id="password" placeholder="password"
-                               value="<?= $_POST['password'] ?? '' ?>">
-                        <label for="password">Password</label>
+        <div class="row justify-content-center align-items-center gap-3">
+            <div class="d-flex align-items-center justify-content-center">
+                <a class="navbar-brand logo d-flex align-items-center" href="/index">
+                    <img src="/images/logo1.png" alt="logo"/>
+                    <span class="d-block" style="color: #314081">MTs NEGERI 2 SAMBAS</span>
+                </a>
+            </div>
+            <div class="card justify-content-center align-items-center col-12 col-md-8 col-lg-6 p-4">
+                <div class="card-title"><h3>Register</h3></div>
+                <p class="text-center">Masukkan Data Diri</p>
+                <form class="mt-3 col-12" method="post" action="/admin/register">
+                    <div class="mb-5 col-12">
+                        <label for="username" class="form-label">Username</label>
+                        <input name="username" type="text" class="form-control col-12" id="username"
+                               placeholder="username"
+                               value="<?= $_POST['username'] ?? '' ?>">
                     </div>
-                    <div class="form-floating mb-3">
-                        <select name="id_guru_staff" class="form-select" id="id_guru_staff">
+                    <div class="mb-5">
+                        <label for="password" class="form-label">Password</label>
+                        <input name="password" type="password" class="form-control col-12" id="password"
+                               placeholder="password"
+                               value="<?= $_POST['password'] ?? '' ?>">
+                    </div>
+                    <div class="mb-5">
+                        <label for="id_guru_staff" class="form-label">Pilih Guru</label>
+                        <select name="id_guru_staff" class="form-select col-12" id="id_guru_staff">
                             <?php foreach ($model['guruStaff'] as $guruStaff) : ?>
-                                <option value="<?= $guruStaff->getIdGuruStaff() ?>"><?= $guruStaff->getNamaGuru() ?></option>
+                                <?php if ($guruStaff->getJabatan() != 'ADMIN') { ?>
+                                    <option value="<?= $guruStaff->getIdGuruStaff() ?>"><?= $guruStaff->getNamaGuru() ?></option>
+                                <?php } ?>
                             <?php endforeach; ?>
                         </select>
-                        <label for="id_guru_staff">Pilih Guru</label>
                     </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
-            </form>
+                    <button type="submit" id="button-simpan" class="button-admin px-4 col-12 mb-5">Register</button>
+                </form>
+                <p class="text-center">Already have an account? <a href="/admin/login">Login</a></p>
+            </div>
         </div>
     </div>
 </div>

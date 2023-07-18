@@ -54,21 +54,25 @@ class KetSekolahService
 
     public function updateStrukturOrganisasi(string $id, array $request): KetSekolah
     {
-        $this->validationUtil->validateImageFile($request);
-
         $strukturOrganisasi = $this->visiMisiRepository->getStrukturOrganisasi();
-
-        // Menghapus file foto dari direktori
-        $filePath = 'images/upload/struktur-organisasi/' . $strukturOrganisasi->getStrukturOrganisasi(); // Ganti dengan path direktori tempat menyimpan foto
-        if (file_exists($filePath)) {
-            unlink($filePath);
+        if ($strukturOrganisasi === null) {
+            throw new ValidationException('Struktur Organisasi tidak ditemukan.');
         }
 
-        $strukturOrganisasi->setStrukturOrganisasi($this->uploadPhoto($request));
+        if (!empty($request->foto['name'])) {
+            $this->validationUtil->validateImageFile($request);
+            // Menghapus file foto dari direktori
+            $filePath = 'images/upload/struktur-organisasi/' . $strukturOrganisasi->getStrukturOrganisasi(); // Ganti dengan path direktori tempat menyimpan foto
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $strukturOrganisasi->setStrukturOrganisasi($this->uploadPhoto($request));
+        }
+
         return $this->visiMisiRepository->updateStrukturOrganisasi($strukturOrganisasi);
     }
 
-    public function getKurikulum():KetSekolah
+    public function getKurikulum(): KetSekolah
     {
         if ($this->visiMisiRepository->getKurikulum()) {
             return $this->visiMisiRepository->getKurikulum();

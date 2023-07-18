@@ -268,7 +268,11 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="edit-kategori" class="form-label">Kategori</label>
-                                                    <input type="text" class="form-control" id="edit-kategori" name="kategori" value="<?= $prestasi->getKategori() ?>" required>
+                                                    <select class="form-select" id="edit-kategori" name="kategori" required>
+                                                        <option value="Prestasi Siswa" <?= $prestasi->getKategori() === 'Prestasi Siswa' ? 'selected' : '' ?>>Prestasi Siswa</option>
+                                                        <option value="Prestasi Guru" <?= $prestasi->getKategori() === 'Prestasi Guru' ? 'selected' : '' ?>>Prestasi Guru</option>
+                                                        <option value="Prestasi Sekolah" <?= $prestasi->getKategori() === 'Prestasi Sekolah' ? 'selected' : '' ?>>Prestasi Sekolah</option>
+                                                    </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="edit-nama-prestasi" class="form-label">Nama Prestasi</label>
@@ -391,7 +395,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="tambah-kategori" class="form-label">Kategori</label>
-                        <input type="text" class="form-control" id="tambah-kategori" name="kategori" required>
+                        <select class="form-select" id="tambah-kategori" name="kategori" required>
+                            <option value="Prestasi Siswa">Prestasi Siswa</option>
+                            <option value="Prestasi Guru">Prestasi Guru</option>
+                            <option value="Prestasi Sekolah">Prestasi Sekolah</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="tambah-nama-prestasi" class="form-label">Nama Prestasi</label>
@@ -402,6 +410,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 

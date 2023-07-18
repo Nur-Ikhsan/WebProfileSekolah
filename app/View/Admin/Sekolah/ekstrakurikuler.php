@@ -13,7 +13,8 @@
             <nav class="header-nav ms-auto">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>" alt="Profile" class="rounded-circle" height="36px" width="36px">
+                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>"
+                         alt="Profile" class="rounded-circle" height="36px" width="36px">
                     <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?= $model['admin']['username'] ?? 'null' ?></span>
                 </a><!-- End Profile Iamge Icon -->
 
@@ -61,9 +62,10 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true" href="#">
+                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true"
+                   href="#">
                     <i class="bi bi-building"></i><span>Profil Sekolah</span><i
-                        class="bi bi-chevron-down ms-auto"></i>
+                            class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                     <li>
@@ -255,29 +257,42 @@
                             </tr>
 
                             <!-- Edit Ekstrakurikuler Modal -->
-                            <div class="modal fade" id="editEkstrakurikulerModal<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>" tabindex="-1" aria-labelledby="editEkstrakurikulerModalLabel" aria-hidden="true">
+                            <div class="modal fade"
+                                 id="editEkstrakurikulerModal<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>"
+                                 tabindex="-1" aria-labelledby="editEkstrakurikulerModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="editEkstrakurikulerModalLabel">Edit Ekstrakurikuler</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h5 class="modal-title" id="editEkstrakurikulerModalLabel">Edit
+                                                Ekstrakurikuler</h5>
+                                            <button type="button" class="btn-closes" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST" action="/admin/sekolah/ekstrakurikuler/edit/<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>" enctype="multipart/form-data">
+                                            <form method="POST"
+                                                  action="/admin/sekolah/ekstrakurikuler/edit/<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>"
+                                                  enctype="multipart/form-data">
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <div class="mb-3">
-                                                    <label for="edit-nama" class="form-label">Nama Ekstrakurikuler</label>
-                                                    <input type="text" class="form-control" id="edit-nama" name="nama" required value="<?= $ekstrakurikuler->getNamaEkstrakurikuler() ?>">
+                                                    <label for="edit-nama" class="form-label">Nama
+                                                        Ekstrakurikuler</label>
+                                                    <input type="text" class="form-control" id="edit-nama" name="nama"
+                                                           required
+                                                           value="<?= $ekstrakurikuler->getNamaEkstrakurikuler() ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="edit-deskripsi" class="form-label">Deskripsi</label>
-                                                    <textarea class="form-control" id="edit-deskripsi" name="deskripsi" required ><?= $ekstrakurikuler->getDeskripsi() ?></textarea>
+                                                    <textarea class="form-control" id="edit-deskripsi" name="deskripsi"
+                                                              required><?= $ekstrakurikuler->getDeskripsi() ?></textarea>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="edit-foto" class="form-label">Icon</label>
-                                                    <input type="file" class="form-control" id="edit-icon" name="icon" value="<?= $ekstrakurikuler->getIcon() ?>">
+                                                    <input type="file" class="form-control" id="edit-icon" name="icon"
+                                                           value="<?= $ekstrakurikuler->getIcon() ?>">
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -285,20 +300,27 @@
                             </div>
 
                             <!-- Hapus Ekstrakurikuler Modal -->
-                            <div class="modal fade" id="deleteEkstrakurikulerModal<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>" tabindex="-1" aria-labelledby="deleteEkstrakurikulerModalLabel" aria-hidden="true">
+                            <div class="modal fade"
+                                 id="deleteEkstrakurikulerModal<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>"
+                                 tabindex="-1" aria-labelledby="deleteEkstrakurikulerModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-headers">
-                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal" aria-label="Close" id="modalCloseButton"></button>
+                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close" id="modalCloseButton"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data Slide Show Beranda?</h6>
+                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data
+                                                Slide Show Beranda?</h6>
                                             <br>
                                             <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
                                         </div>
                                         <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary pl-4" data-bs-dismiss="modal">Batal</button>
-                                            <a href="/admin/sekolah/ekstrakurikuler/delete/<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>" class="btn btn-danger px-4">Hapus</a>
+                                            <button type="button" class="btn btn-secondary pl-4"
+                                                    data-bs-dismiss="modal">Batal
+                                            </button>
+                                            <a href="/admin/sekolah/ekstrakurikuler/delete/<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>"
+                                               class="btn btn-danger px-4">Hapus</a>
                                         </div>
                                     </div>
                                 </div>
@@ -311,7 +333,9 @@
                         <ul class="pagination">
                             <?php if ($model['pagination']['page'] > 1): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/ekstrakurikuler?page=<?= $model['pagination']['page'] - 1 ?>" aria-label="Sebelumnya">
+                                    <a class="page-link"
+                                       href="/admin/sekolah/ekstrakurikuler?page=<?= $model['pagination']['page'] - 1 ?>"
+                                       aria-label="Sebelumnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                                     </a>
                                 </li>
@@ -340,14 +364,17 @@
                                 </li>
                             <?php else: ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/ekstrakurikuler?page=<?= $i ?>"><?= $i ?></a>
+                                    <a class="page-link"
+                                       href="/admin/sekolah/ekstrakurikuler?page=<?= $i ?>"><?= $i ?></a>
                                 </li>
                             <?php endif; ?>
                             <?php endfor; ?>
 
                             <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/ekstrakurikuler?page=<?= $model['pagination']['page'] + 1 ?>" aria-label="Berikutnya">
+                                    <a class="page-link"
+                                       href="/admin/sekolah/ekstrakurikuler?page=<?= $model['pagination']['page'] + 1 ?>"
+                                       aria-label="Berikutnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                                     </a>
                                 </li>
@@ -379,12 +406,13 @@
 
 </div>
 <!-- Tambah Fasilitas Modal -->
-<div class="modal fade" id="tambahEkstrakurikulerModal" tabindex="-1" aria-labelledby="tambahEkstrakurikulerModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahEkstrakurikulerModal" tabindex="-1" aria-labelledby="tambahEkstrakurikulerModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tambahEkstrakurikulerModalLabel">Tambah Ekstrakurikuler</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form method="POST" action="/admin/sekolah/ekstrakurikuler/tambah" enctype="multipart/form-data">
@@ -400,7 +428,9 @@
                         <label for="foto" class="form-label">Icon</label>
                         <input type="file" class="form-control" id="icon" name="icon" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                    </div>
                 </form>
             </div>
         </div>
