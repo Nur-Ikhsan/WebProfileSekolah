@@ -7,6 +7,8 @@
   --secondary-color: #348355;
   --section-bg-color:             #f0f8ff;
   --section-bg-color-dark: #348355;
+  --section-bg-color-soft: #96CCAB;
+
   --custom-btn-bg-color: #80f182;
   --custom-btn-bg-hover-color:    #13547a;
   --dark-color:                   #000000;
@@ -219,6 +221,23 @@ strong {
   color: var(--white-color);
 }
 
+.btn-custom {
+  display: inline-block;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  color: #31408D;
+  background-color: transparent;
+  border: 2px solid #31408D;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-custom:hover {
+  background-color: #31408D;
+  color: #fff;
+}
+
 .custom-border-btn {
   background: transparent;
   border: 2px solid var(--custom-btn-bg-color);
@@ -235,6 +254,12 @@ strong {
   border-color: var(--white-color);
   color: var(--white-color);
 }
+
+.custom-block-topics-listing > .d-flex,
+  .custom-block-topics-listing-info,
+  .custom-block-topics-listing a {
+    flex-direction: column;
+  }
 
 
 /*---------------------------------------
@@ -281,8 +306,8 @@ strong {
 }
 
 .navbar {
-  background: transparent;
   z-index: 9;
+  background-color: var(--secondary-color);
 }
 
 .navbar-brand,
@@ -320,11 +345,14 @@ strong {
   color: var(--primary-color);
 }
 
+.navbar-nav .nav-link.aaa{
+  color: white; !important;
+}
+
 .navbar .dropdown-menu {
   background: var(--white-color);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
   border: 0;
-  display: inherit;
   opacity: 0;
   min-width: 9rem;
   margin-top: 20px;
@@ -610,6 +638,18 @@ strong {
 
 .social-share .bi-bookmark:hover {
   color: var(--secondary-color);
+}
+
+.search {
+ margin-top:140px;
+}
+
+
+.bg-image {
+  background-image: url('images/img1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vh; /* Menggunakan tinggi viewport */
 }
 
 .bg-design {
@@ -1175,7 +1215,7 @@ blockquote {
 @media (min-width: 800px) {
   .slide-width {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
   }
 }
 
