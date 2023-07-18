@@ -2,10 +2,10 @@
 
     <nav class="navbar navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="logo" class="logo-img"/>
+            <a class="navbar-brand logo d-flex align-items-center" href="/index">
+                <img src="/images/logo1.png" alt="logo"/>
+                <span class="d-none d-lg-block">MTS NEGERI 2 SAMBAS</span>
             </a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,11 +22,13 @@
                            data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
-
+                            <li><a class="dropdown-item" href="/fasilitas-sekolah">Fasilitas Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/kegiatan-sekolah">Kegiatan Sekolah</a></li>
                             <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
+                            <li><a class="dropdown-item" href="/guru-staf">Guru dan Staf</a></li>
+                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="/ekstrakurikuler">Ekstrakurikuler</a></li>
 
-                            <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
                         </ul>
                     </li>
 
@@ -42,7 +44,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/galeri">galeri</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kontak">kontak</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/login">login</a>
                     </li>
@@ -71,11 +75,11 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-8 col-12 mx-auto">
-                    <h6 class="text-center">Selamat Datang</h6>
+                <div class="col-lg-6 col-10 mx-auto">
+                    <h4 class="text-center">Selamat Datang</h4>
                     <h1 class="text-white text-center">MTS NEGERI 2 SAMBAS</h1>
 
-                    <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                    <form method="get" class="custom-form mt-3 pt-1 mb-lg-0 mb-4" role="search">
                         <div class="input-group input-group-lg">
                                     <span class="input-group-text bi-search" id="basic-addon1">
 
@@ -91,13 +95,13 @@
 
                 <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row">
                     <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
-                        <img class="rounded-4 img-fluid img-responsive" src="/images/faq_graphic.jpg" alt="img">
+                        <img class="rounded-4 img-fluid img-responsive" src="/images/ppdb1.png" alt="img">
                     </div>
                     <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
                         <h6>Pendaftaran Peserta Didik Baru</h6>
                         <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2
                             Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
-                        <a href="#" class="btn custom-btn mt-3 mt-lg-4 button-color">Read More</a>
+                        <a href="/ppdb" class="btn custom-btn button-color">Read More</a>
                     </div>
                 </div>
 
@@ -290,89 +294,98 @@
             </div>
     </section>
 
-
-    <section class="timeline-section section-padding">
-        <div class="section-overlay"></div>
-
+    <section class="faq-section section-padding">
         <div class="container">
-            <div class="row">
 
-                <div class="col-12 text-center">
-                    <h1 class="text-white mb-4">Ekstrakurikuler</h1>
-                </div>
+            <div class="row bg-secondary rounded-4">
+            <div class="col-10 mx-auto p-5">
+                <div class="col-12">
+                    <div style="text-align: justify;">
+                        <div class="col-12 text-center">
+                            <h1 class="text-white mb-4">Ekstrakurikuler</h1>
+                        </div>
 
-                <div class="col-lg-10 col-12 mx-auto">
-                    <div class="timeline-container">
-                        <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
-                            <div class="list-progress">
-                                <div class="inner"></div>
+                        <div class="col-lg-10 col-12 mx-auto mw-100">
+                            <div class="timeline-container">
+                                <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                                    <div class="list-progress">
+                                        <div class="inner"></div>
+                                    </div>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Pramuka</h4>
+
+                                        <p class="text-white">Melatih peserta didik untuk terampil dan mandiri dan
+                                            melatih untuk
+                                            berorganisasi dan kepemimpinan Memiliki jiwa sosial dan peduli kepada
+                                            orang
+                                            lain.</p>
+
+                                        <div class="icon-holder">
+                                            <img src="/images/pramuka.png">
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">PMR</h4>
+
+                                        <p class="text-white">Palang Merah Remaja (PMR) adalah organisasi kepanduan
+                                            dan
+                                            kemanusiaan yang bergerak di bidang sosial dan kesehatan. </p>
+
+                                        <div class="icon-holder">
+                                            <img src="/images/pmr.png">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h4 class="text-white mb-3">Olahraga</h4>
+
+                                        <p class="text-white">Melibatkan siswa dalam berbagai jenis olahraga yakni
+                                            futsal, voli
+                                            ball, tenis meja, bulu tangkis, dan bela diri.</p>
+
+                                        <div class="icon-holder">
+                                            <img src="/images/olahraga.png">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h4 class="text-white mb-3">Seni</h4>
+
+                                        <p class="text-white">Kegiatan di sekolah yang berfokus pada pengembangan
+                                            bakat seni dan
+                                            pemahaman terhadap budaya serta keagamaan yakni Seni Tari dan Tilawah
+                                        </p>
+
+                                        <div class="icon-holder">
+                                            <img src="/images/Seni.png">
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Bahasa</h4>
+
+                                        <p class="text-white">Memberikan kesempatan kepada siswa untuk memperdalam
+                                            pemahaman dan
+                                            penggunaan Bahasa Inggris dan Arab di luar jam pelajaran reguler.</p>
+
+                                        <div class="icon-holder">
+                                            <img src="/images/bahasa.png">
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
-
-                            <li>
-                                <h4 class="text-white mb-3">Pramuka</h4>
-
-                                <p class="text-white">Melatih peserta didik untuk terampil dan mandiri dan melatih untuk
-                                    berorganisasi dan kepemimpinan Memiliki jiwa sosial dan peduli kepada orang
-                                    lain.</p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/pramuka.png">
-                                </div>
-                            </li>
-
-                            <li>
-                                <h4 class="text-white mb-3">PMR</h4>
-
-                                <p class="text-white">Palang Merah Remaja (PMR) adalah organisasi kepanduan dan
-                                    kemanusiaan yang bergerak di bidang sosial dan kesehatan. </p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/pmr.png">
-                                </div>
-                            </li>
-                            <li>
-                                <h4 class="text-white mb-3">Olahraga</h4>
-
-                                <p class="text-white">Melibatkan siswa dalam berbagai jenis olahraga yakni futsal, voli
-                                    ball, tenis meja, bulu tangkis, dan bela diri.</p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/olahraga.png">
-                                </div>
-                            </li>
-                            <li>
-                                <h4 class="text-white mb-3">Seni</h4>
-
-                                <p class="text-white">Kegiatan di sekolah yang berfokus pada pengembangan bakat seni dan
-                                    pemahaman terhadap budaya serta keagamaan yakni Seni Tari dan Tilawah</p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/Seni.png">
-                                </div>
-                            </li>
-
-                            <li>
-                                <h4 class="text-white mb-3">Bahasa</h4>
-
-                                <p class="text-white">Memberikan kesempatan kepada siswa untuk memperdalam pemahaman dan
-                                    penggunaan Bahasa Inggris dan Arab di luar jam pelajaran reguler.</p>
-
-                                <div class="icon-holder">
-                                    <img src="/images/bahasa.png">
-                                </div>
-                            </li>
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </section>
-
 
     <section class="faq-section section-padding">
         <div class="container">
             <div class="row">
-
+                
                 <div class="col-lg-6 col-12">
                     <h2 class="mb-4">Prestasi</h2>
                 </div>
@@ -439,6 +452,7 @@
             </div>
         </div>
     </section>
+
 </main>
 
 <footer class="site-footer section-padding section-bg-dark">

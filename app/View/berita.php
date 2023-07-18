@@ -1,8 +1,9 @@
 <main>
     <nav class="navbar navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="logo" class="logo-img"/>
+            <a class="navbar-brand logo d-flex align-items-center" href="/index">
+                <img src="/images/logo1.png" alt="logo"/>
+                <span class="d-none d-lg-block">MTS NEGERI 2 SAMBAS</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -21,11 +22,12 @@
                            data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
-
+                            <li><a class="dropdown-item" href="/fasilitas-sekolah">Fasilitas Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/kegiatan-sekolah">Kegiatan Sekolah</a></li>
                             <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
-
-                            <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
+                            <li><a class="dropdown-item" href="/guru-staf">Guru dan Staf</a></li>
+                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="/ekstrakurikuler">Ekstrakurikuler</a></li>
                         </ul>
                     </li>
 
@@ -40,6 +42,10 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="/galeri">galeri</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kontak">kontak</a>
                     </li>
 
                     <li class="nav-item">
@@ -77,7 +83,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card h-100">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="images/pramuka.png" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>

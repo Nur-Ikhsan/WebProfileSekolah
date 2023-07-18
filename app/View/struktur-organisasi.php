@@ -1,8 +1,9 @@
 <main>
     <nav class="navbar navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="logo" class="logo-img"/>
+            <a class="navbar-brand logo d-flex align-items-center" href="/index">
+                <img src="/images/logo1.png" alt="logo"/>
+                <span class="d-none d-lg-block">MTS NEGERI 2 SAMBAS</span>
             </a>
 
             <!--            <div class="d-lg-none ms-auto me-4">-->
@@ -23,11 +24,12 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
-
+                            <li><a class="dropdown-item" href="/fasilitas-sekolah">Fasilitas Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/kegiatan-sekolah">Kegiatan Sekolah</a></li>
                             <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
-
-                            <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
+                            <li><a class="dropdown-item" href="/guru-staf">Guru dan Staf</a></li>
+                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="/ekstrakurikuler">Ekstrakurikuler</a></li>
                         </ul>
                     </li>
 
@@ -76,7 +78,7 @@
         <div class="container my-5">
             <div class="topics-detail-block bg-white shadow-lg">
                 <picture>
-                    <source srcset="images/img1.jpg" type="image/svg+xml">
+                    <source srcset="images/struktur_organisasi.jpg" type="image/svg+xml">
                     <img src="" class="img-fluid img-thumbnail" alt="...">
                 </picture>
             </div>

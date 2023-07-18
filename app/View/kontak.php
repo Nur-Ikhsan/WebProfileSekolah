@@ -1,5 +1,4 @@
 <main>
-
     <nav class="navbar navbar-expand-sm">
         <div class="container">
             <a class="navbar-brand logo d-flex align-items-center" href="/index">
@@ -7,11 +6,8 @@
                 <span class="d-none d-lg-block">MTS NEGERI 2 SAMBAS</span>
             </a>
 
-            <!--            <div class="d-lg-none ms-auto me-4">-->
-            <!--                <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
-            <!--            </div>-->
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -22,14 +18,16 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
-
+                            <li><a class="dropdown-item" href="/fasilitas-sekolah">Fasilitas Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/kegiatan-sekolah">Kegiatan Sekolah</a></li>
                             <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
-
-                            <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
+                            <li><a class="dropdown-item" href="/guru-staf">Guru dan Staf</a></li>
+                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="/ekstrakurikuler">Ekstrakurikuler</a></li>
                         </ul>
                     </li>
 
@@ -45,14 +43,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/galeri">galeri</a>
                     </li>
-                </ul>
 
-                <!--                <div class="d-none d-lg-block">-->
-                <!--                    <a href="#top" class="navbar-icon bi-person smoothscroll"></a>-->
-                <!--                </div>-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kontak">kontak</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/login">login</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
+
 
 
     <header class="site-header d-flex flex-column justify-content-center align-items-center">
@@ -62,66 +65,33 @@
                 <div class="col-lg-5 col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/index">Profil</a></li>
+                            <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Tujuan</li>
+                            <li class="breadcrumb-item active" aria-current="page">Kontak</li>
                         </ol>
                     </nav>
 
-                    <h2 class="text-white">Tujuan</h2>
+                    <h2 class="text-white">Kontak</h2>
                 </div>
 
             </div>
         </div>
     </header>
 
+    <section class="py-1 container">
 
-    <section class="section-padding">
-        <div class="container">
-            <div class="row">
+        <div class="album  bg-light">
+            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
+                <div class="col ">
+                    <div class="card shadow-sm ">
 
-                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <div class="d-flex">
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2">Tujuan</h5>
-                                    <p>Tujuan yang diharapkan dari penyelenggaraan pendidikan di Madrasah Tsanawiyah Negeri 2 Sambas adalah:</p>
-                                    <ol>
-                                        <li>
-                                            <p>
-                                                <strong>Umum:</strong> <br/> Meningkatkan kecerdasan, pengetahuan,
-                                                kepribadian akhlak mulia serta keterampilan untuk hidup mandiri dan
-                                                mampu mengikuti pendidikan lebih lanjut.
-                                            <p/>
-                                        </li>
-                                        <li>
-                                            <strong>Khusus:</strong>
-                                            <ol type="a">
-                                                <li>Memberikan layanan pendidikan yang bermuatan agama Islam melalui
-                                                    hafalan surat-surat pada pra KBM, penataan lingkungan religious
-                                                    (nuasa Islami), dan menyelenggarakan ekstrakurikuler keagamaan,
-                                                    pramuka, dan teknologi.
-                                                </li>
-                                                <li>Menyediakan wadah yang memberikan wawasan dan keterampilan kepada
-                                                    siswa sebagai kemampuan life skill untuk bekal hidupnya.
-                                                </li>
-                                                <li>Mempersiapkan lulusan yang berprestasi, mampu bersaing untuk
-                                                    melanjutkan pendidikan ke jenjang yang lebih tinggi.
-                                                </li>
-                                            </ol>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-</main>
 
+</main>
 <footer class="site-footer section-padding section-bg-dark">
     <div class="container">
         <div class="row">

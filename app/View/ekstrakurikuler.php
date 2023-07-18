@@ -31,28 +31,28 @@
                         </ul>
                     </li>
 
+
                     <li class="nav-item">
                         <a class="nav-link" href="/kurikulum">Kurikulum</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/berita">Berita</a>
+                        <a class="nav-link" href="/berita">berita</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/galeri">Galeri</a>
+                        <a class="nav-link" href="/galeri">galeri</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/kontak">Kontak</a>
+                        <a class="nav-link" href="/kontak">kontak</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/login">Login</a>
+                        <a class="nav-link" href="/admin/login">login</a>
                     </li>
                 </ul>
             </div>
-
         </div>
     </nav>
 
@@ -67,108 +67,103 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Visi dan Misi</li>
+                            <li class="breadcrumb-item active" aria-current="page">Kontak</li>
                         </ol>
                     </nav>
 
-                    <h2 class="text-white">Visi dan Misi</h2>
+                    <h2 class="text-white">Kontak</h2>
                 </div>
 
             </div>
         </div>
     </header>
 
-
-    <section class="section-padding">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-8 col-12 mt-3 mx-auto">
-                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <div class="d-flex">
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2 text-center">Kurikulum (K13)</h5>
-
-                                    <p class="mb-0">Kurikulum 2013 merupakan kurikulum yang lebih mengutamakan
-                                        pemahaman, skill, dan pendidikan yang berkarakter, siswa dituntut untuk lebih
-                                        aktif dalam proses pembelajaran, siswa dituntut untuk paham atas materi serta
-                                        siswa harus aktif berdikusi dan mampu berpresentasi serta memiliki sopan santu
-                                        dan disiplin yang tinggi.</p>
+    <section class="container">
+        <div class="row bg-secondary rounded-4">
+            <div class="col-10 mx-auto p-5">
+                <div class="col-12">
+                                <div style="text-align: justify;">
+                                <div class="col-12 text-center">
+                                    <h1 class="text-white mb-4">Ekstrakurikuler</h1>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href=""></a>
 
-                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                        <div class="d-flex">
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2 text-center">Kurikulum</h5>
-                                    <div class="accordion" id="accordionExample">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingOne">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseOne" aria-expanded="true"
-                                                    aria-controls="collapseOne">
-                                                    Kategori Komponen
-                                                </button>
-                                            </h2>
-
-                                            <div id="collapseOne" class="accordion-collapse collapse show"
-                                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Kurikulum
-                                                </div>
+                                <div class="col-lg-10 col-12 mx-auto mw-100">
+                                    <div class="timeline-container">
+                                        <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                                            <div class="list-progress">
+                                                <div class="inner"></div>
                                             </div>
-                                        </div>
 
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingTwo">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                    aria-expanded="false" aria-controls="collapseTwo">
-                                                    Kategori Komponen
-                                                </button>
-                                            </h2>
+                                            <li>
+                                                <h4 class="text-white mb-3">Pramuka</h4>
 
-                                            <div id="collapseTwo" class="accordion-collapse collapse"
-                                                aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Kurikulum
+                                                <p class="text-white">Melatih peserta didik untuk terampil dan mandiri dan
+                                                    melatih untuk
+                                                    berorganisasi dan kepemimpinan Memiliki jiwa sosial dan peduli kepada
+                                                    orang
+                                                    lain.</p>
+
+                                                <div class="icon-holder">
+                                                    <img src="/images/pramuka.png">
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </li>
 
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingThree">
-                                                <button class="accordion-button collapsed" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                                    aria-expanded="false" aria-controls="collapseThree">
-                                                    Kategori Komponen
-                                                </button>
-                                            </h2>
+                                            <li>
+                                                <h4 class="text-white mb-3">PMR</h4>
 
-                                            <div id="collapseThree" class="accordion-collapse collapse"
-                                                aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    Kurikulum
+                                                <p class="text-white">Palang Merah Remaja (PMR) adalah organisasi kepanduan
+                                                    dan
+                                                    kemanusiaan yang bergerak di bidang sosial dan kesehatan. </p>
+
+                                                <div class="icon-holder">
+                                                    <img src="/images/pmr.png">
                                                 </div>
-                                            </div>
-                                        </div>
+                                            </li>
+                                            <li>
+                                                <h4 class="text-white mb-3">Olahraga</h4>
+
+                                                <p class="text-white">Melibatkan siswa dalam berbagai jenis olahraga yakni
+                                                    futsal, voli
+                                                    ball, tenis meja, bulu tangkis, dan bela diri.</p>
+
+                                                <div class="icon-holder">
+                                                    <img src="/images/olahraga.png">
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h4 class="text-white mb-3">Seni</h4>
+
+                                                <p class="text-white">Kegiatan di sekolah yang berfokus pada pengembangan
+                                                    bakat seni dan
+                                                    pemahaman terhadap budaya serta keagamaan yakni Seni Tari dan Tilawah
+                                                </p>
+
+                                                <div class="icon-holder">
+                                                    <img src="/images/Seni.png">
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <h4 class="text-white mb-3">Bahasa</h4>
+
+                                                <p class="text-white">Memberikan kesempatan kepada siswa untuk memperdalam
+                                                    pemahaman dan
+                                                    penggunaan Bahasa Inggris dan Arab di luar jam pelajaran reguler.</p>
+
+                                                <div class="icon-holder">
+                                                    <img src="/images/bahasa.png">
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
             </div>
-
-        </div>
-        </div>
     </section>
+
+
 </main>
 <footer class="site-footer section-padding section-bg-dark">
     <div class="container">

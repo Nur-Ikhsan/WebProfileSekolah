@@ -2,8 +2,9 @@
 
     <nav class="navbar navbar-expand-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo.png" alt="logo" class="logo-img"/>
+            <a class="navbar-brand logo d-flex align-items-center" href="/index">
+                <img src="/images/logo1.png" alt="logo"/>
+                <span class="d-none d-lg-block">MTS NEGERI 2 SAMBAS</span>
             </a>
 
             <!--            <div class="d-lg-none ms-auto me-4">-->
@@ -24,11 +25,12 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
-
+                            <li><a class="dropdown-item" href="/fasilitas-sekolah">Fasilitas Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/kegiatan-sekolah">Kegiatan Sekolah</a></li>
                             <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
-
-                            <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
+                            <li><a class="dropdown-item" href="/guru-staf">Guru dan Staf</a></li>
+                            <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="/ekstrakurikuler">Ekstrakurikuler</a></li>
                         </ul>
                     </li>
 
@@ -84,8 +86,8 @@
                     <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                         <div class="d-flex">
                             <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2">Visi</h5>
+                                <div style="text-align: justify;">
+                                    <h5 class="mb-2 text-center">Visi</h5>
 
                                     <p class="mb-0">Mewujudkan kualitas pendidikan yang mampu mengantarkan peserta didik
                                         ke jenjang pendidikan yang lebih tinggi serta mampu menjalani hidup
@@ -98,8 +100,8 @@
                     <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                         <div class="d-flex">
                             <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <h5 class="mb-2">Misi</h5>
+                                <div style="text-align: justify;">
+                                    <h5 class="mb-2 text-center">Misi</h5>
                                     <p>Untuk mencapai visi madrasah, misi dari penyelenggaran pendidikan dan
                                         pembelajaran di Madrasah Tsanawiyah Negeri 2 Sambas sebagai berikut:</p>
                                     <ol>

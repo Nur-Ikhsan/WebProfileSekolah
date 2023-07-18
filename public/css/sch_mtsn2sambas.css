@@ -3,7 +3,7 @@
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color: #000000;
+  --primary-color: #ffffff;
   --secondary-color: #348355;
   --section-bg-color:             #f0f8ff;
   --section-bg-color-dark: #348355;
@@ -133,8 +133,8 @@ strong {
   SECTION               
 -----------------------------------------*/
 .section-padding {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .section-bg {
@@ -146,7 +146,7 @@ strong {
 }
 
 .section-overlay {
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background-color: var(--secondary-color);
   position: absolute;
   top: 0;
   left: 0;
@@ -499,7 +499,7 @@ strong {
 .hero-section .input-group {
   background-color: var(--white-color);
   border-radius: var(--border-radius-large);
-  padding: 10px 15px;
+
 }
 
 .hero-section .input-group-text {
@@ -904,8 +904,8 @@ blockquote {
 .custom-form .form-control {
   border-radius: var(--border-radius-large);
   color: var(--p-color);
-  margin-bottom: 24px;
-  padding-top: 13px;
+  margin-bottom: 20px;
+  padding-top: 10px;
   padding-bottom: 13px;
   padding-left: 20px;
   outline: none;
@@ -1054,11 +1054,11 @@ blockquote {
 -----------------------------------------*/
 @media screen and (max-width: 991px) {
   h1 {
-    font-size: 48px;
+    font-size: 40px;
   }
 
   h2 {
-    font-size: 36px;
+    font-size: 35px;
   }
 
   h3 {
@@ -1367,15 +1367,7 @@ blockquote {
 # Override some default Bootstrap stylings
 --------------------------------------------------------------*/
 /* Dropdown menus */
-.dropdown-menu {
-  border-radius: 4px;
-  padding: 10px 0;
-  animation-name: dropdown-animate;
-  animation-duration: 0.2s;
-  animation-fill-mode: both;
-  border: 0;
-  box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
-}
+
 
 .dropdown-menu .dropdown-header,
 .dropdown-menu .dropdown-footer {
@@ -2064,3 +2056,5 @@ thead tr {
     color: #012970;
   margin-top: 20px;
 }
+
+

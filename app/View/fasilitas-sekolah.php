@@ -64,13 +64,13 @@
                 <div class="col-lg-5 col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
+                            <li class="breadcrumb-item"><a href="/index">Profil</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Galeri</li>
+                            <li class="breadcrumb-item active" aria-current="page">Fasilitas Sekolah</li>
                         </ol>
                     </nav>
 
-                    <h2 class="text-white">Galeri</h2>
+                    <h2 class="text-white">Fasilitas Sekolah</h2>
                 </div>
 
             </div>
@@ -102,11 +102,11 @@
                     <div class="card shadow-sm ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/person.jpg" class="img-fluid " alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -126,11 +126,11 @@
                     <div class="card shadow-sm">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/404.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -150,11 +150,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -176,11 +176,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -200,11 +200,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -224,11 +224,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -250,11 +250,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -274,11 +274,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -298,11 +298,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -324,11 +324,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -348,11 +348,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -372,11 +372,11 @@
                     <div class="card shadow-sm  ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">

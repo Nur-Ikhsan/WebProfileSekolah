@@ -76,7 +76,45 @@ function kurikulum(): void
             ]
         );
     }
+    function ppdb(): void
+    {
+        View::render('ppdb',[
+                'title' => 'PPBD Organisasi Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
 
+    function kontak(): void
+    {
+        View::render('kontak',[
+                'title' => 'Kontak Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
+
+    function ekstrakurikuler(): void
+    {
+        View::render('ekstrakurikuler',[
+                'title' => 'Ekstrakurikuler Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
+
+    function fasilitasSekolah(): void
+    {
+        View::render('fasilitas-sekolah',[
+                'title' => 'Fasilitas Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
+
+    function kegiatanSekolah(): void
+    {
+        View::render('kegiatan-sekolah',[
+                'title' => 'Fasilitas Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
 
 
 }

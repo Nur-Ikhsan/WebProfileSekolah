@@ -26,6 +26,11 @@ Router::add('/tujuan', HomeController::class, 'tujuan');
 Router::add('/kurikulum', HomeController::class, 'kurikulum');
 Router::add('/galeri', HomeController::class, 'galeri');
 Router::add('/struktur-organisasi', HomeController::class, 'strukturOrganisasi');
+Router::add('/ppdb', HomeController::class, 'ppdb');
+Router::add('/kontak', HomeController::class, 'kontak');
+Router::add('/ekstrakurikuler', HomeController::class, 'ekstrakurikuler');
+Router::add('/fasilitas-sekolah', HomeController::class, 'fasilitasSekolah');
+Router::add('/kegiatan-sekolah', HomeController::class, 'kegiatanSekolah');
 
 
 // Rute untuk admin
