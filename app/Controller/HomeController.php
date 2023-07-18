@@ -33,6 +33,10 @@ class HomeController
             'title' => 'Berita'
             ]
         );
+
+
+
+        
     }
 
     // visi-misi
@@ -77,6 +81,13 @@ function kurikulum(): void
             ]
         );
     }
+    function struktur_organisasi(): void
+    {
+        View::renderHome('struktur_organisasi',[
+                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
 function detail_berita(): void
     {
         View::renderHome('detail_berita',[
@@ -96,6 +107,14 @@ function detail_berita(): void
     function fasilitas_sekolah(): void
     {
         View::renderHome('fasilitas_sekolah',[
+                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
+
+    function kegiatan_sekolah(): void
+    {
+        View::renderHome('kegiatan_sekolah',[
                 'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );

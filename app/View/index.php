@@ -59,7 +59,111 @@
         </div>
     </section>
 
+    <section class="py-1 container">
+        <div class="row">
 
+            <div class="col-12 text-center mt-5">
+                <h1 class="mb-4">Berita Terbaru</h1>
+            </div>
+
+        </div>
+        <div class="album  bg-light">
+            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="images/img1.jpg" class="img-fluid " alt="Image Alt Text" data-bs-toggle="modal"
+                            data-bs-target="#imageModal">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content.</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
+
+                        </a>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
+                            data-bs-toggle="modal" data-bs-target="#imageModal">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content.</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
+
+                        </a>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
+                            data-bs-toggle="modal" data-bs-target="#imageModal">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Veniam, tempora?</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
+
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+    </section>
     <section class="explore-section section-padding">
         <div class="container">
             <div class="row">

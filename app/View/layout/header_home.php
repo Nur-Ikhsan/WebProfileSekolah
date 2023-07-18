@@ -64,7 +64,7 @@
                     <li>
                         <a class="nav-link " href="/index">Beranda</a>
                     </li>
-                    <li class="nav-item  dropdown">
+                    <li class="nav-item dropdown">
                         <input type="checkbox" id="profile-toggle" class="d-none">
                         <label class=" text-info nav-link dropdown-toggle" for="profile-toggle"
                             data-bs-toggle="dropdown" aria-expanded="false">Profil</label>
@@ -73,6 +73,7 @@
                             <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
                             <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
                             <li><a class="dropdown-item" href="/fasilitas_sekolah">Fasilitas Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/kegiatan_sekolah">Kegiatan Sekolah</a></li>
                             <li><a class="dropdown-item" href="/guru_staff">Guru & Staff</a></li>
                         </ul>
                     </li>

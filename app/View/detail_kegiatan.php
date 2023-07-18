@@ -11,11 +11,11 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Detail Berita</li>
+                            <li class="breadcrumb-item active" aria-current="page">Detail Kegiatan</li>
                         </ol>
                     </nav>
 
-                    <h2 class="text-white">Detail Berita</h2>
+                    <h2 class="text-white">Detail Kegiatan</h2>
                 </div>
 
             </div>

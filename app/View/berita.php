@@ -25,13 +25,17 @@
 
     <section class="py-1 container">
 
-        <div class="album  bg-light">
+        <div class="album bg-light">
             <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
-                <div class="col ">
+                <?php $count = 0; ?>
+                <?php foreach ($news as $new): ?>
+                <?php $count++; ?>
+
+                <div class="col-4 ">
                     <div class="card shadow-sm ">
                         <!-- Gambar yang dapat diklik -->
-                        <img src="images/img1.jpg" class="img-fluid " alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                        <img src="images/upload/berita/<?= $new->getFoto; ?>" class="img-fluid " alt="Image Alt Text"
+                            data-bs-toggle="modal" data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
@@ -56,7 +60,9 @@
                         </a>
                     </div>
                 </div>
-                <div class="col ">
+
+                <?php endforeach;?>
+                <div class="col-4 ">
                     <div class="card shadow-sm ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
@@ -85,7 +91,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col ">
+                <div class="col-4 ">
                     <div class="card shadow-sm ">
                         <!-- Gambar yang dapat diklik -->
                         <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"

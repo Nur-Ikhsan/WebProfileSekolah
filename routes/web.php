@@ -27,10 +27,12 @@ Router::add('/visi-misi', HomeController::class, 'visiMisi');
 Router::add('/tujuan', HomeController::class, 'tujuan');
 Router::add('/kurikulum', HomeController::class, 'kurikulum');
 Router::add('/ppdb', HomeController::class, 'ppdb');
+Router::add('/struktur_organisasi', HomeController::class, 'struktur_organisasi');
 Router::add('/detail_berita', HomeController::class, 'detail_berita');
 Router::add('/guru_staff', HomeController::class, 'guru_staff');
 Router::add('/galeri', HomeController::class, 'galeri');
 Router::add('/fasilitas_sekolah', HomeController::class, 'fasilitas_sekolah');
+Router::add('/kegiatan_sekolah', HomeController::class, 'kegiatan_sekolah');
 
 
 

@@ -32,7 +32,7 @@
                         <div class="d-flex">
                             <div class="custom-block-topics-listing-info d-flex">
                                 <div>
-                                    <h5 class="mb-2 text-center">Kurikulum</h5>
+                                    <h5 class="mb-2 text-center">Struktur Kurikulum</h5>
                                     <div class="accordion" id="accordionExample">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="headingOne">
