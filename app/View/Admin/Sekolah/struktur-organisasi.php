@@ -155,7 +155,7 @@
         <div class="container">
             <div class="row align-items-center">
 
-                <div class="col-5 col-lg-12">
+                <div class="col-12 col-lg-5">
                     <h4 class="secondary-color">Struktur Organisasi</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">

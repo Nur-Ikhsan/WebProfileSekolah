@@ -195,7 +195,7 @@
         <div class="container">
             <div class="row align-items-center">
 
-                <div class="col-5 col-lg-12">
+                <div class="col-lg-5 col-12">
                     <h4 class="secondary-color">Fasilitas</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">

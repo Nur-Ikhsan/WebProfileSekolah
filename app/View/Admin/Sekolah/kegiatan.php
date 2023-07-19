@@ -209,7 +209,7 @@
 
             </div>
             <div class="row align-items-center box-edit">
-                <div class="col-12">
+                <div class="col-lg-5 col-12">
                     <h4 class="text-center pb-3">Daftar Kegiatan Sekolah</h4>
                     <div>
                         <div class="col-12 p-0 justify-content-end d-flex">
