@@ -188,5 +188,13 @@ class HomeController
         );
     }
 
+    function guruStaf(): void
+    {
+        View::renderHome('guru_staff',[
+                'title' => 'Guru dan Staff Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
+
 
 }
