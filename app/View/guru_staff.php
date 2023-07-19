@@ -18,58 +18,23 @@
 
     <section class="container">
 
-        <div class="row row-cols-md-4 row-cols-sm-1 mt-40 justify-content-center mb-100">
+        <div class="row row-cols-md-4 row-cols-lg-4 row-cols-sm-1 mt-40 justify-content-center mb-100">
 
-            <div class="card" style="max-width: 10rem;">
-                <svg class=" bd-placeholder-img card-img-top" width="100%" height="180"
-                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6"
-                        dy=".3em">Image cap</text>
-                </svg>
-
-                <div class="card-footer">
-                    <p class="fs-6 text-center">Lorem ipsum dolor sit amet.</p>
-                    <small class="text-muted
-                     ">Last updated 3 mins ago</small>
+            <div class="row col-lg-8">
+                <?php foreach ($guruStaffList as $gurustaff): ?>
+                <div class="card" style="max-width: 10rem;">
+                    <img src="/images/upload/guru-staff/<?= $gurustaff->getFoto() ?>" class="img-fluid "
+                        alt="Image Alt Text">
+                    <div class="card-footer">
+                        <p class="fs-6 text-center"><?= $gurustaff->getNamaGuru(); ?></p>
+                        <small class="text-muted
+                             "><?= $gurustaff->getJabatan(); ?></small>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card" style="max-width: 10rem;">
-                <svg class=" bd-placeholder-img card-img-top" width="100%" height="180"
-                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6"
-                        dy=".3em">Image cap</text>
-                </svg>
-
-
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-
-            <div class="card " style="max-width: 10rem;">
-                <img src="..." class="card-img-top" alt="...">
-
-
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card " style="max-width: 10rem;">
-                <img src="..." class="card-img-top" alt="...">
-
-
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
+                <?php endforeach;?>
             </div>
 
         </div>
-
 
         <div class="col-lg-12 col-12 my-5">
             <nav aria-label="Page navigation example">

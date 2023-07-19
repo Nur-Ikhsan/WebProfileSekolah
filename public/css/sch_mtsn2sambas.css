@@ -124,6 +124,14 @@ strong {
   font-weight: var(--font-weight-bold);
 }
 
+.limit-text {
+  max-height: 10em; /* Sesuaikan tinggi maksimum yang diinginkan */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 10; /* Batasi dalam satu baris */
+  -webkit-box-orient: vertical;
+}
 
 /*---------------------------------------
   SECTION               
@@ -139,6 +147,11 @@ strong {
 
 .section-bg-dark {
   background-color: var(--section-bg-color-dark);
+}
+
+.section-bg-soft {
+  background-color: var(--section-bg-color-soft);
+
 }
 
 .section-overlay {
@@ -1238,10 +1251,15 @@ blockquote {
 .mt-70 {
   margin-top: 70px;
 }
+.mt-120 {
+  margin-top: 120px;
+}
 
 .p-30 {
     padding: 30px;
 }
+
+
 
 .bg-light-green {
     background-color: var(--bg-light-green);

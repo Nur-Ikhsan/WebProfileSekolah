@@ -27,15 +27,14 @@
 
         <div class="album bg-light">
             <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
-                <?php $count = 0; ?>
-                <?php foreach ($news as $new): ?>
-                <?php $count++; ?>
+                <?php foreach ($beritaList as $berita): ?>
 
                 <div class="col-4 ">
                     <div class="card shadow-sm ">
                         <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/berita/<?= $new->getFoto; ?>" class="img-fluid " alt="Image Alt Text"
-                            data-bs-toggle="modal" data-bs-target="#imageModal">
+
+                        <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid "
+                            alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
@@ -50,14 +49,16 @@
                         </div>
                     </div>
                     <div class="card-body rounded-bottom">
-                        <h6 class="mb-0 my-3">Featured post</h6>
-                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
-                            natural
-                            lead-in to additional content.</p>
-                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
-                            Baca Selengkapnya
+                        <h6 class="mb-0 my-3"><?= $berita->getJudulBerita(); ?></h6>
+                        <div class="limit-text">
+                            <p class="card-text mb-auto my-3 "><?= $berita->getIsiBerita(); ?></p>
+                        </div>
 
+                        <a href="/detail_berita?id=<?= $berita->getIdBerita(); ?>"
+                            class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
                         </a>
+
                     </div>
                 </div>
 
@@ -85,7 +86,7 @@
                         <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
                             natural
                             lead-in to additional content.</p>
-                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                        <a href="/detail_berita" class="icon-link blink gap-1 icon-link-hover stretched-link">
                             Baca Selengkapnya
 
                         </a>
@@ -115,7 +116,7 @@
                             natural
                             lead-in to additional content Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Veniam, tempora?</p>
-                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                        <a href="/detail_berita" class="icon-link blink gap-1 icon-link-hover stretched-link">
                             Baca Selengkapnya
 
                         </a>

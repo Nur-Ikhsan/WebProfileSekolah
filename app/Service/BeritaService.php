@@ -95,4 +95,10 @@ class BeritaService
         $offset = ($page - 1) * $perPage;
         return $this->beritaRepository->getBeritaPagination($perPage, $offset);
     }
+
+
+    public function getBeritaById(string $id): ?Berita
+    {
+        return $this->beritaRepository->findBeritaById($id);
+    }
 }

@@ -20,11 +20,12 @@
 
         <div class="album  bg-light">
             <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
-                <div class="col ">
-                    <div class="card shadow-sm ">
+                <?php foreach ($galeriList as $galeri): ?>
+                <div class="col-4 ">
+                    <div class="shadow-sm ">
                         <!-- Gambar yang dapat diklik -->
-                        <img src="images/img1.jpg" class="img-fluid " alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                        <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>" class=" img-fluid rounded" alt=" Image Alt
+                            Text" data-bs-toggle="modal" data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
@@ -39,11 +40,10 @@
                         </div>
                     </div>
                     <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Id,
-                            quia.</p>
+                        <p class="card-text text-white px-2"><?= $galeri->getJudulGaleri(); ?></p>
                     </div>
                 </div>
+                <?php endforeach;?>
                 <div class="col">
                     <div class="card shadow-sm">
                         <!-- Gambar yang dapat diklik -->

@@ -11,11 +11,11 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Berita</li>
+                            <li class="breadcrumb-item active" aria-current="page">Kegiatan Sekolah</li>
                         </ol>
                     </nav>
 
-                    <h2 class="text-white">Berita</h2>
+                    <h2 class="text-white">Kegiatan</h2>
                 </div>
 
             </div>
@@ -28,25 +28,21 @@
     <section class="container">
 
         <div class="row mb-2 my-5">
+            <?php foreach ($kegiatanList as $kegiatan): ?>
+
             <div class="col-md-12">
                 <div
                     class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col-auto d-none d-lg-block">
-                        <svg class="bd-placeholder-img" width="400" height="250" xmlns="http://www.w3.org/2000/svg"
-                            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                            focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
-                                dy=".3em">Thumbnail</text>
-                        </svg>
+                        <img src="/images/upload/kegiatan/<?= $kegiatan->getFoto() ?>" class="img-fluid "
+                            alt="Image Alt Text">
 
                     </div>
-                    <div class="col p-4 flex-column position-static">
+                    <div class=" col p-4 flex-column position-static">
 
-                        <h6 class="mb-0 d-inline-block">Featured post</h6>
-                        <div class="mb-1 text-muted">Nov 12</div>
-                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
-                            lead-in to additional content.</p>
+                        <h6 class="mb-0 d-inline-block"><?= $kegiatan->getJudulKegiatan(); ?></h6>
+                        <div class="mb-1 text-muted"><?= $kegiatan->getTanggal(); ?></div>
+                        <p class="card-text mb-auto"><?= $kegiatan->getIsiKegiatan(); ?></p>
                         <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
                             Baca Selengkapnya
 
@@ -64,7 +60,7 @@
 
                 </div>
             </div>
-
+            <?php endforeach;?>
         </div>
     </section>
     <div class="col-lg-12 col-12 my-5">

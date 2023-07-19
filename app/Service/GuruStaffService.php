@@ -87,7 +87,7 @@ class GuruStaffService
     {
         $targetDirectory = 'images/upload/guru-staff/'; // Replace with the actual path
         $targetFileName = uniqid() . '_' . basename($file['name']);
-        $targetFilePath = $targetDirectory . $targetFileName;
+    $targetFilePath = $targetDirectory . $targetFileName;
 
         move_uploaded_file($file['tmp_name'], $targetFilePath);
 
