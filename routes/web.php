@@ -34,6 +34,7 @@ Router::add('/guru_staff', HomeController::class, 'guru_staff');
 Router::add('/galeri', HomeController::class, 'galeri');
 Router::add('/fasilitas_sekolah', HomeController::class, 'fasilitas_sekolah');
 Router::add('/kegiatan_sekolah', HomeController::class, 'kegiatan_sekolah');
+Router::add('/pencarian_berita', HomeController::class, 'pencarianBerita');
 
 
 

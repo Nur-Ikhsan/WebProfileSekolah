@@ -1,6 +1,7 @@
+<?php 
+error_reporting(E_ERROR | E_PARSE);
+?>
 <main>
-
-
 
     <header class="site-header d-flex flex-column justify-content-center align-items-center">
         <div class="container">
@@ -23,15 +24,14 @@
     </header>
 
 
-
-    <section class="bg-image">
+    <section class="bg-image" style="background-image: url('images/img1.jpg');">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <form action="/pencarian_berita" method="post">
                         <div class="d-flex search">
-                            <input id="searchInput" type="text" class="form-control me-2" name="keyword"
-                                placeholder="Cari..." aria-label="Cari">
+                            <input type="text" class="form-control me-2" name="keyword" placeholder="Cari..."
+                                aria-label="Cari">
                             <button class="btn btn-primary" type="submit">Cari</button>
                         </div>
                     </form>
@@ -41,112 +41,33 @@
     </section>
 
     <section class="py-1 container">
-
         <div class="album bg-light">
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
-                <?php foreach ($beritaList as $berita): ?>
-
-                <div class="col-4 ">
-                    <div class="card shadow-sm ">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 my-2">
+                <?php foreach ($beritaList as $berita) : ?>
+                <div class="col-4">
+                    <div class="card shadow-sm">
                         <!-- Gambar yang dapat diklik -->
-
-                        <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid "
-                            alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal">
 
                         <!-- Modal -->
                         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
                             aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- ... (your existing modal HTML) ... -->
                         </div>
                     </div>
                     <div class="card-body rounded-bottom">
-                        <h6 class="mb-0 my-3"><?= $berita->getJudulBerita(); ?></h6>
+                        <h6 class="mb-0 my-3"><?= $berita['title'] ?></h6>
                         <div class="limit-text">
-                            <p class="card-text mb-auto my-3 "><?= $berita->getIsiBerita(); ?></p>
+                            <p class="card-text mb-auto my-3"><?= $berita['content'] ?></p>
                         </div>
-
-                        <a href="/detail_berita?id=<?= $berita->getIdBerita(); ?>"
-                            class="icon-link blink gap-1 icon-link-hover">
+                        <a href="" class="icon-link blink gap-1 icon-link-hover stretched-link">
                             Baca Selengkapnya
-                        </a>
-
-                    </div>
-                </div>
-
-                <?php endforeach;?>
-                <div class="col-4 ">
-                    <div class="card shadow-sm ">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
-                            data-bs-toggle="modal" data-bs-target="#imageModal">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body rounded-bottom">
-                        <h6 class="mb-0 my-3">Featured post</h6>
-                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
-                            natural
-                            lead-in to additional content.</p>
-                        <a href="/detail_berita" class="icon-link blink gap-1 icon-link-hover">
-                            Baca Selengkapnya
-
                         </a>
                     </div>
                 </div>
-                <div class="col-4 ">
-                    <div class="card shadow-sm ">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
-                            data-bs-toggle="modal" data-bs-target="#imageModal">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body rounded-bottom">
-                        <h6 class="mb-0 my-3">Featured post</h6>
-                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
-                            natural
-                            lead-in to additional content Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Veniam, tempora?</p>
-                        <a href="/detail_berita" class="icon-link blink gap-1 icon-link-hover">
-                            Baca Selengkapnya
-
-                        </a>
-                    </div>
-                </div>
-
+                <?php endforeach; ?>
             </div>
-
-        </div>
-
         </div>
     </section>
-
     <section class="container">
 
         <div class="row mb-2 my-5">
@@ -170,7 +91,7 @@
                         <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
                             lead-in to additional content.</p>
                         <button type="button" class="btn-custom mt-5"
-                            onclick="window.location.href='/detail_berita'">Tampilkan
+                            onclick="window.location.href=' /detail_berita'">Tampilkan
                             Semua</button>
 
 

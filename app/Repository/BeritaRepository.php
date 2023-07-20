@@ -28,6 +28,31 @@ class BeritaRepository
         return $berita;
     }
 
+
+    public function searchBerita(string $keyword): array
+    {
+        $statement = $this->connection->prepare('SELECT * FROM berita WHERE judul_berita LIKE :keyword OR isi_berita LIKE :keyword');
+        $keyword = "%{$keyword}%";
+        $statement->bindParam(':keyword', $keyword, PDO::PARAM_STR);
+        $statement->execute();
+
+        $rows = $statement->fetchAll();
+        $beritaList = [];
+        foreach ($rows as $row) {
+            $berita = new Berita();
+            $berita->setIdBerita((string) $row['id_berita']);
+            $berita->setTanggal((string) $row['tanggal']);
+            $berita->setJudulBerita((string) $row['judul_berita']);
+            $berita->setIsiBerita((string) $row['isi_berita']);
+            $berita->setFoto((string) $row['foto']);
+
+            $beritaList[] = $berita;
+        }
+
+        return $beritaList;
+    }
+    
+
     public function findBeritaById(string $id): ?Berita
     {
         $statement = $this->connection->prepare('SELECT * FROM berita WHERE id_berita = ?');
@@ -112,5 +137,16 @@ class BeritaRepository
         }
 
         return $beritaList;
+}
+
+
+    public function countTotalBerita(): int
+    {
+        $statement = $this->connection->prepare('SELECT COUNT(*) FROM berita');
+        $statement->execute();
+
+        return $statement->fetchColumn();
     }
+
+    
 }

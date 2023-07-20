@@ -28,6 +28,11 @@ use Rubygroup\WebProfileSekolah\Service\PrestasiService;
 use Rubygroup\WebProfileSekolah\Service\SekolahService;
 use Rubygroup\WebProfileSekolah\Service\SlideshowService;
 
+use Faker\Factory as FakerFactory;
+
+ // Pastikan path ini sesuai dengan file autoload.php pada proyek Anda
+
+
 class HomeController
 {
 
@@ -42,10 +47,14 @@ class HomeController
     private PrestasiService $prestasiService;
     private SekolahService $sekolahService;
     private SlideshowService $slideshowService;
-
+    
 
     public function __construct()
+    
     {
+
+ 
+
         $connection = Database::getConnection();
 
         $beritaRepository = new BeritaRepository($connection);
@@ -59,6 +68,7 @@ class HomeController
         $prestasiRepository = new PrestasiRepository($connection);
         $sekolahRepository = new SekolahRepository($connection);
         $slideshowRepository = new SlideshowRepository($connection);
+    
 
 
         $this->beritaService = new BeritaService($beritaRepository);
@@ -93,12 +103,41 @@ class HomeController
 
     function berita(): void
     {
+   
+        // $faker = FakerFactory::create();
+
+        // Ambil halaman aktif dari query parameter, jika tidak ada, gunakan halaman 1 sebagai default
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    
+        // Jumlah berita yang ingin ditampilkan dalam satu halaman
+        $perPage = 10;
+    
+        // // Simulasi data berita
+        // $beritaList = [];
+        // for ($i = 0; $i < 30; $i++) {
+        //     $beritaList[] = [
+        //         'title' => $faker->name(),
+        //         'content' => $faker->address()
+        //     ];
+        // }
         $beritaList = $this->beritaService->getAllBerita();
+        // Hitung total halaman berdasarkan jumlah berita dan berita per halaman
+        $totalPages = ceil(count($beritaList) / $perPage);
+    
+        // Ambil data berita untuk halaman aktif dari Service dengan sistem paginasi
+        $offset = ($currentPage - 1) * $perPage;
+        $beritaList = array_slice($beritaList, $offset, $perPage);
+
+
+        
+    
         View::renderHome('berita', [
-                'title' => 'Berita',
-                'beritaList' => $beritaList,
-            ]
-        );
+            'title' => 'Berita',
+            'beritaList' => $beritaList,
+            'currentPage' => $currentPage,
+            'perPage' => $perPage,
+            'totalPages' => $totalPages,
+        ]);
     }
 
     // visi-misi
@@ -117,8 +156,45 @@ class HomeController
                 'title' => 'Tujuan Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );
+
+        
     }
 
+
+
+
+    function pencarianBerita():void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $keyword = $_POST['keyword'];
+    
+            // If the keyword is empty, get all berita
+            if (empty($keyword)) {
+                $beritaList = $this->beritaService->getAllBerita();
+            } else {
+                // Panggil fungsi pencarian berita dari BeritaService
+                $hasilPencarian = $this->beritaService->cariBerita($keyword);
+    
+                // Tampilkan hasil pencarian berita pada view hasil_pencarian.php
+                View::renderHome('pencarian_berita', [
+                    'title' => 'Hasil Pencarian Berita',
+                    'hasilPencarian' => $hasilPencarian,
+                ]);
+                return;
+            }
+        } else {
+            // Jika bukan metode POST, tampilkan halaman berita biasa
+            $beritaList = $this->beritaService->getAllBerita();
+        }
+    
+        // Render halaman berita dengan semua berita
+        View::renderHome('berita', [
+            'title' => 'Berita',
+            'beritaList' => $beritaList,
+        ]);
+    }
+
+    
     //kurikulum
     function kurikulum(): void
     {
