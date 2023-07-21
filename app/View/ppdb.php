@@ -75,7 +75,9 @@
             <div class="col-md-6 my-5">
                 <div class="h-100 p-5 bg-light border rounded-3">
                     <img src="images/brosur.png">
-                    <button class="btn btn-outline-secondary mx-4" type="button">Download</button>
+                    <div class=""> <!-- Wrap the button in a container with "text-center" class -->
+                        <button type="button" class="btn-custom mt-5 mx-auto" onclick="window.location.href='/berita'">Download</button>
+                    </div>
                 </div>
                 </div>
             </div>

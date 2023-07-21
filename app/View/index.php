@@ -168,9 +168,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-20 col-13 mt-4 mx-auto">
-                    <div class="custom-block custom-block-topics-listing bg-secondary shadow-lg mb-5">
+                    <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
+                        <div class="d-flex">
+                            <div class="custom-block-topics-listing-info d-flex">
                 <div class="col-12 text-center">
-                    <h1 class="text-white mb-4">Ekstrakurikuler</h1>
+                    <h1 class="text-black mb-4">Ekstrakurikuler</h1>
                 </div>
                 <div class="col-lg-10 col-12 mx-auto">
                     <div class="timeline-container">
@@ -181,8 +183,8 @@
 
                             <?php foreach ($ekstrakurikulerList as $ekstrakurikuler): ?>
                                 <li>
-                                    <h4 class="text-white mb-3"><?= $ekstrakurikuler->getNamaEkstrakurikuler() ?></h4>
-                                    <p class="text-white"><?= $ekstrakurikuler->getDeskripsi() ?></p>
+                                    <h4 class="text-black mb-3"><?= $ekstrakurikuler->getNamaEkstrakurikuler() ?></h4>
+                                    <p class="text-black"><?= $ekstrakurikuler->getDeskripsi() ?></p>
                                     <div class="icon-holder">
                                         <img src="/images/upload/ekstrakurikuler/<?= $ekstrakurikuler->getIcon() ?>">
                                     </div>
