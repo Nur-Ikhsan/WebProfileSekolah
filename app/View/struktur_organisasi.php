@@ -28,8 +28,8 @@
         <div class="container my-5">
             <div class="topics-detail-block bg-white shadow-lg">
                 <picture>
-                    <source srcset="images/img1.jpg" type="image/svg+xml">
-                    <img src="/images//upload/struktur-organisasi/64ae1cdb31d87_struktur_organisasi.jpg" class="img-fluid img-thumbnail" alt="...">
+                    <source srcset="images/upload/struktur-organisasi/64ae1cdb31d87_struktur_organisasi.jpg" type="image/svg+xml">
+                    <img src="images/upload/struktur-organisasi/64ae1cdb31d87_struktur_organisasi.jpg" class="img-fluid img-thumbnail" alt="...">
                 </picture>
             </div>
         </div>

@@ -54,171 +54,121 @@
         </div>
     </section>
 
+    <section class="py-1 container">
+        <div class="row">
 
-    <section class="explore-section section-padding">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-12 text-center">
-                    <h1 class="mb-4">Profile</h1>
-                </div>
-
+            <div class="col-12 text-center mt-5">
+                <h1 class="mb-4">Berita Terbaru</h1>
             </div>
+
         </div>
+        <div class="album  bg-light">
+            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
+                <?php foreach ($beritaList as $berita): ?>
+                    <div class="col-4 ">
+                        <div class="card shadow-sm ">
+                            <!-- Gambar yang dapat diklik -->
 
-        <div class="container-fluid">
-            <div class="row">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="design-tab" data-bs-toggle="tab"
-                                data-bs-target="#design-tab-pane" type="button" role="tab"
-                                aria-controls="design-tab-pane" aria-selected="true">Tentang
-                        </button>
-                    </li>
+                            <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid "
+                                 alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal">
 
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="marketing-tab" data-bs-toggle="tab"
-                                data-bs-target="#marketing-tab-pane" type="button" role="tab"
-                                aria-controls="marketing-tab-pane" aria-selected="false">Fasilitas
-                        </button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="finance-tab" data-bs-toggle="tab"
-                                data-bs-target="#finance-tab-pane" type="button" role="tab"
-                                aria-controls="finance-tab-pane" aria-selected="false">Kegiatan Sekolah
-                        </button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane"
-                                type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">Visi dan
-                            Misi
-                        </button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="education-tab" data-bs-toggle="tab"
-                                data-bs-target="#education-tab-pane" type="button" role="tab"
-                                aria-controls="education-tab-pane" aria-selected="false">Tenaga Pendidik
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-
-                <div class="col-12">
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel"
-                             aria-labelledby="design-tab" tabindex="0">
-                            <div class="row bg-light-green rounded-4">
-                                <div class="col-10 mx-auto p-5">
-                                    <h6 class="text-center">Selayang Pandang</h6>
-                                    <p class="text-box text-black text-justify">MTs Negeri 2 Sambas merupakan lembaga
-                                        pendidikan menengah tingkat pertama yang berada dibawah naungan Kementrian Agama
-                                        yang berciri Khas pelajar Agama Islam. Kurikulum yang digunakan di MTs Negeri 2
-                                        Sambas terdiri dari Kurikulum 2013 (K13) untuk 5 pelajaran Agama Islam (Aqidah
-                                        Akhlak, Fiqih, Quran Hadits, Sejarah Kebudayaan Islam dan Bahasa Arab). Tenaga
-                                        pengajar/guru yang dimiliki berjumlah 34 orang dengan 80%, sudah bersertifikat
-                                        guru professional.</p>
+                            <!-- Modal -->
+                            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel"
-                             aria-labelledby="marketing-tab" tabindex="0">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-green bg-box row align-content-center"><h6
-                                            class="text-center">Ruang Belajar</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-yellow bg-box row align-content-center"><h6
-                                            class="text-center">Ruang Perpustakaan</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-purple bg-box row align-content-center"><h6
-                                            class="text-center">Lab IPA</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-blue bg-box row align-content-center"><h6
-                                            class="text-center">Mushola</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-blue bg-box row align-content-center"><h6
-                                            class="text-center">Ruang Osis & UKS</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-purple bg-box row align-content-center"><h6
-                                            class="text-center">Koperasi Madrasah</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-yellow bg-box row align-content-center"><h6
-                                            class="text-center">WiFi</h6></div>
-                                <div class="col-lg-2 col-sm-4 col-6 bg-light-green bg-box row align-content-center"><h6
-                                            class="text-center">Lapangan Olahraga</h6></div>
+                        <div class="card-body rounded-bottom">
+                            <h6 class="mb-0 my-3"><?= $berita->getJudulBerita(); ?></h6>
+                            <div class="limit-text">
+                                <p class="card-text mb-auto my-3 "><?= $berita->getIsiBerita(); ?></p>
                             </div>
+
+                            <a href="/detail_berita?id=<?= $berita->getIdBerita(); ?>"
+                               class="icon-link blink gap-1 icon-link-hover stretched-link">
+                                Baca Selengkapnya
+                            </a>
                         </div>
+                    </div>
 
-                        <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab"
-                             tabindex="0">
-                            <div class="row bg-light-green rounded-4">
-                                <div class="col-10 mx-auto p-5">
-                                    <h6 class="text-center">Kegiatan Sekolah</h6>
+                <?php endforeach;?>
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
+                             data-bs-toggle="modal" data-bs-target="#imageModal">
 
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab"
-                             tabindex="0">
-                            <div class="row">
-                                <div class=" col-md-6 col-12 mb-4 mb-lg-3 box-visi">
-                                    <h6 class="text-center">Visi</h6>
-                                    <p class="text-box text-black text-justify">Terwujudnya madrasah yang unggul dalam
-                                        prestasi akademik dan non akademik berbasis iman dan taqwa.</p>
-
-                                </div>
-
-                                <div class=" col-md-6 col-12 mb-4 mb-lg-3 box-misi">
-                                    <h6 class="text-center">Misi</h6>
-                                    <p class="text-box text-black text-justify">1. Meningkatkan kualitas pembelajaran
-                                        yang berbasis iman dan taqwa.</p>
-                                    <p class="text-box text-black text-justify">2. Meningkatkan kualitas pembelajaran
-                                        yang berbasis iman dan taqwa.</p>
-                                    <p class="text-box text-black text-justify">3. Meningkatkan kualitas pembelajaran
-                                        yang berbasis iman dan taqwa.</p>
-                                    <p class="text-box text-black text-justify">4. Meningkatkan kualitas pembelajaran
-                                        yang berbasis iman dan taqwa.</p>
-                                    <p class="text-box text-black text-justify">5. Meningkatkan kualitas pembelajaran
-                                        yang berbasis iman dan taqwa.</p>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="education-tab-pane" role="tabpanel"
-                             aria-labelledby="education-tab" tabindex="0">
-                            <div class="row">
-                                <div class="slider">
-                                    <div class="owl-carousel">
-                                        <?php foreach ($guruStaffList as $guruStaff): ?>
-                                        <?php if ($guruStaff->getJabatan() != 'ADMIN') { ?>
-                                            <div class="slider-card">
-                                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                                    <img src="/images/upload/guru-staff/<?php echo $guruStaff->getFoto(); ?>" alt="">
-                                                </div>
-                                                <h5 class="mb-0 text-center"><b><?php echo $guruStaff->getNamaGuru(); ?></b></h5>
-                                                <p class="text-center p-4"><?php echo $guruStaff->getJabatan(); ?></p>
-                                            </div>
-                                        <?php } ?>
-                                        <?php endforeach; ?>
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content.</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
 
+                        </a>
+                    </div>
                 </div>
+                <div class="col ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+                        <img src="/public/images/person.jpg" class="img-fluid " alt="Image Alt Text"
+                             data-bs-toggle="modal" data-bs-target="#imageModal">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3">Featured post</h6>
+                        <p class="card-text mb-auto my-3">This is a wider card with supporting text below as a
+                            natural
+                            lead-in to additional content Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Veniam, tempora?</p>
+                        <a href="#" class="icon-link blink gap-1 icon-link-hover stretched-link">
+                            Baca Selengkapnya
+                        </a>
+                    </div>
+                </div>
+                </div>
+            <div class="text-center"> <!-- Wrap the button in a container with "text-center" class -->
+                <button type="button" class="btn-custom mt-5" onclick="window.location.href='/berita'">Tampilkan Semua</button>
             </div>
-    </section>
+            </div>
+</section>
 
 
-    <section class="timeline-section section-padding">
-        <div class="section-overlay"></div>
+    <section class="section-padding">
         <div class="container">
             <div class="row">
+                <div class="col-lg-20 col-13 mt-4 mx-auto">
+                    <div class="custom-block custom-block-topics-listing bg-secondary shadow-lg mb-5">
                 <div class="col-12 text-center">
                     <h1 class="text-white mb-4">Ekstrakurikuler</h1>
                 </div>
@@ -239,6 +189,10 @@
                                 </li>
                             <?php endforeach; ?>
                         </ul>
+                    </div>
+                </div>
+            </div>
+                        </div>
                     </div>
                 </div>
             </div>
