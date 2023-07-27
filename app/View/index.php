@@ -283,8 +283,12 @@
                     <?php endforeach; ?>
                 </div>
             </div>
+            <div class="text-center"> <!-- Wrap the button in a container with "text-center" class -->
+                <button type="button" class="btn-custom mt-5" onclick="window.location.href='/guru_staff'">Tampilkan Semua</button>
+            </div>
         </div>
     </div>
+
 
 
 
