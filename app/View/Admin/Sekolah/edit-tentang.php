@@ -1,17 +1,19 @@
-<script>tinymce.init({
-    selector:'.textarea-tinymce',
+<script>
+tinymce.init({
+    selector: '.textarea-tinymce',
     plugins: 'lists',
     toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
     menubar: false,
     statusbar: false
-  });</script>
-<div class="admin">
+});
+</script>
+<div class="admin">P
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center">
 
             <div class="d-flex align-items-center justify-content-between">
                 <a class="navbar-brand logo d-flex align-items-center" href="/index">
-                    <img src="/images/logo1.png" alt="logo"/>
+                    <img src="/images/logo1.png" alt="logo" />
                     <span class="d-none d-lg-block">MTs NEGERI 2 SAMBAS</span>
                 </a>
                 <i class="bi bi-list toggle-sidebar-btn text-white"></i>
@@ -20,8 +22,10 @@
             <nav class="header-nav ms-auto">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>" alt="Profile" class="rounded-circle" height="36px" width="36px">
-                    <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?= $model['admin']['username'] ?? 'null' ?></span>
+                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>"
+                        alt="Profile" class="rounded-circle" height="36px" width="36px">
+                    <span
+                        class="d-none d-md-block dropdown-toggle ps-2 text-white"><?= $model['admin']['username'] ?? 'null' ?></span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -68,9 +72,9 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true" href="#">
-                    <i class="bi bi-building"></i><span>Profil Sekolah</span><i
-                            class="bi bi-chevron-down ms-auto"></i>
+                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true"
+                    href="#">
+                    <i class="bi bi-building"></i><span>Profil Sekolah</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                     <li>
@@ -159,40 +163,40 @@
     <main id="main" class="main">
         <div id="SweetAlert2">
             <?php if (($model['message']['title'] != null) and ($model['message']['description'] != null)): ?>
-                <?php if ($model['message']['error'] == null): ?>
-                    <script>
-                      Swal.fire({
-                        icon: 'success',
-                        title: '<?= $model['message']['title'] ?>',
-                        html: '<?= $model['message']['description'] ?>',
-                        confirmButtonText: 'Kembali',
-                        showCancelButton: false,
-                        allowOutsideClick: false,
-                        customClass: {
-                          confirmButton: 'button-admin px-4'
-                        }
-                      }).then(function (result) {
-                        if (result.isConfirmed) {
-                          window.location.href = '/admin/sekolah/tentang';
-                        }
-                      });
-                    </script>
-                <?php else: ?>
-                    <script>
-                      Swal.fire({
-                        icon: 'error',
-                        title: '<?= $model['message']['title'] ?>',
-                        html: '<?= $model['message']['description'] ?>',
-                        footer: '<details class="my-3"> <summary class="text-center text-danger">Error Details</summary> <p class="text-center text-danger"><?= $model['message']['error'] ?></p> </details>',
-                        confirmButtonText: 'Coba Lagi',
-                        showCancelButton: false,
-                        allowOutsideClick: true,
-                        customClass: {
-                          confirmButton: 'button-admin delete px-4'
-                        }
-                      });
-                    </script>
-                <?php endif; ?>
+            <?php if ($model['message']['error'] == null): ?>
+            <script>
+            Swal.fire({
+                icon: 'success',
+                title: '<?= $model['message']['title'] ?>',
+                html: '<?= $model['message']['description'] ?>',
+                confirmButtonText: 'Kembali',
+                showCancelButton: false,
+                allowOutsideClick: false,
+                customClass: {
+                    confirmButton: 'button-admin px-4'
+                }
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = '/admin/sekolah/tentang';
+                }
+            });
+            </script>
+            <?php else: ?>
+            <script>
+            Swal.fire({
+                icon: 'error',
+                title: '<?= $model['message']['title'] ?>',
+                html: '<?= $model['message']['description'] ?>',
+                footer: '<details class="my-3"> <summary class="text-center text-danger">Error Details</summary> <p class="text-center text-danger"><?= $model['message']['error'] ?></p> </details>',
+                confirmButtonText: 'Coba Lagi',
+                showCancelButton: false,
+                allowOutsideClick: true,
+                customClass: {
+                    confirmButton: 'button-admin delete px-4'
+                }
+            });
+            </script>
+            <?php endif; ?>
             <?php endif; ?>
         </div>
         <div class="container">
@@ -217,31 +221,39 @@
                         <h4 class="text-center pb-3">Edit Data Sekolah</h4>
                         <div class="pos-zone row no-gutters">
                             <div class="col-2 p-0"><label for="nama_sekolah">Nama Sekolah</label></div>
-                            <div class="col-9 p-0"><input type="text" name="nama" id="nama_sekolah" class="form-control" value="<?= $sekolah->getNama() ?>"></div>
+                            <div class="col-9 p-0"><input type="text" name="nama" id="nama_sekolah" class="form-control"
+                                    value="<?= $sekolah->getNama() ?>"></div>
                         </div>
                         <div class="pos-zone row no-gutters">
                             <div class="col-2 p-0"><label for="alamat">Alamat</label></div>
-                            <div class="col-9 p-0"><input type="text" name="alamat" id="alamat" class="form-control" value="<?= $sekolah->getAlamat() ?>"></div>
+                            <div class="col-9 p-0"><input type="text" name="alamat" id="alamat" class="form-control"
+                                    value="<?= $sekolah->getAlamat() ?>"></div>
                         </div>
                         <div class="pos-zone row no-gutters">
                             <div class="col-2 p-0"><label for="telepon">Telepon</label></div>
-                            <div class="col-9 p-0"><input type="text" name="telepon" id="telepon" class="form-control" value="<?= $sekolah->getTelepon() ?>"></div>
+                            <div class="col-9 p-0"><input type="text" name="telepon" id="telepon" class="form-control"
+                                    value="<?= $sekolah->getTelepon() ?>"></div>
                         </div>
                         <div class="pos-zone row no-gutters">
                             <div class="col-2 p-0"><label for="email">Email</label></div>
-                            <div class="col-9 p-0"><input type="email" name="email" id="email" class="form-control" value="<?= $sekolah->getEmail() ?>"></div>
+                            <div class="col-9 p-0"><input type="email" name="email" id="email" class="form-control"
+                                    value="<?= $sekolah->getEmail() ?>"></div>
                         </div>
                         <div class="pos-zone row no-gutters">
                             <div class="col-2 p-0"><label for="website">Website</label></div>
-                            <div class="col-9 p-0"><input type="text" name="website" id="website" class="form-control" value="<?= $sekolah->getWebsite() ?>"></div>
+                            <div class="col-9 p-0"><input type="text" name="website" id="website" class="form-control"
+                                    value="<?= $sekolah->getWebsite() ?>"></div>
                         </div>
                         <div class="pos-zone row no-gutters">
                             <div class="col-2 p-0"><label for="judul_pengantar">Judul Pengantar</label></div>
-                            <div class="col-9 p-0"><input type="text" name="judul_pengantar" id="judul_pengantar" class="form-control" value="<?= $sekolah->getJudulPengantar() ?>"></div>
+                            <div class="col-9 p-0"><input type="text" name="judul_pengantar" id="judul_pengantar"
+                                    class="form-control" value="<?= $sekolah->getJudulPengantar() ?>"></div>
                         </div>
                         <div class="pos-zone row no-gutters">
                             <div class="col-2 p-0"><label for="deskripsi">Deskripsi</label></div>
-                            <div class="col-9 p-0"><textarea name="deskripsi" id="deskripsi" class="form-control textarea-tinymce"><?= $sekolah->getDeskripsi() ?></textarea></div>
+                            <div class="col-9 p-0"><textarea name="deskripsi" id="deskripsi"
+                                    class="form-control textarea-tinymce"><?= $sekolah->getDeskripsi() ?></textarea>
+                            </div>
                         </div>
                         <div class="pos-zone row no-gutters">
                             <div class="p-0 d-flex">
@@ -267,4 +279,3 @@
         </div>
     </footer>
 </div>
-

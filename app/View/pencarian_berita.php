@@ -20,37 +20,81 @@
         <div class="container">
 
 
-            <section class="bg-image">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-6">
-                            <form action="/pencarian_berita" method="post">
-                                <div class="d-flex search">
-                                    <input type="text" class="form-control me-2" name="keyword" placeholder="Cari..."
-                                        aria-label="Cari">
-                                    <button class="btn btn-primary" type="submit">Cari</button>
+            <section class="search-section">
+
+
+                <div class="row">
+                    <div class="col-lg-6 mx-auto">
+
+
+
+                        <form action="/pencarian_berita" method="post" class="pt-2 mb-lg-0 mb-5" role="search">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bi-search" id="basic-addon1">
+
+                                </span>
+
+                                <input name="keyword" type="search" class="form-control" id="keyword"
+                                    placeholder="Apa yang ingin Anda cari?" aria-label="Search">
+
+                                <button class="btn button-bg-navy text-white" type="submit">Cari</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+
+        <section class="img-fluid position-relative ">
+            <div class="bg-image" style="background-image: url('/images/bg.png');"></div>
+
+
+        </section>
+
+        </section>
+        <h1><?= $title ?></h1>
+        <div class="album bg-light">
+            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
+                <?php foreach ($hasilPencarian as $berita): ?>
+
+                <div class="col-4 ">
+                    <div class="card shadow-sm ">
+                        <!-- Gambar yang dapat diklik -->
+
+                        <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid "
+                            alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="images/img1.jpg" class="img-fluid" alt="Image Alt Text">
+                                    </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            <h1><?= $title ?></h1>
-            <div class="row">
-                <?php foreach ($hasilPencarian as $berita) : ?>
-                <div class="col-md-4">
-                    <div class="card mb-3">
-                        <img src="images/upload/berita/<?= $berita->getFoto() ?>" class="card-img-top"
-                            alt="Image Alt Text">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $berita->getJudulBerita() ?></h5>
-                            <p class="card-text"><?= $berita->getIsiBerita() ?></p>
-                            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+                    <div class="card-body rounded-bottom">
+                        <h6 class="mb-0 my-3"><?= $berita->getJudulBerita(); ?></h6>
+                        <div class="limit-text">
+                            <p class="card-text mb-auto my-3 "><?= $berita->getIsiBerita(); ?></p>
                         </div>
+
+                        <a href="/detail_berita?id=<?= $berita->getIdBerita(); ?>"
+                            class="icon-link blink gap-1 icon-link-hover">
+                            Baca Selengkapnya
+                        </a>
+
                     </div>
                 </div>
-                <?php endforeach; ?>
+
+                <?php endforeach;?>
+
+
             </div>
+
+        </div>
         </div>
     </main>
 </body>

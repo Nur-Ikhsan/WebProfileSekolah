@@ -24,22 +24,39 @@
 
 
 
-    <section class="bg-image">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <form action="/pencarian_berita" method="post">
-                        <div class="d-flex search">
-                            <input id="searchInput" type="text" class="form-control me-2" name="keyword"
-                                placeholder="Cari..." aria-label="Cari">
-                            <button class="btn btn-primary" type="submit">Cari</button>
-                        </div>
-                    </form>
-                </div>
+
+
+    <section class="search-section">
+
+
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+
+
+
+                <form action="/pencarian_berita" method="post" class="pt-2 mb-lg-0 mb-5" role="search">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bi-search" id="basic-addon1">
+
+                        </span>
+
+                        <input name="keyword" type="search" class="form-control" id="keyword"
+                            placeholder="Apa yang ingin Anda cari?" aria-label="Search">
+
+                        <button class="btn button-bg-navy text-white" type="submit">Cari</button>
+                    </div>
+                </form>
             </div>
         </div>
+        </div>
+
     </section>
 
+    <section class="img-fluid position-relative ">
+        <div class="bg-image" style="background-image: url('/images/bg.png');"></div>
+
+
+    </section>
     <section class="py-1 container">
 
         <div class="album bg-light">

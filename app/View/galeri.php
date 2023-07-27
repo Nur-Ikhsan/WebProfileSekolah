@@ -1,19 +1,4 @@
 <main>
-    <section class="bg-image" style="background-image: url('images/img1.jpg');">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 ">
-                    <div class="d-flex  search">
-                        <input type="text" class="form-control me-2" placeholder="Cari..." aria-label="Cari">
-                        <button class="btn btn-primary" type="button">Cari</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
 
 
     <section class="py-1 container">
@@ -319,34 +304,23 @@
         <div class="col-lg-12 col-12 my-5">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center mb-0">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
+                    <!-- Tombol Previous -->
+                    <li class="page-item <?php echo ($currentPage === 1) ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="?page=<?php echo ($currentPage - 1); ?>" aria-label="Previous">
                             <span aria-hidden="true">Prev</span>
                         </a>
                     </li>
 
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">1</a>
+                    <?php for ($page = 1; $page <= $totalPages; $page++) : ?>
+                    <!-- Link untuk setiap halaman -->
+                    <li class="page-item <?php echo ($page === $currentPage) ? 'active' : ''; ?>">
+                        <a class="page-link" href="?page=<?php echo $page; ?>"><?php echo $page; ?></a>
                     </li>
+                    <?php endfor; ?>
 
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#">4</a>
-                    </li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#">5</a>
-                    </li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
+                    <!-- Tombol Next -->
+                    <li class="page-item <?php echo ($currentPage === $totalPages) ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="?page=<?php echo ($currentPage + 1); ?>" aria-label="Next">
                             <span aria-hidden="true">Next</span>
                         </a>
                     </li>

@@ -20,39 +20,39 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-8 col-12 mx-auto">
-                    <h6 class="text-center">Selamat Datang</h6>
-                    <h1 class="text-white text-center">MTS NEGERI 2 SAMBAS</h1>
 
-                    <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-text bi-search" id="basic-addon1">
+                <h6 class="text-center">Selamat Datang</h6>
+                <h1 class="text-white text-center">MTS NEGERI 2 SAMBAS</h1>
 
-                            </span>
+                <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bi-search" id="basic-addon1">
 
-                            <input name="keyword" type="search" class="form-control" id="keyword"
-                                placeholder="Apa yang ingin Anda cari?" aria-label="Search">
+                        </span>
 
-                            <button type="submit" class="form-control button-color">Cari</button>
-                        </div>
-                    </form>
-                </div>
+                        <input name="keyword" type="search" class="form-control" id="keyword"
+                            placeholder="Apa yang ingin Anda cari?" aria-label="Search">
 
-                <div
-                    class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row">
-                    <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
-                        <img class="rounded-4 img-fluid img-responsive" src="/images/faq_graphic.jpg" alt="img">
+                        <button type="submit" class="form-control button-color">Cari</button>
                     </div>
-                    <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
-                        <h6>Pendaftaran Peserta Didik Baru</h6>
-                        <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2
-                            Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
-                        <a href="/ppdb" class="btn custom-btn mt-3 mt-lg-4 button-color">Read More</a>
-                    </div>
-                </div>
-
-
+                </form>
             </div>
+
+            <div
+                class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row">
+                <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
+                    <img class="rounded-4 img-fluid img-responsive" src="/images/faq_graphic.jpg" alt="img">
+                </div>
+                <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
+                    <h6>Pendaftaran Peserta Didik Baru</h6>
+                    <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2
+                        Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
+                    <a href="/ppdb" class="btn custom-btn mt-3 mt-lg-4 button-color">Read More</a>
+                </div>
+            </div>
+
+
+        </div>
         </div>
     </section>
 

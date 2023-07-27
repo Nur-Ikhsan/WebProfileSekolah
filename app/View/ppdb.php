@@ -22,7 +22,7 @@
                         <div class="row">
 
                             <div class="col-12 text-center">
-                                <h1 class="text-white mb-4">Ekstrakurikuler</h1>
+                                <h1 class="text-white mb-4">Timeline</h1>
                             </div>
 
                             <div class="col-lg-10 col-12 mx-auto mw-100">
@@ -33,13 +33,9 @@
                                         </div>
 
                                         <li>
-                                            <h4 class="text-white mb-3">Pramuka</h4>
+                                            <h4 class="text-white mb-3">Pendaftaran</h4>
 
-                                            <p class="text-white">Melatih peserta didik untuk terampil dan mandiri dan
-                                                melatih untuk
-                                                berorganisasi dan kepemimpinan Memiliki jiwa sosial dan peduli kepada
-                                                orang
-                                                lain.</p>
+                                            <p class="text-white">15 - 23 Juni 2023</p>
 
                                             <div class="icon-holder">
                                                 <img src="/images/pramuka.png">
@@ -47,7 +43,7 @@
                                         </li>
 
                                         <li>
-                                            <h4 class="text-white mb-3">PMR</h4>
+                                            <h4 class="text-white mb-3">Pengumuman Hasil</h4>
 
                                             <p class="text-white">Palang Merah Remaja (PMR) adalah organisasi kepanduan
                                                 dan
@@ -58,7 +54,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <h4 class="text-white mb-3">Olahraga</h4>
+                                            <h4 class="text-white mb-3">Daftar Ulang</h4>
 
                                             <p class="text-white">Melibatkan siswa dalam berbagai jenis olahraga yakni
                                                 futsal, voli
@@ -69,7 +65,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <h4 class="text-white mb-3">Seni</h4>
+                                            <h4 class="text-white mb-3">Awal Tahhun Ajaran Baru 2022/2023</h4>
 
                                             <p class="text-white">Kegiatan di sekolah yang berfokus pada pengembangan
                                                 bakat seni dan
@@ -81,17 +77,7 @@
                                             </div>
                                         </li>
 
-                                        <li>
-                                            <h4 class="text-white mb-3">Bahasa</h4>
 
-                                            <p class="text-white">Memberikan kesempatan kepada siswa untuk memperdalam
-                                                pemahaman dan
-                                                penggunaan Bahasa Inggris dan Arab di luar jam pelajaran reguler.</p>
-
-                                            <div class="icon-holder">
-                                                <img src="/images/bahasa.png">
-                                            </div>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -101,13 +87,21 @@
             </div>
             <div class="col-md-6 my-5">
                 <div class="h-100 p-5 bg-light border rounded-3">
-                    <h2>Add borders</h2>
-                    <p>Or, keep it light and add a border for some added definition to the boundaries of your content.
-                        Be sure to look under the hood at the source HTML here as we've adjusted the alignment and
-                        sizing of both column's content for equal-height.</p>
-                    <button class="btn btn-outline-secondary mx-4" type="button">Example button</button>
+
+                    <!-- Tampilkan gambar -->
+                    <img class="w-100 h-50" src="<?php echo $gambarPath; ?>" alt="Contoh Gambar" width="300"
+                        height="200">
+                    <div class="mt-3 text-center">
+                        <form action="/download-gambar" method="post">
+                            <button href="/download-gambar" type="submit" class="btn btn-custom">Download
+                                Brosur</button>
+                        </form>
+                    </div>
+                    <!-- Tambahkan tombol untuk mendownload gambar -->
+
                 </div>
             </div>
+
         </div>
     </section>
 

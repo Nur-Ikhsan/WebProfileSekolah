@@ -101,36 +101,37 @@ class HomeController
         ]);
     }
 
+
+
+
+    private function getPaginatedData($dataList, $currentPage, $perPage)
+    {
+        $offset = ($currentPage - 1) * $perPage;
+        $paginatedData = array_slice($dataList, $offset, $perPage);
+        $totalPages = ceil(count($dataList) / $perPage);
+
+        return [
+            'dataList' => $paginatedData,
+            'totalPages' => $totalPages,
+        ];
+    }
+
     function berita(): void
     {
-   
-        // $faker = FakerFactory::create();
-
         // Ambil halaman aktif dari query parameter, jika tidak ada, gunakan halaman 1 sebagai default
         $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
-    
+
         // Jumlah berita yang ingin ditampilkan dalam satu halaman
         $perPage = 10;
-    
-        // // Simulasi data berita
-        // $beritaList = [];
-        // for ($i = 0; $i < 30; $i++) {
-        //     $beritaList[] = [
-        //         'title' => $faker->name(),
-        //         'content' => $faker->address()
-        //     ];
-        // }
+
+        // Ambil data berita dari Service
         $beritaList = $this->beritaService->getAllBerita();
-        // Hitung total halaman berdasarkan jumlah berita dan berita per halaman
-        $totalPages = ceil(count($beritaList) / $perPage);
-    
-        // Ambil data berita untuk halaman aktif dari Service dengan sistem paginasi
-        $offset = ($currentPage - 1) * $perPage;
-        $beritaList = array_slice($beritaList, $offset, $perPage);
 
+        // Panggil fungsi getPaginatedData untuk mendapatkan data berita terpaginasi
+        $paginatedData = $this->getPaginatedData($beritaList, $currentPage, $perPage);
+        $beritaList = $paginatedData['dataList'];
+        $totalPages = $paginatedData['totalPages'];
 
-        
-    
         View::renderHome('berita', [
             'title' => 'Berita',
             'beritaList' => $beritaList,
@@ -163,6 +164,7 @@ class HomeController
 
 
 
+
     function pencarianBerita():void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -186,12 +188,24 @@ class HomeController
             // Jika bukan metode POST, tampilkan halaman berita biasa
             $beritaList = $this->beritaService->getAllBerita();
         }
+
+
+        
     
-        // Render halaman berita dengan semua berita
-        View::renderHome('berita', [
-            'title' => 'Berita',
-            'beritaList' => $beritaList,
-        ]);
+      // Panggil fungsi getPaginatedData untuk mendapatkan data berita terpaginasi
+    $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $perPage = 10;
+    $paginatedData = $this->getPaginatedData($beritaList, $currentPage, $perPage);
+    $beritaList = $paginatedData['dataList'];
+    $totalPages = $paginatedData['totalPages'];
+
+    View::renderHome('berita', [
+        'title' => 'Berita',
+        'beritaList' => $beritaList,
+        'currentPage' => $currentPage,
+        'perPage' => $perPage,
+        'totalPages' => $totalPages,
+    ]);
     }
 
     
@@ -210,23 +224,73 @@ class HomeController
 
     function galeri(): void
     {
-
+        // Ambil halaman aktif dari query parameter, jika tidak ada, gunakan halaman 1 sebagai default
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    
+        // Jumlah galeri yang ingin ditampilkan dalam satu halaman
+        $perPage = 12;
+    
+        // Ambil data galeri dari Service
         $galeriList = $this->galeriService->getAllGaleri();
-        
-        View::renderHome('galeri',[
-                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
-                'galeriList' => $galeriList,
-            ]
-        );
+    
+        // Panggil fungsi getPaginatedData untuk mendapatkan data galeri terpaginasi
+        $paginatedData = $this->getPaginatedData($galeriList, $currentPage, $perPage);
+        $galeriList = $paginatedData['dataList'];
+        $totalPages = $paginatedData['totalPages'];
+    
+        View::renderHome('galeri', [
+            'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
+            'galeriList' => $galeriList,
+            'currentPage' => $currentPage,
+            'perPage' => $perPage,
+            'totalPages' => $totalPages,
+        ]);
+    }
+    
+
+   
+
+
+function ppdb(): void
+    {
+        $gambarPath = "images/ppdb.png";
+      
+        View::renderHome('ppdb',[
+            'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
+            'gambarPath' => $gambarPath,
+          
+        ]
+    );
+
+  
+
+
+    }
+    public function downloadGambar(): void
+    {
+      
+
+        // Path file gambar
+        $gambarPath = "images/ppdb.png";
+
+        // Set header untuk tipe konten dan ukuran file
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($gambarPath));
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($gambarPath));
+
+        // Baca file dan kirimkan isinya ke output
+        ob_clean();
+        flush();
+        readfile($gambarPath);
+        exit;
     }
 
-    function ppdb(): void
-    {
-        View::renderHome('ppdb',[
-                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas '
-            ]
-        );
-    }
+       
     function struktur_organisasi(): void
     {
         View::renderHome('struktur_organisasi',[
@@ -257,20 +321,34 @@ class HomeController
 
     function guru_staff(): void
     {
+        // Ambil halaman aktif dari query parameter, jika tidak ada, gunakan halaman 1 sebagai default
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
+        // Jumlah guru staff yang ingin ditampilkan dalam satu halaman
+        $perPage = 10;
+
+        // Ambil data guru staff dari Service
         $guruStaffList = $this->guruStaffService->getAllGuruStaff();
-        
-        View::renderHome('guru_staff',[
-                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
-                'guruStaffList' => $guruStaffList,
-            ]
-        );
+
+        // Panggil fungsi getPaginatedData untuk mendapatkan data guru staff terpaginasi
+        $paginatedData = $this->getPaginatedData($guruStaffList, $currentPage, $perPage);
+        $guruStaffList = $paginatedData['dataList'];
+        $totalPages = $paginatedData['totalPages'];
+
+        View::renderHome('guru_staff', [
+            'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
+            'guruStaffList' => $guruStaffList,
+            'currentPage' => $currentPage,
+            'perPage' => $perPage,
+            'totalPages' => $totalPages,
+        ]);
     }
 
     function fasilitas_sekolah(): void
     {
 
         $fasilitasList = $this->fasilitasService->getAllFasilitas();
+        
         View::renderHome('fasilitas_sekolah',[
                 'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
                 'fasilitasList' => $fasilitasList,
@@ -280,14 +358,29 @@ class HomeController
 
     function kegiatan_sekolah(): void
     {
-
-      $kegiatanList = $this->kegiatanService->getAllKegiatan();
-        View::renderHome('kegiatan_sekolah',[
-                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
-                'kegiatanList' => $kegiatanList
-            ]
-        );
+        // Ambil halaman aktif dari query parameter, jika tidak ada, gunakan halaman 1 sebagai default
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    
+        // Jumlah kegiatan yang ingin ditampilkan dalam satu halaman
+        $perPage = 10;
+    
+        // Ambil data kegiatan dari Service
+        $kegiatanList = $this->kegiatanService->getAllKegiatan();
+    
+        // Panggil fungsi getPaginatedData untuk mendapatkan data kegiatan terpaginasi
+        $paginatedData = $this->getPaginatedData($kegiatanList, $currentPage, $perPage);
+        $kegiatanList = $paginatedData['dataList'];
+        $totalPages = $paginatedData['totalPages'];
+    
+        View::renderHome('kegiatan_sekolah', [
+            'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
+            'kegiatanList' => $kegiatanList,
+            'currentPage' => $currentPage,
+            'perPage' => $perPage,
+            'totalPages' => $totalPages,
+        ]);
     }
+    
 
 
 }
