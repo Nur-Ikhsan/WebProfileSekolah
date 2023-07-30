@@ -33,6 +33,7 @@ Router::add('/download-gambar', HomeController::class, 'downloadGambar');
 Router::add('/struktur_organisasi', HomeController::class, 'struktur_organisasi');
 Router::add('/detail_berita', HomeController::class, 'detail_berita');
 Router::add('/guru_staff', HomeController::class, 'guru_staff');
+Router::add('/pencarian_guru_staff', HomeController::class, 'pencarianGuru');
 Router::add('/galeri', HomeController::class, 'galeri');
 Router::add('/fasilitas_sekolah', HomeController::class, 'fasilitas_sekolah');
 Router::add('/kegiatan_sekolah', HomeController::class, 'kegiatan_sekolah');

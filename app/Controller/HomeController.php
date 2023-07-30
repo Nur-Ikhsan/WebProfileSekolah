@@ -40,7 +40,7 @@ class HomeController
     private EkstrakurikulerService $ekstrakurikulerService;
     private FasilitasService $fasilitasService;
     private GaleriService $galeriService;
-    private GuruStaffService $guruStaffService;
+    private GuruStaffService $GuruStaffService;
     private KegiatanService $kegiatanService;
     private KetSekolahService $ketSekolahService;
     private KurikulumService $kurikulumService;
@@ -75,7 +75,7 @@ class HomeController
         $this->ekstrakurikulerService = new EkstrakurikulerService($ekstrakurikulerRepository);
         $this->fasilitasService = new FasilitasService($fasilitasRepository);
         $this->galeriService = new GaleriService($galeriRepository);
-        $this->guruStaffService = new GuruStaffService($guruStaffRepository);
+        $this->GuruStaffService = new GuruStaffService($guruStaffRepository);
         $this->kegiatanService = new KegiatanService($kegiatanRepository);
         $this->ketSekolahService = new KetSekolahService($ketSekolahRepository);
         $this->kurikulumService = new KurikulumService($kurikulumRepository);
@@ -90,7 +90,7 @@ class HomeController
         $beritaList = $this->beritaService->getAllBerita();
         $ekstrakurikulerList = $this->ekstrakurikulerService->getAllEkstrakurikuler();
         $prestasiList = $this->prestasiService->getAllPrestasi();
-        $guruStaffList = $this->guruStaffService->getAllGuruStaff();
+        $guruStaffList = $this->GuruStaffService->getAllGuruStaff();
 
         View::renderHome('index', [
             'slideshows' => $slideshows,
@@ -202,6 +202,48 @@ class HomeController
     View::renderHome('berita', [
         'title' => 'Berita',
         'beritaList' => $beritaList,
+        'currentPage' => $currentPage,
+        'perPage' => $perPage,
+        'totalPages' => $totalPages,
+    ]);
+    }
+    function pencarianGuru():void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $keyword = $_POST['keyword'];
+    
+            // If the keyword is empty, get all berita
+            if (empty($keyword)) {
+                $guruStaffList = $this->GuruStaffService->getAllGuruStaff();
+            } else {
+                // Panggil fungsi pencarian berita dari GuruStaffService
+                $hasilPencarian = $this->GuruStaffService->cariGuruStaff($keyword);
+    
+                // Tampilkan hasil pencarian berita pada view hasil_pencarian.php
+                View::renderHome('pencarian_guru_staff', [
+                    'title' => 'Hasil Pencarian Berita',
+                    'hasilPencarian' => $hasilPencarian,
+                ]);
+                return;
+            }
+        } else {
+            // Jika bukan metode POST, tampilkan halaman berita biasa
+            $guruStaffList = $this->GuruStaffService->getAllGuruStaff();
+        }
+
+
+        
+    
+      // Panggil fungsi getPaginatedData untuk mendapatkan data berita terpaginasi
+    $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $perPage = 10;
+    $paginatedData = $this->getPaginatedData($guruStaffList, $currentPage, $perPage);
+    $guruStaffList = $paginatedData['dataList'];
+    $totalPages = $paginatedData['totalPages'];
+
+    View::renderHome('guru_staff', [
+        'title' => 'Guru Staff',
+        'guruStaffList' => $guruStaffList,
         'currentPage' => $currentPage,
         'perPage' => $perPage,
         'totalPages' => $totalPages,
@@ -328,7 +370,7 @@ function ppdb(): void
         $perPage = 10;
 
         // Ambil data guru staff dari Service
-        $guruStaffList = $this->guruStaffService->getAllGuruStaff();
+        $guruStaffList = $this->GuruStaffService->getAllGuruStaff();
 
         // Panggil fungsi getPaginatedData untuk mendapatkan data guru staff terpaginasi
         $paginatedData = $this->getPaginatedData($guruStaffList, $currentPage, $perPage);

@@ -566,6 +566,14 @@ strong {
   margin-top : 10rem;
 }
 
+.search-section-gurustaff {
+  z-index : 2;
+  margin-top:150px;
+  display: inline-block;
+  width: 100%;
+  top:0;
+}
+
 
 /*---------------------------------------
   TOPICS              
@@ -1285,6 +1293,7 @@ blockquote {
 .p-30 {
     padding: 30px;
 }
+
 
 
 

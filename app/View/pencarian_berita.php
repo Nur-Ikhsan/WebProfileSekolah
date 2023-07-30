@@ -42,6 +42,7 @@
                         </form>
                     </div>
                 </div>
+            </section>
         </div>
 
         <section class="img-fluid position-relative ">
@@ -53,7 +54,7 @@
         </section>
         <h1><?= $title ?></h1>
         <div class="album bg-light">
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
+            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2 mt-40">
                 <?php foreach ($hasilPencarian as $berita): ?>
 
                 <div class="col-4 ">

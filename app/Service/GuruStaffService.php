@@ -33,6 +33,13 @@ class GuruStaffService
         return $this->guruStaffRepository->saveGuruStaff($guruStaff);
     }
 
+
+    public function cariGuruStaff(string $keyword): array
+    {
+        return $this->guruStaffRepository->searchGuru($keyword);
+    }
+
+
     public function getGuruStaffById(string $id): GuruStaff
     {
         $guruStaff = $this->guruStaffRepository->findGuruStaffById($id);
@@ -98,6 +105,12 @@ class GuruStaffService
     {
         return $this->guruStaffRepository->getAllGuruStaff();
     }
+
+
+    
+
+
+
 
     public function getAllGuruStaffPagination($page, $perPage): array
     {

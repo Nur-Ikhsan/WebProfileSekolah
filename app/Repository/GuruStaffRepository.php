@@ -27,6 +27,32 @@ class GuruStaffRepository
         return $guruStaff;
     }
 
+
+    public function searchGuru(string $keyword): array
+    {
+        $statement = $this->connection->prepare('SELECT * FROM guru_staff WHERE nama_guru LIKE :keyword OR jabatan LIKE :keyword');
+        $keyword = "%{$keyword}%";
+        $statement->bindParam(':keyword', $keyword, PDO::PARAM_STR);
+        $statement->execute();
+
+        $rows = $statement->fetchAll();
+        $guruList = [];
+        foreach ($rows as $row) {
+            $guruStaff = new GuruStaff();
+            $guruStaff->setIdGuruStaff((string)$row['id_guru_staff']);
+            $guruStaff->setNamaGuru((string)$row['nama_guru']);
+            $guruStaff->setJabatan((string)$row['jabatan']);
+            $guruStaff->setFoto((string)$row['foto']);
+
+            $guruList[] = $guruStaff;
+        }
+
+        return $guruList;
+    }
+
+    
+
+
     public function findGuruStaffById(string $id): ?GuruStaff
     {
         $statement = $this->connection->prepare('SELECT * FROM guru_staff WHERE id_guru_staff = ?');
@@ -45,6 +71,7 @@ class GuruStaffRepository
 
         return $guruStaff;
     }
+    
 
     public function updateGuruStaff(GuruStaff $guruStaff): GuruStaff
     {
