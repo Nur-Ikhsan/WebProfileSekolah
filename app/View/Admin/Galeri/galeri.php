@@ -275,7 +275,7 @@
                                                               required><?= $galeri->getDeskripsi() ?></textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="editFoto" class="form-label">Foto</label>
+                                                    <label for="editFoto" class="form-label">Gambar</label>
                                                     <input type="file" class="form-control" id="editFoto" name="foto">
                                                 </div>
                                                 <div class="modal-footer justify-content-center">

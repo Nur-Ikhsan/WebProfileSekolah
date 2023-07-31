@@ -226,7 +226,7 @@
                         <div class="pos-zone row no-gutters">
                             <div class="p-0 d-flex">
                                 <button type="submit" id="button-simpan" class="button-admin px-4">Simpan</button>
-                                <a href="/admin/sekolah/tentang" class="button-admin batal px-4 ml-3">Batal</a>
+                                <a href="/admin/sekolah/visi-misi" class="button-admin batal px-4 ml-3">Batal</a>
                             </div>
                         </div>
                     </form>

@@ -6,6 +6,7 @@ use Rubygroup\WebProfileSekolah\App\View;
 use Rubygroup\WebProfileSekolah\Config\Database;
 use Rubygroup\WebProfileSekolah\Entity\Kegiatan;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
+use Rubygroup\WebProfileSekolah\Model\KegiatanRequest;
 use Rubygroup\WebProfileSekolah\Repository\AdminRepository;
 use Rubygroup\WebProfileSekolah\Repository\KegiatanRepository;
 use Rubygroup\WebProfileSekolah\Repository\SessionRepository;
@@ -68,16 +69,18 @@ class KegiatanController
 
     public function tambahKegiatan(): void
     {
-        $kegiatan = new Kegiatan();
+        $request = new KegiatanRequest();
         $title = null;
         $message = null;
         $error = null;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $kegiatan->setNamaKegiatan($_POST['nama_kegiatan']);
-            $kegiatan->setDeskripsi($_POST['deskripsi']);
+            $request->namaKegiatan = $_POST['nama_kegiatan'];
+            $request->deskripsi = $_POST['deskripsi'];
+            $request->foto = $_FILES['foto'];
+
 
             try {
-                if ($this->kegiatanService->saveKegiatan($kegiatan)) {
+                if ($this->kegiatanService->createKegiatan($request)) {
                     $title = 'Data Berhasil Tersimpan';
                     $message = 'Selamat data yang Anda tambah berhasil disimpan';
                 }
@@ -93,18 +96,18 @@ class KegiatanController
 
     public function editKegiatan(string $idKegiatan): void
     {
-        $kegiatan = new Kegiatan();
+        $request = new KegiatanRequest();
         $title = null;
         $message = null;
         $error = null;
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $kegiatan->setIdKegiatan($idKegiatan);
-            $kegiatan->setNamaKegiatan($_POST['nama_kegiatan']);
-            $kegiatan->setDeskripsi($_POST['deskripsi']);
+            $request->namaKegiatan = $_POST['nama_kegiatan'];
+            $request->deskripsi = $_POST['deskripsi'];
+            $request->foto = $_FILES['foto'];
+
 
             try {
-                if ($this->kegiatanService->updateKegiatan($kegiatan)) {
+                if ($this->kegiatanService->updateKegiatan($idKegiatan, $request)) {
                     $title = 'Data Berhasil Tersimpan';
                     $message = 'Selamat data yang Anda edit berhasil disimpan';
                 }

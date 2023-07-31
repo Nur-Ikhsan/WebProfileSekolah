@@ -17,8 +17,8 @@ class ValidationUtil
             throw new ValidationException('Tidak ada perubahan, File gambar tidak boleh kosong.');
         }
 
-        if ($file['size'] > 1000000) {
-            throw new ValidationException('Ukuran file gambar tidak boleh lebih dari 1MB.');
+        if ($file['size'] > 5000000) {
+            throw new ValidationException('Ukuran file gambar tidak boleh lebih dari 5MB.');
         }
 
         if ($file['error'] !== 0) {

@@ -29,11 +29,8 @@
                         <div class="d-flex">
                             <div class="custom-block-topics-listing-info d-flex">
                                 <div>
-                                    <h5 class="mb-2">Visi</h5>
-
-                                    <p class="mb-0">Mewujudkan kualitas pendidikan yang mampu mengantarkan peserta didik
-                                        ke jenjang pendidikan yang lebih tinggi serta mampu menjalani hidup
-                                        bermasyarakat yang islami.</p>
+                                    <h5 class="mb-2 text-center">Visi</h5>
+                                    <div class="p-0"><?= $visiMisi->getVisi() ?></div>
                                 </div>
                             </div>
                         </div>
@@ -43,15 +40,8 @@
                         <div class="d-flex">
                             <div class="custom-block-topics-listing-info d-flex">
                                 <div>
-                                    <h5 class="mb-2">Misi</h5>
-                                    <p>Untuk mencapai visi madrasah, misi dari penyelenggaran pendidikan dan
-                                        pembelajaran di Madrasah Tsanawiyah Negeri 2 Sambas sebagai berikut:</p>
-                                    <ol>
-                                        <li>Melaksanakan proses belajar mengajar secara profesional.</li>
-                                        <li>Mendorong peserta didik untuk mampu bersaing dalam kebaikan.</li>
-                                        <li>Memberdayakan umat dalam lingkungan pendidikan.</li>
-                                        <li>Mengembangkan budaya Islami dalam kehidupan sehari-hari.</li>
-                                    </ol>
+                                    <h5 class="mb-2 text-center">Misi</h5>
+                                    <div class="p-0"><?= $visiMisi->getMisi() ?></div>
                                 </div>
                             </div>
                         </div>

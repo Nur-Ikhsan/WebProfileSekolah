@@ -4,30 +4,71 @@ namespace Rubygroup\WebProfileSekolah\Service;
 
 use Ramsey\Uuid\Uuid;
 use Rubygroup\WebProfileSekolah\Entity\Kegiatan;
+use Rubygroup\WebProfileSekolah\Exception\ValidationException;
+use Rubygroup\WebProfileSekolah\Model\KegiatanRequest;
 use Rubygroup\WebProfileSekolah\Repository\KegiatanRepository;
+use Rubygroup\WebProfileSekolah\Validation\ValidationUtil;
 
 class KegiatanService
 {
     private KegiatanRepository $kegiatanRepository;
+    private ValidationUtil $validationUtil;
 
     public function __construct(KegiatanRepository $kegiatanRepository)
     {
         $this->kegiatanRepository = $kegiatanRepository;
+        $this->validationUtil = new ValidationUtil();
     }
 
-    public function saveKegiatan(Kegiatan $kegiatan): Kegiatan
+    private function uploadPhoto(array $file): string
     {
+        $targetDirectory = 'images/upload/kegiatan/'; // Replace with the actual path
+        $targetFileName = uniqid() . '_' . basename($file['name']);
+        $targetFilePath = $targetDirectory . $targetFileName;
+
+        move_uploaded_file($file['tmp_name'], $targetFilePath);
+
+        return $targetFileName;
+    }
+
+    public function createKegiatan(KegiatanRequest $request): Kegiatan
+    {
+        $this->validationUtil->validateImageFile($request->foto);
+
+        $kegiatan = new Kegiatan();
         $kegiatan->setIdKegiatan(Uuid::uuid4()->toString());
+        $kegiatan->setNamaKegiatan($request->namaKegiatan);
+        $kegiatan->setDeskripsi($request->deskripsi);
+        $kegiatan->setFoto($this->uploadPhoto($request->foto));
+
         return $this->kegiatanRepository->saveKegiatan($kegiatan);
     }
 
-    public function findKegiatanById(string $id): ?Kegiatan
+    public function getKegiatanById(string $id): ?Kegiatan
     {
         return $this->kegiatanRepository->findKegiatanById($id);
     }
 
-    public function updateKegiatan(Kegiatan $kegiatan): Kegiatan
+    public function updateKegiatan(string $id, KegiatanRequest $request): Kegiatan
     {
+        $kegiatan = $this->kegiatanRepository->findKegiatanById($id);
+        if ($kegiatan === null) {
+            throw new ValidationException('Kegiatan tidak ditemukan.');
+        }
+
+        if (!empty($request->foto['name'])) {
+            $this->validationUtil->validateImageFile($request->foto);
+            // Menghapus file foto dari direktori
+            $filePath = 'images/upload/kegiatan/' . $kegiatan->getFoto(); // Ganti dengan path direktori tempat menyimpan foto
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $kegiatan->setFoto($this->uploadPhoto($request->foto));
+        }
+
+        $kegiatan->setNamaKegiatan($request->namaKegiatan);
+        $kegiatan->setDeskripsi($request->deskripsi);
+
         return $this->kegiatanRepository->updateKegiatan($kegiatan);
     }
 

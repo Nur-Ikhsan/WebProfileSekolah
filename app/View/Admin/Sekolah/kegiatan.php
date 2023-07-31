@@ -13,7 +13,8 @@
             <nav class="header-nav ms-auto">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>" alt="Profile" class="rounded-circle" height="36px" width="36px">
+                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>"
+                         alt="Profile" class="rounded-circle" height="36px" width="36px">
                     <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?= $model['admin']['username'] ?? 'null' ?></span>
                 </a><!-- End Profile Iamge Icon -->
 
@@ -61,9 +62,10 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true" href="#">
+                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true"
+                   href="#">
                     <i class="bi bi-building"></i><span>Profil Sekolah</span><i
-                        class="bi bi-chevron-down ms-auto"></i>
+                            class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                     <li>
@@ -195,7 +197,7 @@
         <div class="container">
             <div class="row align-items-center">
 
-                <div class="col-5 col-lg-12">
+                <div class="col-12 col-lg-5">
                     <h4 class="secondary-color">Kegiatan Sekolah</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -209,7 +211,7 @@
 
             </div>
             <div class="row align-items-center box-edit">
-                <div class="col-lg-5 col-12">
+                <div class="col-12">
                     <h4 class="text-center pb-3">Daftar Kegiatan Sekolah</h4>
                     <div>
                         <div class="col-12 p-0 justify-content-end d-flex">
@@ -227,6 +229,7 @@
                         <tr>
                             <th scope="col" class="py-3 text-center">No</th>
                             <th scope="col" class="py-3 text-center">Nama Kegiatan</th>
+                            <th scope="col" class="py-3 text-center">Gambar</th>
                             <th scope="col" class="py-3 text-center">Deskripsi</th>
                             <th scope="col" class="py-3 text-center">Aksi</th>
                         </tr>
@@ -236,6 +239,10 @@
                             <tr>
                                 <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
                                 <td><?= $kegiatan->getNamaKegiatan() ?></td>
+                                <td class="text-center">
+                                    <img src="/images/upload/kegiatan/<?= $kegiatan->getFoto() ?>"
+                                         alt="Foto kegiatan" width="100">
+                                </td>
                                 <td><?= $kegiatan->getDeskripsi() ?></td>
                                 <td class="text-center">
                                     <a href="#" data-bs-toggle="modal"
@@ -250,27 +257,38 @@
                             </tr>
 
                             <!-- Edit Kegiatan Modal -->
-                            <div class="modal fade" id="editKegiatanModal<?= $kegiatan->getIdKegiatan() ?>" tabindex="-1" aria-labelledby="editKegiatanModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editKegiatanModal<?= $kegiatan->getIdKegiatan() ?>"
+                                 tabindex="-1" aria-labelledby="editKegiatanModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="editKegiatanModalLabel">Edit Kegiatan</h5>
-                                            <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-closes" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST" action="/admin/sekolah/kegiatan-sekolah/edit/<?= $kegiatan->getIdKegiatan() ?>" enctype="multipart/form-data">
+                                            <form method="POST"
+                                                  action="/admin/sekolah/kegiatan-sekolah/edit/<?= $kegiatan->getIdKegiatan() ?>"
+                                                  enctype="multipart/form-data">
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <div class="mb-3">
                                                     <label for="edit-nama" class="form-label">Nama Kegiatan</label>
-                                                    <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required value="<?= $kegiatan->getNamaKegiatan() ?>">
+                                                    <input type="text" class="form-control" id="nama_kegiatan"
+                                                           name="nama_kegiatan" required
+                                                           value="<?= $kegiatan->getNamaKegiatan() ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="edit-deskripsi" class="form-label">Deskripsi</label>
-                                                    <textarea class="form-control" id="edit-deskripsi" name="deskripsi" required ><?= $kegiatan->getDeskripsi() ?></textarea>
+                                                    <textarea class="form-control" id="edit-deskripsi" name="deskripsi"
+                                                              required><?= $kegiatan->getDeskripsi() ?></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="editFoto" class="form-label">Gambar</label>
+                                                    <input type="file" class="form-control" id="editFoto" name="foto">
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
-                    </div>
+                                                    <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -278,20 +296,26 @@
                             </div>
 
                             <!-- Hapus Kegiatan Modal -->
-                            <div class="modal fade" id="deleteKegiatanModal<?= $kegiatan->getIdKegiatan() ?>" tabindex="-1" aria-labelledby="deleteKegiatanModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="deleteKegiatanModal<?= $kegiatan->getIdKegiatan() ?>"
+                                 tabindex="-1" aria-labelledby="deleteKegiatanModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-headers">
-                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal" aria-label="Close" id="modalCloseButton"></button>
+                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close" id="modalCloseButton"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data Slide Show Beranda?</h6>
+                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data
+                                                Slide Show Beranda?</h6>
                                             <br>
                                             <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
                                         </div>
                                         <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary pl-4" data-bs-dismiss="modal">Batal</button>
-                                            <a href="/admin/sekolah/kegiatan-sekolah/delete/<?= $kegiatan->getIdKegiatan() ?>" class="btn btn-danger px-4">Hapus</a>
+                                            <button type="button" class="btn btn-secondary pl-4"
+                                                    data-bs-dismiss="modal">Batal
+                                            </button>
+                                            <a href="/admin/sekolah/kegiatan-sekolah/delete/<?= $kegiatan->getIdKegiatan() ?>"
+                                               class="btn btn-danger px-4">Hapus</a>
                                         </div>
                                     </div>
                                 </div>
@@ -304,7 +328,9 @@
                         <ul class="pagination">
                             <?php if ($model['pagination']['page'] > 1): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/kegiatan-sekolah?page=<?= $model['pagination']['page'] - 1 ?>" aria-label="Sebelumnya">
+                                    <a class="page-link"
+                                       href="/admin/sekolah/kegiatan-sekolah?page=<?= $model['pagination']['page'] - 1 ?>"
+                                       aria-label="Sebelumnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                                     </a>
                                 </li>
@@ -333,14 +359,17 @@
                                 </li>
                             <?php else: ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/kegiatan-sekolah?page=<?= $i ?>"><?= $i ?></a>
+                                    <a class="page-link"
+                                       href="/admin/sekolah/kegiatan-sekolah?page=<?= $i ?>"><?= $i ?></a>
                                 </li>
                             <?php endif; ?>
                             <?php endfor; ?>
 
                             <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/kegiatan-sekolah?page=<?= $model['pagination']['page'] + 1 ?>" aria-label="Berikutnya">
+                                    <a class="page-link"
+                                       href="/admin/sekolah/kegiatan-sekolah?page=<?= $model['pagination']['page'] + 1 ?>"
+                                       aria-label="Berikutnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                                     </a>
                                 </li>
@@ -372,7 +401,8 @@
 
 </div>
 <!-- Tambah Kegiatan Modal -->
-<div class="modal fade" id="tambahKegiatanModal" tabindex="-1" aria-labelledby="tambahKegiatanModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahKegiatanModal" tabindex="-1" aria-labelledby="tambahKegiatanModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -388,6 +418,10 @@
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editFoto" class="form-label">Gambar</label>
+                        <input type="file" class="form-control" id="editFoto" name="foto">
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn btn-primary px-4">Simpan</button>

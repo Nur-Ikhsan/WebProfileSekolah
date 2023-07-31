@@ -23,21 +23,21 @@
                                 <div>
                                     <h5 class="mb-2 text-center">Kurikulum</h5>
                                     <div class="accordion" id="accordionExample">
-                                        <?php foreach ($kurikulumList as $kategori => $kurikulumItems) { ?>
+                                        <?php foreach ($kurikulumList as $index => $kurikulumItems) { ?>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header" id="heading<?php echo $kategori; ?>">
+                                                <h2 class="accordion-header" id="heading<?= $kurikulumItems->getId(); ?>">
                                                     <button class="accordion-button collapsed" type="button"
                                                             data-bs-toggle="collapse"
-                                                            data-bs-target="#collapse<?php echo $kategori; ?>"
+                                                            data-bs-target="#collapse<?= $kurikulumItems->getId(); ?>"
                                                             aria-expanded="false"
-                                                            aria-controls="collapse<?php echo $kategori; ?>">
-                                                        <?php echo $kategori; ?>
+                                                            aria-controls="collapse<?= $kurikulumItems->getId(); ?>">
+                                                        <?= $kurikulumItems->getKategori(); ?>
                                                     </button>
                                                 </h2>
 
-                                                <div id="collapse<?php echo $kategori; ?>"
+                                                <div id="collapse<?php echo $index; ?>"
                                                      class="accordion-collapse collapse"
-                                                     aria-labelledby="heading<?php echo $kategori; ?>"
+                                                     aria-labelledby="heading<?php echo $index; ?>"
                                                      data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <?php foreach ($kurikulumItems as $kurikulumItem) { ?>

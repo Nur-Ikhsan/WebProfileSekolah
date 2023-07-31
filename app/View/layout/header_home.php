@@ -62,11 +62,13 @@
                     <label id="profileLabel" class="nav-link dropdown-toggle" for="profile-toggle"
                            data-bs-toggle="dropdown" aria-expanded="false" href="">Profil</label>
                     <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="profile-toggle">
-                        <li><a class="dropdown-item" href="/struktur_organisasi">Struktur Organisasi</a></li>
+                        <li><a class="dropdown-item" href="/fasilitas-sekolah">Fasilitas Sekolah</a></li>
+                        <li><a class="dropdown-item" href="/kegiatan-sekolah">Kegiatan Sekolah</a></li>
                         <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
-                        <li><a class="dropdown-item" href="/tujuan">Tujuan</a></li>
-                        <li><a class="dropdown-item" href="/fasilitas_sekolah">Fasilitas Sekolah</a></li>
-                        <li><a class="dropdown-item" href="/guru_staff">Guru & Staff</a></li>
+                        <li><a class="dropdown-item" href="/guru-staff">Guru & Staff</a></li>
+                        <li><a class="dropdown-item" href="/struktur-organisasi">Struktur Organisasi</a></li>
+                        <li><a class="dropdown-item" href="/index#ekstrakurikuler">Ekstrakurikuler</a></li>
+                        <li><a class="dropdown-item" href="/sejarah-sekolah">Sejarah Sekolah</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

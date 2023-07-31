@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Jul 2023 pada 04.58
+-- Waktu pembuatan: 27 Jul 2023 pada 15.30
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -42,7 +42,7 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `username`, `password`, `status`, `id_guru_staff`) VALUES
 ('614a6614-7631-4eb4-8682-8363c86e024d', 'is', '$2y$10$2dcy/scB0PzSuGhSq1i0Iegm4NPfWChR6lhdkj2tAb3XPQYv4xd9C', 'NON-ACTIVE', '16fac101-bf57-4c75-b197-4ef7956f61a3'),
 ('a5160ecb-440e-4e1c-bb82-b491bbdb4ccb', 'aku', '$2y$10$HNWu86MF8d04OG8vXabo2.pohAr1qSsPOH/YpttwmgN6HAa5ycaNS', 'ACTIVE', '9aaad1f5-f56b-4e9d-bb41-f8e9d6df8cb4'),
-('b90fb6be-0834-469b-bcb9-3355946e00e2', '2000018392', '$2y$10$oEwQvBjcnjMWpfbJdkRKwuV68U40RPfw.WtqQwmjlD.NdTG4biFE.', 'ACTIVE', '0');
+('b90fb6be-0834-469b-bcb9-3355946e00e2', '2000018392', '$2y$10$vWgF4l3mXst/OoGWzhOkjORAnDmBCRiG7jWNL1Rjf0dV5sb2y7KmO', 'ACTIVE', '0');
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,10 @@ CREATE TABLE `fasilitas` (
 --
 
 INSERT INTO `fasilitas` (`id_fasilitas`, `nama_fasilitas`, `deskripsi`, `foto`, `id_sekolah`) VALUES
-('b4b7680e-a21f-49ff-8d24-39cd10521a61', 'Ruang UKS', 'Ruang UKS', '64aa7bcaecf81_UKS.jpg', NULL);
+('63828ca1-9814-4a50-83a3-42ab7a4a9f87', 'msjdkfj', 'juipsao', '64bae9677c38b_slideshow1.jpg', NULL),
+('afe2f031-9cdd-4ded-b776-bffb769930f2', 'jsfijdsio', 'jidjsoiajfsio', '64bae95da191c_logo.jpg', NULL),
+('b4b7680e-a21f-49ff-8d24-39cd10521a61', 'Ruang UKS', 'Ruang UKS', '64aa7bcaecf81_UKS.jpg', NULL),
+('e9622e38-559a-49b9-8f6b-92bc3e857dc3', 'kosdjfi', 'jidsjoajo', '64bae97351235_slideshow3.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -290,7 +293,9 @@ CREATE TABLE `sessions` (
 INSERT INTO `sessions` (`id`, `admin_id`) VALUES
 ('64aaa99966b07', 'b90fb6be-0834-469b-bcb9-3355946e00e2'),
 ('64b0cce0164ed', 'b90fb6be-0834-469b-bcb9-3355946e00e2'),
-('64b5f7c423b63', 'b90fb6be-0834-469b-bcb9-3355946e00e2');
+('64b5f7c423b63', 'b90fb6be-0834-469b-bcb9-3355946e00e2'),
+('64baf28d3f5f1', 'b90fb6be-0834-469b-bcb9-3355946e00e2'),
+('64c2714c1c2ed', 'b90fb6be-0834-469b-bcb9-3355946e00e2');
 
 -- --------------------------------------------------------
 
@@ -311,8 +316,7 @@ CREATE TABLE `slideshow` (
 INSERT INTO `slideshow` (`id_slideshow`, `judul_slideshow`, `foto`) VALUES
 ('43bca86d-cf90-454c-948b-875c18f29ca7', '3', '64a934204a46f_slideshow2.jpg'),
 ('5fca48f3-7da3-4f8c-bc6e-deba6842e9e8', '2', '64a934069715b_slideshow3.jpg'),
-('97d7b887-7b94-4048-bb54-ca1287372d09', '4', '64a934148891a_slideshow5.jpg'),
-('d27303a9-cc59-4338-9b4c-39fd0501a677', '1', '64b5f6fe97ffb_berita.png');
+('97d7b887-7b94-4048-bb54-ca1287372d09', '4', '64a934148891a_slideshow5.jpg');
 
 --
 -- Indexes for dumped tables

@@ -16,12 +16,13 @@ class KegiatanRepository
 
     public function saveKegiatan(Kegiatan $kegiatan): Kegiatan
     {
-        $statement = $this->connection->prepare('INSERT INTO kegiatan (id_kegiatan, nama_kegiatan, deskripsi) VALUES (?, ?, ?)');
+        $statement = $this->connection->prepare('INSERT INTO kegiatan (id_kegiatan, nama_kegiatan, deskripsi, foto) VALUES (?, ?, ?,?)');
         $statement
             ->execute([
                 $kegiatan->getIdKegiatan(),
                 $kegiatan->getNamaKegiatan(),
-                $kegiatan->getDeskripsi()
+                $kegiatan->getDeskripsi(),
+                $kegiatan->getFoto()
             ]);
         return $kegiatan;
     }
@@ -40,6 +41,7 @@ class KegiatanRepository
             $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
             $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
             $kegiatan->setDeskripsi((string)$row['deskripsi']);
+            $kegiatan->setFoto((string)$row['foto']);
             return $kegiatan;
         } finally {
             $statement->closeCursor();
@@ -48,10 +50,11 @@ class KegiatanRepository
 
     public function updateKegiatan(Kegiatan $kegiatan): Kegiatan
     {
-        $statement = $this->connection->prepare('UPDATE kegiatan SET nama_kegiatan = ?, deskripsi = ? WHERE id_kegiatan = ?');
+        $statement = $this->connection->prepare('UPDATE kegiatan SET nama_kegiatan = ?, deskripsi = ?, foto = ? WHERE id_kegiatan = ?');
         $statement->execute([
             $kegiatan->getNamaKegiatan(),
             $kegiatan->getDeskripsi(),
+            $kegiatan->getFoto(),
             $kegiatan->getIdKegiatan()
         ]);
 
@@ -69,6 +72,7 @@ class KegiatanRepository
             $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
             $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
             $kegiatan->setDeskripsi((string)$row['deskripsi']);
+            $kegiatan->setFoto((string)$row['foto']);
             $kegiatanList[] = $kegiatan;
         }
         return $kegiatanList;
@@ -87,6 +91,7 @@ class KegiatanRepository
             $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
             $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
             $kegiatan->setDeskripsi((string)$row['deskripsi']);
+            $kegiatan->setFoto((string)$row['foto']);
             $kegiatanList[] = $kegiatan;
         }
         return $kegiatanList;

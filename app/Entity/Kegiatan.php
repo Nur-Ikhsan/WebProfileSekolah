@@ -7,6 +7,23 @@ class Kegiatan
     private string $idKegiatan;
     private string $namaKegiatan;
     private string $deskripsi;
+    private string $foto;
+
+    /**
+     * @return string
+     */
+    public function getFoto(): string
+    {
+        return $this->foto;
+    }
+
+    /**
+     * @param string $foto
+     */
+    public function setFoto(string $foto): void
+    {
+        $this->foto = $foto;
+    }
 
     /**
      * @return string
