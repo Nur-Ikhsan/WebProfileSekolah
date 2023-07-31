@@ -46,7 +46,6 @@
                     </div>
                     <button type="submit" id="button-simpan" class="button-admin px-4 col-12 mb-5">Login</button>
                 </form>
-                <p class="text-center">Don't have account? <a href="/admin/register">Create an account</a></p>
             </div>
         </div>
     </div>

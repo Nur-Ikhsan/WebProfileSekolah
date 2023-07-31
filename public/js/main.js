@@ -49,21 +49,21 @@ const buttonImage = document.getElementById('button-image');
 const svgImage = document.getElementById('svg-image');
 const img = document.getElementById('preview-image');
 const p = document.getElementById('upload-message');
-const closeButton = document.getElementById('close-button');
+// const closeButton = document.getElementById('close-button');
 
-closeButton.addEventListener('click', e => {
-  e.preventDefault();
-  img.style.display = 'none';
-  p.style.display = 'block';
-  buttonImage.style.display = 'block';
-  svgImage.style.display = 'block';
-  inputElement.value = ''; // Menghapus file yang dipilih dari input file
-  closeButton.style.display = 'none';
-});
+// closeButton.addEventListener('click', e => {
+//   e.preventDefault();
+//   img.style.display = 'none';
+//   p.style.display = 'block';
+//   buttonImage.style.display = 'block';
+//   svgImage.style.display = 'block';
+//   inputElement.value = ''; // Menghapus file yang dipilih dari input file
+//   closeButton.style.display = 'none';
+// });
 
-function showCloseButton() {
-  closeButton.style.display = 'block';
-}
+// function showCloseButton() {
+//   closeButton.style.display = 'block';
+// }
 
 inputElement.addEventListener('change', function (e) {
   const clickFile = this.files[0];
@@ -79,7 +79,7 @@ inputElement.addEventListener('change', function (e) {
       img.src = this.result;
       img.alt = clickFile.name;
     };
-    showCloseButton();
+    // showCloseButton();
   }
 });
 
@@ -104,7 +104,7 @@ dropZone.addEventListener('drop', function (e) {
     img.src = this.result;
     img.alt = file.name;
   };
-  showCloseButton();
+  // showCloseButton();
 
   // Simpan file yang dijatuhkan ke dalam input file
   inputElement.files = e.dataTransfer.files;
@@ -116,5 +116,5 @@ if (img.src) {
   p.style.display = 'none';
   buttonImage.style.display = 'none';
   svgImage.style.display = 'none';
-  showCloseButton();
+  // showCloseButton();
 }

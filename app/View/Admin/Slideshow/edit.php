@@ -237,9 +237,9 @@
                         <div class="pos-zone row no-gutters">
                             <div class="p-0 d-flex">
                                 <button type="submit" id="button-simpan" class="button-admin px-4">Simpan</button>
-                                <button id="close-button" class="button-admin delete px-4 ml-3 " style="display: none;">
-                                    Hapus Foto
-                                </button>
+<!--                                <button id="close-button" class="button-admin delete px-4 ml-3 " style="display: none;">-->
+<!--                                    Hapus Foto-->
+<!--                                </button>-->
                                 <a href="/admin"
                                    class="button-admin batal px-4 ml-3 ">Batal</a>
                             </div>

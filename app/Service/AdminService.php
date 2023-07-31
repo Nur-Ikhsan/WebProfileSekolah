@@ -27,7 +27,7 @@ class AdminService
             Database::beginTransaction();
             $admin = $this->adminRepository->findByUsername($request->username);
             if ($admin !== null) {
-                throw new ValidationException('Username already exist');
+                throw new ValidationException('Username Sudah Terdaftar');
             }
 
             $admin = new Admin();
@@ -46,14 +46,14 @@ class AdminService
             return $response;
         } catch (\Exception $exception) {
             Database::rollbackTransaction();
-            throw new ValidationException('Guru/Staff already exist');
+            throw new ValidationException('Guru/Staff Sudah Terdaftar Sebagai Admin');
         }
     }
 
     private function validate(AdminRequest $request): void
     {
         if ($request->username === null || $request->password == null || trim($request->password) == "" || trim($request->username) == "") {
-            throw new ValidationException('Username and Password is required');
+            throw new ValidationException('Tuliskan Username atau Password Anda Terlebih Dahulu');
         }
     }
 
@@ -65,15 +65,15 @@ class AdminService
             Database::beginTransaction();
             $admin = $this->adminRepository->findByUsername($request->username);
             if ($admin === null) {
-                throw new ValidationException('Username not found');
+                throw new ValidationException('Username atau Password Salah!');
             }
 
             if (!password_verify($request->password, $admin->getPassword())) {
-                throw new ValidationException('Password not match');
+                throw new ValidationException('Username atau Password Salah!');
             }
 
             if ($admin->getStatus() === 'NON-ACTIVE') {
-                throw new ValidationException('Admin is not active');
+                throw new ValidationException('Admin tidak aktif');
             }
 
 
@@ -94,17 +94,17 @@ class AdminService
         $admin = $this->adminRepository->findByUsername($username);
 
         if (!$admin) {
-            throw new ValidationException('Admin not found.');
+            throw new ValidationException('Admin tidak ditemukan.');
         }
 
         // Pengecekan password lama
         if (!password_verify($oldPassword, $admin->getPassword())) {
-            throw new ValidationException('Old password is incorrect.');
+            throw new ValidationException('Password lama salah.');
         }
 
         // Pengecekan kesamaan password baru dan konfirmasi password baru
         if ($newPassword !== $confirmNewPassword) {
-            throw new ValidationException('New password and confirm password do not match.');
+            throw new ValidationException('Password baru dan konfirmasi password baru tidak sama.');
         }
 
         // Enkripsi password baru

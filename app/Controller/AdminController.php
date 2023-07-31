@@ -88,8 +88,8 @@ class AdminController
             }
         }
 
-        if ($admin !== null) {
-            View::redirect('/admin/index');
+        if ($admin === null) {
+            View::redirect('/admin/login');
         }
 
         View::render('Admin/register', [

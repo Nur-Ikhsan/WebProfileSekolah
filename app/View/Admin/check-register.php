@@ -210,6 +210,11 @@
             <div class="row align-items-center box-edit">
                 <div class="col-12">
                     <h4 class="text-center pb-3">Check Register</h4>
+                    <div>
+                        <div class="col-12 p-0 justify-content-end d-flex">
+                            <a href="/admin/register" class="button-admin mb-1"><span class="p-4"><i class="bi bi-plus-circle"></i><span class="m-3">Register</span></span></a>
+                        </div>
+                    </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table check-register-table">
