@@ -78,14 +78,14 @@
                                  alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal">
                         </div>
                         <a href="/detail_berita?id=<?= $berita->getIdBerita(); ?>"
-                           class="icon-link blink gap-1 icon-link-hover stretched-link">
-                        <div class="card-body rounded-bottom">
-                            <h6 class="mb-0 my-3 text"><?= $berita->getJudulBerita(); ?></h6>
-                            <div class="limit-text">
-                                <p class="card-text mb-auto my-3 "><?= $berita->getIsiBerita(); ?></p>
-                            </div>
+                           class="icon-link blink gap-1 icon-link-hover">
+                            <div class="card-body rounded-bottom">
+                                <h6 class="mb-0 my-3 text"><?= $berita->getJudulBerita(); ?></h6>
+                                <div class="limit-text">
+                                    <p class="card-text mb-auto my-3 "><?= $berita->getIsiBerita(); ?></p>
+                                </div>
                                 <p class="text-primary">Baca Selengkapnya >></p>
-                        </div>
+                            </div>
                         </a>
                     </div>
                     <?php
@@ -207,17 +207,18 @@
             <div class="slider">
                 <div class="owl-carousel">
                     <?php foreach ($guruStaffList as $guruStaff): ?>
-                            <div class="slider-card">
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <img src="/images/upload/guru-staff/<?php echo $guruStaff->getFoto(); ?>" alt="">
-                                </div>
-                                <h5 class="mb-0 text-center"><b><?php echo $guruStaff->getNamaGuru(); ?></b></h5>
-                                <p class="text-center p-4"><?php echo $guruStaff->getJabatan(); ?></p>
+                        <div class="slider-card">
+                            <div class="d-flex justify-content-center align-items-center mb-4">
+                                <img src="/images/upload/guru-staff/<?php echo $guruStaff->getFoto(); ?>" alt="">
                             </div>
+                            <h5 class="mb-0 text-center"><b><?php echo $guruStaff->getNamaGuru(); ?></b></h5>
+                            <p class="text-center p-4"><?php echo $guruStaff->getJabatan(); ?></p>
+                        </div>
                     <?php endforeach; ?>
                 </div>
                 <div class="text-center"> <!-- Wrap the button in a container with "text-center" class -->
-                    <button type="button" class="btn-custom mt-5" onclick="window.location.href='/guru-staff'">Tampilkan Semua
+                    <button type="button" class="btn-custom mt-5" onclick="window.location.href='/guru-staff'">Tampilkan
+                        Semua
                     </button>
                 </div>
             </div>
