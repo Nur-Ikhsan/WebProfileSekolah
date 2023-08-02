@@ -1,7 +1,5 @@
 <main>
 
-
-
     <header class="site-header d-flex flex-column justify-content-center align-items-center">
         <div class="container">
             <div class="row align-items-center">
@@ -11,10 +9,10 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a class="a" href="#">Profil</a></li>
 
-                            <li class="breadcrumb-item actived" aria-current="page">Fasilitas Sekolah</li>
+                            <li class="breadcrumb-item actived" aria-current="page">Guru dan Staff</li>
                         </ol>
                     </nav>
-                    <h2 class="text-white">Fasilitas Sekolah</h2>
+                    <h2 class="text-white">Guru dan Staff</h2>
                 </div>
 
             </div>
@@ -22,44 +20,28 @@
     </header>
 
     <section class="container">
-
-        <div class="album mx-70">
-            <div class="row g-3 my-2">
-                <?php foreach ($fasilitasList as $fasilitas): ?>
-                    <div class="col-12 col-sm-6  col-md-4">
-                        <div class="shadow-sm position-relative">
-                            <!-- Gambar yang dapat diklik -->
-                            <img src="/images/upload/fasilitas/<?= $fasilitas->getFoto() ?>" class="img-fluid rounded"
-                                 alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal<?= $fasilitas->getId() ?>">
-                            <div class="section-bg-soft position-absolute bottom-0 w-100">
-                                <h6 class="card-text card-titles text-white px-2 text-center">
-                                    <?= $fasilitas->getNama(); ?></h6>
-                            </div>
-                            <!-- Modal -->
-                            <div class="modal fade" id="imageModal<?= $fasilitas->getId() ?>" tabindex="-1" aria-labelledby="imageModalLabel"
-                                 aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-body">
-                                            <img src="/images/upload/fasilitas/<?= $fasilitas->getFoto() ?>" class="img-fluid" alt="Image Alt Text">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+        <div class="row row-cols-md-4 row-cols-lg-4 row-cols-sm-1 mt-40 justify-content-center mb-100">
+            <div class="row col-md-12 col-lg-10 mt-5 justify-content-md-between justify-content-center">
+                <?php foreach ($guruStaffList as $gurustaff): ?>
+                    <div class="card mx-4" style="max-width: 15rem;">
+                        <img src="/images/upload/guru-staff/<?= $gurustaff->getFoto() ?>" class="img-fluid "
+                             alt="Image Alt Text">
+                        <div class="card-footer text-center">
+                            <p class="fs-6 text-center"><?= $gurustaff->getNamaGuru(); ?></p>
+                            <small class="text-muted"><?= $gurustaff->getJabatan(); ?></small>
                         </div>
-
-
-                        <p class="card-text px-2 text-muted"><?= $fasilitas->getDeskripsi(); ?></p>
                     </div>
-
-                <?php endforeach?>
+                <?php endforeach;?>
             </div>
+        </div>
+        <div class="col-lg-12 col-12 my-5">
             <nav aria-label="Halaman" class="d-flex justify-content-center">
                 <ul class="pagination">
                     <?php if ($model['pagination']['page'] > 1): ?>
                         <li class="page-item">
-                            <a class="page-link" href="/fasilitas-sekolah?page=<?= $model['pagination']['page'] - 1 ?>" aria-label="Sebelumnya">
+                            <a class="page-link"
+                               href="/guru-staff?page=<?= $model['pagination']['page'] - 1 ?>"
+                               aria-label="Sebelumnya">
                                 <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                             </a>
                         </li>
@@ -88,14 +70,17 @@
                         </li>
                     <?php else: ?>
                         <li class="page-item">
-                            <a class="page-link" href="/fasilitas-sekolah?page=<?= $i ?>"><?= $i ?></a>
+                            <a class="page-link"
+                               href="/guru-staff?page=<?= $i ?>"><?= $i ?></a>
                         </li>
                     <?php endif; ?>
                     <?php endfor; ?>
 
                     <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
                         <li class="page-item">
-                            <a class="page-link" href="/fasilitas-sekolah?page=<?= $model['pagination']['page'] + 1 ?>" aria-label="Berikutnya">
+                            <a class="page-link"
+                               href="/guru-staff?page=<?= $model['pagination']['page'] + 1 ?>"
+                               aria-label="Berikutnya">
                                 <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                             </a>
                         </li>
@@ -109,6 +94,5 @@
                 </ul>
             </nav>
         </div>
-
     </section>
 </main>

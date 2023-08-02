@@ -68,7 +68,8 @@ class GuruStaffRepository
 
     public function getAllGuruStaff(): array
     {
-        $statement = $this->connection->prepare('SELECT * FROM guru_staff');
+        $statement = $this->connection->prepare('SELECT * FROM guru_staff WHERE id_guru_staff <> :excludedId');
+        $statement->bindValue(':excludedId', 0, PDO::PARAM_INT);
         $statement->execute();
 
         $guruStaffList = [];
@@ -87,7 +88,8 @@ class GuruStaffRepository
 
     public function getAllGuruStaffPagination(int $limit, int $offset): array
     {
-        $statement = $this->connection->prepare('SELECT * FROM guru_staff LIMIT :limit OFFSET :offset');
+        $statement = $this->connection->prepare('SELECT * FROM guru_staff WHERE id_guru_staff <> :excludedId LIMIT :limit OFFSET :offset');
+        $statement->bindValue(':excludedId', 0, PDO::PARAM_INT);
         $statement->bindValue(':limit', $limit, PDO::PARAM_INT);
         $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
         $statement->execute();

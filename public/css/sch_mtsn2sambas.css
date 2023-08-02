@@ -584,6 +584,10 @@ strong {
   height: 100%;
 }
 
+.text-justify {
+    text-align: justify !important;
+}
+
 .custom-block:hover {
   background-color: var(--third-color);
   transform: translateY(-3px);

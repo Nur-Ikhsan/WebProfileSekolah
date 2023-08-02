@@ -232,8 +232,6 @@
                         </thead>
                         <tbody>
                         <?php foreach ($model['guruStaffList'] as $index => $guruStaff) : ?>
-                            <?php $index -= 1;
-                            if ($guruStaff->getJabatan() != 'ADMIN') { ?>
                                 <tr>
                                     <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
                                     <td class="text-center">
@@ -322,7 +320,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            <?php } ?>
                         <?php endforeach; ?>
                         </tbody>
                     </table>

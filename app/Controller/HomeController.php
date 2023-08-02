@@ -191,18 +191,44 @@ class HomeController
 
     function kegiatanSekolah(): void
     {
-        $slideshows = $this->slideshowService->getAllSlideshows();
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 10;
+        $totalCount = count($this->kegiatanService->getAllKegiatan());
+        $kegiatanList = $this->kegiatanService->getAllKegiatanPagination($page, $perPage);
         View::renderHome('kegiatan-sekolah',[
                 'title' => 'Fasilitas Sekolah Madrasah Tsanawiyah Negeri 2 Sambas ',
-                'slideshows' => $slideshows
+                'kegiatanList' => $kegiatanList,
+                'pagination' => [
+                    'page' => $page,
+                    'perPage' => $perPage,
+                    'totalPages' => ceil($totalCount / $perPage)
+                ]
             ]
         );
     }
 
     function guruStaf(): void
     {
-        View::renderHome('guru_staff',[
-                'title' => 'Guru dan Staff Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 9;
+
+        $totalCount = count($this->guruStaffService->getAllGuruStaff());
+        $GuruStaffList = $this->guruStaffService->getAllGuruStaffPagination($page, $perPage);
+        View::renderHome('guru-staff',[
+                'title' => 'Guru dan Staff Sekolah Madrasah Tsanawiyah Negeri 2 Sambas ',
+                'guruStaffList' => $GuruStaffList,
+                'pagination' => [
+                    'page' => $page,
+                    'perPage' => $perPage,
+                    'totalPages' => ceil($totalCount / $perPage)
+                ]
+            ]
+        );
+    }
+
+    function sejarahSekolah(): void{
+        View::renderHome('sejarah-sekolah',[
+                'title' => 'Sejarah Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );
     }

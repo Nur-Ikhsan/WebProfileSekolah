@@ -100,7 +100,7 @@
     </section>
 
 
-    <section class="section-padding">
+    <section id="ekstrakurikuler" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-20 col-13 mt-4 mx-auto">
@@ -207,7 +207,6 @@
             <div class="slider">
                 <div class="owl-carousel">
                     <?php foreach ($guruStaffList as $guruStaff): ?>
-                        <?php if ($guruStaff->getJabatan() != 'ADMIN') { ?>
                             <div class="slider-card">
                                 <div class="d-flex justify-content-center align-items-center mb-4">
                                     <img src="/images/upload/guru-staff/<?php echo $guruStaff->getFoto(); ?>" alt="">
@@ -215,7 +214,6 @@
                                 <h5 class="mb-0 text-center"><b><?php echo $guruStaff->getNamaGuru(); ?></b></h5>
                                 <p class="text-center p-4"><?php echo $guruStaff->getJabatan(); ?></p>
                             </div>
-                        <?php } ?>
                     <?php endforeach; ?>
                 </div>
                 <div class="text-center"> <!-- Wrap the button in a container with "text-center" class -->
