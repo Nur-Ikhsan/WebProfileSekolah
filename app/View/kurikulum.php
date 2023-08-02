@@ -21,55 +21,47 @@
                         <div class="d-flex">
                             <div class="custom-block-topics-listing-info d-flex">
                                 <div>
-                                    <h5 class="mb-2 text-center">Kurikulum</h5>
                                     <div class="accordion" id="accordionExample">
-                                        <?php foreach ($kurikulumList as $index => $kurikulumItems) { ?>
+                                        <div class="accordion" id="accordionExample">
+                                            <?php
+                                            $currentCategory = null;
+                                            foreach ($kurikulumList as $kurikulumItem) :
+                                            if ($kurikulumItem->getKategori() !== $currentCategory) :
+                                            // Start a new accordion item for a new category
+                                            if ($currentCategory !== null) :
+                                                // Close the previous accordion item if it exists
+                                                echo '</div></div></div>';
+                                            endif;
+                                            ?>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header" id="heading<?= $kurikulumItems->getId(); ?>">
-                                                    <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse"
-                                                            data-bs-target="#collapse<?= $kurikulumItems->getId(); ?>"
-                                                            aria-expanded="false"
-                                                            aria-controls="collapse<?= $kurikulumItems->getId(); ?>">
-                                                        <?= $kurikulumItems->getKategori(); ?>
+                                                <h2 class="accordion-header" id="heading<?= $kurikulumItem->getId() ?>">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                            data-bs-target="#collapse<?= $kurikulumItem->getId() ?>" aria-expanded="false"
+                                                            aria-controls="collapse<?= $kurikulumItem->getId() ?>">
+                                                        <?= $kurikulumItem->getKategori() ?>
                                                     </button>
                                                 </h2>
-
-                                                <div id="collapse<?php echo $index; ?>"
-                                                     class="accordion-collapse collapse"
-                                                     aria-labelledby="heading<?php echo $index; ?>"
-                                                     data-bs-parent="#accordionExample">
+                                                <div id="collapse<?= $kurikulumItem->getId() ?>" class="accordion-collapse collapse"
+                                                     aria-labelledby="heading<?= $kurikulumItem->getId() ?>" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
-                                                        <?php foreach ($kurikulumItems as $kurikulumItem) { ?>
-                                                            <div class="accordion-item">
-                                                                <h3 class="accordion-header"
-                                                                    id="heading<?php echo $kurikulumItem->getId(); ?>">
-                                                                    <button class="accordion-button collapsed"
-                                                                            type="button"
-                                                                            data-bs-toggle="collapse"
-                                                                            data-bs-target="#collapse<?php echo $kurikulumItem->getId(); ?>"
-                                                                            aria-expanded="false"
-                                                                            aria-controls="collapse<?php echo $kurikulumItem->getId(); ?>">
-                                                                        <?php echo $kurikulumItem->getKomponen(); ?>
-                                                                    </button>
-                                                                </h3>
+                                                        <?php
+                                                        endif;
+                                                        // Display komponen and subKomponen under the current accordion item
+                                                        ?>
+                                                        <p><?= $kurikulumItem->getKomponen() ?></p>
+                                                        <p><?= $kurikulumItem->getSubKomponen() ?></p>
+                                                        <?php
+                                                        $currentCategory = $kurikulumItem->getKategori();
+                                                        endforeach;
 
-                                                                <div
-                                                                        id="collapse<?php echo $kurikulumItem->getId(); ?>"
-                                                                        class="accordion-collapse collapse"
-                                                                        aria-labelledby="heading<?php echo $kurikulumItem->getId(); ?>"
-                                                                        data-bs-parent="#accordionExample">
-                                                                    <div class="accordion-body">
-                                                                        <?php echo $kurikulumItem->getSubKomponen(); ?>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        <?php } ?>
+                                                        // Close the last accordion item
+                                                        if ($currentCategory !== null) :
+                                                            echo '</div></div></div>';
+                                                        endif;
+                                                        ?>
                                                     </div>
+
                                                 </div>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
                                 </div>
                             </div>
                         </div>

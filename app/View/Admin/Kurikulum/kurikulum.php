@@ -486,8 +486,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="edit-deskripsi" class="form-label">Deskripsi</label>
-                        <textarea class="form-control textarea-tinymce" id="edit-deskripsi" name="deskripsi" rows="4"
-                                  required><?= $model['kurikulum']['deskripsi'] ?></textarea>
+                        <textarea class="form-control textarea-tinymce" id="edit-deskripsi" name="deskripsi" rows="4"><?= $model['kurikulum']['deskripsi'] ?></textarea>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn button-admin px-4">Simpan</button>
