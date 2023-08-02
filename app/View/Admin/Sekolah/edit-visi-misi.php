@@ -199,13 +199,13 @@
             <div class="row align-items-center">
 
                 <div class="col-lg-5 col-12">
-                    <h4 class="secondary-color">Tentang Sekolah</h4>
+                    <h4 class="secondary-color">Visi dan Misi</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/index">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Profile Sekolah</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Tentang Sekolah</li>
+                            <li class="breadcrumb-item active" aria-current="page">Visi dan Misi</li>
                         </ol>
                     </nav>
                 </div>

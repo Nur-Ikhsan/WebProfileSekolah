@@ -13,7 +13,8 @@
             <nav class="header-nav ms-auto">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>" alt="Profile" class="rounded-circle" height="36px" width="36px">
+                    <img src="/images/upload/guru-staff/<?= $model['admin']['foto'] ?? '/images/person.jpg' ?>"
+                         alt="Profile" class="rounded-circle" height="36px" width="36px">
                     <span class="d-none d-md-block dropdown-toggle ps-2 text-white"><?= $model['admin']['username'] ?? 'null' ?></span>
                 </a><!-- End Profile Iamge Icon -->
 
@@ -61,7 +62,8 @@
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true" href="#">
+                <a class="nav-link" data-bs-target="#components-nav" data-bs-toggle="collapse" aria-expanded="true"
+                   href="#">
                     <i class="bi bi-building"></i><span>Profil Sekolah</span><i
                             class="bi bi-chevron-down ms-auto"></i>
                 </a>
@@ -244,42 +246,48 @@
                                 <td><?= $fasilitas->getDeskripsi() ?></td>
                                 <td class="text-center">
                                     <a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#editFasilitasModal<?= $fasilitas->getId() ?>">
+                                       data-bs-target="#editFasilitasModal<?= $fasilitas->getId() ?>">
                                         <i class="bi bi-pencil-square"></i>
                                     </a> |
                                     <a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#deleteFasilitasModal<?= $fasilitas->getId() ?>">
+                                       data-bs-target="#deleteFasilitasModal<?= $fasilitas->getId() ?>">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </td>
                             </tr>
 
                             <!-- Edit Fasilitas Modal -->
-                            <div class="modal fade" id="editFasilitasModal<?= $fasilitas->getId() ?>" tabindex="-1" aria-labelledby="editFasilitasModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editFasilitasModal<?= $fasilitas->getId() ?>" tabindex="-1"
+                                 aria-labelledby="editFasilitasModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="editFasilitasModalLabel">Edit Fasilitas</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
                                         <div class="modal-body">
-                                            <form method="POST" action="/admin/sekolah/fasilitas/edit/<?= $fasilitas->getId() ?>" enctype="multipart/form-data">
+                                            <h5 class="modal-title mb-5 mt-4 text-center" id="editFasilitasModalLabel">Edit Data Fasilitas Sekolah</h5>
+                                            <form method="POST"
+                                                  action="/admin/sekolah/fasilitas/edit/<?= $fasilitas->getId() ?>"
+                                                  enctype="multipart/form-data">
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <div class="mb-3">
                                                     <label for="edit-nama" class="form-label">Nama Fasilitas</label>
-                                                    <input type="text" class="form-control" id="edit-nama" name="nama" required value="<?= $fasilitas->getNama() ?>">
+                                                    <input type="text" class="form-control" id="edit-nama" name="nama"
+                                                           required value="<?= $fasilitas->getNama() ?>">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="edit-deskripsi" class="form-label">Deskripsi</label>
-                                                    <textarea class="form-control" id="edit-deskripsi" name="deskripsi" required ><?= $fasilitas->getDeskripsi() ?></textarea>
+                                                    <textarea class="form-control" id="edit-deskripsi" name="deskripsi"
+                                                              required><?= $fasilitas->getDeskripsi() ?></textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="edit-foto" class="form-label">Gambar</label>
-                                                    <input type="file" class="form-control" id="edit-foto" name="foto" value="<?= $fasilitas->getFoto() ?>">
+                                                    <label for="edit-foto" class="form-label">Upload Gambar</label>
+                                                    <input type="file" class="form-control" id="edit-foto" name="foto"
+                                                           value="<?= $fasilitas->getFoto() ?>">
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
-                    </div>
+                                                    <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                                    <button type="button" class="btn button-admin batal pl-4"
+                                                            data-bs-dismiss="modal">Batal
+                                                    </button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -287,20 +295,26 @@
                             </div>
 
                             <!-- Hapus Fasilitas Modal -->
-                            <div class="modal fade" id="deleteFasilitasModal<?= $fasilitas->getId() ?>" tabindex="-1" aria-labelledby="deleteFasilitasModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="deleteFasilitasModal<?= $fasilitas->getId() ?>" tabindex="-1"
+                                 aria-labelledby="deleteFasilitasModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-headers">
-                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal" aria-label="Close" id="modalCloseButton"></button>
+                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close" id="modalCloseButton"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data Slide Show Beranda?</h6>
+                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data
+                                                Fasilitas Sekolah?</h6>
                                             <br>
                                             <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
                                         </div>
                                         <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary pl-4" data-bs-dismiss="modal">Batal</button>
-                                            <a href="/admin/sekolah/fasilitas/delete/<?= $fasilitas->getId() ?>" class="btn btn-danger px-4">Hapus</a>
+                                            <button type="button" class="btn btn-secondary pl-4"
+                                                    data-bs-dismiss="modal">Batal
+                                            </button>
+                                            <a href="/admin/sekolah/fasilitas/delete/<?= $fasilitas->getId() ?>"
+                                               class="btn btn-danger px-4">Hapus</a>
                                         </div>
                                     </div>
                                 </div>
@@ -313,7 +327,9 @@
                         <ul class="pagination">
                             <?php if ($model['pagination']['page'] > 1): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/fasilitas?page=<?= $model['pagination']['page'] - 1 ?>" aria-label="Sebelumnya">
+                                    <a class="page-link"
+                                       href="/admin/sekolah/fasilitas?page=<?= $model['pagination']['page'] - 1 ?>"
+                                       aria-label="Sebelumnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                                     </a>
                                 </li>
@@ -349,7 +365,9 @@
 
                             <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/fasilitas?page=<?= $model['pagination']['page'] + 1 ?>" aria-label="Berikutnya">
+                                    <a class="page-link"
+                                       href="/admin/sekolah/fasilitas?page=<?= $model['pagination']['page'] + 1 ?>"
+                                       aria-label="Berikutnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                                     </a>
                                 </li>
@@ -381,14 +399,12 @@
 
 </div>
 <!-- Tambah Fasilitas Modal -->
-<div class="modal fade" id="tambahFasilitasModal" tabindex="-1" aria-labelledby="tambahFasilitasModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahFasilitasModal" tabindex="-1" aria-labelledby="tambahFasilitasModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tambahFasilitasModalLabel">Tambah Fasilitas</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
+                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahFasilitasModalLabel">Tambah Data Fasilitas Sekolah</h5>
                 <form method="POST" action="/admin/sekolah/fasilitas/tambah" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama Fasilitas</label>
@@ -399,11 +415,14 @@
                         <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="foto" class="form-label">Gambar</label>
+                        <label for="foto" class="form-label">Upload Gambar</label>
                         <input type="file" class="form-control" id="foto" name="foto" required>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                        <button type="button" class="btn button-admin batal pl-4"
+                                data-bs-dismiss="modal">Batal
+                        </button>
                     </div>
                 </form>
             </div>

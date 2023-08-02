@@ -37,7 +37,7 @@ Router::add('/guru-staff', HomeController::class, 'guruStaf');
 
 
 // Rute untuk admin
-Router::add('/admin', AdminController::class, 'index');
+Router::add('/admin', SlideshowController::class, 'index');
 Router::add('/admin/', AdminController::class, 'index');
 Router::add('/admin/index', AdminController::class, 'index');
 Router::add('/admin/register', AdminController::class, 'register');

@@ -74,6 +74,7 @@ class KegiatanController
         $message = null;
         $error = null;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $request->tanggal = $_POST['tanggal'];
             $request->namaKegiatan = $_POST['nama_kegiatan'];
             $request->deskripsi = $_POST['deskripsi'];
             $request->foto = $_FILES['foto'];
@@ -101,6 +102,7 @@ class KegiatanController
         $message = null;
         $error = null;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $request->tanggal = $_POST['tanggal'];
             $request->namaKegiatan = $_POST['nama_kegiatan'];
             $request->deskripsi = $_POST['deskripsi'];
             $request->foto = $_FILES['foto'];

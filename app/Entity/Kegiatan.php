@@ -5,9 +5,26 @@ namespace Rubygroup\WebProfileSekolah\Entity;
 class Kegiatan
 {
     private string $idKegiatan;
+    private string $tanggal;
     private string $namaKegiatan;
     private string $deskripsi;
     private string $foto;
+
+    /**
+     * @return string
+     */
+    public function getTanggal(): string
+    {
+        return $this->tanggal;
+    }
+
+    /**
+     * @param string $tanggal
+     */
+    public function setTanggal(string $tanggal): void
+    {
+        $this->tanggal = $tanggal;
+    }
 
     /**
      * @return string

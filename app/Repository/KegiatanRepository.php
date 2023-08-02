@@ -16,10 +16,11 @@ class KegiatanRepository
 
     public function saveKegiatan(Kegiatan $kegiatan): Kegiatan
     {
-        $statement = $this->connection->prepare('INSERT INTO kegiatan (id_kegiatan, nama_kegiatan, deskripsi, foto) VALUES (?, ?, ?,?)');
+        $statement = $this->connection->prepare('INSERT INTO kegiatan (id_kegiatan, tanggal, nama_kegiatan, deskripsi, foto) VALUES (?, ?, ?, ?,?)');
         $statement
             ->execute([
                 $kegiatan->getIdKegiatan(),
+                $kegiatan->getTanggal(),
                 $kegiatan->getNamaKegiatan(),
                 $kegiatan->getDeskripsi(),
                 $kegiatan->getFoto()
@@ -39,6 +40,7 @@ class KegiatanRepository
             }
             $kegiatan = new Kegiatan();
             $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
+            $kegiatan->setTanggal((string)$row['tanggal']);
             $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
             $kegiatan->setDeskripsi((string)$row['deskripsi']);
             $kegiatan->setFoto((string)$row['foto']);
@@ -50,8 +52,9 @@ class KegiatanRepository
 
     public function updateKegiatan(Kegiatan $kegiatan): Kegiatan
     {
-        $statement = $this->connection->prepare('UPDATE kegiatan SET nama_kegiatan = ?, deskripsi = ?, foto = ? WHERE id_kegiatan = ?');
+        $statement = $this->connection->prepare('UPDATE kegiatan SET tanggal = ?, nama_kegiatan = ?, deskripsi = ?, foto = ? WHERE id_kegiatan = ?');
         $statement->execute([
+            $kegiatan->getTanggal(),
             $kegiatan->getNamaKegiatan(),
             $kegiatan->getDeskripsi(),
             $kegiatan->getFoto(),
@@ -63,13 +66,14 @@ class KegiatanRepository
 
     public function getAllKegiatan(): array
     {
-        $statement = $this->connection->prepare('SELECT * FROM kegiatan');
+        $statement = $this->connection->prepare('SELECT * FROM kegiatan ORDER BY tanggal');
         $statement->execute();
 
         $kegiatanList = [];
         while ($row = $statement->fetch()) {
             $kegiatan = new Kegiatan();
             $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
+            $kegiatan->setTanggal((string)$row['tanggal']);
             $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
             $kegiatan->setDeskripsi((string)$row['deskripsi']);
             $kegiatan->setFoto((string)$row['foto']);
@@ -80,7 +84,7 @@ class KegiatanRepository
 
     public function getAllKegiatanPagination(int $limit, int $offset): array
     {
-        $statement = $this->connection->prepare('SELECT * FROM kegiatan LIMIT :limit OFFSET :offset');
+        $statement = $this->connection->prepare('SELECT * FROM kegiatan ORDER BY tanggal LIMIT :limit OFFSET :offset');
         $statement->bindValue(':limit', $limit, PDO::PARAM_INT);
         $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
         $statement->execute();
@@ -89,6 +93,7 @@ class KegiatanRepository
         while ($row = $statement->fetch()) {
             $kegiatan = new Kegiatan();
             $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
+            $kegiatan->setTanggal((string)$row['tanggal']);
             $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
             $kegiatan->setDeskripsi((string)$row['deskripsi']);
             $kegiatan->setFoto((string)$row['foto']);

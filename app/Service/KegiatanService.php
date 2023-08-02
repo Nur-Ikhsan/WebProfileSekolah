@@ -37,6 +37,7 @@ class KegiatanService
 
         $kegiatan = new Kegiatan();
         $kegiatan->setIdKegiatan(Uuid::uuid4()->toString());
+        $kegiatan->setTanggal($request->tanggal);
         $kegiatan->setNamaKegiatan($request->namaKegiatan);
         $kegiatan->setDeskripsi($request->deskripsi);
         $kegiatan->setFoto($this->uploadPhoto($request->foto));
@@ -66,6 +67,7 @@ class KegiatanService
             $kegiatan->setFoto($this->uploadPhoto($request->foto));
         }
 
+        $kegiatan->setTanggal($request->tanggal);
         $kegiatan->setNamaKegiatan($request->namaKegiatan);
         $kegiatan->setDeskripsi($request->deskripsi);
 

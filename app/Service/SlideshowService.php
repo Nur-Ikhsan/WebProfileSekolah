@@ -91,6 +91,7 @@ class SlideshowService
             }
             $slideshow->setFoto($this->uploadPhoto($request->foto));
         }
+        $this->validationUtil->validate($request->judul, 'Judul');
         $slideshow->setJudul($request->judul);
 
         return $this->slideshowRepository->updateSlideshow($slideshow);

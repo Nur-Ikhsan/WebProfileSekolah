@@ -228,8 +228,9 @@
                         <thead>
                         <tr>
                             <th scope="col" class="py-3 text-center">No</th>
-                            <th scope="col" class="py-3 text-center">Nama Kegiatan</th>
                             <th scope="col" class="py-3 text-center">Gambar</th>
+                            <th scope="col" class="py-3 text-center col-2">Tanggal</th>
+                            <th scope="col" class="py-3 text-center">Nama Kegiatan</th>
                             <th scope="col" class="py-3 text-center">Deskripsi</th>
                             <th scope="col" class="py-3 text-center">Aksi</th>
                         </tr>
@@ -238,11 +239,12 @@
                         <?php foreach ($model['kegiatanList'] as $index => $kegiatan) : ?>
                             <tr>
                                 <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
-                                <td><?= $kegiatan->getNamaKegiatan() ?></td>
                                 <td class="text-center">
                                     <img src="/images/upload/kegiatan/<?= $kegiatan->getFoto() ?>"
                                          alt="Foto kegiatan" width="100">
                                 </td>
+                                <td class="text-center"><?= $kegiatan->getTanggal() ?></td>
+                                <td><?= $kegiatan->getNamaKegiatan() ?></td>
                                 <td><?= $kegiatan->getDeskripsi() ?></td>
                                 <td class="text-center">
                                     <a href="#" data-bs-toggle="modal"
@@ -261,16 +263,17 @@
                                  tabindex="-1" aria-labelledby="editKegiatanModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="editKegiatanModalLabel">Edit Kegiatan</h5>
-                                            <button type="button" class="btn-closes" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
                                         <div class="modal-body">
+                                            <h5 class="modal-title mb-5 mt-4 text-center" id="editKegiatanModalLabel">Edit Data Kegiatan Sekolah</h5>
                                             <form method="POST"
                                                   action="/admin/sekolah/kegiatan-sekolah/edit/<?= $kegiatan->getIdKegiatan() ?>"
                                                   enctype="multipart/form-data">
                                                 <input type="hidden" name="_method" value="PUT">
+                                                <div class="mb-3">
+                                                    <label for="edit-tanggal" class="form-label">Tanggal</label>
+                                                    <input type="date" class="form-control" id="edit-tanggal"
+                                                           name="tanggal" required value="<?= $kegiatan->getTanggal() ?>">
+                                                </div>
                                                 <div class="mb-3">
                                                     <label for="edit-nama" class="form-label">Nama Kegiatan</label>
                                                     <input type="text" class="form-control" id="nama_kegiatan"
@@ -278,16 +281,19 @@
                                                            value="<?= $kegiatan->getNamaKegiatan() ?>">
                                                 </div>
                                                 <div class="mb-3">
+                                                    <label for="editFoto" class="form-label">Upload Gambar</label>
+                                                    <input type="file" class="form-control" id="editFoto" name="foto">
+                                                </div>
+                                                <div class="mb-3">
                                                     <label for="edit-deskripsi" class="form-label">Deskripsi</label>
                                                     <textarea class="form-control" id="edit-deskripsi" name="deskripsi"
                                                               required><?= $kegiatan->getDeskripsi() ?></textarea>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="editFoto" class="form-label">Gambar</label>
-                                                    <input type="file" class="form-control" id="editFoto" name="foto">
-                                                </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                                                    <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                                    <button type="button" class="btn button-admin batal pl-4"
+                                                            data-bs-dismiss="modal">Batal
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
@@ -306,7 +312,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data
-                                                Slide Show Beranda?</h6>
+                                                Kegiatan Sekolah?</h6>
                                             <br>
                                             <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
                                         </div>
@@ -405,26 +411,30 @@
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tambahKegiatanModalLabel">Tambah Kegiatan</h5>
-                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
+                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahKegiatanModalLabel">Tambah Data Kegiatan Sekolah</h5>
                 <form method="POST" action="/admin/sekolah/kegiatan-sekolah/tambah" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="tanggal" class="form-label">Tanggal</label>
+                        <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+                    </div>
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama Kegiatan</label>
                         <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" required>
                     </div>
                     <div class="mb-3">
+                        <label for="editFoto" class="form-label">Upload Gambar</label>
+                        <input type="file" class="form-control" id="editFoto" name="foto">
+                    </div>
+                    <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label for="editFoto" class="form-label">Gambar</label>
-                        <input type="file" class="form-control" id="editFoto" name="foto">
-                    </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                        <button type="button" class="btn button-admin batal pl-4"
+                                data-bs-dismiss="modal">Batal
+                        </button>
                     </div>
                 </form>
             </div>

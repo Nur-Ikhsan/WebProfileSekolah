@@ -207,7 +207,7 @@
             </div>
             <div class="row align-items-center box-edit">
                 <div class="col-12">
-                    <h4 class="text-center pb-3">Daftar Galeri</h4>
+                    <h4 class="text-center pb-3">Galeri</h4>
                     <div>
                         <div class="col-12 p-0 justify-content-end d-flex">
                             <button type="button" class="button-admin mb-1" data-bs-toggle="modal"
@@ -222,8 +222,8 @@
                         <thead>
                         <tr>
                             <th scope="col" class="py-3 text-center">No</th>
-                            <th scope="col" class="py-3 text-center">Judul Galeri</th>
                             <th scope="col" class="py-3 text-center">Gambar</th>
+                            <th scope="col" class="py-3 text-center">Judul Galeri</th>
                             <th scope="col" class="py-3 text-center">Nama Kegiatan</th>
                             <th scope="col" class="py-3 text-center">Aksi</th>
                         </tr>
@@ -232,11 +232,11 @@
                         <?php foreach ($model['galeriList'] as $index => $galeri) : ?>
                             <tr>
                                 <td class="text-center"><?= ($index + 1) ?></td>
-                                <td><?= $galeri->getJudulGaleri() ?></td>
                                 <td class="text-center">
                                     <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>"
                                          alt="Foto Guru/Staff" width="100">
                                 </td>
+                                <td><?= $galeri->getJudulGaleri() ?></td>
                                 <td><?= $galeri->getDeskripsi() ?></td>
                                 <td class="text-center">
                                     <a href="#" data-bs-toggle="modal"
@@ -250,17 +250,13 @@
                                 </td>
                             </tr>
 
-                            <!-- Edit Guru/Staff Modal -->
+                            <!-- Edit Galeri Modal -->
                             <div class="modal fade" id="editGaleriModal<?= $galeri->getIdGaleri() ?>" tabindex="-1"
                                  aria-labelledby="editGaleriModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="editGaleriLabel">Edit Galeri</h5>
-                                            <button type="button" class="btn-closes" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
                                         <div class="modal-body">
+                                            <h5 class="modal-title mb-5 mt-4 text-center" id="editGaleriLabel">Edit Data Galeri</h5>
                                             <form action="/admin/galeri/edit/<?= $galeri->getIdGaleri() ?>"
                                                   method="POST" enctype="multipart/form-data">
                                                 <div class="mb-3">
@@ -275,11 +271,14 @@
                                                               required><?= $galeri->getDeskripsi() ?></textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="editFoto" class="form-label">Gambar</label>
+                                                    <label for="editFoto" class="form-label">Upload Gambar</label>
                                                     <input type="file" class="form-control" id="editFoto" name="foto">
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                                                    <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                                    <button type="button" class="btn button-admin batal pl-4"
+                                                            data-bs-dismiss="modal">Batal
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
@@ -287,7 +286,7 @@
                                 </div>
                             </div>
 
-                            <!-- Delete Guru/Staff Modal -->
+                            <!-- Delete galeri Modal -->
                             <div class="modal fade" id="deleteGaleriModal<?= $galeri->getIdGaleri() ?>" tabindex="-1"
                                  aria-labelledby="deleteGaleriModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -389,16 +388,13 @@
         </div>
     </footer>
 </div>
-<!-- Tambah Guru/Staff Modal -->
+<!-- Tambah Galeri Modal -->
 <div class="modal fade" id="tambahGaleriModal" tabindex="-1" aria-labelledby="tambahGuruStaffModalLabel"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tambahGalerModalLabel">Tambah Galeri</h5>
-                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
+                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahGalerModalLabel">Tambah Data Galeri</h5>
                 <form action="/admin/galeri/tambah" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="judulGaleri" class="form-label">Judul Galeri</label>
@@ -409,11 +405,14 @@
                         <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="foto" class="form-label">Gambar</label>
+                        <label for="foto" class="form-label">Upload Gambar</label>
                         <input type="file" class="form-control" id="foto" name="foto" required>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                        <button type="button" class="btn button-admin batal pl-4"
+                                data-bs-dismiss="modal">Batal
+                        </button>
                     </div>
                 </form>
             </div>

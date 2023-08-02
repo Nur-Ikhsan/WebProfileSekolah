@@ -4,7 +4,8 @@
 :root {
   --white-color:                  #ffffff;
   --primary-color: #000000;
-  --secondary-color: #348355;
+  --secondary-color: #137A34;
+  --third-color: #137A38;
   --section-bg-color:             #f0f8ff;
   --section-bg-color-dark: #348355;
   --section-bg-color-soft: #96CCAB;
@@ -16,7 +17,7 @@
   --border-color:                 #7fffd4;
   --link-hover-color:             #13547a;
   --p-bg-color:                   #717275;
-  --button-color   : #676d45;
+  --button-color   : #31408D;
   --bg-light-green: #CBECD8;
   --bg-light-blue: #BBD6EE;
   --bg-light-yellow: #E7EEBB;
@@ -146,7 +147,7 @@ strong {
 }
 
 .section-bg-dark {
-  background-color: var(--section-bg-color-dark);
+  background-color: var(--secondary-color);
 }
 
 .section-bg-soft {
@@ -584,7 +585,7 @@ strong {
 }
 
 .custom-block:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--third-color);
   transform: translateY(-3px);
 }
 
@@ -1253,9 +1254,15 @@ blockquote {
   color: var(--white-color);
 }
 
+.mx-70,
 .mt-70 {
   margin-top: 70px;
 }
+.mx-70,
+.mb-70 {
+  margin-bottom: 70px;
+}
+
 .mt-120 {
   margin-top: 120px;
 }
@@ -1657,6 +1664,17 @@ blockquote {
   font-weight: 300;
 }
 
+.breadcrumb .actived {
+  color: white;
+  font-weight: 300;
+}
+
+.breadcrumb .a {
+  color: #000000;
+  transition: 0.3s;
+  font-weight: normal;
+}
+
 .secondary-color {
   color: #31408D; !important;
 }
@@ -1984,7 +2002,7 @@ blockquote {
 
 .button-admin {
   display: flex;
-  height: 41px;
+  height: 36px;
   padding: 3px 8px 2px 7px;
   justify-content: center;
   align-items: center;
@@ -2012,7 +2030,9 @@ blockquote {
 .button-admin.batal {
   background-color: #6C757D;
   color: #FFF;
-  margin-left: 1rem !important
+  margin-left: 1rem !important;
+  padding-left: 36px;
+  padding-right: 36px;
 }
 
 .button-admin.batal:hover {

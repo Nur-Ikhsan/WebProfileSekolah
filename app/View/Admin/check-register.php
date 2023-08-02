@@ -252,13 +252,8 @@
                                      tabindex="-1" aria-labelledby="editCheckRegisterModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="editCheckRegisterModalLabel">Edit
-                                                    Prestasi</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                            </div>
                                             <div class="modal-body">
+                                                <h5 class="modal-title mb-5 mt-4 text-center" id="editCheckRegisterModalLabel">Edit Status Akun Admin</h5>
                                                 <form method="POST"
                                                       action="/admin/check-register/edit/<?= $dataAdmin->getId() ?>"
                                                       enctype="multipart/form-data">
@@ -276,7 +271,9 @@
                                                         </select>
                                                     </div>
                                                     <div class="modal-footer justify-content-center">
-                                                        <button type="submit" class="btn btn-primary px-4">Simpan
+                                                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                                        <button type="button" class="btn button-admin batal pl-4"
+                                                                data-bs-dismiss="modal">Batal
                                                         </button>
                                                     </div>
                                                 </form>

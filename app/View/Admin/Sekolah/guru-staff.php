@@ -202,14 +202,14 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/index">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Profile Sekolah</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Guru & Staff</li>
+                            <li class="breadcrumb-item active" aria-current="page">Guru dan Staff</li>
                         </ol>
                     </nav>
                 </div>
             </div>
             <div class="row align-items-center box-edit">
                 <div class="col-12">
-                    <h4 class="text-center pb-3">Daftar Guru & Staff</h4>
+                    <h4 class="text-center pb-3">Daftar Guru dan Staff</h4>
                     <div>
                         <div class="col-12 p-0 justify-content-end d-flex">
                             <button type="button" class="button-admin mb-1" data-bs-toggle="modal"
@@ -240,8 +240,8 @@
                                         <img src="/images/upload/guru-staff/<?= $guruStaff->getFoto() ?>"
                                              alt="Foto Guru/Staff" width="100">
                                     </td>
-                                    <td><?= $guruStaff->getNamaGuru() ?></td>
-                                    <td><?= $guruStaff->getJabatan() ?></td>
+                                    <td class="text-center"><?= $guruStaff->getNamaGuru() ?></td>
+                                    <td class="text-center"><?= $guruStaff->getJabatan() ?></td>
                                     <td class="text-center">
                                         <a href="#" data-bs-toggle="modal"
                                            data-bs-target="#editGuruStaffModal<?= $guruStaff->getIdGuruStaff() ?>">
@@ -259,13 +259,9 @@
                                      tabindex="-1" aria-labelledby="editGuruStaffModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="editGuruStaffModalLabel">Edit Guru &
-                                                    Staff</h5>
-                                                <button type="button" class="btn-closes" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                            </div>
                                             <div class="modal-body">
+                                                <h5 class="modal-title mb-5 mt-4 text-center" id="editGuruStaffModalLabel">Edit Data Guru dan
+                                                    Staff</h5>
                                                 <form method="POST"
                                                       action="/admin/sekolah/guru-staff/edit/<?= $guruStaff->getIdGuruStaff() ?>"
                                                       enctype="multipart/form-data">
@@ -283,12 +279,14 @@
                                                                   required><?= $guruStaff->getJabatan() ?></textarea>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="edit-foto" class="form-label">Gambar</label>
+                                                        <label for="edit-foto" class="form-label">Upload Gambar</label>
                                                         <input type="file" class="form-control" id="edit-foto"
                                                                name="foto" value="<?= $guruStaff->getFoto() ?>">
                                                     </div>
                                                     <div class="modal-footer justify-content-center">
-                                                        <button type="submit" class="btn btn-primary px-4">Simpan
+                                                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                                        <button type="button" class="btn button-admin batal pl-4"
+                                                                data-bs-dismiss="modal">Batal
                                                         </button>
                                                     </div>
                                                 </form>
@@ -309,7 +307,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus
-                                                    Data Slide Show Beranda?</h6>
+                                                    Data Guru dan Staff?</h6>
                                                 <br>
                                                 <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data
                                                     ini?</p>
@@ -407,11 +405,8 @@
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tambahGuruStaffModalLabel">Tambah Guru & Staff</h5>
-                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
+                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahGuruStaffModalLabel">Tambah Data Guru & Staff</h5>
                 <form method="POST" action="/admin/sekolah/guru-staff/tambah" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama Guru/Staff</label>
@@ -422,11 +417,14 @@
                         <textarea class="form-control" id="jabatan" name="jabatan" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="foto" class="form-label">Gambar</label>
+                        <label for="foto" class="form-label">Upload Gambar</label>
                         <input type="file" class="form-control" id="foto" name="foto" required>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                        <button type="button" class="btn button-admin batal pl-4"
+                                data-bs-dismiss="modal">Batal
+                        </button>
                     </div>
                 </form>
             </div>

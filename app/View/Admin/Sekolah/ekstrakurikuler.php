@@ -262,13 +262,8 @@
                                  tabindex="-1" aria-labelledby="editEkstrakurikulerModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="editEkstrakurikulerModalLabel">Edit
-                                                Ekstrakurikuler</h5>
-                                            <button type="button" class="btn-closes" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
                                         <div class="modal-body">
+                                            <h5 class="modal-title mb-5 mt-4 text-center" id="editEkstrakurikulerModalLabel">Edit Data Ekstrakurikuler</h5>
                                             <form method="POST"
                                                   action="/admin/sekolah/ekstrakurikuler/edit/<?= $ekstrakurikuler->getIdEkstrakurikuler() ?>"
                                                   enctype="multipart/form-data">
@@ -286,12 +281,15 @@
                                                               required><?= $ekstrakurikuler->getDeskripsi() ?></textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="edit-foto" class="form-label">Icon</label>
+                                                    <label for="edit-foto" class="form-label">Upload Icon</label>
                                                     <input type="file" class="form-control" id="edit-icon" name="icon"
                                                            value="<?= $ekstrakurikuler->getIcon() ?>">
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                                                    <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                                    <button type="button" class="btn button-admin batal pl-4"
+                                                            data-bs-dismiss="modal">Batal
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
@@ -311,7 +309,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data
-                                                Slide Show Beranda?</h6>
+                                                Ekstrakurikuler?</h6>
                                             <br>
                                             <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
                                         </div>
@@ -410,11 +408,9 @@
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tambahEkstrakurikulerModalLabel">Tambah Ekstrakurikuler</h5>
-                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
+                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahEkstrakurikulerModalLabel">Tambah Data Ekstrakurikuler</h5>
+
                 <form method="POST" action="/admin/sekolah/ekstrakurikuler/tambah" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama Ekstrakurikuler</label>
@@ -425,11 +421,14 @@
                         <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="foto" class="form-label">Icon</label>
+                        <label for="foto" class="form-label">Upload Icon</label>
                         <input type="file" class="form-control" id="icon" name="icon" required>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                        <button type="button" class="btn button-admin batal pl-4"
+                                data-bs-dismiss="modal">Batal
+                        </button>
                     </div>
                 </form>
             </div>

@@ -150,6 +150,48 @@
     </aside>
 
     <main id="main" class="main">
+        <div id="SweetAlert2">
+            <?php if (($model['message']['title'] != null) and ($model['message']['description'] != null)): ?>
+                <?php if ($model['message']['error'] == null): ?>
+                    <script>
+                      Swal.fire({
+                        icon: 'success',
+                        title: '<?= $model['message']['title'] ?>',
+                        html: '<?= $model['message']['description'] ?>',
+                        confirmButtonText: 'Kembali',
+                        showCancelButton: false,
+                        allowOutsideClick: false,
+                        customClass: {
+                          confirmButton: 'button-admin px-4'
+                        }
+                      }).then(function (result) {
+                        if (result.isConfirmed) {
+                          window.location.href = '/admin';
+                        }
+                      });
+                    </script>
+                <?php else: ?>
+                    <script>
+                      Swal.fire({
+                        icon: 'error',
+                        title: '<?= $model['message']['title'] ?>',
+                        html: '<?= $model['message']['description'] ?>',
+                        footer: '<details class="my-3"> <summary class="text-center text-danger">Error Details</summary> <p class="text-center text-danger"><?= $model['message']['error'] ?></p> </details>',
+                        confirmButtonText: 'Coba Lagi',
+                        showCancelButton: false,
+                        allowOutsideClick: true,
+                        customClass: {
+                          confirmButton: 'button-admin delete px-4'
+                        }
+                      }).then(function (result) {
+                        if (result.isConfirmed) {
+                          window.location.href = '/admin';
+                        }
+                      });
+                    </script>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
         <div class="container">
             <div class="row align-items-center">
 
@@ -167,7 +209,7 @@
             </div>
             <div class="row align-items-center box-edit">
                 <div class="col-12">
-                    <h4 class="text-center pb-3">Gambar Slide Show Beranda</h4>
+                    <h4 class="text-center pb-3">Dashboard</h4>
                     <div>
                         <div class="col-12 p-0 justify-content-end d-flex">
                             <a href="/admin/slideshow/tambah" class="button-admin mb-1"><span class="p-4"><i class="bi bi-plus-circle"></i><span class="m-3">Tambah Data</span></span></a>
@@ -180,8 +222,8 @@
                         <thead>
                         <tr>
                             <th scope="col" class="py-3 text-center">No</th>
-                            <th scope="col" class="py-3 text-center">Judul</th>
                             <th scope="col" class="py-3 text-center">Gambar</th>
+                            <th scope="col" class="py-3 text-center">Judul</th>
                             <th scope="col" class="py-3 text-center">Aksi</th>
                         </tr>
                         </thead>
@@ -189,10 +231,10 @@
                         <?php foreach ($model['slideshows'] as $index => $slideshow): ?>
                             <tr>
                                 <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
-                                <td><?= $slideshow->getJudul() ?></td>
                                 <td class="text-center">
                                     <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" alt="Slide Show Image" width="100">
                                 </td>
+                                <td class="text-center"><?= $slideshow->getJudul() ?></td>
                                 <td class="text-center">
                                     <a href="/admin/slideshow/edit/<?= $slideshow->getId() ?>"><i class="bi bi-pencil-square"></i></a> |
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal<?= $slideshow->getId() ?>"><i class="bi bi-trash"></i></a>

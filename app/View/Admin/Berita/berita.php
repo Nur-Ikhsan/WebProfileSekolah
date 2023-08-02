@@ -229,9 +229,9 @@
                         <thead>
                         <tr>
                             <th scope="col" class="py-3 text-center">No</th>
+                            <th scope="col" class="py-3 text-center">Gambar</th>
                             <th scope="col" class="py-3 text-center col-2">Tanggal</th>
                             <th scope="col" class="py-3 text-center">Judul Berita</th>
-                            <th scope="col" class="py-3 text-center">Foto</th>
                             <th scope="col" class="py-3 text-center">Isi Berita</th>
                             <th scope="col" class="py-3 text-center col-2">Aksi</th>
                         </tr>
@@ -240,12 +240,12 @@
                         <?php foreach ($model['beritaList'] as $index => $berita) : ?>
                             <tr>
                                 <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
-                                <td class="text-center"><?= $berita->getTanggal() ?></td>
-                                <td><?= $berita->getJudulBerita() ?></td>
                                 <td class="text-center">
                                     <img src="/images/upload/berita/<?= $berita->getFoto() ?>" alt="Foto Berita"
                                          width="100">
                                 </td>
+                                <td class="text-center"><?= $berita->getTanggal() ?></td>
+                                <td><?= $berita->getJudulBerita() ?></td>
                                 <td><?= substr($berita->getIsiBerita(), 0, 100) . (strlen($berita->getIsiBerita()) > 100 ? '...' : '') ?></td>
                                 <td class="text-center">
                                     <a href="#" data-bs-toggle="modal"
@@ -259,17 +259,13 @@
                                 </td>
                             </tr>
 
-                            <!-- Edit Guru/Staff Modal -->
+                            <!-- Edit Berita Modal -->
                             <div class="modal fade" id="editBeritaModal<?= $berita->getIdBerita() ?>" tabindex="-1"
                                  aria-labelledby="editBeritaModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-headers">
-                                            <button type="button" class="btn-closes" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
                                         <div class="modal-body">
-                                            <h6 class="modal-title text-center" id="editBeritaLabel">Edit Berita</h6>
+                                            <h5 class="modal-title mb-5 mt-4 text-center" id="editBeritaLabel">Edit Data Berita</h5>
                                             <form method="POST"
                                                   action="/admin/berita/edit/<?= $berita->getIdBerita() ?>"
                                                   enctype="multipart/form-data">
@@ -286,7 +282,7 @@
                                                            value="<?= $berita->getJudulBerita() ?>">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="edit-foto" class="form-label">Foto</label>
+                                                    <label for="edit-foto" class="form-label">Upload Gambar</label>
                                                     <input type="file" class="form-control" id="edit-foto" name="foto">
                                                 </div>
                                                 <div class="mb-3">
@@ -296,7 +292,10 @@
                                                               required><?= $berita->getIsiBerita() ?></textarea>
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                                                    <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                                    <button type="button" class="btn button-admin batal pl-4"
+                                                            data-bs-dismiss="modal">Batal
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
@@ -304,7 +303,7 @@
                                 </div>
                             </div>
 
-                            <!-- Delete Guru/Staff Modal -->
+                            <!-- Delete Berita Modal -->
                             <div class="modal fade" id="deleteBeritaModal<?= $berita->getIdBerita() ?>" tabindex="-1"
                                  aria-labelledby="deleteBeritaModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -413,12 +412,8 @@
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-headers">
-                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
-                <h6 class="modal-title text-center" id="tambahBeritaModalLabel">Tambah Berita</h6>
-                <br>
+                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahBeritaModalLabel">Tambah Berita</h5>
                 <form method="POST" action="/admin/berita/tambah" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="tanggal" class="form-label">Tanggal</label>
@@ -429,7 +424,7 @@
                         <input type="text" class="form-control" id="judulBerita" name="judulBerita" required>
                     </div>
                     <div class="mb-3">
-                        <label for="foto" class="form-label">Gambar</label>
+                        <label for="foto" class="form-label">Upload Gambar</label>
                         <input type="file" class="form-control" id="foto" name="foto" required>
                     </div>
                     <div class="mb-3">
@@ -437,7 +432,10 @@
                         <textarea class="form-control textarea-tinymce" id="isiBerita" name="isiBerita" rows="5"></textarea>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                        <button type="button" class="btn button-admin batal pl-4"
+                                data-bs-dismiss="modal">Batal
+                        </button>
                     </div>
                 </form>
             </div>

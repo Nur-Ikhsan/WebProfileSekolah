@@ -57,6 +57,7 @@ CREATE TABLE kegiatan
     id_kegiatan   VARCHAR(255) PRIMARY KEY,
     nama_kegiatan VARCHAR(255),
     deskripsi     TEXT,
+    tanggal       DATE,
     foto           VARCHAR(255)
 );
 

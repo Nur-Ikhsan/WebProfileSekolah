@@ -35,37 +35,6 @@ class AdminController
         $this->sessionService = new SessionService($sessionRepository, $adminRepository);
     }
 
-    public function index(): void
-    {
-        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 10;
-        // Menghitung total jumlah slideshow
-        $totalCount = count($this->slideshowService->getAllSlideshows());
-        $slideshows = $this->slideshowService->getAllSlideshowsPagination($page, $perPage);
-        $admin = $this->sessionService->findSession();
-        if ($admin === null) {
-            View::redirect('/admin/login');
-        } else {
-            View::render('Admin/index', [
-                'title' => 'Dashboard Admin',
-                'slideshows' => $slideshows,
-                'admin' => [
-                    'id' => $admin->getId(),
-                    'username' => $admin->getUsername(),
-                    'nama' => $admin->getGuruStaff()->getNamaGuru(),
-                    'jabatan' => $admin->getGuruStaff()->getJabatan(),
-                    'foto' => $admin->getGuruStaff()->getFoto()
-                ],
-                'pagination' => [
-                    'page' => $page,
-                    'perPage' => $perPage,
-                    'totalPages' => ceil($totalCount / $perPage)
-                ]
-            ]);
-        }
-    }
-
-
     public function register(): void
     {
         $admin = $this->sessionService->findSession();

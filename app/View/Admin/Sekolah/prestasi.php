@@ -210,7 +210,7 @@
             </div>
             <div class="row align-items-center box-edit">
                 <div class="col-12">
-                    <h4 class="text-center pb-3">Daftar Prestasi</h4>
+                    <h4 class="text-center pb-3">Prestasi</h4>
                     <div>
                         <div class="col-12 p-0 justify-content-end d-flex">
                             <button type="button" class="button-admin mb-1" data-bs-toggle="modal"
@@ -255,11 +255,8 @@
                             <div class="modal fade" id="editPrestasiModal<?= $prestasi->getId() ?>" tabindex="-1" aria-labelledby="editPrestasiModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="editPrestasiModalLabel">Edit Prestasi</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
                                         <div class="modal-body">
+                                            <h5 class="modal-title mb-5 mt-4 text-center" id="editPrestasiModalLabel">Edit Data Prestasi</h5>
                                             <form method="POST" action="/admin/sekolah/prestasi/edit/<?= $prestasi->getId() ?>" enctype="multipart/form-data">
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <div class="mb-3">
@@ -267,7 +264,7 @@
                                                     <input type="date" class="form-control" id="edit-tanggal" name="tanggal" value="<?= $prestasi->getTanggal() ?>" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="edit-kategori" class="form-label">Kategori</label>
+                                                    <label for="edit-kategori" class="form-label">Kategori Prestasi</label>
                                                     <select class="form-select" id="edit-kategori" name="kategori" required>
                                                         <option value="Prestasi Siswa" <?= $prestasi->getKategori() === 'Prestasi Siswa' ? 'selected' : '' ?>>Prestasi Siswa</option>
                                                         <option value="Prestasi Guru" <?= $prestasi->getKategori() === 'Prestasi Guru' ? 'selected' : '' ?>>Prestasi Guru</option>
@@ -278,7 +275,12 @@
                                                     <label for="edit-nama-prestasi" class="form-label">Nama Prestasi</label>
                                                     <input type="text" class="form-control" id="edit-nama-prestasi" name="namaPrestasi" value="<?= $prestasi->getNama() ?>" required>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                                    <button type="button" class="btn button-admin batal pl-4"
+                                                            data-bs-dismiss="modal">Batal
+                                                    </button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -383,18 +385,15 @@
 <div class="modal fade" id="tambahPrestasiModal" tabindex="-1" aria-labelledby="tambahPrestasiModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tambahPrestasiModalLabel">Tambah Prestasi</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
+                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahPrestasiModalLabel">Tambah Data Prestasi</h5>
                 <form method="POST" action="/admin/sekolah/prestasi/tambah" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="tambah-tanggal" class="form-label">Tanggal</label>
                         <input type="date" class="form-control" id="tambah-tanggal" name="tanggal" required>
                     </div>
                     <div class="mb-3">
-                        <label for="tambah-kategori" class="form-label">Kategori</label>
+                        <label for="tambah-kategori" class="form-label">Kategori Prestasi</label>
                         <select class="form-select" id="tambah-kategori" name="kategori" required>
                             <option value="Prestasi Siswa">Prestasi Siswa</option>
                             <option value="Prestasi Guru">Prestasi Guru</option>
@@ -405,7 +404,12 @@
                         <label for="tambah-nama-prestasi" class="form-label">Nama Prestasi</label>
                         <input type="text" class="form-control" id="tambah-nama-prestasi" name="namaPrestasi" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                        <button type="button" class="btn button-admin batal pl-4"
+                                data-bs-dismiss="modal">Batal
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

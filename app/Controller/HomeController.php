@@ -172,7 +172,7 @@ class HomeController
         $message = null;
         $error = null;
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 10;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 12;
         // Menghitung total jumlah slideshow
         $totalCount = count($this->fasilitasService->getAllFasilitas());
         $fasilitasList = $this->fasilitasService->getAllFasilitasPagination($page, $perPage);

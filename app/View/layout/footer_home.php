@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="text-center">
-                    <p class="mt-lg-5 mt-4 text-white">© 2023 - MTs Negeri 2 Sambas</p>
+                    <p class="mt-lg-5 mt-4 text-white">Copyright © 2023 RubyGroup</p>
                 </div>
             </div>
         </div>
@@ -57,28 +57,6 @@
 
 
 </footer>
-
-<!-- JAVASCRIPT FILES -->
-<!-- <script>
-document.addEventListener("DOMContentLoaded", function() {
-    var navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-
-    //console.log(navLinks); // Periksa apakah elemen terpilih dengan benar
-
-    navLinks.forEach(function(link) {
-        link.addEventListener("click", function(e) {
-
-            var navbarCollapse = document.querySelector(".navbar-collapse");
-
-            if (navbarCollapse.classList.contains("show")) {
-                navbarCollapse.classList.remove("show");
-            }
-
-        });
-    });
-});
-</script> -->
-
 <script>
   // Mengambil semua elemen gambar yang dapat diklik
   var clickableImages = document.querySelectorAll('[data-bs-toggle="modal"]');

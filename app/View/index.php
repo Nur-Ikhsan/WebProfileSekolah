@@ -43,10 +43,10 @@
                         <img class="rounded-4 img-fluid img-responsive" src="/images/ppdb1.png" alt="img">
                     </div>
                     <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
-                        <h6>Pendaftaran Peserta Didik Baru</h6>
+                        <h6 class="text-white">PENDAFTARAN PESERTA DIDIK BARU</h6>
                         <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2
                             Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
-                        <a href="/ppdb" class="btn custom-btn mt-3 mt-lg-4 button-color">Read More</a>
+                        <a href="/ppdb" class="btn custom-btn mt-3 mt-lg-4 button-color">Baca Selengkapnya</a>
                     </div>
                 </div>
 
@@ -65,40 +65,33 @@
         </div>
         <div class="album  bg-light">
             <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
-                <?php foreach ($beritaList as $berita): ?>
+                <?php
+                $counter = 0; // Counter untuk menghitung jumlah item
+                foreach ($beritaList as $berita):
+                    if ($counter >= 6) {
+                        break; // Hentikan perulangan jika sudah mencapai 6 item
+                    }
+                    ?>
                     <div class="col-4">
                         <div class="card shadow-sm">
-                            <!-- Gambar yang dapat diklik -->
                             <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid "
                                  alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal">
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                                 aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-body">
-                                            <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid"
-                                                 alt="Image Alt Text">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+                        <a href="/detail_berita?id=<?= $berita->getIdBerita(); ?>"
+                           class="icon-link blink gap-1 icon-link-hover stretched-link">
                         <div class="card-body rounded-bottom">
                             <h6 class="mb-0 my-3 text"><?= $berita->getJudulBerita(); ?></h6>
                             <div class="limit-text">
                                 <p class="card-text mb-auto my-3 "><?= $berita->getIsiBerita(); ?></p>
                             </div>
-
-                            <a href="/detail_berita?id=<?= $berita->getIdBerita(); ?>"
-                               class="icon-link blink gap-1 icon-link-hover stretched-link">
-                                Baca Selengkapnya
-                            </a>
+                                <p class="text-primary">Baca Selengkapnya >></p>
                         </div>
+                        </a>
                     </div>
-
-                <?php endforeach; ?>
+                    <?php
+                    $counter++;
+                endforeach;
+                ?>
             </div>
             <div class="text-center"> <!-- Wrap the button in a container with "text-center" class -->
                 <button type="button" class="btn-custom mt-5" onclick="window.location.href='/berita'">Tampilkan Semua
@@ -149,15 +142,16 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-6 col-12">
-                    <h2 class="mb-4">Prestasi</h2>
+                <div class="col-12">
+                    <h2 class="mb-4 text-center">Prestasi</h2>
                 </div>
 
                 <div class="clearfix"></div>
 
-                <div class="col-lg-5 col-12">
-                    <img src="images/prestasi.png" class="img-fluid" alt="FAQs">
+                <div class="mb-4 col-lg-5 col-12 m-auto text-center">
+                    <img src="images/prestasi.png" class="img-fluid mx-auto" alt="FAQs">
                 </div>
+
 
                 <div class="col-lg-6 col-12 m-auto">
                     <div class="accordion" id="accordionExample">
@@ -225,7 +219,7 @@
                     <?php endforeach; ?>
                 </div>
                 <div class="text-center"> <!-- Wrap the button in a container with "text-center" class -->
-                    <button type="button" class="btn-custom mt-5" onclick="window.location.href='/berita'">Tampilkan Semua
+                    <button type="button" class="btn-custom mt-5" onclick="window.location.href='/guru-staff'">Tampilkan Semua
                     </button>
                 </div>
             </div>

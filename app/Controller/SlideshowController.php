@@ -28,6 +28,41 @@ class SlideshowController
         $this->sessionService = new SessionService($sessionRepository, $adminRepository);
     }
 
+    public function index($title = null, $message = null, $error = null): void
+    {
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 10;
+        // Menghitung total jumlah slideshow
+        $totalCount = count($this->slideshowService->getAllSlideshows());
+        $slideshows = $this->slideshowService->getAllSlideshowsPagination($page, $perPage);
+        $admin = $this->sessionService->findSession();
+        if ($admin === null) {
+            View::redirect('/admin/login');
+        } else {
+            View::render('Admin/index', [
+                'title' => 'Dashboard Admin',
+                'slideshows' => $slideshows,
+                'admin' => [
+                    'id' => $admin->getId(),
+                    'username' => $admin->getUsername(),
+                    'nama' => $admin->getGuruStaff()->getNamaGuru(),
+                    'jabatan' => $admin->getGuruStaff()->getJabatan(),
+                    'foto' => $admin->getGuruStaff()->getFoto()
+                ],
+                'pagination' => [
+                    'page' => $page,
+                    'perPage' => $perPage,
+                    'totalPages' => ceil($totalCount / $perPage)
+                ],
+                'message' => [
+                    'title' => $title,
+                    'description' => $message,
+                    'error' => $error
+                ]
+            ]);
+        }
+    }
+
     public function tambahSlideshow(): void
     {
         $admin = $this->sessionService->findSession();
@@ -75,18 +110,19 @@ class SlideshowController
 
     public function deleteSlideshow(string $id): void
     {
+        $title = null;
+        $message = null;
+        $error = null;
         try {
             $this->slideshowService->deleteSlideshow($id);
-            // Redirect ke halaman yang sesuai setelah penghapusan berhasil
-            View::redirect('/admin');
-        } catch (\Exception $e) {
-            // Handle error jika terjadi kesalahan saat menghapus slideshow
-            View::render('error', [
-                'title' => 'Error',
-                'error' => $e->getMessage()
-            ]);
+            $title = 'Data Berhasil Terhapus';
+            $message = 'Selamat data Anda berhasil dihapus';
+        } catch (ValidationException $exception) {
+            $title = 'Data Gagal Tersimpan';
+            $message = 'Silakan coba lagi untuk menyelesaikan permintaan';
+            $error = $exception->getMessage();
         }
-
+        $this->index($title, $message, $error);
     }
 
     public function editSlideshow(string $id): void

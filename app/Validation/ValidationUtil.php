@@ -30,8 +30,12 @@ class ValidationUtil
         }
     }
 
-    public function validate(array $foto)
+    // Validasi string agar tidak kosong
+    public function validate(string $value, string $fieldName): void
     {
+        if (empty($value)) {
+            throw new ValidationException("Field $fieldName tidak boleh kosong.");
+        }
     }
 
 }

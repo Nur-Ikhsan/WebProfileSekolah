@@ -2,25 +2,32 @@
 
 
 
-    <header class="site-header d-flex flex-column justify-content-center align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
+    <section class="corausel-section slide-width">
+        <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
 
-                <div class="col-lg-5 col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
-
-                            <li class="breadcrumb-item active" aria-current="page">Berita</li>
-                        </ol>
-                    </nav>
-
-                    <h2 class="text-white">Berita</h2>
-                </div>
-
+            <div class="carousel-inner">
+                <?php $count = 0; ?>
+                <?php foreach ($slideshows as $slideshow): ?>
+                    <?php $count++; ?>
+                    <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
+                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100" alt="<?= $slideshow->getJudul() ?>">
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </header>
+    </section>
+    <section class="search">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="my-4 d-flex search">
+                        <input type="text" class="form-control me-2" placeholder="Cari..." aria-label="Cari">
+                        <button class="btn btn-primary" type="button">Cari</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <section class="py-1 container">

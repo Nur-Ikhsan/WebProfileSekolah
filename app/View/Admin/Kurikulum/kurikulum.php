@@ -234,7 +234,7 @@
             </div>
             <div class="row align-items-center box-edit">
                 <div class="col-12">
-                    <h4 class="text-center pb-3">Tabel Struktur Kurikulum</h4>
+                    <h4 class="text-center pb-3">Struktur Kurikulum</h4>
                     <div>
                         <div class="col-12 p-0 justify-content-end d-flex">
                             <button type="button" class="button-admin mb-1" data-bs-toggle="modal"
@@ -280,14 +280,9 @@
                                  aria-labelledby="editKurikulumModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-headers">
-                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal"
-                                                    aria-label="Close" id="modalCloseButton"></button>
-                                        </div>
                                         <div class="modal-body">
-                                            <h6 class="modal-title" id="editKurikulumModalLabel">Edit Struktur
-                                                Kurikulum</h6>
-                                            <br>
+                                            <h5 class="modal-title  mb-5 mt-4 text-center" id="editKurikulumModalLabel">Edit Struktur
+                                                Kurikulum</h5>
                                             <form method="POST"
                                                   action="/admin/kurikulum/edit/<?= $kurikulum->getId() ?>"
                                                   enctype="multipart/form-data">
@@ -326,7 +321,10 @@
                                                            value="<?= $kurikulum->getSubKomponen() ?>" required>
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
-                                                    <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                                                    <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                                    <button type="button" class="btn button-admin batal pl-4"
+                                                            data-bs-dismiss="modal">Batal
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>
@@ -343,7 +341,7 @@
                                             <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal" aria-label="Close" id="modalCloseButton"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data Slide Show Beranda?</h6>
+                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data Struktur Kurikulum?</h6>
                                             <br>
                                             <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
                                         </div>
@@ -439,11 +437,8 @@
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-headers">
-                <h5 class="modal-title" id="tambahKurikulumModalLabel">Tambah Struktur Kurikulum</h5>
-                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
             <div class="modal-body">
+                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahKurikulumModalLabel">Tambah Data Struktur Kurikulum</h5>
                 <form method="POST" action="/admin/kurikulum/tambah" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="tambah-kategori" class="form-label">Kategori</label>
@@ -465,7 +460,10 @@
                                required>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                        <button type="button" class="btn button-admin batal pl-4"
+                                data-bs-dismiss="modal">Batal
+                        </button>
                     </div>
                 </form>
             </div>
@@ -477,11 +475,9 @@
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-headers">
-                <h5 class="modal-title" id="editKurikulum2ModalLabel">Edit Kurikulum</h5>
-                <button type="button" class="btn-closes" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
+
             <div class="modal-body">
+                <h5 class="modal-title mb-5 mt-4 text-center" id="editKurikulum2ModalLabel">Edit Data Kurikulum</h5>
                 <form method="POST" action="/admin/kurikulum/edit">
                     <div class="mb-3">
                         <label for="edit-nama" class="form-label">Nama Kurikulum</label>
@@ -494,7 +490,10 @@
                                   required><?= $model['kurikulum']['deskripsi'] ?></textarea>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-primary px-4">Simpan</button>
+                        <button type="submit" class="btn button-admin px-4">Simpan</button>
+                        <button type="button" class="btn button-admin batal pl-4"
+                                data-bs-dismiss="modal">Batal
+                        </button>
                     </div>
                 </form>
             </div>
