@@ -19,52 +19,51 @@
 
                     <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                         <div class="d-flex">
-                            <div class="custom-block-topics-listing-info d-flex">
-                                <div>
-                                    <div class="accordion" id="accordionExample">
-                                        <div class="accordion" id="accordionExample">
-                                            <?php
-                                            $currentCategory = null;
-                                            foreach ($kurikulumList as $kurikulumItem) :
-                                            if ($kurikulumItem->getKategori() !== $currentCategory) :
-                                            // Start a new accordion item for a new category
-                                            if ($currentCategory !== null) :
-                                                // Close the previous accordion item if it exists
-                                                echo '</div></div></div>';
-                                            endif;
-                                            ?>
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="heading<?= $kurikulumItem->getId() ?>">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                            data-bs-target="#collapse<?= $kurikulumItem->getId() ?>" aria-expanded="false"
-                                                            aria-controls="collapse<?= $kurikulumItem->getId() ?>">
-                                                        <?= $kurikulumItem->getKategori() ?>
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse<?= $kurikulumItem->getId() ?>" class="accordion-collapse collapse"
-                                                     aria-labelledby="heading<?= $kurikulumItem->getId() ?>" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        <?php
-                                                        endif;
-                                                        // Display komponen and subKomponen under the current accordion item
-                                                        ?>
-                                                        <p><?= $kurikulumItem->getKomponen() ?></p>
-                                                        <p><?= $kurikulumItem->getSubKomponen() ?></p>
-                                                        <?php
-                                                        $currentCategory = $kurikulumItem->getKategori();
-                                                        endforeach;
+                            <div class="accordion" id="accordionExample">
+                                <!-- Awal Perulangan -->
+                                <?php
+                                $previousCategory = null;
+                                foreach ($kurikulumList as $index => $kurikulum):
+                                $currentCategory = $kurikulum->getKategori();
+                                $id = str_replace(' ', '_', $currentCategory);
 
-                                                        // Close the last accordion item
-                                                        if ($currentCategory !== null) :
-                                                            echo '</div></div></div>';
-                                                        endif;
-                                                        ?>
-                                                    </div>
+                                if ($currentCategory !== $previousCategory):
+                                ?>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading<?= $id ?>">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse<?= $id ?>" aria-expanded="false"
+                                            aria-controls="collapse<?= $id ?>">
+                                        <?= $currentCategory ?>
+                                    </button>
+                                </h2>
+                                <div id="collapse<?= $id ?>" class="accordion-collapse collapse <?= ($index === 0) ? 'show' : '' ?>"
+                                     aria-labelledby="heading<?= $id ?>" data-bs-parent="#accordionExample">
+                                <ol>
+                                    <?php
+                                    endif;
+                                    // Tampilkan komponen
+                                    ?>
+                                <li class=" mx-4">
+                                    <div class="accordion-body">
+                                        <?= $kurikulum->getKomponen() ?>
+                                    </div>
+                                </li>
+                                    <?php
+                                    $previousCategory = $currentCategory;
 
-                                                </div>
+                                    // Tutup accordion-collapse dan accordion-item setelah perulangan terakhir atau saat kategorinya berbeda
+                                    $nextKurikulum = ($index + 1 < count($kurikulumList)) ? $kurikulumList[$index + 1] : null;
+                                    if ($nextKurikulum === null || $nextKurikulum->getKategori() !== $currentCategory):
+                                        ?>
+                                        </ol>
                                 </div>
                             </div>
+                        <?php endif; endforeach; ?>
+                            <!-- Akhir Perulangan -->
+                            </div>
                         </div>
+                    </div>
                     </div>
                 </div>
 

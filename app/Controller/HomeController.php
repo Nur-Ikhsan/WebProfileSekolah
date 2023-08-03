@@ -210,7 +210,7 @@ class HomeController
     function guruStaf(): void
     {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 9;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 12;
 
         $totalCount = count($this->guruStaffService->getAllGuruStaff());
         $GuruStaffList = $this->guruStaffService->getAllGuruStaffPagination($page, $perPage);

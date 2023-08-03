@@ -20,19 +20,19 @@
     </header>
 
     <section class="container">
-        <div class="row row-cols-md-4 row-cols-lg-4 row-cols-sm-1 mt-40 justify-content-center mb-100">
-            <div class="row col-md-12 col-lg-10 mt-5 justify-content-md-between justify-content-center">
-                <?php foreach ($guruStaffList as $gurustaff): ?>
-                    <div class="card mx-4" style="max-width: 15rem;">
-                        <img src="/images/upload/guru-staff/<?= $gurustaff->getFoto() ?>" class="img-fluid "
-                             alt="Image Alt Text">
-                        <div class="card-footer text-center">
-                            <p class="fs-6 text-center"><?= $gurustaff->getNamaGuru(); ?></p>
-                            <small class="text-muted"><?= $gurustaff->getJabatan(); ?></small>
-                        </div>
+        <div class="row row-cols-md-4 row-cols-lg-4 row-cols-sm-1 mt-120 justify-content-center mb-100">
+            <?php foreach ($guruStaffList as $gurustaff): ?>
+                <div class="mx-5 card-img-container mb-4" style="max-width: 15rem; max-height: 20rem;">
+                    <div class="img-container d-flex justify-content-center align-items-center">
+                        <img src="/images/upload/guru-staff/<?php echo $gurustaff->getFoto(); ?>"
+                             class="img-fluid card-img-top same-size-img" alt="Image Alt Text">
                     </div>
-                <?php endforeach;?>
-            </div>
+                    <div class="card-text-overlay text-center">
+                        <p class="fs-6 text-center"><b><?= $gurustaff->getNamaGuru(); ?></b></p>
+                        <p class="text-muted"><?= $gurustaff->getJabatan(); ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
         <div class="col-lg-12 col-12 my-5">
             <nav aria-label="Halaman" class="d-flex justify-content-center">

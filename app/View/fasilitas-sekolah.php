@@ -27,9 +27,9 @@
             <div class="row g-3 my-2">
                 <?php foreach ($fasilitasList as $fasilitas): ?>
                     <div class="col-12 col-sm-6  col-md-4">
-                        <div class="shadow-sm position-relative">
+                        <div class="shadow-sm position-relative aspect-ratio-container">
                             <!-- Gambar yang dapat diklik -->
-                            <img src="/images/upload/fasilitas/<?= $fasilitas->getFoto() ?>" class="img-fluid rounded"
+                            <img src="/images/upload/fasilitas/<?= $fasilitas->getFoto() ?>" class="img-fluid rounded aspect-ratio-img"
                                  alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal<?= $fasilitas->getId() ?>">
                             <div class="section-bg-soft position-absolute bottom-0 w-100">
                                 <h6 class="card-text card-titles text-white px-2 text-center">

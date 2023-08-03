@@ -38,15 +38,15 @@
                     </form>
                 </div>
 
-                <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex justify-content-between flex-column flex-lg-row">
-                    <div class="col-12 col-lg-4 mb-4 mb-lg-0 my-2 my-lg-0">
+                <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex flex-column flex-md-row">
+                    <div class="col-12 col-md-4 mb-4 mb-md-0 my-2 my-md-0">
                         <img class="rounded-4 img-fluid img-responsive" src="/images/ppdb1.png" alt="img">
                     </div>
-                    <div class="col-12 col-lg-8 my-2 my-lg-0 mx-lg-2">
+                    <div class="col-12 col-md-8 my-2 my-md-0 mx-md-2">
                         <h6 class="text-white">PENDAFTARAN PESERTA DIDIK BARU</h6>
                         <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2
                             Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
-                        <a href="/ppdb" class="btn custom-btn mt-3 mt-lg-4 button-color">Baca Selengkapnya</a>
+                        <a href="/ppdb" class="btn custom-btn mt-3 mt-md-4 button-color">Baca Selengkapnya</a>
                     </div>
                 </div>
 
@@ -73,8 +73,8 @@
                     }
                     ?>
                     <div class="col-4">
-                        <div class="card shadow-sm">
-                            <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid "
+                        <div class="card shadow-sm aspect-ratio-container">
+                            <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid aspect-ratio-img"
                                  alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal">
                         </div>
                         <a href="/detail_berita?id=<?= $berita->getIdBerita(); ?>"
@@ -200,7 +200,7 @@
 
     <div class="tab-pane fade" id="education-tab-pane" role="tabpanel"
          aria-labelledby="education-tab" tabindex="0">
-        <div class="row">
+        <div class="row w-100">
             <div class="col-12 text-center">
                 <h1 class="mb-4">Guru dan Staff</h1>
             </div>
@@ -211,8 +211,10 @@
                             <div class="d-flex justify-content-center align-items-center mb-4">
                                 <img src="/images/upload/guru-staff/<?php echo $guruStaff->getFoto(); ?>" alt="">
                             </div>
-                            <h5 class="mb-0 text-center"><b><?php echo $guruStaff->getNamaGuru(); ?></b></h5>
-                            <p class="text-center p-4"><?php echo $guruStaff->getJabatan(); ?></p>
+                            <div class="text-container">
+                                <p class="mb-0 text-center"><b><?php echo $guruStaff->getNamaGuru(); ?></b></p>
+                                <p class="text-center mb-0"><?php echo $guruStaff->getJabatan(); ?></p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>

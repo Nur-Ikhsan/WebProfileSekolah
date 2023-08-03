@@ -69,7 +69,7 @@ class KurikulumRepository
 
     public function getAllKurikulum(): array
     {
-        $statement = $this->connection->prepare('SELECT * FROM kurikulum');
+        $statement = $this->connection->prepare('SELECT * FROM kurikulum  ORDER BY FIELD(kategori, "Kelompok A", "Kelompok B", "Muatan Lokal", "Bimbingan dan Pelayanan", "Pengembangan Diri")');
         $statement->execute();
 
         $rows = $statement->fetchAll();
@@ -88,7 +88,7 @@ class KurikulumRepository
 
     public function getAllKurikulumPagination(int $limit, int $offset): array
     {
-        $statement = $this->connection->prepare('SELECT * FROM kurikulum LIMIT ? OFFSET ?');
+        $statement = $this->connection->prepare('SELECT * FROM kurikulum  ORDER BY FIELD(kategori, "Kelompok A", "Kelompok B", "Muatan Lokal", "Bimbingan dan Pelayanan", "Pengembangan Diri") LIMIT ? OFFSET ?');
         $statement->bindValue(1, $limit, PDO::PARAM_INT);
         $statement->bindValue(2, $offset, PDO::PARAM_INT);
         $statement->execute();

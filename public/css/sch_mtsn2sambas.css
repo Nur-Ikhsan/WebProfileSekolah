@@ -1309,24 +1309,41 @@ blockquote {
 .slider .owl-item.active.center .slider-card {
   transform: scale(0.95);
   opacity: 1;
-  background: #ff9966; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #fff;
+  background: transparent;
+  /*background: #ff9966; !* fallback for old browsers *!*/
+  /*background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966); !* Chrome 10-25, Safari 5.1-6 *!*/
+  /*background: linear-gradient(to bottom, #ff5e62, #ff9966); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
 }
 .slider-card {
+  position: relative; /* Menjadikan posisi relatif agar elemen anak bisa menggunakan posisi absolut */
   background: #fff;
   padding: 0px 0px;
-  /*margin: 50px 15px 90px 15px;*/
   border-radius: 5px;
   box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
   transform: scale(0.7);
   opacity: 0.5;
   transition: all 0.3s;
 }
+
 .slider-card img {
   border-radius: 5px 5px 0px 0px;
 }
+
+.slider-card .text-container {
+  position: absolute;
+  bottom: 0; /* Menempatkan teks di bagian bawah */
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+  transition: opacity 0.3s;
+  margin: 20px;
+}
+
+.slider-card:hover .text-container {
+  opacity: 1;
+}
+
 .owl-nav .owl-prev {
   position: absolute;
   top: calc(50% - 25px);
@@ -2210,3 +2227,82 @@ i.bi-trash {
     width: 100%;
   }
 }
+
+.custom-card {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
+  transition: all 0.3s;
+}
+
+.custom-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 45px -20px rgba(0, 0, 0, 0.8);
+}
+
+.card-img-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-container {
+  flex: 1; /* Menggunakan sisa ruang vertikal yang tersedia */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img-top {
+  object-fit: cover; /* Mengatur gambar untuk mengisi seluruh area dengan mempertahankan aspek rasio */
+  max-height: 100%; /* Menyesuaikan tinggi gambar dengan tinggi parent */
+}
+
+.card-text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+  transition: opacity 0.3s;
+  margin: 20px;
+  opacity: 1;
+}
+
+.card-text-overlay p {
+  margin: 5px 0;
+}
+
+/*.same-size-img {*/
+/*  width: 100%;*/
+/*  height: 20vw; !* Sesuaikan tinggi yang diinginkan *!*/
+/*  object-fit: cover;*/
+/*}*/
+
+.same-size-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.aspect-ratio-container {
+  position: relative;
+  width: 100%;
+}
+
+.aspect-ratio-container::before {
+  content: "";
+  display: block;
+  padding-top: calc(100% / (4 / 3)); /* Rasio aspek 16:9 */
+}
+
+.aspect-ratio-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
