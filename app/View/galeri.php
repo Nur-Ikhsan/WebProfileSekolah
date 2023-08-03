@@ -20,27 +20,10 @@
         </div>
     </header>
 
-    <section>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 ">
-                    <div class="my-4 d-flex  search">
-                        <input type="text" class="form-control me-2" placeholder="Cari..." aria-label="Cari">
-                        <button class="btn btn-primary" type="button">Cari</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
 
     <section class="py-1 container">
-
         <div class="album  bg-light">
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-0">
                 <div class="col ">
                     <div class="card shadow-sm ">
                         <!-- Gambar yang dapat diklik -->

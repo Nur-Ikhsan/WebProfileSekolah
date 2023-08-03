@@ -28,6 +28,11 @@ use Rubygroup\WebProfileSekolah\Service\PrestasiService;
 use Rubygroup\WebProfileSekolah\Service\SekolahService;
 use Rubygroup\WebProfileSekolah\Service\SlideshowService;
 
+use Faker\Factory as FakerFactory;
+
+// Pastikan path ini sesuai dengan file autoload.php pada proyek Anda
+
+
 class HomeController
 {
 
@@ -90,15 +95,40 @@ class HomeController
             'guruStaffList' => $guruStaffList,
         ]);
     }
+    private function getPaginatedData($dataList, $currentPage, $perPage)
+    {
+        $offset = ($currentPage - 1) * $perPage;
+        $paginatedData = array_slice($dataList, $offset, $perPage);
+        $totalPages = ceil(count($dataList) / $perPage);
+
+        return [
+            'dataList' => $paginatedData,
+            'totalPages' => $totalPages,
+        ];
+    }
 
     function berita(): void
     {
+        // Ambil halaman aktif dari query parameter, jika tidak ada, gunakan halaman 1 sebagai default
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+        // Jumlah berita yang ingin ditampilkan dalam satu halaman
+        $perPage = 10;
+
+        // Ambil data berita dari Service
         $beritaList = $this->beritaService->getAllBerita();
+        // Panggil fungsi getPaginatedData untuk mendapatkan data berita terpaginasi
+        $paginatedData = $this->getPaginatedData($beritaList, $currentPage, $perPage);
+        $beritaList = $paginatedData['dataList'];
+        $totalPages = $paginatedData['totalPages'];
+
         View::renderHome('berita', [
-                'title' => 'Berita',
-                'news' => $beritaList
-            ]
-        );
+            'title' => 'Berita',
+            'beritaList' => $beritaList,
+            'currentPage' => $currentPage,
+            'perPage' => $perPage,
+            'totalPages' => $totalPages,
+        ]);
     }
 
     // visi-misi
@@ -110,6 +140,105 @@ class HomeController
                 'visiMisi' => $visiMisi
             ]
         );
+    }
+    // tujuan
+    function tujuan(): void
+    {
+        View::renderHome('tujuan', [
+                'title' => 'Tujuan Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+
+
+    }
+
+
+
+
+
+    function pencarianBerita():void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $keyword = $_POST['keyword'];
+
+            // If the keyword is empty, get all berita
+            if (empty($keyword)) {
+                $beritaList = $this->beritaService->getAllBerita();
+            } else {
+                // Panggil fungsi pencarian berita dari BeritaService
+                $hasilPencarian = $this->beritaService->cariBerita($keyword);
+
+                // Tampilkan hasil pencarian berita pada view hasil_pencarian.php
+                View::renderHome('pencarian_berita', [
+                    'title' => 'Hasil Pencarian Berita',
+                    'hasilPencarian' => $hasilPencarian,
+                ]);
+                return;
+            }
+        } else {
+            // Jika bukan metode POST, tampilkan halaman berita biasa
+            $beritaList = $this->beritaService->getAllBerita();
+        }
+
+
+
+
+        // Panggil fungsi getPaginatedData untuk mendapatkan data berita terpaginasi
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $perPage = 10;
+        $paginatedData = $this->getPaginatedData($beritaList, $currentPage, $perPage);
+        $beritaList = $paginatedData['dataList'];
+        $totalPages = $paginatedData['totalPages'];
+
+        View::renderHome('berita', [
+            'title' => 'Berita',
+            'beritaList' => $beritaList,
+            'currentPage' => $currentPage,
+            'perPage' => $perPage,
+            'totalPages' => $totalPages,
+        ]);
+    }
+    function pencarianGuru():void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $keyword = $_POST['keyword'];
+
+            // If the keyword is empty, get all berita
+            if (empty($keyword)) {
+                $guruStaffList = $this->GuruStaffService->getAllGuruStaff();
+            } else {
+                // Panggil fungsi pencarian berita dari GuruStaffService
+                $hasilPencarian = $this->GuruStaffService->cariGuruStaff($keyword);
+
+                // Tampilkan hasil pencarian berita pada view hasil_pencarian.php
+                View::renderHome('pencarian_guru_staff', [
+                    'title' => 'Hasil Pencarian Berita',
+                    'hasilPencarian' => $hasilPencarian,
+                ]);
+                return;
+            }
+        } else {
+            // Jika bukan metode POST, tampilkan halaman berita biasa
+            $guruStaffList = $this->GuruStaffService->getAllGuruStaff();
+        }
+
+
+
+
+        // Panggil fungsi getPaginatedData untuk mendapatkan data berita terpaginasi
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $perPage = 10;
+        $paginatedData = $this->getPaginatedData($guruStaffList, $currentPage, $perPage);
+        $guruStaffList = $paginatedData['dataList'];
+        $totalPages = $paginatedData['totalPages'];
+
+        View::renderHome('guru_staff', [
+            'title' => 'Guru Staff',
+            'guruStaffList' => $guruStaffList,
+            'currentPage' => $currentPage,
+            'perPage' => $perPage,
+            'totalPages' => $totalPages,
+        ]);
     }
 
     //kurikulum
@@ -127,6 +256,20 @@ class HomeController
 
     function galeri(): void
     {
+        // Ambil halaman aktif dari query parameter, jika tidak ada, gunakan halaman 1 sebagai default
+        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+        // Jumlah galeri yang ingin ditampilkan dalam satu halaman
+        $perPage = 12;
+
+        // Ambil data galeri dari Service
+        $galeriList = $this->galeriService->getAllGaleri();
+
+        // Panggil fungsi getPaginatedData untuk mendapatkan data galeri terpaginasi
+        $paginatedData = $this->getPaginatedData($galeriList, $currentPage, $perPage);
+        $galeriList = $paginatedData['dataList'];
+        $totalPages = $paginatedData['totalPages'];
+
         View::renderHome('galeri', [
                 'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
@@ -143,11 +286,38 @@ class HomeController
     }
     function ppdb(): void
     {
+        $gambarPath = "images/ppdb.png";
         View::renderHome('ppdb',[
-                'title' => 'PPBD Organisasi Madrasah Tsanawiyah Negeri 2 Sambas '
+                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
+                'gambarPath' => $gambarPath,
+
             ]
         );
     }
+    public function downloadGambar(): void
+    {
+
+
+        // Path file gambar
+        $gambarPath = "images/ppdb.png";
+
+        // Set header untuk tipe konten dan ukuran file
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($gambarPath));
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($gambarPath));
+
+        // Baca file dan kirimkan isinya ke output
+        ob_clean();
+        flush();
+        readfile($gambarPath);
+        exit;
+    }
+
 
     function kontak(): void
     {
@@ -155,6 +325,25 @@ class HomeController
                 'title' => 'Kontak Madrasah Tsanawiyah Negeri 2 Sambas '
             ]
         );
+    }
+    public function detail_berita(): void
+    {
+        // Assuming you have access to the berita ID from the URL or some other source
+        $beritaId = $_GET['id']; // Replace this with how you retrieve the berita ID
+
+        // Retrieve the specific berita by its ID using the BeritaService
+        $berita = $this->beritaService->getBeritaById($beritaId);
+
+        if ($berita) {
+            // If the berita is found, pass it to the view
+            View::renderHome('detail_berita', [
+                'title' => 'Detail Berita',
+                'berita' => $berita,
+            ]);
+        } else {
+            http_response_code(404);
+            View::render('404');
+        }
     }
 
     function ekstrakurikuler(): void

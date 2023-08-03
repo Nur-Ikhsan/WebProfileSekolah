@@ -8,6 +8,7 @@
   --third-color: #137A38;
   --section-bg-color:             #f0f8ff;
   --section-bg-color-dark: #348355;
+  --section-bg-color-navy: #31408D;
   --section-bg-color-soft: #96CCAB;
 
   --custom-btn-bg-color: #80f182;
@@ -559,6 +560,21 @@ strong {
   max-width: 150px;
 }
 
+.search-section {
+  z-index : 2;
+  position : absolute;
+  display: inline-block;
+  width: 100%;
+  margin-top : 10rem;
+}
+
+.search-section-gurustaff {
+  z-index : 2;
+  margin-top:150px;
+  display: inline-block;
+  width: 100%;
+  top:0;
+}
 
 /*---------------------------------------
   TOPICS
@@ -673,6 +689,13 @@ strong {
   background-size: cover;
   background-position: center;
   height: 50vh; /* Menggunakan tinggi viewport */
+  content: '';
+  display: block;
+  top: 0;
+  left: 0;
+  /* Atur warna bayangan (shadow) sesuai kebutuhan Anda */
+  filter: grayscale(70%);
+  z-index: -1;
 }
 
 .bg-design {
@@ -984,6 +1007,10 @@ blockquote {
   margin-bottom: 0;
 }
 
+.button-bg-navy,
+.button-bg-navy:hover {
+  background: var(--section-bg-color-navy);
+}
 .custom-form button[type="submit"]:hover,
 .custom-form button[type="submit"]:focus {
   background: var(--custom-btn-bg-hover-color);

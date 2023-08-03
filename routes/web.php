@@ -35,6 +35,8 @@ Router::add('/fasilitas-sekolah', HomeController::class, 'fasilitasSekolah');
 Router::add('/kegiatan-sekolah', HomeController::class, 'kegiatanSekolah');
 Router::add('/guru-staff', HomeController::class, 'guruStaf');
 Router::add('/sejarah-sekolah', HomeController::class, 'sejarahSekolah');
+Router::add('/detail_berita', HomeController::class, 'detail_berita');
+
 
 
 // Rute untuk admin

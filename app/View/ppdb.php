@@ -29,9 +29,9 @@
                                         </div>
 
                                         <li>
-                                            <h4 class="text-white mb-3">Pendaftaran</h4>
+                                            <h4 class="text-black mb-3">Pendaftaran</h4>
 
-                                            <p class="text-white">15 - 23 Juni</p>
+                                            <p class="text-black">15 - 23 Juni</p>
 
                                             <div class="icon-holder">
                                                 <i class="bi-search"></i>
@@ -39,27 +39,27 @@
                                         </li>
 
                                         <li>
-                                            <h4 class="text-white mb-3">Pengumuman Hasil</h4>
+                                            <h4 class="text-black mb-3">Pengumuman Hasil</h4>
 
-                                            <p class="text-white">Tanggal</p>
+                                            <p class="text-black">Tanggal</p>
 
                                             <div class="icon-holder">
                                                 <i class="bi-bookmark"></i>
                                             </div>
                                         </li>
                                         <li>
-                                            <h4 class="text-white mb-3">Daftar Ulang</h4>
+                                            <h4 class="text-black mb-3">Daftar Ulang</h4>
 
-                                            <p class="text-white">Tanggal</p>
+                                            <p class="text-black">Tanggal</p>
 
                                             <div class="icon-holder">
-                                                <i class="bi-book"></i>
+                                                <i class="bi-bookmark"></i>
                                             </div>
                                         </li>
                                         <li>
-                                            <h4 class="text-white mb-3">Awal Tahun Ajaran Baru</h4>
+                                            <h4 class="text-black mb-3">Awal Tahun Ajaran Baru</h4>
 
-                                            <p class="text-white">Tanggal</p>
+                                            <p class="text-black">Tanggal</p>
 
                                             <div class="icon-holder">
                                                 <img src="/images/Seni.png">
@@ -74,9 +74,14 @@
             </div>
             <div class="col-md-6 my-5">
                 <div class="h-100 p-5 bg-light border rounded-3">
-                    <img src="images/brosur.png">
-                    <div class=""> <!-- Wrap the button in a container with "text-center" class -->
-                        <button type="button" class="btn-custom mt-5 mx-auto" onclick="window.location.href='/berita'">Download</button>
+                    <img class="w-100 h-50" src="<?php echo $gambarPath; ?>" alt="Contoh Gambar" width="300"
+                         height="200">
+                    <div class="mt-3 text-center">
+                        <form action="/download-gambar" method="post">
+                            <button href="/download-gambar" type="submit" class="btn btn-custom">Download
+                                Brosur</button>
+                        </form>
+
                     </div>
                 </div>
                 </div>

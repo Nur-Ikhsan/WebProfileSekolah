@@ -26,26 +26,31 @@
     <section class="blog-post my-5">
         <div class="container">
 
-            <h2 class="blog-post-title">Sample blog post</h2>
-            <p class="blog-post-meta">January 1, 2014 Posted by <a href="#">Admin</a></p>
-
-            <p>This blog post shows a few different types of content that's supported and styled with
-                Bootstrap. Basic typography, images, and code are all supported.</p>
-            <hr>
-            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur
-                ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet
-                fermentum.</p>
 
 
-        </div>
+            <h2 class="blog-post-title">
 
-        <div class="col-12">
-            <div class="topics-detail-block bg-white shadow-lg">
-                <img src="images/topics/undraw_Remote_design_team_re_urdx.png"
-                    class="topics-detail-block-image img-fluid">
+                <?php echo $berita->getJudulBerita();?>
+            </h2>
+
+
+            <p class="blog-post-meta">
+                <?php echo $berita->getTanggal();?><a href="#">Admin</a></p>
+
+
+            <div class="col-12 my-5">
+                <div class="topics-detail-block bg-white shadow-lg">
+                    <img src=images/upload/berita/<?php echo $berita->getFoto(); ?>
+                        class="topics-detail-block-image w-100 h-75">
+                </div>
             </div>
+
+            <p><?php echo $berita->getIsiBerita();?></p>
+
+
         </div>
+
+
 
         </div>
         </div>

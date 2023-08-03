@@ -45,6 +45,10 @@ class BeritaService
         return $this->beritaRepository->saveBerita($berita);
     }
 
+    public function cariBerita(string $keyword): array
+    {
+        return $this->beritaRepository->searchBerita($keyword);
+    }
     public function updateBerita(string $id, BeritaRequest $request): Berita
     {
         $berita = $this->beritaRepository->findBeritaById($id);
@@ -94,5 +98,18 @@ class BeritaService
     {
         $offset = ($page - 1) * $perPage;
         return $this->beritaRepository->getBeritaPagination($perPage, $offset);
+    }
+    public function getTotalPages(int $perPage): int
+    {
+        // Hitung jumlah total berita
+        $totalBerita = $this->beritaRepository->countTotalBerita();
+
+        // Hitung jumlah halaman berdasarkan total berita dan berita per halaman
+        return ceil($totalBerita / $perPage);
+    }
+
+    public function getBeritaById(string $id): ?Berita
+    {
+        return $this->beritaRepository->findBeritaById($id);
     }
 }
