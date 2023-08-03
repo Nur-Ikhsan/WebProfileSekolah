@@ -1,30 +1,18 @@
 <main>
-
-
-
-    <header class="site-header d-flex flex-column justify-content-center align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
-
-                <div class="col-lg-5 col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
-
-                            <li class="breadcrumb-item active" aria-current="page">Berita</li>
-                        </ol>
-                    </nav>
-
-                    <h2 class="text-white">Berita</h2>
-                </div>
-
+    <section class="corausel-section slide-width">
+        <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php $count = 0; ?>
+                <?php foreach ($slideshows as $slideshow): ?>
+                    <?php $count++; ?>
+                    <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
+                        <div class="overlay"></div> <!-- Add an overlay div -->
+                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100" alt="<?= $slideshow->getJudul() ?>">
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </header>
-
-
-
-
+    </section>
 
     <section class="search-section">
 

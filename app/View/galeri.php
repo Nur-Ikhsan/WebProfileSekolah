@@ -1,37 +1,31 @@
 <main>
 
-    <header class="site-header d-flex flex-column justify-content-center align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
-
-                <div class="col-lg-5 col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
-
-                            <li class="breadcrumb-item active" aria-current="page">Galeri</li>
-                        </ol>
-                    </nav>
-
-                    <h2 class="text-white">Galeri</h2>
-                </div>
-
+    <section class="corausel-section slide-width">
+        <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php $count = 0; ?>
+                <?php foreach ($slideshows as $slideshow): ?>
+                    <?php $count++; ?>
+                    <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
+                        <div class="overlay"></div> <!-- Add an overlay div -->
+                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100" alt="<?= $slideshow->getJudul() ?>">
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </header>
-
+    </section>
 
     <section class="py-1 container">
         <div class="album  bg-light">
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-0">
+            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-4">
                 <div class="col ">
-                    <div class="card shadow-sm ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/64b59d4d581b5_slideshow1.jpg" class="img-fluid " alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
-                        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                        <div class="modal fade " id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -42,12 +36,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
+                    <div class="card-body section-bg-dark rounded-bottom my-1">
                         <p class="card-text text-white px-2">Pelepasan siswa-siswi MTS N 02 Sambas Tahun 2020</p>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/slideshow/64a934069715b_slideshow3.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal1">
@@ -69,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/slideshow/64a934148891a_slideshow5.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal2">
@@ -93,7 +87,7 @@
             </div>
             <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/75x56g9p964a2_kelas.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal3">
@@ -115,7 +109,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/75sr26n9p16la2_belajar.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal4">
@@ -137,7 +131,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_pembagian_hadiah.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal5">
@@ -161,7 +155,7 @@
             </div>
             <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_senam.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal6">
@@ -183,7 +177,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_pbb.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal7">
@@ -205,7 +199,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_pembagian_sertifikat.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal8">
@@ -229,7 +223,7 @@
             </div>
             <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_drumband.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal9">
@@ -251,7 +245,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_drumband.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal0">
@@ -273,7 +267,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm  ">
+                    <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_covid.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
                             data-bs-target="#imageModal11">

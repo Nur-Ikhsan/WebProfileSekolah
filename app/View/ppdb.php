@@ -2,7 +2,7 @@
 
 
     <section class="bg-image" style="height: 100vh; width: 100vw; display: flex;">
-        <img src="images/ppdb.png" style="max-width: 100%; max-height: 100%;">
+        <img src="images/.png" style="max-width: 100%; max-height: 100%;">
     </section>
 
 

@@ -1,4 +1,19 @@
 <main>
+    <section class="corausel-section slide-width">
+        <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php $count = 0; ?>
+                <?php foreach ($slideshows as $slideshow): ?>
+                    <?php $count++; ?>
+                    <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
+                        <div class="overlay"></div> <!-- Add an overlay div -->
+                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100" alt="<?= $slideshow->getJudul() ?>">
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
     <section class="section-padding">
         <div class="container">
             <div class="row">

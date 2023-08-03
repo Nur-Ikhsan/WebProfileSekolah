@@ -2332,4 +2332,19 @@ i.bi-trash {
   object-fit: cover;
 }
 
+/* Tambahkan CSS kustom untuk overlay */
+.corausel-section {
+  position: relative;
+}
+
+.carousel-inner .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Warna hitam dengan opasitas 40% */
+}
+
+
 

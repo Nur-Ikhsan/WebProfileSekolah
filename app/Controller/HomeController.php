@@ -121,9 +121,11 @@ class HomeController
         $paginatedData = $this->getPaginatedData($beritaList, $currentPage, $perPage);
         $beritaList = $paginatedData['dataList'];
         $totalPages = $paginatedData['totalPages'];
+        $slideshows = $this->slideshowService->getAllSlideshows();
 
         View::renderHome('berita', [
             'title' => 'Berita',
+            'slideshows' => $slideshows,
             'beritaList' => $beritaList,
             'currentPage' => $currentPage,
             'perPage' => $perPage,
@@ -246,10 +248,12 @@ class HomeController
     {
         $kurikulumList = $this->kurikulumService->getAllKurikulum();
         $kurikulum = $this->ketSekolahService->getKurikulum();
+        $slideshows = $this->slideshowService->getAllSlideshows();
         View::renderHome('kurikulum', [
                 'title' => 'Kurikulum Madrasah Tsanawiyah Negeri 2 Sambas ',
                 'kurikulumList' => $kurikulumList,
-                'kurikulum' => $kurikulum
+                'kurikulum' => $kurikulum,
+                'slideshows' => $slideshows
             ]
         );
     }
@@ -269,9 +273,13 @@ class HomeController
         $paginatedData = $this->getPaginatedData($galeriList, $currentPage, $perPage);
         $galeriList = $paginatedData['dataList'];
         $totalPages = $paginatedData['totalPages'];
+        $slideshows = $this->slideshowService->getAllSlideshows();
 
         View::renderHome('galeri', [
-                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas '
+                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
+                'slideshows' => $slideshows,
+                'galeriList' => $galeriList,
+                'totalPages' => $totalPages
             ]
         );
     }
