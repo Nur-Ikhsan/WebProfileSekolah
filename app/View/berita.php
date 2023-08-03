@@ -12,6 +12,9 @@
                 <?php endforeach; ?>
             </div>
         </div>
+        <div class="title-corausel text-white">
+            <p>Berita</p>
+        </div>
     </section>
 
     <section class="search-section">

@@ -13,6 +13,9 @@
                 <?php endforeach; ?>
             </div>
         </div>
+        <div class="title-corausel text-white">
+            <p>Galeri</p>
+        </div>
     </section>
 
     <section class="py-1 container">

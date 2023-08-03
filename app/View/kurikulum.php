@@ -12,7 +12,12 @@
                 <?php endforeach; ?>
             </div>
         </div>
+        <div class="title-corausel text-white">
+            <p>Kurikulum</p>
+        </div>
     </section>
+
+
 
     <section class="section-padding">
         <div class="container">
