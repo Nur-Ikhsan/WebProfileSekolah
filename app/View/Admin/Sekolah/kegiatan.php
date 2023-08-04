@@ -1,3 +1,10 @@
+<script>tinymce.init({
+    selector:'.textarea-tinymce',
+    plugins: 'lists',
+    toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+    menubar: false,
+    statusbar: false
+  });</script>
 <div class="admin">
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center">
@@ -286,7 +293,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="edit-deskripsi" class="form-label">Deskripsi</label>
-                                                    <textarea class="form-control" id="edit-deskripsi" name="deskripsi"
+                                                    <textarea class="form-control textarea-tinymce" id="edit-deskripsi" name="deskripsi"
                                                               required><?= $kegiatan->getDeskripsi() ?></textarea>
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
@@ -428,7 +435,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
+                        <textarea class="form-control textarea-tinymce" id="deskripsi" name="deskripsi" required></textarea>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn button-admin px-4">Simpan</button>

@@ -1,5 +1,4 @@
 <main>
-
     <section class="corausel-section slide-width">
         <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -8,23 +7,38 @@
                     <?php $count++; ?>
                     <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
                         <div class="overlay"></div> <!-- Add an overlay div -->
-                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100" alt="<?= $slideshow->getJudul() ?>">
+                        <div class="aspect-ratio-container r16">
+                            <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>"
+                                 class="d-block w-100 aspect-ratio-img"
+                                 alt="<?= $slideshow->getJudul() ?>">
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
         </div>
-        <div class="title-corausel text-white">
+        <div class="title-corausel text-white w-100">
             <p>Galeri</p>
+            <section class="hero-section x d-flex justify-content-center align-items-center" id="section_1">
+                <form method="POST" class="custom-form x mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bi-search" id="basic-addon1"></span>
+                        <input name="search" type="search" class="form-control" id="search"
+                               placeholder="Apa yang ingin Anda cari?" aria-label="Search" value="<?=  $search ?>">
+                        <button type="submit" class="form-control button-color">Cari</button>
+                    </div>
+                </form>
+            </section>
         </div>
     </section>
 
     <section class="py-1 container">
         <div class="album  bg-light">
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-4">
-                <div class="col ">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 my-4">
+                <?php foreach ($galeriList as $galeri): ?>
+                <div class="col">
                     <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/64b59d4d581b5_slideshow1.jpg" class="img-fluid " alt="Image Alt Text" data-bs-toggle="modal"
+                        <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>" class="img-fluid " alt="<?= $galeri->getJudulGaleri() ?>" data-bs-toggle="modal"
                             data-bs-target="#imageModal">
 
                         <!-- Modal -->
@@ -33,302 +47,79 @@
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <img src="images/upload/galeri/64b59d4d581b5_slideshow1.jpg" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom my-1">
-                        <p class="card-text text-white px-2">Pelepasan siswa-siswi MTS N 02 Sambas Tahun 2020</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/slideshow/64a934069715b_slideshow3.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal1">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/slideshow/64a934069715b_slideshow3.jpg" class="img-fluid" alt="Image Alt Text">
+                                        <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>" class="img-fluid" alt="<?= $galeri->getJudulGaleri() ?>">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Kegiatan Sekolah</p>
+                        <p class="card-text text-white px-2"><?= $galeri->getDeskripsi() ?></p>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/slideshow/64a934148891a_slideshow5.jpg" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal2">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/slideshow/64a934148891a_slideshow5.jpg" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Kegiatan Sekolah</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/75x56g9p964a2_kelas.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal3">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/galeri/75x56g9p964a2_kelas.png" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Ruang Kelas</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/75sr26n9p16la2_belajar.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal4">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal4" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/galeri/75sr26n9p16la2_belajar.png" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Ruang Pembelajaran</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_pembagian_hadiah.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal5">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal5" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_pembagian_hadiah.png" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Pembagian Hadiah</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_senam.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal6">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal6" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_senam.png" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Kegiatan Senam bagi guru dan staff</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_pbb.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal7">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal7" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_pbb.png" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Kegiatan Sekolah</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_pembagian_sertifikat.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal8">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal8" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_pembagian_sertifikat.png" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Pembagian Sertifikat kepada guru dan staff Sekolah</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_drumband.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal9">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal9" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_drumband.png" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Kegiatan Drumband di Luar Lingkungan Sekolah</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_drumband.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal0">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal0" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_drumband.png" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Kegiatan Outdor di Lingkungan Sekolah</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm my-0">
-                        <!-- Gambar yang dapat diklik -->
-                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_covid.png" class="img-fluid" alt="Image Alt Text" data-bs-toggle="modal"
-                            data-bs-target="#imageModal11">
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="imageModal11" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="images/upload/galeri/unsplash_h6gCRTCxM7o_covid.png" class="img-fluid" alt="Image Alt Text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom">
-                        <p class="card-text text-white px-2">Kegiatan Penyemprotan Disinvektan di Ruang Kelas Pada Tahun 2020</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-12 col-12 my-5">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center mb-0">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">Prev</span>
-                        </a>
-                    </li>
-
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#">4</a>
-                    </li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#">5</a>
-                    </li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">Next</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </section>
+
+    <div class="col-lg-12 col-12 my-5">
+        <nav aria-label="Halaman" class="d-flex justify-content-center">
+            <ul class="pagination">
+                <?php if ($model['pagination']['page'] > 1): ?>
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="/galeri?page=<?= $model['pagination']['page'] - 1 ?>"
+                           aria-label="Sebelumnya">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Sebelumnya">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <?php
+                $start = max($model['pagination']['page'] - 2, 1);
+                $end = min($start + 4, $model['pagination']['totalPages']);
+                $diff = $end - $start + 1;
+
+                if ($diff < 5 && $start > 1) {
+                    $start = max(1, $end - 4);
+                }
+
+                for ($i = $start; $i <= $end; $i++):
+                    ?>
+                    <?php if ($i == $model['pagination']['page']): ?>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#"><?= $i ?></a>
+                    </li>
+                <?php else: ?>
+                    <li class="page-item">
+                        <a class="page-link" href="/galeri?page=<?= $i ?>"><?= $i ?></a>
+                    </li>
+                <?php endif; ?>
+                <?php endfor; ?>
+
+                <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="/galeri?page=<?= $model['pagination']['page'] + 1 ?>"
+                           aria-label="Berikutnya">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Berikutnya">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </div>
+
 </main>

@@ -37,7 +37,8 @@ Router::add('/kegiatan-sekolah', HomeController::class, 'kegiatanSekolah');
 Router::add('/kegiatan-sekolah/([0-9]{4}-[0-9]{2}-[0-9]{2}/[a-z0-9-]+)', HomeController::class, 'detailKegiatanSekolah');
 Router::add('/guru-staff', HomeController::class, 'guruStaf');
 Router::add('/sejarah-sekolah', HomeController::class, 'sejarahSekolah');
-Router::add('/detail_berita', HomeController::class, 'detail_berita');
+Router::add('/hasil-pencarian', HomeController::class, 'hasilPencarian');
+
 
 
 

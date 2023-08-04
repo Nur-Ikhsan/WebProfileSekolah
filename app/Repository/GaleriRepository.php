@@ -110,4 +110,44 @@ class GaleriRepository
         $galeri->setFoto($row['foto']);
         return $galeri;
     }
+
+    public function getAllGaleriSearch($perPage, float|int $offset, $search)
+    {
+        $statement = $this->connection->prepare('SELECT * FROM galeri WHERE judul_galeri LIKE :search OR deskripsi LIKE :search LIMIT :limit OFFSET :offset');
+        $statement->bindValue(':search', '%' . $search . '%');
+        $statement->bindValue(':limit', $perPage, PDO::PARAM_INT);
+        $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $statement->execute();
+
+        $galeriList = [];
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $galeri = new Galeri();
+            $galeri->setIdGaleri($row['id_galeri']);
+            $galeri->setJudulGaleri($row['judul_galeri']);
+            $galeri->setDeskripsi($row['deskripsi']);
+            $galeri->setFoto($row['foto']);
+            $galeriList[] = $galeri;
+        }
+
+        return $galeriList;
+    }
+
+    public function galeriSearch(string $keyword): array
+    {
+        $statement = $this->connection->prepare('SELECT * FROM galeri WHERE judul_galeri LIKE :keyword OR deskripsi LIKE :keyword');
+        $statement->bindValue(':keyword', '%' . $keyword . '%');
+        $statement->execute();
+
+        $galeriList = [];
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $galeri = new Galeri();
+            $galeri->setIdGaleri($row['id_galeri']);
+            $galeri->setJudulGaleri($row['judul_galeri']);
+            $galeri->setDeskripsi($row['deskripsi']);
+            $galeri->setFoto($row['foto']);
+            $galeriList[] = $galeri;
+        }
+
+        return $galeriList;
+    }
 }

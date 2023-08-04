@@ -1,14 +1,16 @@
 <main>
     <section class="corausel-section slide-width">
         <div id="carouselExampleIndicators" class="carousel slide slide-width" data-bs-ride="carousel">
-
             <div class="carousel-inner">
                 <?php $count = 0; ?>
                 <?php foreach ($slideshows as $slideshow): ?>
                     <?php $count++; ?>
                     <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
-                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100"
-                             alt="<?= $slideshow->getJudul() ?>">
+                        <div class="aspect-ratio-container r16">
+                            <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>"
+                                 class="d-block w-100 aspect-ratio-img"
+                                 alt="<?= $slideshow->getJudul() ?>">
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -24,10 +26,10 @@
                     <h6 class="text-center">Selamat Datang</h6>
                     <h1 class="text-white text-center">MTS NEGERI 2 SAMBAS</h1>
 
-                    <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                    <form action="/hasil-pencarian" method="POST" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bi-search" id="basic-addon1"></span>
-                            <input name="keyword" type="search" class="form-control" id="keyword"
+                            <input name="search" type="search" class="form-control" id="keyword"
                                    placeholder="Apa yang ingin Anda cari?" aria-label="Search">
                             <button type="submit" class="form-control button-color">Cari</button>
                         </div>
@@ -76,7 +78,7 @@
                         <a href="/berita/<?= $berita->getSlug(); ?>"
                            class="icon-link blink gap-1 icon-link-hover">
                             <div class="card-body rounded-bottom">
-                                <h6 class="mb-0 my-3 text"><?= $berita->getJudulBerita(); ?></h6>
+                                <h6 class="mb-0 text"><?= $berita->getJudulBerita(); ?></h6>
                                 <div class="limit-text">
                                     <p class="card-text mb-auto my-3 "><?= $berita->getIsiBerita(); ?></p>
                                 </div>

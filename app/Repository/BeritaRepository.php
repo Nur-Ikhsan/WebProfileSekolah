@@ -144,8 +144,35 @@ class BeritaRepository
     {
         $searchQuery = "%$searchQuery%"; // Tambahkan wildcard (%) pada awal dan akhir query
 
-        $statement = $this->connection->prepare('SELECT * FROM berita WHERE judul_berita LIKE :searchQuery OR isi_berita LIKE :searchQuery');
+        $statement = $this->connection->prepare('SELECT * FROM berita WHERE judul_berita LIKE :searchQuery ORDER BY tanggal');
         $statement->bindValue(':searchQuery', $searchQuery, PDO::PARAM_STR);
+        $statement->execute();
+
+        $rows = $statement->fetchAll();
+        $beritaList = [];
+        foreach ($rows as $row) {
+            $berita = new Berita();
+            $berita->setIdBerita((string)$row['id_berita']);
+            $berita->setTanggal((string)$row['tanggal']);
+            $berita->setJudulBerita((string)$row['judul_berita']);
+            $berita->setSlug((string)$row['slug']);
+            $berita->setIsiBerita((string)$row['isi_berita']);
+            $berita->setFoto((string)$row['foto']);
+
+            $beritaList[] = $berita;
+        }
+
+        return $beritaList;
+    }
+
+    public function searchBeritaPagination($perPage, float|int $offset, string $search): array
+    {
+        $search = "%$search%"; // Tambahkan wildcard (%) pada awal dan akhir query
+
+        $statement = $this->connection->prepare('SELECT * FROM berita WHERE judul_berita LIKE :search ORDER BY tanggal LIMIT :perPage OFFSET :offset');
+        $statement->bindValue(':search', $search);
+        $statement->bindValue(':perPage', $perPage, PDO::PARAM_INT);
+        $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
         $statement->execute();
 
         $rows = $statement->fetchAll();

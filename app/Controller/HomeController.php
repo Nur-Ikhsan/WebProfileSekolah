@@ -26,6 +26,7 @@ use Rubygroup\WebProfileSekolah\Service\KegiatanService;
 use Rubygroup\WebProfileSekolah\Service\KetSekolahService;
 use Rubygroup\WebProfileSekolah\Service\KurikulumService;
 use Rubygroup\WebProfileSekolah\Service\PrestasiService;
+use Rubygroup\WebProfileSekolah\Service\SearchService;
 use Rubygroup\WebProfileSekolah\Service\SekolahService;
 use Rubygroup\WebProfileSekolah\Service\SlideshowService;
 
@@ -48,6 +49,7 @@ class HomeController
     private PrestasiService $prestasiService;
     private SekolahService $sekolahService;
     private SlideshowService $slideshowService;
+    private SearchService $searchService;
 
 
     public function __construct()
@@ -78,6 +80,7 @@ class HomeController
         $this->prestasiService = new PrestasiService($prestasiRepository);
         $this->sekolahService = new SekolahService($sekolahRepository);
         $this->slideshowService = new SlideshowService($slideshowRepository);
+        $this->searchService = new SearchService($beritaRepository, $kegiatanRepository);
     }
 
     function index(): void
@@ -96,41 +99,32 @@ class HomeController
             'guruStaffList' => $guruStaffList,
         ]);
     }
-    private function getPaginatedData($dataList, $currentPage, $perPage)
-    {
-        $offset = ($currentPage - 1) * $perPage;
-        $paginatedData = array_slice($dataList, $offset, $perPage);
-        $totalPages = ceil(count($dataList) / $perPage);
-
-        return [
-            'dataList' => $paginatedData,
-            'totalPages' => $totalPages,
-        ];
-    }
 
     function berita(): void
     {
-        // Ambil halaman aktif dari query parameter, jika tidak ada, gunakan halaman 1 sebagai default
-        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 12;
 
-        // Jumlah berita yang ingin ditampilkan dalam satu halaman
-        $perPage = 10;
-
-        // Ambil data berita dari Service
-        $beritaList = $this->beritaService->getAllBerita();
-        // Panggil fungsi getPaginatedData untuk mendapatkan data berita terpaginasi
-        $paginatedData = $this->getPaginatedData($beritaList, $currentPage, $perPage);
-        $beritaList = $paginatedData['dataList'];
-        $totalPages = $paginatedData['totalPages'];
+        $totalCount = count($this->beritaService->getAllBerita());
+        $beritaList = $this->beritaService->getAllBeritaPagination($page, $perPage);
         $slideshows = $this->slideshowService->getAllSlideshows();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $search = $_POST['search'];
+            $totalCount = count($this->beritaService->searchBerita($search));
+            $beritaList = $this->beritaService->searchBeritaPagination($page, $perPage, $search);
+        }
 
         View::renderHome('berita', [
             'title' => 'Berita',
+            'search' => $search ?? '',
             'slideshows' => $slideshows,
             'beritaList' => $beritaList,
-            'currentPage' => $currentPage,
-            'perPage' => $perPage,
-            'totalPages' => $totalPages,
+            'pagination' => [
+                'page' => $page,
+                'perPage' => $perPage,
+                'totalPages' => ceil($totalCount / $perPage)
+            ]
         ]);
     }
 
@@ -150,7 +144,6 @@ class HomeController
         );
     }
 
-    // visi-misi
     function visiMisi(): void
     {
         $visiMisi = $this->ketSekolahService->getVisiMisi();
@@ -160,7 +153,7 @@ class HomeController
             ]
         );
     }
-    // tujuan
+
     function tujuan(): void
     {
         View::renderHome('tujuan', [
@@ -171,96 +164,6 @@ class HomeController
 
     }
 
-
-
-
-
-    function pencarianBerita():void
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $keyword = $_POST['keyword'];
-
-            // If the keyword is empty, get all berita
-            if (empty($keyword)) {
-                $beritaList = $this->beritaService->getAllBerita();
-            } else {
-                // Panggil fungsi pencarian berita dari BeritaService
-                $hasilPencarian = $this->beritaService->cariBerita($keyword);
-
-                // Tampilkan hasil pencarian berita pada view hasil_pencarian.php
-                View::renderHome('pencarian_berita', [
-                    'title' => 'Hasil Pencarian Berita',
-                    'hasilPencarian' => $hasilPencarian,
-                ]);
-                return;
-            }
-        } else {
-            // Jika bukan metode POST, tampilkan halaman berita biasa
-            $beritaList = $this->beritaService->getAllBerita();
-        }
-
-
-
-
-        // Panggil fungsi getPaginatedData untuk mendapatkan data berita terpaginasi
-        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
-        $perPage = 10;
-        $paginatedData = $this->getPaginatedData($beritaList, $currentPage, $perPage);
-        $beritaList = $paginatedData['dataList'];
-        $totalPages = $paginatedData['totalPages'];
-
-        View::renderHome('berita', [
-            'title' => 'Berita',
-            'beritaList' => $beritaList,
-            'currentPage' => $currentPage,
-            'perPage' => $perPage,
-            'totalPages' => $totalPages,
-        ]);
-    }
-    function pencarianGuru():void
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $keyword = $_POST['keyword'];
-
-            // If the keyword is empty, get all berita
-            if (empty($keyword)) {
-                $guruStaffList = $this->GuruStaffService->getAllGuruStaff();
-            } else {
-                // Panggil fungsi pencarian berita dari GuruStaffService
-                $hasilPencarian = $this->GuruStaffService->cariGuruStaff($keyword);
-
-                // Tampilkan hasil pencarian berita pada view hasil_pencarian.php
-                View::renderHome('pencarian_guru_staff', [
-                    'title' => 'Hasil Pencarian Berita',
-                    'hasilPencarian' => $hasilPencarian,
-                ]);
-                return;
-            }
-        } else {
-            // Jika bukan metode POST, tampilkan halaman berita biasa
-            $guruStaffList = $this->GuruStaffService->getAllGuruStaff();
-        }
-
-
-
-
-        // Panggil fungsi getPaginatedData untuk mendapatkan data berita terpaginasi
-        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
-        $perPage = 10;
-        $paginatedData = $this->getPaginatedData($guruStaffList, $currentPage, $perPage);
-        $guruStaffList = $paginatedData['dataList'];
-        $totalPages = $paginatedData['totalPages'];
-
-        View::renderHome('guru_staff', [
-            'title' => 'Guru Staff',
-            'guruStaffList' => $guruStaffList,
-            'currentPage' => $currentPage,
-            'perPage' => $perPage,
-            'totalPages' => $totalPages,
-        ]);
-    }
-
-    //kurikulum
     function kurikulum(): void
     {
         $kurikulumList = $this->kurikulumService->getAllKurikulum();
@@ -277,38 +180,44 @@ class HomeController
 
     function galeri(): void
     {
-        // Ambil halaman aktif dari query parameter, jika tidak ada, gunakan halaman 1 sebagai default
-        $currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perPage = isset($_GET['perPage']) ? (int)$_GET['perPage'] : 12;
 
-        // Jumlah galeri yang ingin ditampilkan dalam satu halaman
-        $perPage = 12;
-
-        // Ambil data galeri dari Service
-        $galeriList = $this->galeriService->getAllGaleri();
-
-        // Panggil fungsi getPaginatedData untuk mendapatkan data galeri terpaginasi
-        $paginatedData = $this->getPaginatedData($galeriList, $currentPage, $perPage);
-        $galeriList = $paginatedData['dataList'];
-        $totalPages = $paginatedData['totalPages'];
+        $totalCount = count($this->galeriService->getAllGaleri());
+        $galeriList = $this->galeriService->getAllGaleriPagination($page, $perPage);
         $slideshows = $this->slideshowService->getAllSlideshows();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $search = $_POST['search'];
+            $totalCount = count($this->galeriService->galeriSearch($search));
+            $galeriList = $this->galeriService->getAllGaleriSearch($page, $perPage, $search);
+        }
+
 
         View::renderHome('galeri', [
                 'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
+                'search' => $search ?? '',
                 'slideshows' => $slideshows,
                 'galeriList' => $galeriList,
-                'totalPages' => $totalPages
+                'pagination' => [
+                    'page' => $page,
+                    'perPage' => $perPage,
+                    'totalPages' => ceil($totalCount / $perPage)
+                ]
             ]
         );
     }
+
     function strukturOrganisasi(): void
     {
         $strukturOrganisasi = $this->ketSekolahService->getStrukturOrganisasi();
-        View::renderHome('struktur_organisasi',[
+        View::renderHome('struktur-organisasi',[
                 'title' => 'Struktur Organisasi Madrasah Tsanawiyah Negeri 2 Sambas ',
                 'strukturOrganisasi' => $strukturOrganisasi
             ]
         );
     }
+
     function ppdb(): void
     {
         $gambarPath = "images/ppdb.png";
@@ -319,6 +228,7 @@ class HomeController
             ]
         );
     }
+
     public function downloadGambar(): void
     {
 
@@ -341,34 +251,6 @@ class HomeController
         flush();
         readfile($gambarPath);
         exit;
-    }
-
-
-    function kontak(): void
-    {
-        View::renderHome('kontak',[
-                'title' => 'Kontak Madrasah Tsanawiyah Negeri 2 Sambas '
-            ]
-        );
-    }
-    public function detail_berita(): void
-    {
-        // Assuming you have access to the berita ID from the URL or some other source
-        $beritaId = $_GET['id']; // Replace this with how you retrieve the berita ID
-
-        // Retrieve the specific berita by its ID using the BeritaService
-        $berita = $this->beritaService->getBeritaById($beritaId);
-
-        if ($berita) {
-            // If the berita is found, pass it to the view
-            View::renderHome('detail_berita', [
-                'title' => 'Detail Berita',
-                'berita' => $berita,
-            ]);
-        } else {
-            http_response_code(404);
-            View::render('404');
-        }
     }
 
     function ekstrakurikuler(): void
@@ -445,9 +327,17 @@ class HomeController
 
         $totalCount = count($this->guruStaffService->getAllGuruStaff());
         $GuruStaffList = $this->guruStaffService->getAllGuruStaffPagination($page, $perPage);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $search = $_POST['search'];
+            $totalCount = count($this->guruStaffService->searchGuruStaff($search));
+            $GuruStaffList = $this->guruStaffService->searchGuruStaffPagination($search, $page, $perPage);
+        }
+
         View::renderHome('guru-staff',[
                 'title' => 'Guru dan Staff Sekolah Madrasah Tsanawiyah Negeri 2 Sambas ',
                 'guruStaffList' => $GuruStaffList,
+                'search' => $search ?? '',
                 'pagination' => [
                     'page' => $page,
                     'perPage' => $perPage,
@@ -464,9 +354,19 @@ class HomeController
         );
     }
 
-    function search(): void{
-        View::renderHome('profil-sekolah',[
-                'title' => 'Profil Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
+    function hasilPencarian(): void{
+        $slideshows = $this->slideshowService->getAllSlideshows();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $search = $_POST['search'];
+            $searchResult = $this->searchService->searchCombinedResults($search);
+        }
+
+        View::renderHome('hasil-pencarian',[
+                'title' => 'Hasil Pencarian Madrasah Tsanawiyah Negeri 2 Sambas ',
+                'slideshows' => $slideshows,
+                'search' => $search ?? '',
+                'searchResult' => $searchResult
             ]
         );
     }

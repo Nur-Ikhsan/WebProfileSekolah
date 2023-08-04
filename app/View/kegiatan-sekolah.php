@@ -28,14 +28,18 @@
                     <div class="mb-5">
                         <div>
                             <?php foreach ($model['kegiatanList'] as $kegiatan) : ?>
-                                <div class="col-lg-10 col-12 mx-auto mt-2">
+                                <div class="col-xl-8 col-lg-10 col-md-12 mx-auto mt-5">
                                     <div class="row">
-                                        <div class="col-12 col-lg-4 mb-4">
-                                            <img class="img-fluid" src="/images/upload/kegiatan/<?= $kegiatan->getFoto() ?>" alt="img" style="max-width: 200px; max-height: 200px;">
+                                        <div class="col-12 col-md-4 mb-4">
+                                            <div class="aspect-ratio-container">
+                                                <img class="img-fluid aspect-ratio-img" src="/images/upload/kegiatan/<?= $kegiatan->getFoto() ?>" alt="img">
+                                            </div>
                                         </div>
-                                        <div class="col-lg-8">
-                                            <h6><?= $kegiatan->getNamaKegiatan() ?></h6>
-                                            <p class="text-box text-black text-justify"><?= $kegiatan->getDeskripsi() ?></p>
+                                        <div class="col-md-8">
+                                            <h6 class="mb-0"><?= $kegiatan->getNamaKegiatan() ?></h6>
+                                            <div class="limit-text">
+                                                <p class="text-box text-black text-justify"><?= $kegiatan->getDeskripsi() ?></p>
+                                            </div>
                                             <a href="/kegiatan-sekolah/<?= $kegiatan->getSlug() ?>" class="text-primary">Selengkapnya >></a>
                                         </div>
                                     </div>

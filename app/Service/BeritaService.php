@@ -127,31 +127,6 @@ class BeritaService
         return $slug;
     }
 
-    public function searchBerita(string $searchQuery): array
-    {
-        $searchQuery = "%$searchQuery%"; // Tambahkan wildcard (%) pada awal dan akhir query
-
-        $statement = $this->connection->prepare('SELECT * FROM berita WHERE judul_berita LIKE :searchQuery OR isi_berita LIKE :searchQuery');
-        $statement->bindValue(':searchQuery', $searchQuery, PDO::PARAM_STR);
-        $statement->execute();
-
-        $rows = $statement->fetchAll();
-        $beritaList = [];
-        foreach ($rows as $row) {
-            $berita = new Berita();
-            $berita->setIdBerita((string)$row['id_berita']);
-            $berita->setTanggal((string)$row['tanggal']);
-            $berita->setJudulBerita((string)$row['judul_berita']);
-            $berita->setSlug((string)$row['slug']);
-            $berita->setIsiBerita((string)$row['isi_berita']);
-            $berita->setFoto((string)$row['foto']);
-
-            $beritaList[] = $berita;
-        }
-
-        return $beritaList;
-    }
-
     public function getBeritaBySlug(string $slug): Berita
     {
 
@@ -161,5 +136,16 @@ class BeritaService
         }
         return $berita;
 
+    }
+
+    public function searchBerita(mixed $search)
+    {
+        return $this->beritaRepository->searchBerita($search);
+    }
+
+    public function searchBeritaPagination(int $page, int $perPage, string $search)
+    {
+        $offset = ($page - 1) * $perPage;
+        return $this->beritaRepository->searchBeritaPagination($perPage, $offset, $search);
     }
 }

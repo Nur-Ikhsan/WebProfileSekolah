@@ -142,7 +142,7 @@ class KegiatanRepository
     {
         $searchQuery = "%$searchQuery%"; // Tambahkan wildcard (%) pada awal dan akhir query
 
-        $statement = $this->connection->prepare('SELECT * FROM kegiatan WHERE nama_kegiatan LIKE :searchQuery OR deskripsi LIKE :searchQuery');
+        $statement = $this->connection->prepare('SELECT * FROM kegiatan WHERE nama_kegiatan LIKE :searchQuery ORDER BY tanggal');
         $statement->bindValue(':searchQuery', $searchQuery, PDO::PARAM_STR);
         $statement->execute();
 

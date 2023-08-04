@@ -104,4 +104,15 @@ class GuruStaffService
         $offset = ($page - 1) * $perPage;
         return $this->guruStaffRepository->getAllGuruStaffPagination($perPage, $offset);
     }
+
+    public function searchGuruStaff(string $search)
+    {
+        return $this->guruStaffRepository->searchGuruStaff($search);
+    }
+
+    public function searchGuruStaffPagination(mixed $search, int $page, int $perPage)
+    {
+        $offset = ($page - 1) * $perPage;
+        return $this->guruStaffRepository->searchGuruStaffPagination($search, $perPage, $offset);
+    }
 }

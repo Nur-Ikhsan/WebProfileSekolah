@@ -107,4 +107,50 @@ class GuruStaffRepository
 
         return $guruStaffList;
     }
+
+    public function searchGuruStaff(string $search)
+    {
+        $statement = $this->connection->prepare('SELECT * FROM guru_staff WHERE id_guru_staff <> :excludedId and (nama_guru LIKE :search or jabatan LIKE :search)');
+        $statement->bindValue(':excludedId', 0, PDO::PARAM_INT);
+        $statement->bindValue(':search', '%' . $search . '%');
+        $statement->bindValue(':search', '%' . $search . '%');
+        $statement->execute();
+
+        $guruStaffList = [];
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $guruStaff = new GuruStaff();
+            $guruStaff->setIdGuruStaff((string)$row['id_guru_staff']);
+            $guruStaff->setNamaGuru((string)$row['nama_guru']);
+            $guruStaff->setJabatan((string)$row['jabatan']);
+            $guruStaff->setFoto((string)$row['foto']);
+
+            $guruStaffList[] = $guruStaff;
+        }
+
+        return $guruStaffList;
+    }
+
+    public function searchGuruStaffPagination(mixed $search, int $perPage, float|int $offset)
+    {
+        $statement = $this->connection->prepare('SELECT * FROM guru_staff WHERE id_guru_staff <> :excludedId and (nama_guru LIKE :search or jabatan LIKE :search) LIMIT :limit OFFSET :offset');
+        $statement->bindValue(':excludedId', 0, PDO::PARAM_INT);
+        $statement->bindValue(':search', '%' . $search . '%');
+        $statement->bindValue(':search', '%' . $search . '%');
+        $statement->bindValue(':limit', $perPage, PDO::PARAM_INT);
+        $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $statement->execute();
+
+        $guruStaffList = [];
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $guruStaff = new GuruStaff();
+            $guruStaff->setIdGuruStaff((string)$row['id_guru_staff']);
+            $guruStaff->setNamaGuru((string)$row['nama_guru']);
+            $guruStaff->setJabatan((string)$row['jabatan']);
+            $guruStaff->setFoto((string)$row['foto']);
+
+            $guruStaffList[] = $guruStaff;
+        }
+
+        return $guruStaffList;
+    }
 }

@@ -7,8 +7,11 @@
                     <?php $count++; ?>
                     <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
                         <div class="overlay"></div> <!-- Add an overlay div -->
-                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100"
-                             alt="<?= $slideshow->getJudul() ?>">
+                        <div class="aspect-ratio-container r16">
+                            <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>"
+                                 class="d-block w-100 aspect-ratio-img"
+                                 alt="<?= $slideshow->getJudul() ?>">
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -16,11 +19,11 @@
         <div class="title-corausel text-white w-100">
             <p>Berita</p>
             <section class="hero-section x d-flex justify-content-center align-items-center" id="section_1">
-                <form method="get" class="custom-form x mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                <form method="POST" class="custom-form x mt-4 pt-2 mb-lg-0 mb-5" role="search">
                     <div class="input-group input-group-lg">
                         <span class="input-group-text bi-search" id="basic-addon1"></span>
-                        <input name="keyword" type="search" class="form-control" id="keyword"
-                               placeholder="Apa yang ingin Anda cari?" aria-label="Search">
+                        <input name="search" type="search" class="form-control" id="search"
+                               placeholder="Apa yang ingin Anda cari?" aria-label="Search" value="<?=  $search ?>">
                         <button type="submit" class="form-control button-color">Cari</button>
                     </div>
                 </form>
@@ -29,28 +32,9 @@
     </section>
     <section class="py-1 container">
         <div class="album bg-light">
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
-                <?php
-                $counter = 0; // Counter untuk menghitung jumlah item
-                foreach ($beritaList as $berita):
-                    if ($counter == 3) {
-                        ?>
-                        <div class="col-lg-8 col-12 mx-2 mt-70 d-flex flex-column flex-md-row">
-                            <div class="col-12 col-lg-4 mb-4 mb-md-0 my-2 my-md-0 order-md-1">
-                                <img class="img-fluid img-responsive" src="/images/upload/berita/<?= $berita->getFoto() ?>" alt="img">
-                            </div>
-                            <div class="col-12 col-lg-8 my-2 my-md-0 mx-md-2 order-md-2">
-                                <h4 class="mb-0 text"><?= $berita->getJudulBerita(); ?></h4>
-                                <div class="limit-text">
-                                    <p class="card-text mb-auto my-3 "><?= $berita->getIsiBerita(); ?></p>
-                                </div>
-                                <a href="/berita/<?= $berita->getSlug(); ?>" class="btn custom-btn mt-3 mt-md-4 button-color">Baca Selengkapnya</a>
-                            </div>
-                        </div>
-                    <?php
-                    } else {
-                    ?>
-                    <div class="col-12 col-xl-4">
+            <div class="row g-3 my-2">
+                <?php foreach ($beritaList as $berita):?>
+                    <div class="col-12 col-md-6 col-lg-4">
                         <div class="card shadow-sm aspect-ratio-container">
                             <img src="/images/upload/berita/<?= $berita->getFoto() ?>"
                                  class="img-fluid aspect-ratio-img"
@@ -67,11 +51,7 @@
                             </div>
                         </a>
                     </div>
-                    <?php
-                    }
-                    $counter++;
-                endforeach;
-                ?>
+                <?php endforeach; ?>
             </div>
 
         </div>
@@ -80,30 +60,62 @@
     </section>
 
     <div class="col-lg-12 col-12 my-5">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center mb-0">
-                <!-- Tombol Previous -->
-                <li class="page-item <?php echo ($currentPage === 1) ? 'disabled' : ''; ?>">
-                    <a class="page-link" href="?page=<?php echo($currentPage - 1); ?>" aria-label="Previous">
-                        <span aria-hidden="true">Prev</span>
-                    </a>
-                </li>
-
-                <?php for ($page = 1; $page <= $totalPages; $page++) : ?>
-                    <!-- Link untuk setiap halaman -->
-                    <li class="page-item <?php echo ($page === $currentPage) ? 'active' : ''; ?>">
-                        <a class="page-link" href="?page=<?php echo $page; ?>"><?php echo $page; ?></a>
+        <nav aria-label="Halaman" class="d-flex justify-content-center">
+            <ul class="pagination">
+                <?php if ($model['pagination']['page'] > 1): ?>
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="/berita?page=<?= $model['pagination']['page'] - 1 ?>"
+                           aria-label="Sebelumnya">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+                        </a>
                     </li>
+                <?php else: ?>
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Sebelumnya">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
+                <?php
+                $start = max($model['pagination']['page'] - 2, 1);
+                $end = min($start + 4, $model['pagination']['totalPages']);
+                $diff = $end - $start + 1;
+
+                if ($diff < 5 && $start > 1) {
+                    $start = max(1, $end - 4);
+                }
+
+                for ($i = $start; $i <= $end; $i++):
+                    ?>
+                    <?php if ($i == $model['pagination']['page']): ?>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#"><?= $i ?></a>
+                    </li>
+                <?php else: ?>
+                    <li class="page-item">
+                        <a class="page-link" href="/berita?page=<?= $i ?>"><?= $i ?></a>
+                    </li>
+                <?php endif; ?>
                 <?php endfor; ?>
 
-                <!-- Tombol Next -->
-                <li class="page-item <?php echo ($currentPage === $totalPages) ? 'disabled' : ''; ?>">
-                    <a class="page-link" href="?page=<?php echo($currentPage + 1); ?>" aria-label="Next">
-                        <span aria-hidden="true">Next</span>
-                    </a>
-                </li>
+                <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="/berita?page=<?= $model['pagination']['page'] + 1 ?>"
+                           aria-label="Berikutnya">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Berikutnya">
+                            <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+                        </a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </nav>
-    </div>
     </div>
 </main>

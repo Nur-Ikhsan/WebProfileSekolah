@@ -319,7 +319,7 @@
                             <?php if ($model['pagination']['page'] > 1): ?>
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/admin/sekolah/guru-staff?page=<?= $model['pagination']['page'] - 1 ?>"
+                                       href="/admin/galeri?page=<?= $model['pagination']['page'] - 1 ?>"
                                        aria-label="Sebelumnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
                                     </a>
@@ -349,7 +349,7 @@
                                 </li>
                             <?php else: ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="/admin/sekolah/guru-staff?page=<?= $i ?>"><?= $i ?></a>
+                                    <a class="page-link" href="/admin/galeri?page=<?= $i ?>"><?= $i ?></a>
                                 </li>
                             <?php endif; ?>
                             <?php endfor; ?>
@@ -357,7 +357,7 @@
                             <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
                                 <li class="page-item">
                                     <a class="page-link"
-                                       href="/admin/sekolah/guru-staff?page=<?= $model['pagination']['page'] + 1 ?>"
+                                       href="/admin/galeri?page=<?= $model['pagination']['page'] + 1 ?>"
                                        aria-label="Berikutnya">
                                         <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                                     </a>

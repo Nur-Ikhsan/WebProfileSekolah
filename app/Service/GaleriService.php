@@ -104,4 +104,17 @@ class GaleriService
         $offset = ($page - 1) * $perPage;
         return $this->galeriRepository->getAllGaleriPagination($perPage, $offset);
     }
+
+
+    public function galeriSearch($search): array
+    {
+        return $this->galeriRepository->galeriSearch($search);
+    }
+
+    // search
+    public function getAllGaleriSearch($page, $perPage, $search): array
+    {
+        $offset = ($page - 1) * $perPage;
+        return $this->galeriRepository->getAllGaleriSearch($perPage, $offset, $search);
+    }
 }

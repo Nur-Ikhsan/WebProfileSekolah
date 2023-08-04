@@ -8,20 +8,19 @@ use Rubygroup\WebProfileSekolah\Repository\KegiatanRepository;
 
 class SearchService
 {
-    private PDO $connection;
+    private BeritaRepository $beritaRepository;
+    private KegiatanRepository $kegiatanRepository;
 
-    public function __construct(PDO $connection)
+    public function __construct(BeritaRepository $beritaRepository, KegiatanRepository $kegiatanRepository)
     {
-        $this->connection = $connection;
+        $this->beritaRepository = $beritaRepository;
+        $this->kegiatanRepository = $kegiatanRepository;
     }
 
     public function searchCombinedResults(string $searchQuery): array
     {
-        $beritaRepository = new BeritaRepository($this->connection);
-        $kegiatanRepository = new KegiatanRepository($this->connection);
-
-        $beritaResults = $beritaRepository->searchBerita($searchQuery);
-        $kegiatanResults = $kegiatanRepository->searchKegiatan($searchQuery);
+        $beritaResults = $this->beritaRepository->searchBerita($searchQuery);
+        $kegiatanResults = $this->kegiatanRepository->searchKegiatan($searchQuery);
 
         // Menggabungkan hasil pencarian dengan atribut yang diubah agar namanya sama
         $combinedResults = [];
@@ -31,8 +30,9 @@ class SearchService
                 'id' => $berita->getIdBerita(),
                 'tanggal' => $berita->getTanggal(),
                 'judul' => $berita->getJudulBerita(),
+                'slug' => $berita->getSlug(),
                 'deskripsi' => $berita->getIsiBerita(),
-                'foto' => $berita->getFoto(),
+                'foto' => '/images/upload/berita/'.$berita->getFoto(),
             ];
         }
 
@@ -41,8 +41,9 @@ class SearchService
                 'id' => $kegiatan->getIdKegiatan(),
                 'tanggal' => $kegiatan->getTanggal(),
                 'judul' => $kegiatan->getNamaKegiatan(),
+                'slug' => $kegiatan->getSlug(),
                 'deskripsi' => $kegiatan->getDeskripsi(),
-                'foto' => $kegiatan->getFoto(),
+                'foto' => '/images/upload/kegiatan/'.$kegiatan->getFoto(),
             ];
         }
 

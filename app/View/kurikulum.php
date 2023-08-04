@@ -7,7 +7,11 @@
                     <?php $count++; ?>
                     <div class="carousel-item <?= $count == 1 ? 'active' : '' ?>">
                         <div class="overlay"></div> <!-- Add an overlay div -->
-                        <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>" class="d-block w-100" alt="<?= $slideshow->getJudul() ?>">
+                        <div class="aspect-ratio-container r16">
+                            <img src="/images/upload/slideshow/<?= $slideshow->getFoto() ?>"
+                                 class="d-block w-100 aspect-ratio-img"
+                                 alt="<?= $slideshow->getJudul() ?>">
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>

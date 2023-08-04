@@ -20,6 +20,18 @@
     </header>
 
     <section class="container">
+        <div class="row row-cols-md-4 row-cols-lg-4 row-cols-sm-1 justify-content-center">
+            <form method="POST" class="custom-form x mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                <div class="search-container">
+                    <div class="search-box">
+                        <span class="bi-search"></span>
+                        <input name="search" type="search" class="search-input" id="search" placeholder="Cari"
+                               aria-label="Search" value="<?=  $search ?>">
+                        <!--                    <button type="submit" class="search-button">Cari</button>-->
+                    </div>
+                </div>
+            </form>
+        </div>
         <div class="row row-cols-md-4 row-cols-lg-4 row-cols-sm-1 mt-120 justify-content-center mb-100">
             <?php foreach ($guruStaffList as $gurustaff): ?>
                 <div class="mx-5 card-img-container mb-4" style="max-width: 15rem; max-height: 20rem;">

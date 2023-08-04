@@ -310,16 +310,16 @@ strong {
 /*---------------------------------------
   NAVIGATION
 -----------------------------------------*/
-.sticky-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-}
+/*.sticky-wrapper {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  right: 0;*/
+/*  left: 0;*/
+/*}*/
 
-.sticky-wrapper.is-sticky .navbar {
-  background-color: var(--secondary-color);
-}
+/*.sticky-wrapper.is-sticky .navbar {*/
+/*  background-color: var(--secondary-color);*/
+/*}*/
 
 .navbar {
   z-index: 9;
@@ -1210,7 +1210,7 @@ blockquote {
     left: 10px;
     opacity: 1;
     pointer-events: auto;
-    max-width: 155px;
+    max-width: 235px;
     margin-top: 10px;
     margin-bottom: 15px;
   }
@@ -1302,7 +1302,7 @@ blockquote {
 @media (min-width: 800px) {
   .slide-width {
     width: 100%;
-    height: 90vh;
+    max-height: 500px;
   }
 }
 
@@ -2363,7 +2363,14 @@ i.bi-trash {
 .aspect-ratio-container.r16::before {
   content: "";
   display: block;
-  padding-top: calc(100% / (2.2 / 1)); /* Rasio aspek 16:9 */
+  padding-top: calc(100% / (3 / 1.3)); /* Rasio aspek 16:9 */
+  transition: 0.6s;
+}
+
+@media (max-width: 992px) {
+  .aspect-ratio-container.r16::before {
+    padding-top: calc(100% / (16 / 9)); /* Rasio aspek 16:9 */
+  }
 }
 
 .aspect-ratio-img {
@@ -2387,6 +2394,7 @@ i.bi-trash {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6); /* Warna hitam dengan opasitas 40% */
+  z-index: 1;
 }
 
 /* Tambahkan CSS untuk gaya teks di class title-corausel */
@@ -2400,6 +2408,7 @@ i.bi-trash {
   background-color: transparent; /* Tambahkan latar belakang hitam dengan opasitas 70% */
   padding: 10px;
   border-radius: 5px;
+  z-index: 2;
 }
 
 .title-corausel p {
@@ -2411,3 +2420,66 @@ i.bi-trash {
 }
 
 
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  background-color: #E9EAEB;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.search-box span {
+  padding-left: 20px;
+}
+
+.search-input {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.30px;
+  word-wrap: break-word;
+  color: #000000;
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 8px;
+  border-radius: 10px;
+}
+
+.search-button {
+  height: 100%;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.30px;
+  word-wrap: break-word;
+  color: #000 !important;
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+
+  .search-input {
+    padding-left: 32px;
+  }
+
+  .search-button {
+    padding-right: 16px;
+  }
+}
