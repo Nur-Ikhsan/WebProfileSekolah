@@ -16,12 +16,13 @@ class KegiatanRepository
 
     public function saveKegiatan(Kegiatan $kegiatan): Kegiatan
     {
-        $statement = $this->connection->prepare('INSERT INTO kegiatan (id_kegiatan, tanggal, nama_kegiatan, deskripsi, foto) VALUES (?, ?, ?, ?,?)');
+        $statement = $this->connection->prepare('INSERT INTO kegiatan (id_kegiatan, tanggal, nama_kegiatan, slug, deskripsi, foto) VALUES (?, ?, ?, ?, ?,?)');
         $statement
             ->execute([
                 $kegiatan->getIdKegiatan(),
                 $kegiatan->getTanggal(),
                 $kegiatan->getNamaKegiatan(),
+                $kegiatan->getSlug(),
                 $kegiatan->getDeskripsi(),
                 $kegiatan->getFoto()
             ]);
@@ -42,6 +43,7 @@ class KegiatanRepository
             $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
             $kegiatan->setTanggal((string)$row['tanggal']);
             $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
+            $kegiatan->setSlug((string)$row['slug']);
             $kegiatan->setDeskripsi((string)$row['deskripsi']);
             $kegiatan->setFoto((string)$row['foto']);
             return $kegiatan;
@@ -52,10 +54,11 @@ class KegiatanRepository
 
     public function updateKegiatan(Kegiatan $kegiatan): Kegiatan
     {
-        $statement = $this->connection->prepare('UPDATE kegiatan SET tanggal = ?, nama_kegiatan = ?, deskripsi = ?, foto = ? WHERE id_kegiatan = ?');
+        $statement = $this->connection->prepare('UPDATE kegiatan SET tanggal = ?, nama_kegiatan = ?, slug = ?, deskripsi = ?, foto = ? WHERE id_kegiatan = ?');
         $statement->execute([
             $kegiatan->getTanggal(),
             $kegiatan->getNamaKegiatan(),
+            $kegiatan->getSlug(),
             $kegiatan->getDeskripsi(),
             $kegiatan->getFoto(),
             $kegiatan->getIdKegiatan()
@@ -75,6 +78,7 @@ class KegiatanRepository
             $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
             $kegiatan->setTanggal((string)$row['tanggal']);
             $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
+            $kegiatan->setSlug((string)$row['slug']);
             $kegiatan->setDeskripsi((string)$row['deskripsi']);
             $kegiatan->setFoto((string)$row['foto']);
             $kegiatanList[] = $kegiatan;
@@ -95,6 +99,7 @@ class KegiatanRepository
             $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
             $kegiatan->setTanggal((string)$row['tanggal']);
             $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
+            $kegiatan->setSlug((string)$row['slug']);
             $kegiatan->setDeskripsi((string)$row['deskripsi']);
             $kegiatan->setFoto((string)$row['foto']);
             $kegiatanList[] = $kegiatan;
@@ -110,4 +115,49 @@ class KegiatanRepository
         return $statement->rowCount() > 0;
     }
 
+    public function findKegiatanBySlug($slug) : ?Kegiatan
+    {
+        $statement = $this->connection->prepare('SELECT * FROM kegiatan WHERE slug = ?');
+        $statement->execute([$slug]);
+
+        try {
+            $row = $statement->fetch();
+            if (!$row) {
+                return null;
+            }
+            $kegiatan = new Kegiatan();
+            $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
+            $kegiatan->setTanggal((string)$row['tanggal']);
+            $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
+            $kegiatan->setSlug((string)$row['slug']);
+            $kegiatan->setDeskripsi((string)$row['deskripsi']);
+            $kegiatan->setFoto((string)$row['foto']);
+            return $kegiatan;
+        } finally {
+            $statement->closeCursor();
+        }
+    }
+
+    public function searchKegiatan(string $searchQuery): array
+    {
+        $searchQuery = "%$searchQuery%"; // Tambahkan wildcard (%) pada awal dan akhir query
+
+        $statement = $this->connection->prepare('SELECT * FROM kegiatan WHERE nama_kegiatan LIKE :searchQuery OR deskripsi LIKE :searchQuery');
+        $statement->bindValue(':searchQuery', $searchQuery, PDO::PARAM_STR);
+        $statement->execute();
+
+        $kegiatanList = [];
+        while ($row = $statement->fetch()) {
+            $kegiatan = new Kegiatan();
+            $kegiatan->setIdKegiatan((string)$row['id_kegiatan']);
+            $kegiatan->setTanggal((string)$row['tanggal']);
+            $kegiatan->setNamaKegiatan((string)$row['nama_kegiatan']);
+            $kegiatan->setSlug((string)$row['slug']);
+            $kegiatan->setDeskripsi((string)$row['deskripsi']);
+            $kegiatan->setFoto((string)$row['foto']);
+            $kegiatanList[] = $kegiatan;
+        }
+
+        return $kegiatanList;
+    }
 }

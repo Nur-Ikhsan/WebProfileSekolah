@@ -36,7 +36,7 @@
                                         <div class="col-lg-8">
                                             <h6><?= $kegiatan->getNamaKegiatan() ?></h6>
                                             <p class="text-box text-black text-justify"><?= $kegiatan->getDeskripsi() ?></p>
-                                            <a href="/kegiatan-sekolah/<?= $kegiatan->getIdKegiatan() ?>" class="text-primary">Selengkapnya >></a>
+                                            <a href="/kegiatan-sekolah/<?= $kegiatan->getSlug() ?>" class="text-primary">Selengkapnya >></a>
                                         </div>
                                     </div>
                                 </div>

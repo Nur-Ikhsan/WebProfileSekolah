@@ -39,6 +39,7 @@ class BeritaService
         $berita->setIdBerita(Uuid::uuid4()->toString());
         $berita->setTanggal($request->tanggal);
         $berita->setJudulBerita($request->judulBerita);
+        $berita->setSlug($this->generateSlug($request->tanggal, $request->judulBerita));
         $berita->setIsiBerita($request->isiBerita);
         $berita->setFoto($this->uploadPhoto($request->foto));
 
@@ -67,6 +68,7 @@ class BeritaService
         }
         $berita->setTanggal($request->tanggal);
         $berita->setJudulBerita($request->judulBerita);
+        $berita->setSlug($this->generateSlug($request->tanggal, $request->judulBerita));
         $berita->setIsiBerita($request->isiBerita);
 
 
@@ -111,5 +113,53 @@ class BeritaService
     public function getBeritaById(string $id): ?Berita
     {
         return $this->beritaRepository->findBeritaById($id);
+    }
+
+    private function generateSlug(string $tanggal, string $judulBerita)
+    {
+        $date = new \DateTime($tanggal);
+        $formattedDate = $date->format('Y-m-d');
+
+        // Hilangkan karakter simbol dari judul berita
+        $judulBerita = preg_replace('/[^\w\s-]/', '', $judulBerita);
+
+        $slug = $formattedDate . '/' . str_replace(' ', '-', strtolower($judulBerita));
+        return $slug;
+    }
+
+    public function searchBerita(string $searchQuery): array
+    {
+        $searchQuery = "%$searchQuery%"; // Tambahkan wildcard (%) pada awal dan akhir query
+
+        $statement = $this->connection->prepare('SELECT * FROM berita WHERE judul_berita LIKE :searchQuery OR isi_berita LIKE :searchQuery');
+        $statement->bindValue(':searchQuery', $searchQuery, PDO::PARAM_STR);
+        $statement->execute();
+
+        $rows = $statement->fetchAll();
+        $beritaList = [];
+        foreach ($rows as $row) {
+            $berita = new Berita();
+            $berita->setIdBerita((string)$row['id_berita']);
+            $berita->setTanggal((string)$row['tanggal']);
+            $berita->setJudulBerita((string)$row['judul_berita']);
+            $berita->setSlug((string)$row['slug']);
+            $berita->setIsiBerita((string)$row['isi_berita']);
+            $berita->setFoto((string)$row['foto']);
+
+            $beritaList[] = $berita;
+        }
+
+        return $beritaList;
+    }
+
+    public function getBeritaBySlug(string $slug): Berita
+    {
+
+        $berita = $this->beritaRepository->findBeritaBySlug($slug);
+        if ($berita === null) {
+            throw new ValidationException('Berita tidak ditemukan.');
+        }
+        return $berita;
+
     }
 }

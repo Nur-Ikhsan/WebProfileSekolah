@@ -39,6 +39,7 @@ class KegiatanService
         $kegiatan->setIdKegiatan(Uuid::uuid4()->toString());
         $kegiatan->setTanggal($request->tanggal);
         $kegiatan->setNamaKegiatan($request->namaKegiatan);
+        $kegiatan->setSlug($this->generateSlug($request->tanggal, $request->namaKegiatan));
         $kegiatan->setDeskripsi($request->deskripsi);
         $kegiatan->setFoto($this->uploadPhoto($request->foto));
 
@@ -69,6 +70,7 @@ class KegiatanService
 
         $kegiatan->setTanggal($request->tanggal);
         $kegiatan->setNamaKegiatan($request->namaKegiatan);
+        $kegiatan->setSlug($this->generateSlug($request->tanggal, $request->namaKegiatan));
         $kegiatan->setDeskripsi($request->deskripsi);
 
         return $this->kegiatanRepository->updateKegiatan($kegiatan);
@@ -89,6 +91,27 @@ class KegiatanService
     {
         $offset = ($page - 1) * $perPage;
         return $this->kegiatanRepository->getAllKegiatanPagination($perPage, $offset);
+    }
+
+    private function generateSlug(string $tanggal, string $namaKegiatan)
+    {
+        $date = new \DateTime($tanggal);
+        $formattedDate = $date->format('Y-m-d');
+
+        // Hilangkan karakter simbol dari judul berita
+        $namaKegiatan = preg_replace('/[^\w\s-]/', '', $namaKegiatan);
+
+        $slug = $formattedDate . '/' . str_replace(' ', '-', strtolower($namaKegiatan));
+        return $slug;
+    }
+
+    public function getKegiatanBySlug($slug) : Kegiatan
+    {
+        $kegiatan = $this->kegiatanRepository->findKegiatanBySlug($slug);
+        if ($kegiatan === null) {
+            throw new ValidationException('Kegiatan tidak ditemukan.');
+        }
+        return $kegiatan;
     }
 
 }

@@ -26,13 +26,9 @@
 
                     <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                         <div class="input-group input-group-lg">
-                                    <span class="input-group-text bi-search" id="basic-addon1">
-
-                                    </span>
-
+                            <span class="input-group-text bi-search" id="basic-addon1"></span>
                             <input name="keyword" type="search" class="form-control" id="keyword"
                                    placeholder="Apa yang ingin Anda cari?" aria-label="Search">
-
                             <button type="submit" class="form-control button-color">Cari</button>
                         </div>
                     </form>
@@ -64,7 +60,7 @@
 
         </div>
         <div class="album  bg-light">
-            <div class="row row-cols-1 row-cols-sm -2 row-cols-md-3 g-3 my-2">
+            <div class="row g-3 my-2">
                 <?php
                 $counter = 0; // Counter untuk menghitung jumlah item
                 foreach ($beritaList as $berita):
@@ -72,12 +68,12 @@
                         break; // Hentikan perulangan jika sudah mencapai 6 item
                     }
                     ?>
-                    <div class="col-4">
+                    <div class="col-12 col-md-4">
                         <div class="card shadow-sm aspect-ratio-container">
                             <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid aspect-ratio-img"
                                  alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal">
                         </div>
-                        <a href="/detail_berita?id=<?= $berita->getIdBerita(); ?>"
+                        <a href="/berita/<?= $berita->getSlug(); ?>"
                            class="icon-link blink gap-1 icon-link-hover">
                             <div class="card-body rounded-bottom">
                                 <h6 class="mb-0 my-3 text"><?= $berita->getJudulBerita(); ?></h6>

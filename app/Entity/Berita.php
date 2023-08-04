@@ -7,8 +7,25 @@ class Berita
     private string $idBerita;
     private string $tanggal;
     private string $judulBerita;
+    private string $slug;
     private string $isiBerita;
     private string $foto;
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
+    }
 
     /**
      * @return string

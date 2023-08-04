@@ -16,11 +16,12 @@ class BeritaRepository
 
     public function saveBerita(Berita $berita): Berita
     {
-        $statement = $this->connection->prepare('INSERT INTO berita (id_berita, tanggal, judul_berita, isi_berita, foto) VALUES (?, ?, ?, ?, ?)');
+        $statement = $this->connection->prepare('INSERT INTO berita (id_berita, tanggal, judul_berita, slug, isi_berita, foto) VALUES (?, ?, ?, ?, ?, ?)');
         $statement->execute([
             $berita->getIdBerita(),
             $berita->getTanggal(),
             $berita->getJudulBerita(),
+            $berita->getSlug(),
             $berita->getIsiBerita(),
             $berita->getFoto()
         ]);
@@ -42,6 +43,7 @@ class BeritaRepository
         $berita->setIdBerita((string)$row['id_berita']);
         $berita->setTanggal((string)$row['tanggal']);
         $berita->setJudulBerita((string)$row['judul_berita']);
+        $berita->setSlug((string)$row['slug']);
         $berita->setIsiBerita((string)$row['isi_berita']);
         $berita->setFoto((string)$row['foto']);
 
@@ -50,10 +52,11 @@ class BeritaRepository
 
     public function updateBerita(Berita $berita): Berita
     {
-        $statement = $this->connection->prepare('UPDATE berita SET tanggal = ?, judul_berita = ?, isi_berita = ?, foto = ? WHERE id_berita = ?');
+        $statement = $this->connection->prepare('UPDATE berita SET tanggal = ?, judul_berita = ?, slug = ?, isi_berita = ?, foto = ? WHERE id_berita = ?');
         $statement->execute([
             $berita->getTanggal(),
             $berita->getJudulBerita(),
+            $berita->getSlug(),
             $berita->getIsiBerita(),
             $berita->getFoto(),
             $berita->getIdBerita()
@@ -82,6 +85,7 @@ class BeritaRepository
             $berita->setIdBerita((string)$row['id_berita']);
             $berita->setTanggal((string)$row['tanggal']);
             $berita->setJudulBerita((string)$row['judul_berita']);
+            $berita->setSlug((string)$row['slug']);
             $berita->setIsiBerita((string)$row['isi_berita']);
             $berita->setFoto((string)$row['foto']);
 
@@ -105,6 +109,53 @@ class BeritaRepository
             $berita->setIdBerita((string)$row['id_berita']);
             $berita->setTanggal((string)$row['tanggal']);
             $berita->setJudulBerita((string)$row['judul_berita']);
+            $berita->setSlug((string)$row['slug']);
+            $berita->setIsiBerita((string)$row['isi_berita']);
+            $berita->setFoto((string)$row['foto']);
+
+            $beritaList[] = $berita;
+        }
+
+        return $beritaList;
+    }
+
+    public function findBeritaBySlug(string $slug) : ?Berita
+    {
+        $statement = $this->connection->prepare('SELECT * FROM berita WHERE slug = ?');
+        $statement->execute([$slug]);
+
+        $row = $statement->fetch();
+        if (!$row) {
+            return null;
+        }
+
+        $berita = new Berita();
+        $berita->setIdBerita((string)$row['id_berita']);
+        $berita->setTanggal((string)$row['tanggal']);
+        $berita->setJudulBerita((string)$row['judul_berita']);
+        $berita->setSlug((string)$row['slug']);
+        $berita->setIsiBerita((string)$row['isi_berita']);
+        $berita->setFoto((string)$row['foto']);
+
+        return $berita;
+    }
+
+    public function searchBerita(string $searchQuery): array
+    {
+        $searchQuery = "%$searchQuery%"; // Tambahkan wildcard (%) pada awal dan akhir query
+
+        $statement = $this->connection->prepare('SELECT * FROM berita WHERE judul_berita LIKE :searchQuery OR isi_berita LIKE :searchQuery');
+        $statement->bindValue(':searchQuery', $searchQuery, PDO::PARAM_STR);
+        $statement->execute();
+
+        $rows = $statement->fetchAll();
+        $beritaList = [];
+        foreach ($rows as $row) {
+            $berita = new Berita();
+            $berita->setIdBerita((string)$row['id_berita']);
+            $berita->setTanggal((string)$row['tanggal']);
+            $berita->setJudulBerita((string)$row['judul_berita']);
+            $berita->setSlug((string)$row['slug']);
             $berita->setIsiBerita((string)$row['isi_berita']);
             $berita->setFoto((string)$row['foto']);
 

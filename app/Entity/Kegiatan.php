@@ -7,8 +7,25 @@ class Kegiatan
     private string $idKegiatan;
     private string $tanggal;
     private string $namaKegiatan;
+    private string $slug;
     private string $deskripsi;
     private string $foto;
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
+    }
 
     /**
      * @return string

@@ -232,7 +232,7 @@
                             <th scope="col" class="py-3 text-center col-2">Tanggal</th>
                             <th scope="col" class="py-3 text-center">Nama Kegiatan</th>
                             <th scope="col" class="py-3 text-center">Deskripsi</th>
-                            <th scope="col" class="py-3 text-center">Aksi</th>
+                            <th scope="col" class="py-3 text-center col-1">Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -245,7 +245,7 @@
                                 </td>
                                 <td class="text-center"><?= $kegiatan->getTanggal() ?></td>
                                 <td><?= $kegiatan->getNamaKegiatan() ?></td>
-                                <td><?= $kegiatan->getDeskripsi() ?></td>
+                                <td><?= substr($kegiatan->getDeskripsi(), 0, 100) . (strlen($kegiatan->getDeskripsi()) > 100 ? '...' : '') ?></td>
                                 <td class="text-center">
                                     <a href="#" data-bs-toggle="modal"
                                        data-bs-target="#editKegiatanModal<?= $kegiatan->getIdKegiatan() ?>">

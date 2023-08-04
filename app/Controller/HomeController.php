@@ -5,6 +5,7 @@ namespace Rubygroup\WebProfileSekolah\Controller;
 use Rubygroup\WebProfileSekolah\App\View;
 use Rubygroup\WebProfileSekolah\Config\Database;
 use Rubygroup\WebProfileSekolah\Entity\Prestasi;
+use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Repository\BeritaRepository;
 use Rubygroup\WebProfileSekolah\Repository\EkstrakurikulerRepository;
 use Rubygroup\WebProfileSekolah\Repository\FasilitasRepository;
@@ -131,6 +132,22 @@ class HomeController
             'perPage' => $perPage,
             'totalPages' => $totalPages,
         ]);
+    }
+
+    function detailBerita(string $slug): void
+    {
+        $berita = null;
+        try {
+            $berita = $this->beritaService->getBeritaBySlug($slug);
+        } catch (ValidationException $e) {
+            View::render404();
+            return;
+        }
+        View::renderHome('detail-berita', [
+                'title' => $berita->getJudulBerita()?? '',
+                'berita' => $berita
+            ]
+        );
     }
 
     // visi-misi
@@ -404,6 +421,23 @@ class HomeController
         );
     }
 
+    function detailKegiatanSekolah($slug): void
+    {
+        $kegiatan = null;
+        try {
+            $kegiatan = $this->kegiatanService->getKegiatanBySlug($slug);
+        } catch (ValidationException $e) {
+            View::render404();
+            return;
+        }
+
+        View::renderHome('detail-kegiatan',[
+                'title' => $kegiatan->getNamaKegiatan() ?? '',
+                'kegiatan' => $kegiatan
+            ]
+        );
+    }
+
     function guruStaf(): void
     {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -429,4 +463,12 @@ class HomeController
             ]
         );
     }
+
+    function search(): void{
+        View::renderHome('profil-sekolah',[
+                'title' => 'Profil Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
+            ]
+        );
+    }
+
 }
