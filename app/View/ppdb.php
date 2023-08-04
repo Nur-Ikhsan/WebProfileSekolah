@@ -1,23 +1,16 @@
 <main>
 
-
     <section style="height: 100vh; width: 100vw;" class="corausel-section slide-width">
-
-                    <div class="overlay"></div> <!-- Add an overlay div -->
-                        <div class="aspect-ratio-container r16">
-                            <img src="images/2d1k8d1tf85s_ppdb.jpg"
-                                class="d-block aspect-ratio-img">
-                        </div>
+        <div class="overlay"></div> <!-- Add an overlay div -->
+        <div class="aspect-ratio-container r16">
+            <img src="images/2d1k8d1tf85s_ppdb.jpg" class="d-block aspect-ratio-img">
+        </div>
     </section>
-
-
 
     <section class="container">
         <div class=" row align-items-md-stretch">
             <div class="col-lg-8 col-12 mx-auto my-5">
                 <h1 class=" text-center" style="color: seagreen">Informasi PPDB</h1>
-
-
             </div>
             <div class="col-md-6 my-5">
                 <section class="timeline-section section-padding">
@@ -59,7 +52,7 @@
                                             <h4 class="text-black mb-3">Awal Tahun Ajaran Baru</h4>
                                             <p class="text-black">Tanggal</p>
                                             <div class="icon-holder">
-                                                <img src="/images/Seni.png">
+                                                <i class="bi-check-lg"></i>
                                             </div>
                                         </li>
                                     </ul>
