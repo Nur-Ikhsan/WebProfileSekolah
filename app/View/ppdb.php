@@ -1,9 +1,13 @@
 <main>
 
 
-    <section style="height: 100vh; width: 90vw;">
-        <img src="images/2d1k8d1tf85s_ppdb.jpg"
-             class="d-block aspect-ratio-img">
+    <section style="height: 100vh; width: 100vw;" class="corausel-section slide-width">
+
+                    <div class="overlay"></div> <!-- Add an overlay div -->
+                        <div class="aspect-ratio-container r16">
+                            <img src="images/2d1k8d1tf85s_ppdb.jpg"
+                                class="d-block aspect-ratio-img">
+                        </div>
     </section>
 
 
