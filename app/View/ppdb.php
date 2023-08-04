@@ -11,14 +11,13 @@
     <section class="container">
         <div class=" row align-items-md-stretch">
             <div class="col-lg-8 col-12 mx-auto my-5">
-                <h1 class=" text-center">Informasi PPDB</h1>
+                <h1 class=" text-center" style="color: seagreen">Informasi PPDB</h1>
 
 
             </div>
             <div class="col-md-6 my-5">
                 <section class="timeline-section section-padding">
-                    <div class="section-overlay"></div>
-
+                    <div style="background-color: white">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-10 col-12 mx-auto mw-100">
@@ -64,7 +63,9 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
+
             </div>
             <div class="col-md-6 my-5">
                 <div class="h-100 p-5 bg-light border rounded-3">
