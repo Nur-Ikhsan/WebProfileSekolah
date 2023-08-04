@@ -9,8 +9,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="a" href="#">Profil</a></li>
-
+                            <li class="breadcrumb-item"><a class="a" href="/index">Home</a></li>
+                            <li class="breadcrumb-item">Profil</li>
                             <li class="breadcrumb-item actived" aria-current="page">Fasilitas Sekolah</li>
                         </ol>
                     </nav>
@@ -101,7 +101,7 @@
                         </li>
                     <?php else: ?>
                         <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Berikutnya">
+                            <a class="pae-link" href="#" aria-label="Berikutnya">
                                 <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
                             </a>
                         </li>

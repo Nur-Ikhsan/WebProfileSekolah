@@ -292,9 +292,13 @@ strong {
 }
 
 .breadcrumb-item+.breadcrumb-item::before,
-.breadcrumb-item a:hover,
+.breadcrumb-item {
+  color: var(--white-color);
+  font-size: 16px;
+}
 .breadcrumb-item.active {
   color: var(--white-color);
+  font-size: 16px;
 }
 
 .site-header .custom-icon {
@@ -1750,12 +1754,12 @@ blockquote {
 }
 
 .breadcrumb .actived {
-  color: white;
+  color: #000000;
   font-weight: 300;
 }
 
 .breadcrumb .a {
-  color: #000000;
+  color: #ffffff;
   transition: 0.3s;
   font-weight: normal;
 }
@@ -2483,3 +2487,4 @@ i.bi-trash {
     padding-right: 16px;
   }
 }
+

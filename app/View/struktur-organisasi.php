@@ -6,9 +6,10 @@
                 <div class="col-lg-5 col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="/index">Homepage</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Struktur Organisasi</li>
+                            <li class="breadcrumb-item"><a class="a" href="/index">Home</a></li>
+                            <li class="breadcrumb-item">Profil</li>
+                            <li class="breadcrumb-item actived" aria-current="page">Struktur Organisasi</li>
                         </ol>
                     </nav>
 

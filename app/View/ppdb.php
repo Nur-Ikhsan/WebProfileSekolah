@@ -52,7 +52,7 @@
                                             <h4 class="text-black mb-3">Awal Tahun Ajaran Baru</h4>
                                             <p class="text-black">Tanggal</p>
                                             <div class="icon-holder">
-                                                <i class="bi-check-lg"></i>
+                                                <i class="bi-bookmark"></i>
                                             </div>
                                         </li>
                                     </ul>

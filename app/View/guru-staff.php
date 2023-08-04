@@ -7,8 +7,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="a" href="#">Profil</a></li>
-
+                            <li class="breadcrumb-item"><a class="a" href="/index">Home</a></li>
+                            <li class="breadcrumb-item">Profil</li>
                             <li class="breadcrumb-item actived" aria-current="page">Guru dan Staff</li>
                         </ol>
                     </nav>

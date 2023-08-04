@@ -1,16 +1,13 @@
 <main xmlns="http://www.w3.org/1999/html">
 
-
-
     <header class="site-header d-flex flex-column justify-content-center align-items-center">
         <div class="container">
             <div class="row align-items-center">
-
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="a" href="#">Profil</a></li>
-
+                            <li class="breadcrumb-item"><a class="a" href="/index">Home</a></li>
+                            <li class="breadcrumb-item">Profil</li>
                             <li class="breadcrumb-item actived" aria-current="page">Kegiatan Sekolah</li>
                         </ol>
                     </nav>
