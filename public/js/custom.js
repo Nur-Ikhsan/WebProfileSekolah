@@ -76,3 +76,27 @@
       }
     });
   });
+
+  $(document).ready(function() {
+    // fungsi untuk menampilkan preview image setelah file dipilih
+    function previewImage(input, elemPreview) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $(elemPreview).attr('src', e.target.result);
+          $(elemPreview).css('display', 'flex');
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    // event listener untuk input file gambar pada masing-masing modal
+    $('#edit-gambar').change(function() {
+      previewImage(this, '#preview-gambar');
+    });
+
+    $('#edit-brosur').change(function() {
+      previewImage(this, '#preview-brosur');
+    });
+  });
+

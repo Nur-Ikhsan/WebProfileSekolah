@@ -132,6 +132,30 @@ CREATE TABLE ekstrakurikuler
     FOREIGN KEY (id_sekolah) REFERENCES Sekolah (id_sekolah)
 );
 
+CREATE TABLE ppdb
+(
+    id_ppdb     VARCHAR(255) PRIMARY KEY,
+    judul       VARCHAR(255),
+    deskripsi   TEXT,
+    brosur      VARCHAR(255),
+    foto        VARCHAR(255),
+    id_sekolah  VARCHAR(255),
+    FOREIGN KEY (id_sekolah) REFERENCES sekolah (id_sekolah)
+);
+
+-- Tabel alur_ppdb
+drop table alur_ppdb;
+
+CREATE TABLE alur_ppdb
+(
+    id_alur_ppdb VARCHAR(255) PRIMARY KEY,
+    urutan       INT NOT NULL,
+    judul        VARCHAR(255),
+    tanggal      VARCHAR(255),
+    id_ppdb      VARCHAR(255),
+    FOREIGN KEY (id_ppdb) REFERENCES ppdb (id_ppdb)
+);
+
 ALTER TABLE fasilitas
     ADD COLUMN id_sekolah VARCHAR(255);
 ALTER TABLE fasilitas

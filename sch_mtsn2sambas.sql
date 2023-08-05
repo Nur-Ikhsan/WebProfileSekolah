@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2023 pada 07.50
+-- Waktu pembuatan: 05 Agu 2023 pada 13.54
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -47,6 +47,30 @@ INSERT INTO `admin` (`id`, `username`, `password`, `status`, `id_guru_staff`) VA
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `alur_ppdb`
+--
+
+CREATE TABLE `alur_ppdb` (
+  `id_alur_ppdb` varchar(255) NOT NULL,
+  `urutan` int(11) NOT NULL,
+  `judul` varchar(255) DEFAULT NULL,
+  `tanggal` varchar(255) DEFAULT NULL,
+  `id_ppdb` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `alur_ppdb`
+--
+
+INSERT INTO `alur_ppdb` (`id_alur_ppdb`, `urutan`, `judul`, `tanggal`, `id_ppdb`) VALUES
+('50c3e172-187c-46ca-90f2-1e3464fa1474', 1, 'Pendaftaran', '15 Juni 2023 - 23  Juni 2023', '60ef33b1-54b8-4670-848e-44efd2ccb6dc'),
+('6093978b-1446-429e-bd1c-2d73c8807087', 4, 'Awal Tahun Ajaran Baru 2022/2023', 'Tanggal', '60ef33b1-54b8-4670-848e-44efd2ccb6dc'),
+('ab618679-bd6d-4069-831b-fce42cf08dae', 2, 'Pengumuman Hasil', 'Tanggal', '60ef33b1-54b8-4670-848e-44efd2ccb6dc'),
+('f8c54d8a-8a88-424f-b4ea-3d7c11e790ce', 3, 'Daftar Ulang', 'Tanggal', '60ef33b1-54b8-4670-848e-44efd2ccb6dc');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `berita`
 --
 
@@ -65,6 +89,7 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `tanggal`, `judul_berita`, `slug`, `foto`, `isi_berita`, `id_sekolah`) VALUES
+('229778ef-68f9-4506-930d-e912bd2ec0e2', '2023-08-01', 'Kepala Sekolah MTs yang Pukul 15 Siswi di Gresik Ditetapkan Tersangka', '2023-08-01/kepala-sekolah-mts-yang-pukul-15-siswi-di-gresik-ditetapkan-tersangka', '64cca325eb5b4_pemukulan.jpg', '<p class=\"MsoNormal\">Kepolisian Resor (Polres) Gresik akhirnya menetapkan Ahmad Nasrullah (51) sebagai tersangka dalam kasus pemukulan terhadap 15 orang siswi di lingkup Madrasah Tsanawiyah (MTs) Nurul Islam di Kecamatan Manyar, Gresik, Jawa Timur.</p>\r\n<p class=\"MsoNormal\">Kepala Polres Gresik AKBP Mochamad Nur Azis mengatakan, penetapan tersangka terhadap pria yang menjabat sebagai kepala MTs Nurul Islam tersebut berdasarkan bukti dan hasil penyelidikan yang telah dilakukan oleh pihaknya.</p>\r\n<p class=\"MsoNormal\">Di mana, dari 15 korban, empat orang di antaranya sempat pingsan pada saat kejadian.</p>\r\n<p class=\"MsoNormal\">\"Ditetapkan sebagai tersangka atas nama AN. Ini setelah kami lakukan serangkaian interogasi, bukti di lapangan dan hasil penyelidikan yang telah kami lakukan,\" ujar Nur Azis di hadapan awak media di Mapolres Gresik, Sabtu (7/1/2023).</p>\r\n<p class=\"MsoNormal\">Dari hasil penyelidikan yang sudah dilakukan oleh pihak kepolisian, tersangka terbukti melakukan tindak kekerasan dengan cara memukul para korban dalam kejadian Selasa (3/1/2023) tersebut.</p>\r\n<p class=\"MsoNormal\">Bahkan, pemukulan yang dilakukan oleh tersangka menyebabkan empat orang siswi di antaranya sempat pingsan.</p>\r\n<p class=\"MsoNormal\">\"Setelah ada laporan pemukulan atau penganiayaan terhadap 15 siswi, kami lakukan pemeriksaan terhadap saksi dan para korban. Jumat (6/1/2023) dari Polsek Manyar dilakukan pelimpahan. Setelah itu, tadi malam dilakukan pengamanan,\" tutur Nur Azis.</p>\r\n<p class=\"MsoNormal\">Sebelum ditetapkan sebagai tersangka, Ahmad Nasrullah lebih dulu dimintai keterangan sebagai saksi terlapor.</p>\r\n<p class=\"MsoNormal\">Kemudian dilakukan pemeriksaan lanjutan pada Sabtu pagi, kemudian mengakui perbuatan yang telah dilakukan dan akhirnya ditetapkan sebagai tersangka.</p>\r\n<p class=\"MsoNormal\">\"Kita terapkan Pasal 351 KUHP (tentang penganiayaan), serta atau Undang Undang nomor 17 tahun 2016 atas perubahan Undang Undang nomor 23 tahun 2002 tentang perlindungan anak, diancam hukuman sekitar 3,5 tahun penjara,\" kata Nur Azis.</p>\r\n<p class=\"MsoNormal\">Dalam kesempatan yang sama, Ahmad Nasrullah di hadapan awak media juga mengakui perbuatan yang telah dilakukan terhadap para siswi.</p>\r\n<p class=\"MsoNormal\">Tersangka juga meminta maaf dan mengaku menyesal, atas perbuatan tindak kekerasan yang dilakukan.</p>\r\n<p class=\"MsoNormal\">\"Kami menyampaikan mohon maaf atas kejadian ini, dan dari lubuk hati yang paling dalam saya menyesal. Untuk selanjutnya, kami serahkan kepada pihak yayasan untuk langkah-langkah selanjutnya,\" ucap Ahmad Nasrullah.</p>\r\n<p class=\"MsoNormal\">Seperti diberitakan sebelumnya, Ahmad Nasrullah (AN) sempat menghukum dengan tindak kekerasan berupa pemukulan terhadap 15 siswi tersebut, Selasa (3/1/2023).</p>\r\n<p class=\"MsoNormal\">Dikarenakan para siswi atau korban tersebut membeli jajan di luar kantin sekolah, yang menurut aturan MTs Nurul Islam memang dilarang.&nbsp;</p>', NULL),
 ('474ac3cd-cc41-4604-aad3-ff9d629f4d7d', '2023-08-01', 'Kemendikbud Beri 5 Rekomendasi ke Pemda akibat PPDB Zonasi Bermasalah', '2023-08-01/kemendikbud-beri-5-rekomendasi-ke-pemda-akibat-ppdb-zonasi-bermasalah', '64cb53d42391d_kemendikbud.jpg', '<p style=\"text-align: justify;\">Masih ada beberapa daerah yang mengalami persoalan Penerimaan Peserta Didik Baru (PPDB) 2023 pada jalur zonasi.</p>\r\n<p style=\"text-align: justify;\">Seperti yang terjadi di Kota Bogor, ada pemalsuan Kartu Keluarga (KK) hingga intervensi pejabat agar lolos PPDB jalur Zonasi.&nbsp;</p>\r\n<p style=\"text-align: justify;\">Adanya kejadian itu, Dirjen PAUD Dikdasmen Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi (Kemendikbud Ristek) Iwan Syahril memberikan lima rekomendasi kepada pemerintah daerah (Pemda), agar PPDB khususnya jalur Zonasi dapat berjalan transparan, akuntabel, dan objektif.</p>\r\n<p style=\"text-align: justify;\">Pertama, pemda dapat berkomunikasi dengan Dinas Dukcapil dan BPS dalam menganalisis calon peserta didik yang akan lulus dari domisili dan ketersediaan daya tampung.</p>\r\n<p style=\"text-align: justify;\">Tak lupa, pemda pun bisa melakukan validasi, verifikasi, dan keabsahan KK.</p>\r\n<p style=\"text-align: justify;\">\"Permasalahan ini merupakan peluang untuk melakukan perbaikan sistem integrasi data dari Dukcapil dengan data lainnya sehingga sekolah bisa mendapat data yang terverifikasi dan tervalidasi,\" kata Iwan saat melakukan RDP dengan Komisi X DPR RI seperti mengutip laman YouTube DPR, Kamis (13/7/2023).</p>\r\n<p style=\"text-align: justify;\">Kedua, pemda bisa merangkul inspektorat daerah dalam menindak terkait pemalsuan KK yang dilakukan masyarakat.</p>\r\n<p style=\"text-align: justify;\">Ketiga, pemda dapat membuat komitmen bersama antar semua pemimpin musyawarah daerah, LSM, dan tokoh masyarakat.</p>\r\n<p style=\"text-align: justify;\">\"Itu bertujuan agar melaksanakan PPDB tanpa tekanan, bebas dari KKN, pungli melalui sebuah kesepakatan pakta integritas bersama,\" jelas dia.</p>\r\n<p style=\"text-align: justify;\">Keempat, pemda dalam menetapkan PPDB zona bisa memperhitungkan sebaran sekolah, domisili, peserta didik maupun daya tampung yang tersedia lebih detail dan jelas.</p>\r\n<p style=\"text-align: justify;\">Kelima, pemda bisa memberikan bantuan kepada keluarga tidak mampu agar bisa memasukkan sekolah swasta.</p>\r\n<p style=\"text-align: justify;\">\"Itu bila ada keluarga yang tak lolos PPDB, pemda bisa bantu dengan pembiayaan agar anak itu tetap sekolah, meski di sekolah swasta,\" ungkap dia. Baca juga: 30 Kampus Swasta dengan Status Akreditasi Unggul dari BAN-PT</p>\r\n<p style=\"text-align: justify;\">Iwan menegaskan, beberapa daerah sudah menerapkan langkah ini dalam membantu siswa dari keluarga yang tidak mampu agar bisa tetap mengenyam pendidikan di sekolah swasta.</p>\r\n<p style=\"text-align: justify;\">Inspektur Jenderal (Irjen) Kemendikbud Ristek, Chatarina Muliana Girsang telah mengakui bahwa masih lemahnya pengawasan PPDB di tingkat daerah.</p>\r\n<p style=\"text-align: justify;\">Oleh karena itu, Chatarina mengimbau dinas pendidikan untuk melakukan sosialisasi dan pengawasan secara masif, khususnya untuk memastikan prinsip pelaksanaan PPDB berjalan dengan baik.</p>\r\n<p style=\"text-align: justify;\">\"Kami meminta sebelum penyelenggaraan PPDB tingkat SMP, SD harus memberikan sosialisasi kepada orangtua murid kelas 6. Lalu, sebelum penyelenggaraan PPDB SMA, ada sosialisasi yang diberikan SMP untuk orangtua murid dan peserta didik kelas 9 di sekolah sebelumnya (SMP) sehingga mereka dapat pencerahan. Kami meminta disdik untuk menjalankan fungsi ini,\" jelas dia.</p>', NULL),
 ('a0c4d17b-c504-4dc9-b2ed-860255bc5658', '2023-07-30', 'Nadiem: PPDB Sistem Zonasi Mampu Perhatikan Kebutuhan Siswa', '2023-07-30/nadiem-ppdb-sistem-zonasi-mampu-perhatikan-kebutuhan-siswa', '64c7b0afa6b14_nadim.jpg', '<p style=\"text-align: justify;\">Menteri Pendidikan, Kebudayaan, Riset, dan Teknologi (Mendikbud Ristek), Nadiem Makarim mengapresiasi program Penerimaan Peserta Didik Baru (PPDB) sistem zonasi.</p>\r\n<p style=\"text-align: justify;\">Program itu merupakan inisiasi dari Menteri Koordinator Bidang Pembangunan Manusia dan Kebudayaan (Menko PMK), Muhadjir Effendy yang sebelumnya pernah menjabat sebagai Menteri Pendidikan dan Kebudayaan (Mendikbud).&nbsp;</p>\r\n<p style=\"text-align: justify;\">Menteri Nadiem menuturkan, PPDB sistem zonasi ini memperhatikan kebutuhan peserta didik untuk dapat bersekolah di dekat rumahnya.</p>\r\n<p style=\"text-align: justify;\">Dengan begitu, bisa menciptakan gerakan gotong royong dalam membangun sekolah bersama-sama dengan tenaga kependidikan, komite sekolah, dan seluruh warga sekolah.</p>\r\n<p style=\"text-align: justify;\">\"Segala daya dorong yang selama ini telah Bapak (Menko PMK) lakukan untuk pendidikan Indonesia akan selalu tercatat dalam sejarah untuk kebaikan anak-anak Indonesia,\" ucap Nadiem di Jakarta, Minggu (30/7/2023).</p>\r\n<p style=\"text-align: justify;\">Di acara Belajar Raya 2023 di Posbloc, Jakarta, pada Sabtu (29/7/2023), Nadiem berdiskusi dengan Inisiator Semua Murid Semua Guru dan Najelaa Shihab tentang program PPDB sistem zonasi.</p>\r\n<p style=\"text-align: justify;\">Dia mengatakan kebijakan PPDB menggunakan sistem zonasi harus tetap dilanjutkan karena mampu mengatasi kesenjangan antarpeserta didik.</p>\r\n<p style=\"text-align: justify;\">Meski akhirnya akan merepotkan dirinya sendiri, karena program ini sangat penting.</p>\r\n<p style=\"text-align: justify;\">Menurut Menteri Nadiem, dahulu banyak orangtua peserta didik yang mendaftarkan anaknya masuk les agar bisa masuk ke sekolah favorit.</p>\r\n<p style=\"text-align: justify;\">Belum lagi, kata Menteri Nadiem, ada juga peserta didik yang secara ekonomi tidak mampu, harus membayar sekolah swasta karena tidak lolos masuk sekolah negeri.</p>', NULL),
 ('c3306332-5099-4e2a-bed2-ecacbc78f680', '2023-07-17', 'Tiga Peserta Didik MTs Negeri 1 Kota Semarang Maju Ke Tingkat Provinsi dalam KSM Tahun 2023', '2023-07-17/tiga-peserta-didik-mts-negeri-1-kota-semarang-maju-ke-tingkat-provinsi-dalam-ksm-tahun-2023', '64b5983209783_berita.png', '<p style=\"text-align: justify;\">Kompetisi Sains Madrasah (KSM) Tingkat Kota Semarang Tahun 2023 telah dilaksanakan 8-10 Juli 2023.&nbsp; Sabtu (15/7/2023) akhirnya pengumuman KSM tersebut dirilis oleh Kemenag. Berdasarkan hasil pengumuman tersebut, tiga peserta didik MTs Negeri 1 Kota Semarang berhasil meraih juara. Adapun yang mendapat juara, yaitu Evan Raoul Rahman Juara 1 Mapel IPS, Nur Aini Syarifah Juara 2 Mapel IPS dan Achmad Nauval Juara 4 mapel IPA.</p>\r\n<p style=\"text-align: justify;\">Juara 1, 2, 3, 4 dan 5 dalam Kompetisi Sains Madrasah (KSM) Tingkat Kota Semarang Tahun 2023 berhak maju ke tingkat provinsi yang akan dilaksanakan tanggal 5-6 Agustus 2023. Sedangkan kartu peserta dan petunjuk pelaksanaan KSM tingkat provinsi baru bisa diunduh pada 1 Agustus 2023.</p>\r\n<p style=\"text-align: justify;\">Adapun peserta KSM Tingkat Kota Semarang Tahun 2023 mencapai 593 peserta dengan rincian tingkat MA/SMA ada 213 peserta, tingkat MTs/SMP 169 peserta, dan tingkat MI/SD 211 peserta dengan diikuti dari madrasah (MA/MTs/MI) dan&nbsp; sekolah (SMASMP/SD) baik negeri maupun swasta yang ada di Kota Semarang.</p>\r\n<p style=\"text-align: justify;\">Mata pelajaran yang dilombakan dalam Kompetisi Sains Madrasah (KSM) Tingkat Kota Semarang Tahun 2023 jenjang MI/SD mata pelajaran matematika terintegrasi dan IPA terintegrasi. Jenjang MTs/SMP mata pelajaran matematika terintegrasi, IPA terintegrasi, dan IPS terintegrasi. Sedangkan jenjang MA/SMA mata pelajaran matematika terintegrasi, biologi terintegrasi, fisika terintegrasi, kimia terintegrasi, geografi terintegrasi, dan ekonomi terintegrasi.</p>\r\n<p style=\"text-align: justify;\">Ani Suma&rsquo;iyah dan Indra Setyowati merupakan guru pembimbing mata pelajaran IPS mengaku bangga atas prestasi yang diraih anak didiknya. &ldquo;Bimbingan yang telah dilakukan sekitar dua minggu ini ternyata membuahkan hasil yang menggembirakan. Semangat dan rasa haus akan pengetahuan sudah terlihat sewaktu membimbing mereka,&rdquo; ujar Ani Suma&rsquo;iyah.</p>\r\n<p style=\"text-align: justify;\">Evan Raoul Rahman bersyukur atas prestasi yang diraihnya dalam KSM 2023 dengan menjadi juara 1 mapel IPS . Evan juga merasa senang dan bahagia karena kerja kerasnya membuahkan hasil. Selama bimbingan dia merasakan suasana yang menyenangkan sehingga materi dan latihan soal yang diberikan terasa ringan dan dapat dipahami. Evan juga tidak cepat puas akan hasil yang diraihnya saat ini karena masih ada tahapan yang harus dilaluinya supaya dapat lolos kembali dan meraih hasil yang memuaskan di KSM tingkat provinsi mendatang. Oleh karena itu, dia meminta doa dan dukungan dari orang tua, guru serta teman-temannya agar dapat membanggakan madrasah di tingkat provinsi bahkan nasional.</p>\r\n<p style=\"text-align: justify;\">Kasturi selaku Kepala MTs Negeri 1 Kota Semarang mengucapkan selamat dan terima kasih kepada peserta didik dan guru pembimbing yang menghantarkan madrasah meraih juara di KSM tahun 2023. &ldquo;Kami berharap selaku tuan rumah kegiatan KSM Tingkat Kota Semarang tahun 2023, peserta didik MTs Negeri 1 Kota Semarang mampu tampil menjadi yang terbaik serta menjadi kebanggaan dan dapat menjadi bagian dari kesuksesan madrasah di Kota Semarang untuk menuju ke tahap selanjutnya yaitu provinsi dan nasional. Semoga peserta didik MTs Negeri 1 Kota Semarang yang lolos ke tahap provinsi mampu menyumbangkan prestasi dan lanjut ke tingkat nasional&rdquo; kata Kasturi. Tetap semangat dan terus berusaha untuk mencapai hasil yang diinginkan. (Humas Emtessa)</p>', NULL),
@@ -262,6 +287,28 @@ INSERT INTO `kurikulum` (`id_kurikulum`, `komponen`, `sub_komponen`, `kategori`,
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `ppdb`
+--
+
+CREATE TABLE `ppdb` (
+  `id_ppdb` varchar(255) NOT NULL,
+  `judul` varchar(255) DEFAULT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `brosur` varchar(255) DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `id_sekolah` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `ppdb`
+--
+
+INSERT INTO `ppdb` (`id_ppdb`, `judul`, `deskripsi`, `brosur`, `foto`, `id_sekolah`) VALUES
+('60ef33b1-54b8-4670-848e-44efd2ccb6dc', 'PENDAFTARAN PESERTA DIDIK BARU', '<p>Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2 Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>', 'brosur_64ce2cc5d0d15_brosur.png', 'foto_64ce2ac537bb8_ppdb.png', 'mtsn2sambas');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `prestasi`
 --
 
@@ -330,7 +377,7 @@ INSERT INTO `sessions` (`id`, `admin_id`) VALUES
 ('64baf28d3f5f1', 'b90fb6be-0834-469b-bcb9-3355946e00e2'),
 ('64c2714c1c2ed', 'b90fb6be-0834-469b-bcb9-3355946e00e2'),
 ('64c37ee496456', 'b90fb6be-0834-469b-bcb9-3355946e00e2'),
-('64c79606efded', 'b90fb6be-0834-469b-bcb9-3355946e00e2');
+('64ce0ebc6b9dc', 'b90fb6be-0834-469b-bcb9-3355946e00e2');
 
 -- --------------------------------------------------------
 
@@ -349,8 +396,7 @@ CREATE TABLE `slideshow` (
 --
 
 INSERT INTO `slideshow` (`id_slideshow`, `judul_slideshow`, `foto`) VALUES
-('2f840daf-a157-4020-9bf6-2355eea7cdd1', 'Slideshow5', '64c79c3390545_slideshow5.jpg'),
-('87f0167e-d522-40b8-a93c-bc5032311846', 'ds', '64c98b957593e_slideshow2.jpg');
+('1192eb0d-fbf9-4745-bc67-383950c5b8f3', 'a', '64ccdf8f974cf_slideshow5.jpg');
 
 --
 -- Indexes for dumped tables
@@ -363,6 +409,13 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `id_guru_staff` (`id_guru_staff`);
+
+--
+-- Indeks untuk tabel `alur_ppdb`
+--
+ALTER TABLE `alur_ppdb`
+  ADD PRIMARY KEY (`id_alur_ppdb`),
+  ADD KEY `id_ppdb` (`id_ppdb`);
 
 --
 -- Indeks untuk tabel `berita`
@@ -423,6 +476,13 @@ ALTER TABLE `kurikulum`
   ADD KEY `id_sekolah` (`id_sekolah`);
 
 --
+-- Indeks untuk tabel `ppdb`
+--
+ALTER TABLE `ppdb`
+  ADD PRIMARY KEY (`id_ppdb`),
+  ADD KEY `id_sekolah` (`id_sekolah`);
+
+--
 -- Indeks untuk tabel `prestasi`
 --
 ALTER TABLE `prestasi`
@@ -458,6 +518,12 @@ ALTER TABLE `slideshow`
 --
 ALTER TABLE `admin`
   ADD CONSTRAINT `fk_admin_guru_staff` FOREIGN KEY (`id_guru_staff`) REFERENCES `guru_staff` (`id_guru_staff`);
+
+--
+-- Ketidakleluasaan untuk tabel `alur_ppdb`
+--
+ALTER TABLE `alur_ppdb`
+  ADD CONSTRAINT `alur_ppdb_ibfk_1` FOREIGN KEY (`id_ppdb`) REFERENCES `ppdb` (`id_ppdb`);
 
 --
 -- Ketidakleluasaan untuk tabel `berita`
@@ -506,6 +572,12 @@ ALTER TABLE `ket_sekolah`
 --
 ALTER TABLE `kurikulum`
   ADD CONSTRAINT `kurikulum_ibfk_1` FOREIGN KEY (`id_sekolah`) REFERENCES `sekolah` (`id_sekolah`);
+
+--
+-- Ketidakleluasaan untuk tabel `ppdb`
+--
+ALTER TABLE `ppdb`
+  ADD CONSTRAINT `ppdb_ibfk_1` FOREIGN KEY (`id_sekolah`) REFERENCES `sekolah` (`id_sekolah`);
 
 --
 -- Ketidakleluasaan untuk tabel `prestasi`

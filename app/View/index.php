@@ -26,7 +26,8 @@
                     <h6 class="text-center">Selamat Datang</h6>
                     <h1 class="text-white text-center">MTS NEGERI 2 SAMBAS</h1>
 
-                    <form action="/hasil-pencarian" method="POST" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                    <form action="/hasil-pencarian" method="POST" class="custom-form mt-4 pt-2 mb-lg-0 mb-5"
+                          role="search">
                         <div class="input-group input-group-lg">
                             <span class="input-group-text bi-search" id="basic-addon1"></span>
                             <input name="search" type="search" class="form-control" id="keyword"
@@ -38,12 +39,14 @@
 
                 <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex flex-column flex-md-row">
                     <div class="col-12 col-md-4 mb-4 mb-md-0 my-2 my-md-0">
-                        <img class="rounded-4 img-fluid img-responsive" src="/images/ppdb1.png" alt="img">
+                        <div class="aspect-ratio-container r1">
+                            <img class="rounded-4 img-fluid img-responsive aspect-ratio-img"
+                                 src="/images/upload/ppdb/<?= $ppdb->getFoto() ?>" alt="img">
+                        </div>
                     </div>
                     <div class="col-12 col-md-8 my-2 my-md-0 mx-md-2">
-                        <h6 class="text-white">PENDAFTARAN PESERTA DIDIK BARU</h6>
-                        <p class="text-box">Berikut informasi mengenai Penerimaan Peserta Didik Baru (PPDB) MTs Negeri 2
-                            Sambas T.P. 2023/2024. Untuk informasi lebih jelasnya ...</p>
+                        <h6 class="text-white"><?= $ppdb->getJudul() ?></h6>
+                        <div class="limit-text"><p class="text-box"><?= $ppdb->getDeskripsi() ?></p></div>
                         <a href="/ppdb" class="btn custom-btn mt-3 mt-md-4 button-color">Baca Selengkapnya</a>
                     </div>
                 </div>
@@ -72,7 +75,8 @@
                     ?>
                     <div class="col-12 col-md-4">
                         <div class="card shadow-sm aspect-ratio-container">
-                            <img src="/images/upload/berita/<?= $berita->getFoto() ?>" class="img-fluid aspect-ratio-img"
+                            <img src="/images/upload/berita/<?= $berita->getFoto() ?>"
+                                 class="img-fluid aspect-ratio-img"
                                  alt="Image Alt Text" data-bs-toggle="modal" data-bs-target="#imageModal">
                         </div>
                         <a href="/berita/<?= $berita->getSlug(); ?>"

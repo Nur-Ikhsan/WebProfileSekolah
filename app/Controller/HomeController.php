@@ -14,6 +14,7 @@ use Rubygroup\WebProfileSekolah\Repository\GuruStaffRepository;
 use Rubygroup\WebProfileSekolah\Repository\KegiatanRepository;
 use Rubygroup\WebProfileSekolah\Repository\KetSekolahRepository;
 use Rubygroup\WebProfileSekolah\Repository\KurikulumRepository;
+use Rubygroup\WebProfileSekolah\Repository\PPDBRepository;
 use Rubygroup\WebProfileSekolah\Repository\PrestasiRepository;
 use Rubygroup\WebProfileSekolah\Repository\SekolahRepository;
 use Rubygroup\WebProfileSekolah\Repository\SlideshowRepository;
@@ -25,6 +26,7 @@ use Rubygroup\WebProfileSekolah\Service\GuruStaffService;
 use Rubygroup\WebProfileSekolah\Service\KegiatanService;
 use Rubygroup\WebProfileSekolah\Service\KetSekolahService;
 use Rubygroup\WebProfileSekolah\Service\KurikulumService;
+use Rubygroup\WebProfileSekolah\Service\PPDBService;
 use Rubygroup\WebProfileSekolah\Service\PrestasiService;
 use Rubygroup\WebProfileSekolah\Service\SearchService;
 use Rubygroup\WebProfileSekolah\Service\SekolahService;
@@ -50,6 +52,7 @@ class HomeController
     private SekolahService $sekolahService;
     private SlideshowService $slideshowService;
     private SearchService $searchService;
+    private PPDBService $ppdbService;
 
 
     public function __construct()
@@ -67,6 +70,7 @@ class HomeController
         $prestasiRepository = new PrestasiRepository($connection);
         $sekolahRepository = new SekolahRepository($connection);
         $slideshowRepository = new SlideshowRepository($connection);
+        $ppdbRepository = new PPDBRepository($connection);
 
 
         $this->beritaService = new BeritaService($beritaRepository);
@@ -81,6 +85,7 @@ class HomeController
         $this->sekolahService = new SekolahService($sekolahRepository);
         $this->slideshowService = new SlideshowService($slideshowRepository);
         $this->searchService = new SearchService($beritaRepository, $kegiatanRepository);
+        $this->ppdbService = new PPDBService($ppdbRepository);
     }
 
     function index(): void
@@ -89,6 +94,7 @@ class HomeController
         $beritaList = $this->beritaService->getAllBerita();
         $ekstrakurikulerList = $this->ekstrakurikulerService->getAllEkstrakurikuler();
         $prestasiList = $this->prestasiService->getAllPrestasi();
+        $ppdb = $this->ppdbService->getPPDB();
         $guruStaffList = $this->guruStaffService->getAllGuruStaff();
 
         View::renderHome('index', [
@@ -97,6 +103,7 @@ class HomeController
             'ekstrakurikulerList' => $ekstrakurikulerList,
             'prestasiList' => $prestasiList,
             'guruStaffList' => $guruStaffList,
+            'ppdb' => $ppdb,
         ]);
     }
 
@@ -216,41 +223,6 @@ class HomeController
                 'strukturOrganisasi' => $strukturOrganisasi
             ]
         );
-    }
-
-    function ppdb(): void
-    {
-        $gambarPath = "images/ppdb.png";
-        View::renderHome('ppdb',[
-                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
-                'gambarPath' => $gambarPath,
-
-            ]
-        );
-    }
-
-    public function downloadGambar(): void
-    {
-
-
-        // Path file gambar
-        $gambarPath = "images/ppdb.png";
-
-        // Set header untuk tipe konten dan ukuran file
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename=' . basename($gambarPath));
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($gambarPath));
-
-        // Baca file dan kirimkan isinya ke output
-        ob_clean();
-        flush();
-        readfile($gambarPath);
-        exit;
     }
 
     function ekstrakurikuler(): void

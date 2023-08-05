@@ -13,6 +13,7 @@ use Rubygroup\WebProfileSekolah\Controller\HomeController;
 use Rubygroup\WebProfileSekolah\Controller\AdminController;
 use Rubygroup\WebProfileSekolah\Controller\KegiatanController;
 use Rubygroup\WebProfileSekolah\Controller\KurikulumController;
+use Rubygroup\WebProfileSekolah\Controller\PPDBController;
 use Rubygroup\WebProfileSekolah\Controller\PrestasiController;
 use Rubygroup\WebProfileSekolah\Controller\SekolahController;
 use Rubygroup\WebProfileSekolah\Controller\SlideshowController;
@@ -29,7 +30,6 @@ Router::add('/visi-misi', HomeController::class, 'visiMisi');
 Router::add('/kurikulum', HomeController::class, 'kurikulum');
 Router::add('/galeri', HomeController::class, 'galeri');
 Router::add('/struktur-organisasi', HomeController::class, 'strukturOrganisasi');
-Router::add('/ppdb', HomeController::class, 'ppdb');
 Router::add('/kontak', HomeController::class, 'kontak');
 Router::add('/ekstrakurikuler', HomeController::class, 'ekstrakurikuler');
 Router::add('/fasilitas-sekolah', HomeController::class, 'fasilitasSekolah');
@@ -38,6 +38,21 @@ Router::add('/kegiatan-sekolah/([0-9]{4}-[0-9]{2}-[0-9]{2}/[a-z0-9-]+)', HomeCon
 Router::add('/guru-staff', HomeController::class, 'guruStaf');
 Router::add('/sejarah-sekolah', HomeController::class, 'sejarahSekolah');
 Router::add('/hasil-pencarian', HomeController::class, 'hasilPencarian');
+
+
+Router::add('/ppdb', PPDBController::class, 'index');
+Router::add('/ppdb/downloadbrosur', PPDBController::class, 'downloadBrosur');
+
+Router::add('/admin/ppdb', PPDBController::class, 'PPDB');
+Router::add('/admin/ppdb/edit/judul', PPDBController::class, 'editJudulPPDB');
+Router::add('/admin/ppdb/edit/deskripsi', PPDBController::class, 'editDeskripsiPPDB');
+Router::add('/admin/ppdb/edit/gambar', PPDBController::class, 'editGambarPPDB');
+Router::add('/admin/ppdb/edit/brosur', PPDBController::class, 'editBrosurPPDB');
+
+Router::add('/admin/ppdb/alur/tambah', PPDBController::class, 'tambahAlurPPDB');
+Router::add('/admin/ppdb/alur/edit/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', PPDBController::class, 'editAlurPPDB');
+Router::add('/admin/ppdb/alur/delete/([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})', PPDBController::class, 'deleteAlurPPDB');
+
 
 
 

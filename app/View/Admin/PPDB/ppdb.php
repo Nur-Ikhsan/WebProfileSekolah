@@ -1,5 +1,5 @@
 <script>tinymce.init({
-    selector:'.textarea-tinymce',
+    selector: '.textarea-tinymce',
     plugins: 'lists',
     toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
     menubar: false,
@@ -119,7 +119,7 @@
             </li><!-- End Profile Sekolah Nav -->
 
             <li class="nav-item">
-                <a class="nav-link " href="/admin/kurikulum">
+                <a class="nav-link collapsed" href="/admin/kurikulum">
                     <i class="bi bi-layout-text-window-reverse"></i>
                     <span>Kurikulum</span>
                 </a>
@@ -140,7 +140,7 @@
             </li><!-- End Galeri Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/admin/ppdb">
+                <a class="nav-link" href="/admin/ppdb">
                     <i class="bi bi-journal-bookmark-fill"></i>
                     <span>PPDB</span>
                 </a>
@@ -181,7 +181,7 @@
                         }
                       }).then(function (result) {
                         if (result.isConfirmed) {
-                          window.location.href = '/admin/kurikulum';
+                          window.location.href = '/admin/ppdb';
                         }
                       });
                     </script>
@@ -200,7 +200,7 @@
                         }
                       }).then(function (result) {
                         if (result.isConfirmed) {
-                          window.location.href = '/admin/kurikulum';
+                          window.location.href = '/admin/ppdb';
                         }
                       });
                     </script>
@@ -211,12 +211,12 @@
             <div class="row align-items-center">
 
                 <div class="col-lg-5 col-12">
-                    <h4 class="secondary-color">Kurikulum</h4>
+                    <h4 class="secondary-color">PPDB</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/index">Home</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Kurikulum</li>
+                            <li class="breadcrumb-item active" aria-current="page">PPDB</li>
                         </ol>
                     </nav>
                 </div>
@@ -224,32 +224,168 @@
             </div>
             <div class="row align-items-center box-edit">
                 <div class="col-12">
-                    <h4 class="text-center pb-3">Kurikulum</h4>
-                    <div class="pos-zone row no-gutters">
-                        <div class="col-3 p-0"><label>Nama Kurikulum</label></div>
-                        <div class="col-9 p-0">: <?= $kurikulum['nama'] ?></div>
+                    <h4 class="text-center pb-3">PPDB</h4>
+                    <div class="row justify-content-between mb-5">
+                        <div class="col-3 p-0"><label>Judul PPDB</label></div>
+                        <div class="col-1">:</div>
+                        <div class="col-7 p-0"> <?= $ppdb->getJudul() ?></div>
+                        <div class="col-1 p-0">
+                            <a href="#" data-bs-toggle="modal"
+                               data-bs-target="#editJudul">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                        </div>
+
                     </div>
-                    <div class="pos-zone row no-gutters">
+                    <!-- Modal Edit Judul PPDB -->
+                    <div class="modal fade" id="editJudul" tabindex="-1"
+                         aria-labelledby="editJudul"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h5 class="modal-title mb-5 mt-4 text-center">Edit Judul PPDB</h5>
+                                    <form method="POST" action="/admin/ppdb/edit/judul">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" id="edit-judul" name="judul"
+                                                   value="<?= $ppdb->getJudul() ?>" required>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                            <button type="button" class="btn button-admin batal pl-4"
+                                                    data-bs-dismiss="modal">Batal
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between mb-5">
                         <div class="col-3 p-0"><label>Deskripsi</label></div>
-                        <div class="col-9 p-0">: <?= $kurikulum['deskripsi'] ?></div>
+                        <div class="col-1">:</div>
+                        <div class="col-7 p-0"> <?= $ppdb->getDeskripsi() ?></div>
+                        <div class="col-1 p-0">
+                            <a href="#" data-bs-toggle="modal"
+                               data-bs-target="#editDeskripsi">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="pos-zone row no-gutters">
-                        <div class="col-3"></div>
-                        <div class="col-9 p-0 d-flex">
-                            <button type="button" class="button-admin px-4 ml-3 bg-warning" data-bs-toggle="modal"
-                                    data-bs-target="#editKurikulum2Modal">Edit
-                            </button>
+                    <!-- Modal Edit Deskripsi PPDB -->
+                    <div class="modal fade" id="editDeskripsi" tabindex="-1"
+                         aria-labelledby="editDeskripsi"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h5 class="modal-title mb-5 mt-4 text-center">Edit Deskripsi PPDB</h5>
+                                    <form method="POST" action="/admin/ppdb/edit/deskripsi">
+                                        <div class="mb-3">
+                                            <textarea class="form-control textarea-tinymce" id="edit-deskripsi"
+                                                      name="deskripsi"
+                                                      rows="4"><?= $ppdb->getDeskripsi() ?></textarea>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                            <button type="button" class="btn button-admin batal pl-4"
+                                                    data-bs-dismiss="modal">Batal
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between mb-5">
+                        <div class="col-3 p-0"><label>Gambar</label></div>
+                        <div class="col-1">:</div>
+                        <div class="col-7 p-0">
+                            <div class="image-wrapper col-md-10">
+                                <img id="preview-image" class="d-block w-80"
+                                     src="/images/upload/ppdb/<?= $ppdb->getFoto() ?>"
+                                     alt="Gambar">
+                            </div>
+                        </div>
+                        <div class="col-1 p-0">
+                            <a href="#" data-bs-toggle="modal"
+                               data-bs-target="#editGambar">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Modal Edit Gambar PPDB -->
+                    <div class="modal fade" id="editGambar" tabindex="-1"
+                         aria-labelledby="editGambar"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h5 class="modal-title mb-5 mt-4 text-center">Edit Gambar PPDB</h5>
+                                    <form method="POST" action="/admin/ppdb/edit/gambar" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <input type="file" class="form-control" id="edit-gambar" name="foto">
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                            <button type="button" class="btn button-admin batal pl-4"
+                                                    data-bs-dismiss="modal">Batal
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between mb-5">
+                        <div class="col-3 p-0"><label>Brosur</label></div>
+                        <div class="col-1">:</div>
+                        <div class="col-7 p-0">
+                            <div class="image-wrapper col-md-10">
+                                <img id="preview-image" class="d-block w-80"
+                                     src="/images/upload/ppdb/<?= $ppdb->getBrosur() ?>"
+                                     alt="Brosur">
+                            </div>
+                        </div>
+                        <div class="col-1 p-0">
+                            <a href="#" data-bs-toggle="modal"
+                               data-bs-target="#editBrosur">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Modal Edit Brosur PPDB -->
+                    <div class="modal fade" id="editBrosur" tabindex="-1"
+                         aria-labelledby="editBrosur"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h5 class="modal-title mb-5 mt-4 text-center">Edit Brosur PPDB</h5>
+                                    <form method="POST" action="/admin/ppdb/edit/brosur" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <input type="file" class="form-control" id="edit-brosur" name="brosur">
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="submit" class="btn button-admin px-4">Simpan</button>
+                                            <button type="button" class="btn button-admin batal pl-4"
+                                                    data-bs-dismiss="modal">Batal
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row align-items-center box-edit">
                 <div class="col-12">
-                    <h4 class="text-center pb-3">Struktur Kurikulum</h4>
+                    <h4 class="text-center pb-3">Alur PPDB</h4>
                     <div>
                         <div class="col-12 p-0 justify-content-end d-flex">
                             <button type="button" class="button-admin mb-1" data-bs-toggle="modal"
-                                    data-bs-target="#tambahKurikulumModal">
+                                    data-bs-target="#tambahAlurPPDBModal">
                                 <span class="p-4"><i class="bi bi-plus-circle"></i><span class="m-3">Tambah Data</span></span>
                             </button>
                         </div>
@@ -261,75 +397,57 @@
                         <thead>
                         <tr>
                             <th scope="col" class="py-3 text-center">No</th>
-                            <th scope="col" class="py-3 text-center">Kategori</th>
-                            <th scope="col" class="py-3 text-center">Komponen</th>
-                            <th scope="col" class="py-3 text-center">Sub Komponen</th>
+                            <th scope="col" class="py-3 text-center">Judul Alur PPDB</th>
+                            <th scope="col" class="py-3 text-center">Tanggal</th>
                             <th scope="col" class="py-3 text-center">Aksi</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($model['kurikulumList'] as $index => $kurikulum) : ?>
+                        <?php foreach ($model['alurPPDBList'] as $alurPPDB) : ?>
                             <tr>
-                                <td class="text-center"><?= ($index + 1) + (($model['pagination']['page'] - 1) * $model['pagination']['perPage']) ?></td>
-                                <td class="text-center"><?= $kurikulum->getKategori() ?></td>
-                                <td class="text-center"><?= $kurikulum->getKomponen() ?></td>
-                                <td class="text-center"><?= $kurikulum->getSubKomponen() ?></td>
+                                <td class="text-center"><?= $alurPPDB->getUrutan() ?></td>
+                                <td class="text-center"><?= $alurPPDB->getJudul() ?></td>
+                                <td class="text-center"><?= $alurPPDB->getTanggal() ?></td>
                                 <td class="text-center">
                                     <a href="#" data-bs-toggle="modal"
-                                       data-bs-target="#editKurikulumModal<?= $kurikulum->getId() ?>">
+                                       data-bs-target="#editAlurPPDBModal<?= $alurPPDB->getIdAlurPpdb() ?>">
                                         <i class="bi bi-pencil-square"></i>
                                     </a> |
                                     <a href="#" data-bs-toggle="modal"
-                                       data-bs-target="#deleteKurikulumModal<?= $kurikulum->getId() ?>">
+                                       data-bs-target="#deleteAlurPPDBModal<?= $alurPPDB->getIdAlurPpdb() ?>">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </td>
                             </tr>
 
                             <!-- Edit Kurikulum Modal -->
-                            <div class="modal fade" id="editKurikulumModal<?= $kurikulum->getId() ?>" tabindex="-1"
-                                 aria-labelledby="editKurikulumModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editAlurPPDBModal<?= $alurPPDB->getIdAlurPpdb() ?>"
+                                 tabindex="-1"
+                                 aria-labelledby="editAlurPPDBLabel<?= $alurPPDB->getIdAlurPpdb() ?>"
+                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            <h5 class="modal-title  mb-5 mt-4 text-center" id="editKurikulumModalLabel">Edit Struktur
-                                                Kurikulum</h5>
-                                            <form method="POST"
-                                                  action="/admin/kurikulum/edit/<?= $kurikulum->getId() ?>"
+                                            <h5 class="modal-title  mb-5 mt-4 text-center"
+                                                id="editAlurPPDBLabel<?= $alurPPDB->getIdAlurPpdb() ?>">Edit Data Alur
+                                                PPDB</h5>
+                                            <form method="POST" action="/admin/ppdb/alur/edit/<?= $alurPPDB->getIdAlurPpdb() ?>"
                                                   enctype="multipart/form-data">
-                                                <input type="hidden" name="_method" value="PUT">
                                                 <div class="mb-3">
-                                                    <label for="edit-kategori" class="form-label">Kategori</label>
-                                                    <select name="kategori" class="form-select" id="edit-kategori">
-                                                        <option value="Kelompok A" <?= $kurikulum->getKategori() === 'Kelompok A' ? 'selected' : '' ?>>
-                                                            Kelompok A
-                                                        </option>
-                                                        <option value="Kelompok B" <?= $kurikulum->getKategori() === 'Kelompok B' ? 'selected' : '' ?>>
-                                                            Kelompok B
-                                                        </option>
-                                                        <option value="Muatan Lokal" <?= $kurikulum->getKategori() === 'Muatan Lokal' ? 'selected' : '' ?>>
-                                                            Muatan Lokal
-                                                        </option>
-                                                        <option value="Bimbingan dan Pelayanan" <?= $kurikulum->getKategori() === 'Bimbingan dan Pelayanan' ? 'selected' : '' ?>>
-                                                            Bimbingan dan Pelayanan
-                                                        </option>
-                                                        <option value="Pengembangan Diri" <?= $kurikulum->getKategori() === 'Pengembangan Diri' ? 'selected' : '' ?>>
-                                                            Pengembangan Diri
-                                                        </option>
-                                                    </select>
+                                                    <label for="edit-urutan" class="form-label">Urutan Alur PPDB</label>
+                                                    <input type="number" class="form-control" id="edit-urutan" name="urutan"
+                                                           value="<?= $alurPPDB->getUrutan() ?>" required>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="edit-komponen" class="form-label">Komponen</label>
-                                                    <input type="text" class="form-control" id="edit-komponen"
-                                                           name="komponen" value="<?= $kurikulum->getKomponen() ?>"
+                                                    <label for="edit-judul" class="form-label">Judul Alur PPDB</label>
+                                                    <input type="text" class="form-control" id="edit-judul" name="judul"
+                                                           value="<?= $alurPPDB->getJudul() ?>" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="edit-tanggal" class="form-label">Tanggal</label>
+                                                    <input type="text" class="form-control" id="edit-tanggal"
+                                                           value="<?= $alurPPDB->getTanggal() ?>" name="tanggal"
                                                            required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="edit-sub-komponen" class="form-label">Sub
-                                                        Komponen</label>
-                                                    <input type="text" class="form-control" id="edit-sub-komponen"
-                                                           name="subKomponen"
-                                                           value="<?= $kurikulum->getSubKomponen() ?>" required>
                                                 </div>
                                                 <div class="modal-footer justify-content-center">
                                                     <button type="submit" class="btn button-admin px-4">Simpan</button>
@@ -343,16 +461,22 @@
                                 </div>
                             </div>
 
-                            <!-- Hapus Kurikulum Modal -->
-                            <div class="modal fade" id="deleteKurikulumModal<?= $kurikulum->getId() ?>" tabindex="-1"
-                                 aria-labelledby="deleteKurikulumModalLabel" aria-hidden="true">
+                            <!-- Hapus Alur PPDB Modal -->
+                            <div class="modal fade" id="deleteAlurPPDBModal<?= $alurPPDB->getIdAlurPpdb() ?>"
+                                 tabindex="-1"
+                                 aria-labelledby="deleteAlurPPDBModalLabel<?= $alurPPDB->getIdAlurPpdb() ?>"
+                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-headers">
-                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal" aria-label="Close" id="modalCloseButton"></button>
+                                            <button class="close-icon btn-closes" type="button" data-bs-dismiss="modal"
+                                                    aria-label="Close" id="modalCloseButton"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <h6 class="modal-title text-center" id="confirmDeleteModalLabel">Hapus Data Struktur Kurikulum?</h6>
+                                            <h6 class="modal-title text-center"
+                                                id="deleteAlurPPDBModalLabel<?= $alurPPDB->getIdAlurPpdb() ?>">Hapus
+                                                Data
+                                                Alur PPDB?</h6>
                                             <br>
                                             <p class="text-center mb-0">Apakah Anda yakin ingin menghapus data ini?</p>
                                         </div>
@@ -360,7 +484,7 @@
                                             <button type="button" class="btn btn-secondary pl-4"
                                                     data-bs-dismiss="modal">Batal
                                             </button>
-                                            <a href="/admin/kurikulum/delete/<?= $kurikulum->getId() ?>"
+                                            <a href="/admin/ppdb/alur/delete/<?= $alurPPDB->getIdAlurPpdb() ?>"
                                                class="btn btn-danger px-4">Hapus</a>
                                         </div>
                                     </div>
@@ -369,63 +493,6 @@
                         <?php endforeach; ?>
                         </tbody>
                     </table>
-                    <nav aria-label="Halaman" class="d-flex justify-content-center">
-                        <ul class="pagination">
-                            <?php if ($model['pagination']['page'] > 1): ?>
-                                <li class="page-item">
-                                    <a class="page-link"
-                                       href="/admin/kurikulum?page=<?= $model['pagination']['page'] - 1 ?>"
-                                       aria-label="Sebelumnya">
-                                        <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
-                                    </a>
-                                </li>
-                            <?php else: ?>
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" aria-label="Sebelumnya">
-                                        <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
-
-                            <?php
-                            $start = max($model['pagination']['page'] - 2, 1);
-                            $end = min($start + 4, $model['pagination']['totalPages']);
-                            $diff = $end - $start + 1;
-
-                            if ($diff < 5 && $start > 1) {
-                                $start = max(1, $end - 4);
-                            }
-
-                            for ($i = $start; $i <= $end; $i++):
-                                ?>
-                                <?php if ($i == $model['pagination']['page']): ?>
-                                <li class="page-item active" aria-current="page">
-                                    <a class="page-link" href="#"><?= $i ?></a>
-                                </li>
-                            <?php else: ?>
-                                <li class="page-item">
-                                    <a class="page-link" href="/admin/kurikulum?page=<?= $i ?>"><?= $i ?></a>
-                                </li>
-                            <?php endif; ?>
-                            <?php endfor; ?>
-
-                            <?php if ($model['pagination']['page'] < $model['pagination']['totalPages']): ?>
-                                <li class="page-item">
-                                    <a class="page-link"
-                                       href="/admin/kurikulum?page=<?= $model['pagination']['page'] + 1 ?>"
-                                       aria-label="Berikutnya">
-                                        <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
-                                    </a>
-                                </li>
-                            <?php else: ?>
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" aria-label="Berikutnya">
-                                        <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
@@ -444,60 +511,25 @@
     </footer>
 </div>
 <!-- Tambah Kurikulum Modal -->
-<div class="modal fade" id="tambahKurikulumModal" tabindex="-1" aria-labelledby="tambahKurikulumModalLabel"
+<div class="modal fade" id="tambahAlurPPDBModal" tabindex="-1" aria-labelledby="tambahAlurPPDBModalLabel"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahKurikulumModalLabel">Tambah Data Struktur Kurikulum</h5>
-                <form method="POST" action="/admin/kurikulum/tambah" enctype="multipart/form-data">
+                <h5 class="modal-title mb-5 mt-4 text-center" id="tambahAlurPPDBModalLabel">Tambah Data Alur PPDB</h5>
+                <form method="POST" action="/admin/ppdb/alur/tambah" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="tambah-kategori" class="form-label">Kategori</label>
-                        <select name="kategori" class="form-select" id="tambah-kategori">
-                            <option value="Kelompok A">Kelompok A</option>
-                            <option value="Kelompok B">Kelompok B</option>
-                            <option value="Muatan Lokal">Muatan Lokal</option>
-                            <option value="Bimbingan dan Pelayanan">Bimbingan dan Pelayanan</option>
-                            <option value="Pengembangan Diri">Pengembangan Diri</option>
-                        </select>
+                        <label for="edit-urutan" class="form-label">Urutan Alur PPDB</label>
+                        <input type="number" class="form-control" id="edit-urutan" name="urutan" required>
                     </div>
                     <div class="mb-3">
-                        <label for="tambah-komponen" class="form-label">Komponen</label>
-                        <input type="text" class="form-control" id="tambah-komponen" name="komponen" required>
+                        <label for="tambah-judul" class="form-label">Judul Alur PPDB</label>
+                        <input type="text" class="form-control" id="tambah-judul" name="judul" required>
                     </div>
                     <div class="mb-3">
-                        <label for="tambah-sub-komponen" class="form-label">Sub Komponen</label>
-                        <input type="text" class="form-control" id="tambah-sub-komponen" value="-" name="subKomponen"
+                        <label for="tambah-tanggal" class="form-label">Tanggal</label>
+                        <input type="text" class="form-control" id="tambah-tanggal" name="tanggal"
                                required>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn button-admin px-4">Simpan</button>
-                        <button type="button" class="btn button-admin batal pl-4"
-                                data-bs-dismiss="modal">Batal
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Edit Kurikulum 2 Modal -->
-<div class="modal fade" id="editKurikulum2Modal" tabindex="-1" aria-labelledby="editKurikulum2ModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-body">
-                <h5 class="modal-title mb-5 mt-4 text-center" id="editKurikulum2ModalLabel">Edit Data Kurikulum</h5>
-                <form method="POST" action="/admin/kurikulum/edit">
-                    <div class="mb-3">
-                        <label for="edit-nama" class="form-label">Nama Kurikulum</label>
-                        <input type="text" class="form-control" id="edit-nama" name="nama"
-                               value="<?= $model['kurikulum']['nama'] ?>" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit-deskripsi" class="form-label">Deskripsi</label>
-                        <textarea class="form-control textarea-tinymce" id="edit-deskripsi" name="deskripsi" rows="4"><?= $model['kurikulum']['deskripsi'] ?></textarea>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn button-admin px-4">Simpan</button>

@@ -140,6 +140,13 @@
             </li><!-- End Galeri Nav -->
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="/admin/ppdb">
+                    <i class="bi bi-journal-bookmark-fill"></i>
+                    <span>PPDB</span>
+                </a>
+            </li><!-- End PPDB Nav -->
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="/admin/check-register">
                     <i class="bi bi-person-check"></i>
                     <span>Check Register</span>

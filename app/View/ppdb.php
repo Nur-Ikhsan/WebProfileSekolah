@@ -1,9 +1,8 @@
 <main>
 
-    <section style="height: 100vh; width: 100vw;" class="corausel-section slide-width">
-        <div class="overlay"></div> <!-- Add an overlay div -->
+    <section style="height: 100vh" class="corausel-section slide-width">
         <div class="aspect-ratio-container r16">
-            <img src="images/2d1k8d1tf85s_ppdb.jpg" class="d-block aspect-ratio-img">
+            <img src="images/2d1k8d1tf85s_ppdb.jpg" class="d-block aspect-ratio-img w-100">
         </div>
     </section>
 
@@ -24,37 +23,15 @@
                                             <div class="inner"></div>
                                         </div>
 
+                                        <?php foreach ($alurPPDBList as $alurPPDB) : ?>
                                         <li>
-                                            <h4 class="text-black mb-3">Pendaftaran</h4>
-                                            <p class="text-black">15 - 23 Juni</p>
-                                            <div class="icon-holder">
-                                                <i class="bi-search"></i>
+                                            <h4 class="text-black mb-3"><?= $alurPPDB->getJudul() ?></h4>
+                                            <p class="text-black"><?= $alurPPDB->getTanggal() ?></p>
+                                            <div class="icon-holder text-white">
+                                                <p class="fw-bold fs-2"><?= $alurPPDB->getUrutan() ?></p>
                                             </div>
                                         </li>
-
-                                        <li>
-                                            <h4 class="text-black mb-3">Pengumuman Hasil</h4>
-                                            <p class="text-black">Tanggal</p>
-                                            <div class="icon-holder">
-                                                <i class="bi-bookmark"></i>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <h4 class="text-black mb-3">Daftar Ulang</h4>
-                                            <p class="text-black">Tanggal</p>
-                                            <div class="icon-holder">
-                                                <i class="bi-bookmark"></i>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <h4 class="text-black mb-3">Awal Tahun Ajaran Baru</h4>
-                                            <p class="text-black">Tanggal</p>
-                                            <div class="icon-holder">
-                                                <i class="bi-bookmark"></i>
-                                            </div>
-                                        </li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </div>
                             </div>
@@ -66,10 +43,9 @@
             </div>
             <div class="col-md-6 my-5">
                 <div class="h-100 p-5 bg-light border rounded-3">
-                    <img class="w-100 h-50" src="<?php echo $gambarPath; ?>" alt="Contoh Gambar" width="300"
-                         height="200">
+                    <img class="w-100" src="/images/upload/ppdb/<?= $ppdb->getBrosur() ?>" alt="Contoh Gambar" width="300">
                     <div class="mt-3 text-center">
-                        <form action="/download-gambar" method="post">
+                        <form action="/ppdb/downloadbrosur" method="post" target="_blank">
                             <button href="/download-gambar" type="submit" class="btn btn-custom">Download
                                 Brosur</button>
                         </form>
