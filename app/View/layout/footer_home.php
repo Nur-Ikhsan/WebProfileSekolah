@@ -18,26 +18,27 @@
                     <div>
                         <h6 class="site-footer-title text-white footer-text">Alamat :</h6>
                         <p class="text-white footer-text">
-                            Jalan Pertasi Kencana Semparuk
+                            <?= $sekolah->getAlamat() ?>
                         </p>
                     </div>
                     <div>
                         <h6 class="site-footer-title text-white footer-text">Telepon :</h6>
                         <p class="text-white footer-text">
-                            ( 0562 ) 371457
+                            <a href="tel:<?= $sekolah->getTelepon() ?>" class="site-footer-link text-white footer-text"><?= $sekolah->getTelepon() ?></a>
                         </p>
                     </div>
                     <div>
                         <h6 class="site-footer-title text-white footer-text">Email :</h6>
                         <p class="text-white footer-text">
-                            fuad.adhik@gmail.com
+                            <a href="mailto:<?= $sekolah->getEmail() ?>" class="site-footer-link text-white footer-text"><?= $sekolah->getEmail() ?></a>
                         </p>
                     </div>
+
                     <div>
                         <h6 class="site-footer-title mb-3 text-white footer-text">Website :</h6>
                         <p class="text-white footer-text">
                             <a href="http://mtsn2sambas.mysch.id/" class="site-footer-link text-white footer-text">
-                                http://mtsn2sambas.mysch.id/
+                                <?= $sekolah->getWebsite() ?>
                             </a>
                         </p>
                     </div>

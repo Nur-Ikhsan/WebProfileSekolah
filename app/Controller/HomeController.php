@@ -5,6 +5,7 @@ namespace Rubygroup\WebProfileSekolah\Controller;
 use Rubygroup\WebProfileSekolah\App\View;
 use Rubygroup\WebProfileSekolah\Config\Database;
 use Rubygroup\WebProfileSekolah\Entity\Prestasi;
+use Rubygroup\WebProfileSekolah\Entity\Sekolah;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Repository\BeritaRepository;
 use Rubygroup\WebProfileSekolah\Repository\EkstrakurikulerRepository;
@@ -53,6 +54,7 @@ class HomeController
     private SlideshowService $slideshowService;
     private SearchService $searchService;
     private PPDBService $ppdbService;
+    private Sekolah $sekolah;
 
 
     public function __construct()
@@ -86,6 +88,8 @@ class HomeController
         $this->slideshowService = new SlideshowService($slideshowRepository);
         $this->searchService = new SearchService($beritaRepository, $kegiatanRepository);
         $this->ppdbService = new PPDBService($ppdbRepository);
+
+        $this->sekolah = $this->sekolahService->getSekolah();
     }
 
     function index(): void
@@ -104,6 +108,7 @@ class HomeController
             'prestasiList' => $prestasiList,
             'guruStaffList' => $guruStaffList,
             'ppdb' => $ppdb,
+            'sekolah' => $this->sekolah
         ]);
     }
 
@@ -122,7 +127,7 @@ class HomeController
             $beritaList = $this->beritaService->searchBeritaPagination($page, $perPage, $search);
         }
 
-        View::renderHome('berita', [
+        View::renderHome('Berita Madrasah Tsanawiyah Negeri 2 Sambas', [
             'title' => 'Berita',
             'search' => $search ?? '',
             'slideshows' => $slideshows,
@@ -131,7 +136,8 @@ class HomeController
                 'page' => $page,
                 'perPage' => $perPage,
                 'totalPages' => ceil($totalCount / $perPage)
-            ]
+            ],
+            'sekolah' => $this->sekolah
         ]);
     }
 
@@ -146,7 +152,8 @@ class HomeController
         }
         View::renderHome('detail-berita', [
                 'title' => $berita->getJudulBerita()?? '',
-                'berita' => $berita
+                'berita' => $berita,
+                'sekolah' => $this->sekolah
             ]
         );
     }
@@ -156,19 +163,10 @@ class HomeController
         $visiMisi = $this->ketSekolahService->getVisiMisi();
         View::renderHome('visi-misi', [
                 'title' => 'Visi dan Misi Madrasah Tsanawiyah Negeri 2 Sambas ',
-                'visiMisi' => $visiMisi
+                'visiMisi' => $visiMisi,
+                'sekolah' => $this->sekolah
             ]
         );
-    }
-
-    function tujuan(): void
-    {
-        View::renderHome('tujuan', [
-                'title' => 'Tujuan Madrasah Tsanawiyah Negeri 2 Sambas '
-            ]
-        );
-
-
     }
 
     function kurikulum(): void
@@ -180,7 +178,8 @@ class HomeController
                 'title' => 'Kurikulum Madrasah Tsanawiyah Negeri 2 Sambas ',
                 'kurikulumList' => $kurikulumList,
                 'kurikulum' => $kurikulum,
-                'slideshows' => $slideshows
+                'slideshows' => $slideshows,
+                'sekolah' => $this->sekolah
             ]
         );
     }
@@ -210,7 +209,8 @@ class HomeController
                     'page' => $page,
                     'perPage' => $perPage,
                     'totalPages' => ceil($totalCount / $perPage)
-                ]
+                ],
+                'sekolah' => $this->sekolah
             ]
         );
     }
@@ -220,7 +220,8 @@ class HomeController
         $strukturOrganisasi = $this->ketSekolahService->getStrukturOrganisasi();
         View::renderHome('struktur-organisasi',[
                 'title' => 'Struktur Organisasi Madrasah Tsanawiyah Negeri 2 Sambas ',
-                'strukturOrganisasi' => $strukturOrganisasi
+                'strukturOrganisasi' => $strukturOrganisasi,
+                'sekolah' => $this->sekolah
             ]
         );
     }
@@ -228,7 +229,8 @@ class HomeController
     function ekstrakurikuler(): void
     {
         View::renderHome('ekstrakurikuler',[
-                'title' => 'Ekstrakurikuler Madrasah Tsanawiyah Negeri 2 Sambas '
+                'title' => 'Ekstrakurikuler Madrasah Tsanawiyah Negeri 2 Sambas ',
+                'sekolah' => $this->sekolah
             ]
         );
     }
@@ -245,13 +247,14 @@ class HomeController
         $totalCount = count($this->fasilitasService->getAllFasilitas());
         $fasilitasList = $this->fasilitasService->getAllFasilitasPagination($page, $perPage);
         View::renderHome('fasilitas-sekolah', [
-                'title' => 'Galeri Madrasah Tsanawiyah Negeri 2 Sambas ',
+                'title' => 'Fasilitas Sekolah Madrasah Tsanawiyah Negeri 2 Sambas ',
                 'fasilitasList' => $fasilitasList,
                 'pagination' => [
                     'page' => $page,
                     'perPage' => $perPage,
                     'totalPages' => ceil($totalCount / $perPage)
-                ]
+                ],
+                'sekolah' => $this->sekolah
             ]
         );
     }
@@ -264,13 +267,14 @@ class HomeController
         $totalCount = count($this->kegiatanService->getAllKegiatan());
         $kegiatanList = $this->kegiatanService->getAllKegiatanPagination($page, $perPage);
         View::renderHome('kegiatan-sekolah',[
-                'title' => 'Fasilitas Sekolah Madrasah Tsanawiyah Negeri 2 Sambas ',
+                'title' => 'Kegiatan Sekolah Madrasah Tsanawiyah Negeri 2 Sambas ',
                 'kegiatanList' => $kegiatanList,
                 'pagination' => [
                     'page' => $page,
                     'perPage' => $perPage,
                     'totalPages' => ceil($totalCount / $perPage)
-                ]
+                ],
+                'sekolah' => $this->sekolah
             ]
         );
     }
@@ -287,7 +291,8 @@ class HomeController
 
         View::renderHome('detail-kegiatan',[
                 'title' => $kegiatan->getNamaKegiatan() ?? '',
-                'kegiatan' => $kegiatan
+                'kegiatan' => $kegiatan,
+                'sekolah' => $this->sekolah
             ]
         );
     }
@@ -314,14 +319,16 @@ class HomeController
                     'page' => $page,
                     'perPage' => $perPage,
                     'totalPages' => ceil($totalCount / $perPage)
-                ]
+                ],
+                'sekolah' => $this->sekolah
             ]
         );
     }
 
     function sejarahSekolah(): void{
         View::renderHome('sejarah-sekolah',[
-                'title' => 'Sejarah Sekolah Madrasah Tsanawiyah Negeri 2 Sambas '
+                'title' => 'Sejarah Sekolah Madrasah Tsanawiyah Negeri 2 Sambas ',
+                'sekolah' => $this->sekolah
             ]
         );
     }
@@ -338,7 +345,8 @@ class HomeController
                 'title' => 'Hasil Pencarian Madrasah Tsanawiyah Negeri 2 Sambas ',
                 'slideshows' => $slideshows,
                 'search' => $search ?? '',
-                'searchResult' => $searchResult
+                'searchResult' => $searchResult,
+                'sekolah' => $this->sekolah
             ]
         );
     }

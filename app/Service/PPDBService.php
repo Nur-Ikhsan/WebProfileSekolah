@@ -2,6 +2,7 @@
 
 namespace Rubygroup\WebProfileSekolah\Service;
 
+use FPDF;
 use Ramsey\Uuid\Uuid;
 use Rubygroup\WebProfileSekolah\Entity\AlurPPDB;
 use Rubygroup\WebProfileSekolah\Entity\PPDB;
@@ -101,21 +102,6 @@ class PPDBService
         }
 
         return $this->ppdbRepository->updatePPDB($ppdb);
-    }
-
-    public function downloadBrosurPPDB(): string
-    {
-        $ppdb = $this->ppdbRepository->getPPDB();
-        if (!$ppdb) {
-            throw new ValidationException("PPDB not found");
-        }
-
-        $filePath = 'images/upload/ppdb/' . $ppdb->getBrosur(); // Ganti dengan path direktori tempat menyimpan foto
-        if (file_exists($filePath)) {
-            return $filePath;
-        } else {
-            throw new ValidationException("Brosur PPDB not found");
-        }
     }
 
     public function createAlurPPDB(PPDBRequest $request): AlurPPDB

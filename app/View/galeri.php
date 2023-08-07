@@ -39,10 +39,10 @@
                     <div class="card shadow-sm my-0">
                         <!-- Gambar yang dapat diklik -->
                         <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>" class="img-fluid " alt="<?= $galeri->getJudulGaleri() ?>" data-bs-toggle="modal"
-                            data-bs-target="#imageModal">
+                            data-bs-target="#imageModal<?= $galeri->getIdGaleri() ?>">
 
                         <!-- Modal -->
-                        <div class="modal fade " id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
+                        <div class="modal fade " id="imageModal<?= $galeri->getIdGaleri() ?>" tabindex="-1" aria-labelledby="imageModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">

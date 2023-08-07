@@ -2,19 +2,23 @@
 
 namespace Rubygroup\WebProfileSekolah\Controller;
 
+use FPDF;
 use Rubygroup\WebProfileSekolah\App\View;
 use Rubygroup\WebProfileSekolah\Config\Database;
 use Rubygroup\WebProfileSekolah\Exception\ValidationException;
 use Rubygroup\WebProfileSekolah\Model\PPDBRequest;
 use Rubygroup\WebProfileSekolah\Repository\AdminRepository;
 use Rubygroup\WebProfileSekolah\Repository\PPDBRepository;
+use Rubygroup\WebProfileSekolah\Repository\SekolahRepository;
 use Rubygroup\WebProfileSekolah\Repository\SessionRepository;
 use Rubygroup\WebProfileSekolah\Service\PPDBService;
+use Rubygroup\WebProfileSekolah\Service\SekolahService;
 use Rubygroup\WebProfileSekolah\Service\SessionService;
 
 class PPDBController
 {
     private PPDBService $ppdbService;
+    private SekolahService $sekolahService;
     private SessionService $sessionService;
 
     public function __construct()
@@ -23,6 +27,8 @@ class PPDBController
 
         $ppdbRepository = new PPDBRepository($connection);
         $this->ppdbService = new PPDBService($ppdbRepository);
+        $sekolahRepository = new SekolahRepository($connection);
+        $this->sekolahService = new SekolahService($sekolahRepository);
 
         $adminRepository = new AdminRepository($connection);
         $sessionRepository = new SessionRepository($connection);
@@ -33,10 +39,12 @@ class PPDBController
     {
         $ppdb = $this->ppdbService->getPPDB();
         $alurPPDBList = $this->ppdbService->getAllAlurPPDB();
+        $sekolah = $this->sekolahService->getSekolah();
         View::renderHome('ppdb',[
                 'title' => 'Penerimaan Peserta Didik Baru Madrasah Tsanawiyah Negeri 2 Sambas ',
                 'ppdb' => $ppdb,
-                'alurPPDBList' => $alurPPDBList
+                'alurPPDBList' => $alurPPDBList,
+                'sekolah' => $sekolah
             ]
         );
     }
@@ -47,14 +55,29 @@ class PPDBController
         if (!$ppdb) {
             throw new ValidationException("PPDB not found");
         }
-        $filePath = 'images/upload/ppdb/' . $ppdb->getBrosur(); // Ganti dengan path direktori tempat menyimpan foto
+        $imagePath = 'images/upload/ppdb/' . $ppdb->getBrosur();
 
-        $filename = $ppdb->getBrosur();
-        header('Content-type: images/*');
-        header('Content-Disposition: inline; filename="' . $filename . '"');
-        header('Content-Transfer-Encoding: binary');
-        header('Accept-Ranges: bytes');
-        @readfile($filePath);
+        // Get the image dimensions
+        list($imageWidth, $imageHeight) = getimagesize($imagePath);
+
+        // Create a new FPDF instance with the same dimensions as the image
+        $pdf = new FPDF('P', 'mm', array($imageWidth, $imageHeight));
+
+        // Add a new page to the PDF with the same dimensions as the image
+        $pdf->AddPage();
+
+        // Set the starting position
+        $pdf->SetXY(10, 10);
+
+        // Add the image to the PDF
+        $pdf->Image($imagePath, 0, 0, $imageWidth, $imageHeight);
+
+        // Set appropriate headers for PDF download
+        header('Content-type: application/pdf');
+
+        // Output the PDF content directly to the browser
+        $pdf->Output('D','brosur.pdf');
+        exit; // Terminate the script to prevent any additional output
     }
 
     public function PPDB($title = null, $message = null, $error = null){
