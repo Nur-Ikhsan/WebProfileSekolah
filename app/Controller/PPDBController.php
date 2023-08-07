@@ -60,8 +60,11 @@ class PPDBController
         // Get the image dimensions
         list($imageWidth, $imageHeight) = getimagesize($imagePath);
 
-        // Create a new FPDF instance with the same dimensions as the image
-        $pdf = new FPDF('P', 'mm', array($imageWidth, $imageHeight));
+        // Determine the orientation based on image dimensions
+        $orientation = ($imageWidth > $imageHeight) ? 'L' : 'P';
+
+        // Create a new FPDF instance with the appropriate orientation
+        $pdf = new FPDF($orientation, 'mm', array($imageWidth, $imageHeight));
 
         // Add a new page to the PDF with the same dimensions as the image
         $pdf->AddPage();
