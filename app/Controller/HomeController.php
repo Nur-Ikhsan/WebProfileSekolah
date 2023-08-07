@@ -127,8 +127,8 @@ class HomeController
             $beritaList = $this->beritaService->searchBeritaPagination($page, $perPage, $search);
         }
 
-        View::renderHome('Berita Madrasah Tsanawiyah Negeri 2 Sambas', [
-            'title' => 'Berita',
+        View::renderHome('berita', [
+            'title' => 'Berita Madrasah Tsanawiyah Negeri 2 Sambas',
             'search' => $search ?? '',
             'slideshows' => $slideshows,
             'beritaList' => $beritaList,
