@@ -120,10 +120,10 @@
                                             </div>
 
                                             <?php foreach ($ekstrakurikulerList as $ekstrakurikuler): ?>
-                                                <li class="">
+                                                <li class="index">
                                                     <h4 class="text-white mb-3"><?= $ekstrakurikuler->getNamaEkstrakurikuler() ?></h4>
                                                     <p class="text-white"><?= $ekstrakurikuler->getDeskripsi() ?></p>
-                                                    <div class="icon-holder">
+                                                    <div class="icon-holder index">
                                                         <img src="/images/upload/ekstrakurikuler/<?= $ekstrakurikuler->getIcon() ?>">
                                                     </div>
                                                 </li>
