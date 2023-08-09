@@ -26,7 +26,7 @@
         <div class="album mx-70">
             <div class="row g-3 my-2">
                 <?php foreach ($fasilitasList as $fasilitas): ?>
-                    <div class="col-12 col-sm-6  col-md-4">
+                    <div class="col-12 col-sm-6  col-md-4 hover-zoom">
                         <div class="shadow-sm position-relative aspect-ratio-container">
                             <!-- Gambar yang dapat diklik -->
                             <img src="/images/upload/fasilitas/<?= $fasilitas->getFoto() ?>" class="img-fluid rounded aspect-ratio-img"

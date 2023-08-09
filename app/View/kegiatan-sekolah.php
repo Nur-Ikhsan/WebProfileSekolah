@@ -25,7 +25,7 @@
                     <div class="mb-5">
                         <div>
                             <?php foreach ($model['kegiatanList'] as $kegiatan) : ?>
-                                <div class="col-xl-8 col-lg-10 col-md-12 mx-auto mt-5">
+                                <div class="col-xl-8 col-lg-10 col-md-12 mx-auto mt-5 hover-zoom">
                                     <div class="row">
                                         <div class="col-12 col-md-4 mb-4">
                                             <div class="aspect-ratio-container">

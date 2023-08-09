@@ -34,7 +34,7 @@
         <div class="album bg-light">
             <div class="row g-3 my-2">
                 <?php foreach ($beritaList as $berita):?>
-                    <div class="col-12 col-md-6 col-lg-4">
+                    <div class="col-12 col-md-6 col-lg-4 hover-zoom">
                         <div class="card shadow-sm aspect-ratio-container">
                             <img src="/images/upload/berita/<?= $berita->getFoto() ?>"
                                  class="img-fluid aspect-ratio-img"

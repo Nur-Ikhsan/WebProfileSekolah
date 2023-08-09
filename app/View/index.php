@@ -37,7 +37,7 @@
                     </form>
                 </div>
 
-                <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex flex-column flex-md-row">
+                <div class="col-lg-8 col-12 mx-auto mt-70 custom-block d-flex flex-column flex-md-row hover-zoom">
                     <div class="col-12 col-md-4 mb-4 mb-md-0 my-2 my-md-0">
                         <div class="aspect-ratio-container r1">
                             <img class="rounded-4 img-fluid img-responsive aspect-ratio-img"
@@ -73,7 +73,7 @@
                         break; // Hentikan perulangan jika sudah mencapai 6 item
                     }
                     ?>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4 hover-zoom">
                         <div class="card shadow-sm aspect-ratio-container">
                             <img src="/images/upload/berita/<?= $berita->getFoto() ?>"
                                  class="img-fluid aspect-ratio-img"

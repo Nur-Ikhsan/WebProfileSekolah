@@ -34,7 +34,7 @@
         </div>
         <div class="row row-cols-md-4 row-cols-lg-4 row-cols-sm-1 mt-120 justify-content-center mb-100">
             <?php foreach ($guruStaffList as $gurustaff): ?>
-                <div class="mx-5 card-img-container mb-4" style="max-width: 15rem; max-height: 20rem;">
+                <div class="mx-5 card-img-container mb-4 hover-zoom" style="max-width: 15rem; max-height: 20rem;">
                     <div class="img-container d-flex justify-content-center align-items-center">
                         <img src="/images/upload/guru-staff/<?php echo $gurustaff->getFoto(); ?>"
                              class="img-fluid card-img-top same-size-img" alt="Image Alt Text">

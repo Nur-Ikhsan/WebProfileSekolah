@@ -442,7 +442,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <textarea class="form-control textarea-tinymce" id="deskripsi" name="deskripsi" required></textarea>
+                        <textarea class="form-control textarea-tinymce" id="deskripsi" name="deskripsi"></textarea>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn button-admin px-4">Simpan</button>
