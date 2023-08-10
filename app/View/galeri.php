@@ -35,28 +35,29 @@
         <div class="album  bg-light">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 my-4">
                 <?php foreach ($galeriList as $galeri): ?>
-                <div class="col hover-zoom">
-                    <div class="card shadow-sm my-0">
-                        <div class="aspect-ratio-container">
+                <div class="col">
+                    <div class="card shadow-sm my-0 hover-zoom">
+                        <div class="aspect-ratio-container ">
                             <!-- Gambar yang dapat diklik -->
                             <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>" class="img-fluid aspect-ratio-img" alt="<?= $galeri->getJudulGaleri() ?>" data-bs-toggle="modal"
                                 data-bs-target="#imageModal<?= $galeri->getIdGaleri() ?>">
                         </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade " id="imageModal<?= $galeri->getIdGaleri() ?>" tabindex="-1" aria-labelledby="imageModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>" class="img-fluid" alt="<?= $galeri->getJudulGaleri() ?>">
-                                    </div>
+                        <div class="card-body section-bg-dark rounded-bottom p-2">
+                            <p class="card-text text-white px-2 text-center"><?= $galeri->getDeskripsi() ?></p>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade " id="imageModal<?= $galeri->getIdGaleri() ?>" tabindex="-1"
+                         aria-labelledby="imageModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <img src="/images/upload/galeri/<?= $galeri->getFoto() ?>" class="img-fluid"
+                                         alt="<?= $galeri->getJudulGaleri() ?>">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-body section-bg-dark rounded-bottom p-2">
-                        <p class="card-text text-white px-2 text-center"><?= $galeri->getDeskripsi() ?></p>
                     </div>
                 </div>
                 <?php endforeach; ?>
